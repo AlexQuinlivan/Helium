@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'FlatBalloon', :exclusive => true do
+  pod "FlatBalloon", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "FlatBalloon", :path => "../"
+
+  
+end
