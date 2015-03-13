@@ -1,13 +1,5 @@
 #ifdef __OBJC__
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #endif
 
 #import "Pods-FlatBalloon-environment.h"
-
-#define AQ_INSTANTIATION_ERROR -(id) init {\
-                                    [NSException raise: NSInternalInconsistencyException format: @"Instances of %@ are disallowed.", NSStringFromClass(self.class)];\
-                                    return nil;\
-                                }
-
-#define AQStrReplace(string, x, y) [string stringByReplacingOccurrencesOfString:x withString:y]

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <number name="natural_number" type="NSInteger">1337</number>
+    <number name="real_number" type="CGFloat">3.14159</number>
+</resources>

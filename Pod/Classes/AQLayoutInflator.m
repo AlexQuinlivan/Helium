@@ -27,7 +27,7 @@ static NSString* const AQInflatorExceptionName = @"AQLayoutInflatorException";
         self->layoutXml = [TBXML tbxmlWithXMLFile:resourcePath error:&tbxmlError];
         if (tbxmlError) {
             @throw [NSException exceptionWithName:AQInflatorExceptionName
-                                           reason:[NSString stringWithFormat:@"Error loading %@", resourcePath]
+                                           reason:[NSString stringWithFormat:@"Error loading %@, %@", resourcePath, tbxmlError]
                                          userInfo:@{@"error":tbxmlError}];
         }
     }
@@ -77,6 +77,7 @@ static NSString* const AQInflatorExceptionName = @"AQLayoutInflatorException";
                                     [self performSetter:propertySel onView:view withName:name andValue:value];
                                     layoutWidthSet |= [@"layout_width" isEqualToString:name];
                                     layoutHeightSet |= [@"layout_height" isEqualToString:name];
+                                    NSLog(@"%@: %d %d", name, layoutWidthSet, layoutHeightSet);
                                 } else {
                                     NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
                                 }

@@ -9,7 +9,6 @@
 #import "AQAttributes.h"
 
 @implementation AQAttributes
-AQ_INSTANTIATION_ERROR
 
 +(AQAttributeType) attributeTypeForName:(NSString *) attributeName {
     NSNumber* type = self.typeMap[attributeName];
@@ -21,6 +20,7 @@ AQ_INSTANTIATION_ERROR
     }
 }
 
+//todo: build from values/attrs
 +(NSDictionary *) typeMap {
     static NSDictionary* map;
     static dispatch_once_t onceToken;

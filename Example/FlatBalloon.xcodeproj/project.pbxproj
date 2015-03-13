@@ -22,6 +22,7 @@
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		FA8391791AB2731E0040BFD0 /* res.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA8391781AB2731E0040BFD0 /* res.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		BF753D7BFE4F9C5E513426CE /* libPods-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75CC66A238E023D3F199392 /* FlatBalloon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FlatBalloon.podspec; path = ../FlatBalloon.podspec; sourceTree = "<group>"; };
 		E1F65BCE8AEC726407AE5A6A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		FA8391781AB2731E0040BFD0 /* res.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = res.bundle; sourceTree = "<group>"; };
 		FEC874EB2A8AD821CD438312 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 		6003F593195388D20070C39A /* FlatBalloon */ = {
 			isa = PBXGroup;
 			children = (
+				FA8391781AB2731E0040BFD0 /* res.bundle */,
 				6003F59C195388D20070C39A /* AQAppDelegate.h */,
 				6003F59D195388D20070C39A /* AQAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
@@ -254,6 +257,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				FA8391791AB2731E0040BFD0 /* res.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

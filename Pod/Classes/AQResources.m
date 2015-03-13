@@ -26,7 +26,6 @@ static NSString* const AQResourceColorPrefix = @"@color";
 @end
 
 @implementation AQResources
-AQ_INSTANTIATION_ERROR
 
 // @layout
 // @view which one? They mean different things in this context
@@ -55,7 +54,7 @@ AQ_INSTANTIATION_ERROR
     }
 #endif
     if ([AQResourceViewPrefix isEqualToString:tuple.resourceType]) {
-        return [NSString stringWithFormat:@"%@%@", tuple.resourceName, @".xml"];
+        return [NSString stringWithFormat:@"res.bundle/view/%@%@", tuple.resourceName, @".xml"];
     } else {
         @throw [NSException exceptionWithName:AQResourcesExceptionName
                                        reason:[NSString stringWithFormat:@"Unexpected resource type \"%@\" in resourceId. resId: %@", tuple.resourceName, resourceId]

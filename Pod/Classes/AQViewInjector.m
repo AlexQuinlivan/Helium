@@ -35,8 +35,8 @@ static NSString* const AQInjectorSeperator = @"_$$";
         }
         
         // Extract values from method name
-        methodName = AQStrReplace(methodName, AQViewInjectorPrefix, @"");
-        methodName = AQStrReplace(methodName, @":", @"");
+        methodName = [methodName stringByReplacingOccurrencesOfString:AQViewInjectorPrefix withString:@""];
+        methodName = [methodName stringByReplacingOccurrencesOfString:@":" withString:@""];
         NSArray* components = [methodName componentsSeparatedByString:AQInjectorSeperator];
         viewName = components[0];
         tagName = components[1];

@@ -1,7 +1,7 @@
 {
   "name": "FlatBalloon",
   "version": "0.0.1",
-  "summary": "An Android-like layout inflation and bucketed resource suite.",
+  "summary": "An Android-like layout inflation and bucketed resource library.",
   "homepage": "https://github.com/AlexQuinlivan/FlatBalloon",
   "license": "Apache License, Version 2.0",
   "authors": {
@@ -16,10 +16,5 @@
     "ios": "7.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "dependencies": {
-    "TBXML": [
-      "~> 1.5"
-    ]
-  }
+  "source_files": "Pod/Classes/**/*"
 }

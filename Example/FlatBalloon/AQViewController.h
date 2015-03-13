@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Alex Quinlivan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AQInflatableViewController.h"
 
-@interface AQViewController : UIViewController
+@interface AQViewController : AQInflatableViewController
 
 @end

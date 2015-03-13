@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, AQLayoutRule) {
     AQLayoutRuleWrap = -1, // Orientation size ignores previous values and wraps its layout out subviews
@@ -23,3 +24,19 @@ typedef NS_ENUM(NSInteger, AQLayoutOrientation) {
  * must conform to if they wish to be inflated.
  */
 @protocol AQLayout <NSObject> @end
+
+
+@interface UIView (AQLayoutProperties)
+
+@property (nonatomic) CGFloat marginLeft;
+@property (nonatomic) CGFloat marginTop;
+@property (nonatomic) CGFloat marginRight;
+@property (nonatomic) CGFloat marginBottom;
+@property (nonatomic) UIEdgeInsets margins;
+@property (nonatomic) CGFloat translationX;
+@property (nonatomic) CGFloat translationY;
+@property (nonatomic) CGFloat layoutWidth;
+@property (nonatomic) CGFloat layoutHeight;
+@property (nonatomic) CGFloat layoutWeight;
+
+@end

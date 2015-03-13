@@ -7,735 +7,510 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C96F75458883DE796891EC0 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D82CF146FA59B6F1A039B6 /* TBXML+Compression.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0D865AED02C151085B9E0A96 /* TBXML+HTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BDCE5A0DC89DD93C0ADF174 /* TBXML+HTTP.h */; };
-		0F0A6C3E899B65E726A61AD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863791BC61BF6562E888957 /* Foundation.framework */; };
-		0F74D8B19E94B56E608F2DC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863791BC61BF6562E888957 /* Foundation.framework */; };
-		1484D42B08C3AC4DF16FFB55 /* Pods-FlatBalloon-TBXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 74092FC232E6713A88CC8E27 /* Pods-FlatBalloon-TBXML-dummy.m */; };
-		177A0DEF07815817AB5065E1 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 320F65E169FAC65FC1D39685 /* Pods-Tests-dummy.m */; };
-		1B363BED35A26C7A51FC25F0 /* AQLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F0D02BAA249DA2154EA540B /* AQLayoutInflator.h */; };
-		1ED5A2B09B1D2A1F0DFD8D9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863791BC61BF6562E888957 /* Foundation.framework */; };
-		22997E34BF51BAD38A3D13B2 /* AQResources.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE55AAE9A87344C6A82570A /* AQResources.h */; };
-		280D79F9AF46989002477667 /* TBXML+Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3EC46E9CA2D95DA9E1905E /* TBXML+Compression.h */; };
-		2904FAEEB2C174BD89284A5F /* AQAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 7002E1C621176B812B27325E /* AQAttributes.h */; };
-		33FD30770B696E4797F75D91 /* AQResources.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE55AAE9A87344C6A82570A /* AQResources.h */; };
-		34D05A9C94E03E36832D0EC8 /* AQResources.m in Sources */ = {isa = PBXBuildFile; fileRef = C602E64E527F2BDEF8871C09 /* AQResources.m */; };
-		3BC6B71ABCA76C631489C805 /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4273AA135A1E5B996F7B9BBD /* Pods-FlatBalloon-FlatBalloon-dummy.m */; };
-		50316804536D9F490DD5D20E /* AQViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = D406A58F7A3210AF35D128B3 /* AQViewInjector.m */; };
-		55D2C0892EC5C0305CD9C608 /* Pods-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F2ECEC561ACCAB68B3353 /* Pods-FlatBalloon-dummy.m */; };
-		615B6A67B73CB55BC0F37DEA /* AQViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55520D76C14499043A2F0149 /* AQViewInjector.h */; };
-		6FE2925A8FD01F9709555624 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863791BC61BF6562E888957 /* Foundation.framework */; };
-		701BA7F48F44A3D76F0FE729 /* TBXML+HTTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BDCE5A0DC89DD93C0ADF174 /* TBXML+HTTP.h */; };
-		784CB5B6DEAF66523A5931AD /* AQLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE56CA4584F72244072111 /* AQLayoutInflator.m */; };
-		78C1C02E3D5B8DC5F29D6092 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A3F195666A1AEECAF87BB /* TBXML+HTTP.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7D3D58FE0EF4A29D610D39E1 /* AQAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 7002E1C621176B812B27325E /* AQAttributes.h */; };
-		8108444FA35E83CAA7F5A488 /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 66B4F52847FAAF8B5523C657 /* TBXML.h */; };
-		8DDE8F89A8FA96F4F2F492E6 /* Pods-Tests-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 026DA103857A98AE681BFFF4 /* Pods-Tests-FlatBalloon-dummy.m */; };
-		953D252E6F784CA41A39B67D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863791BC61BF6562E888957 /* Foundation.framework */; };
-		9887D062EB30558266C94CD5 /* AQAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1ABEEC8EE04A53AF92CB7E /* AQAttributes.m */; };
-		A2FA7E8097561C2622610EF1 /* AQViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = D406A58F7A3210AF35D128B3 /* AQViewInjector.m */; };
-		A4848CEA4593ACED40E78833 /* AQLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F0D02BAA249DA2154EA540B /* AQLayoutInflator.h */; };
-		B094AB8313BCDEEFE3906C39 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32597BA74205D5EB08C65F22 /* TBXML.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B24FE47C12B6B88A28641B29 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 386A3F195666A1AEECAF87BB /* TBXML+HTTP.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B90A3441C489AE099B4D1850 /* Pods-Tests-TBXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7642704A2C03DDD3248D99 /* Pods-Tests-TBXML-dummy.m */; };
-		BABDA6EF5E69B25AA94B1B5D /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D82CF146FA59B6F1A039B6 /* TBXML+Compression.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		BBB0AC6355F020F280D43861 /* AQViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = 55520D76C14499043A2F0149 /* AQViewInjector.h */; };
-		BBEA6400D0F8AC40E0784309 /* AQResources.m in Sources */ = {isa = PBXBuildFile; fileRef = C602E64E527F2BDEF8871C09 /* AQResources.m */; };
-		C672E016E5D78CC1579787CB /* AQAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1ABEEC8EE04A53AF92CB7E /* AQAttributes.m */; };
-		C9C5D1B6D093910D228A0E03 /* AQLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE56CA4584F72244072111 /* AQLayoutInflator.m */; };
-		CC2F6036DE37A67B89F0C5BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C863791BC61BF6562E888957 /* Foundation.framework */; };
-		D54EED0482B7CD8889B1885E /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 66B4F52847FAAF8B5523C657 /* TBXML.h */; };
-		E6F4958BC2C8F0E03544E45F /* TBXML+Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3EC46E9CA2D95DA9E1905E /* TBXML+Compression.h */; };
-		E96F67ABAD20E4E65BAA3C3B /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 32597BA74205D5EB08C65F22 /* TBXML.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		FA83916C1AB2532B0040BFD0 /* TBXML+ChildIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA83916B1AB2532B0040BFD0 /* TBXML+ChildIterator.m */; };
-		FA83916F1AB254530040BFD0 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = FA83916E1AB254530040BFD0 /* NSString+Convert.m */; };
-		FA8391731AB25E330040BFD0 /* AQInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8391721AB25E330040BFD0 /* AQInflatableViewController.m */; };
+		036791935FB0826E3154A7E8 /* AQViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CD78365DE2BF336D76FE613 /* AQViewInjector.h */; };
+		053972747721F162C1B426E5 /* AQResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 5284B0775D6DF690CBEABA0D /* AQResources.h */; };
+		05627FE36E3E525940E0F423 /* AQLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = B92B1F4A6C56FFD2766412AA /* AQLayoutInflator.h */; };
+		1586CFF6838A3BD0B267F953 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E5A9D00A1DAC89653BDC2 /* TBXML.m */; };
+		16AE91397ADCCAAF977EA098 /* Pods-Tests-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F1CF1AFFE513135E1EB9C2 /* Pods-Tests-FlatBalloon-dummy.m */; };
+		1747B5725993886B33699BB7 /* AQAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4027743B62C4393E3601E252 /* AQAttributes.m */; };
+		18AE18D32623978C3F3D9A65 /* AQAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4027743B62C4393E3601E252 /* AQAttributes.m */; };
+		1E46C35718656EFB7A0EF279 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F299AA06064D4883421010C /* NSString+Convert.h */; };
+		29CBA6A187CF7DD0F1288EBA /* AQAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 242BFE2EAD574680915AE88A /* AQAssociatedObjects.h */; };
+		2A2D9DF36C1294680D230C2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1564DBEAC36466CC97D0CCB /* Foundation.framework */; };
+		2F1AF9377586CEE01B6C72DE /* Pods-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF5BAC91812A1FC38F4535 /* Pods-FlatBalloon-dummy.m */; };
+		3098C379B80B54DE1F58E7C4 /* TBXML+ChildIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = FCFE9B6D9D3618335E8C9448 /* TBXML+ChildIterator.h */; };
+		323813716759B05CD8B0D591 /* TBXML+ChildIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22556FD8132C72BEF73E2D23 /* TBXML+ChildIterator.m */; };
+		337AC363ABE4C70FEC134F6D /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 727BD47E9701E145C633DB32 /* TBXML.h */; };
+		40132BB12216FD004A3ED9D4 /* AQViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CD78365DE2BF336D76FE613 /* AQViewInjector.h */; };
+		411E1EF745FCCAF194E8B5CB /* AQLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = AED05014AFE7CD8AE4242A17 /* AQLayout.h */; };
+		4A41DE4E83B3E23FC7A38DF1 /* AQInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A69527ED7151B237FB2EBD /* AQInflatableViewController.h */; };
+		4CA09FD10F40DF32BE5DDF26 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E5A9D00A1DAC89653BDC2 /* TBXML.m */; };
+		4F18E98C64F0C663109D6296 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F299AA06064D4883421010C /* NSString+Convert.h */; };
+		5ACE565FB6F291D6F57703CE /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40889F9FB144B1FBED264E66 /* Pods-FlatBalloon-FlatBalloon-dummy.m */; };
+		701B5068776AFF8BC151EEB3 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8E157AFE7F3B6C0F178F3F /* Pods-Tests-dummy.m */; };
+		727AC7EA75B1B0147C6D467D /* AQLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = AED05014AFE7CD8AE4242A17 /* AQLayout.h */; };
+		727EAF5D0D334D2BCEC3AF82 /* AQInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 56A69527ED7151B237FB2EBD /* AQInflatableViewController.h */; };
+		734852E7A97F7D239977BBEA /* AQViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F7F669E400C8E90772F2F7 /* AQViewInjector.m */; };
+		75A5A8F0A1ECE77A496155F5 /* AQLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE157D59FA5E308B8E875E /* AQLayoutInflator.m */; };
+		7ABBB983E4B96B03FA78EA64 /* AQAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 27135C830607A810BF361F10 /* AQAttributes.h */; };
+		7BCB93CB2797BF3B2C641ADE /* AQLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D5AE3006487D22C35AF5B1 /* AQLayout.m */; };
+		86D4CB2330C55FA499359189 /* AQViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F7F669E400C8E90772F2F7 /* AQViewInjector.m */; };
+		8B51BFC54C5AF6DCB9E0ECC0 /* AQLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE157D59FA5E308B8E875E /* AQLayoutInflator.m */; };
+		907C737703E427B1E9AAE367 /* AQResources.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB82FCFD82FBF0A36C7F16 /* AQResources.m */; };
+		951576856249D192F6643D93 /* TBXML+ChildIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22556FD8132C72BEF73E2D23 /* TBXML+ChildIterator.m */; };
+		A2AAFD2ED6CECCDD5EE9605F /* AQResources.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB82FCFD82FBF0A36C7F16 /* AQResources.m */; };
+		A5258BCCA45B76C8763BFBF3 /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 727BD47E9701E145C633DB32 /* TBXML.h */; };
+		AE0670BDD30FB1EC7E3D89DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1564DBEAC36466CC97D0CCB /* Foundation.framework */; };
+		B1369B96AF88960E32465D36 /* AQAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 242BFE2EAD574680915AE88A /* AQAssociatedObjects.h */; };
+		B2AC3970CF5C9A2239CF2C8C /* AQLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = B92B1F4A6C56FFD2766412AA /* AQLayoutInflator.h */; };
+		BAB31A2AB5718B82DB9E7571 /* AQInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0F2055DEA12F73C529AED /* AQInflatableViewController.m */; };
+		C2972BF5BF871353CFDCD96E /* AQResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 5284B0775D6DF690CBEABA0D /* AQResources.h */; };
+		CF4CD9FC4EB5B4021F86124D /* AQLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D5AE3006487D22C35AF5B1 /* AQLayout.m */; };
+		D6E5C6A47200E115A4A41CEF /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344F544208E5D5B085BB4E0 /* NSString+Convert.m */; };
+		D7C0596391EE4B62741E39FC /* TBXML+ChildIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = FCFE9B6D9D3618335E8C9448 /* TBXML+ChildIterator.h */; };
+		D7EC089476072AB6A7F55E97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1564DBEAC36466CC97D0CCB /* Foundation.framework */; };
+		E9E01D68C189128C6547316F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1564DBEAC36466CC97D0CCB /* Foundation.framework */; };
+		F1EA545F4AD8C130E02222F6 /* AQInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0F2055DEA12F73C529AED /* AQInflatableViewController.m */; };
+		F24BED724DB3C832729C6298 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 3344F544208E5D5B085BB4E0 /* NSString+Convert.m */; };
+		F6380D38ED26A9CB1C65D7CB /* AQAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 27135C830607A810BF361F10 /* AQAttributes.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0F56EA225533299A7AA5C1A0 /* PBXContainerItemProxy */ = {
+		2860595668387FBD8C1DB2F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E485467FB09A936677F8BED9 /* Project object */;
+			containerPortal = B626C766426A105481C273F8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 23802B010C56740A0868A65A;
-			remoteInfo = "Pods-FlatBalloon-TBXML";
-		};
-		391AAF412DF11022756328E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E485467FB09A936677F8BED9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 23802B010C56740A0868A65A;
-			remoteInfo = "Pods-FlatBalloon-TBXML";
-		};
-		3CBDB373716FFFBB348460EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E485467FB09A936677F8BED9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A0338CCC92CED1BDD47277BB;
-			remoteInfo = "Pods-Tests-TBXML";
-		};
-		53F99B2FA272D4B07401B5ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E485467FB09A936677F8BED9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26E855B2E056A170CAD44983;
+			remoteGlobalIDString = E5771F53E0029EE4433E345F;
 			remoteInfo = "Pods-Tests-FlatBalloon";
 		};
-		BD5A7947E3B26C98853808A2 /* PBXContainerItemProxy */ = {
+		683DCD4C5F95F6040341B575 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E485467FB09A936677F8BED9 /* Project object */;
+			containerPortal = B626C766426A105481C273F8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A0338CCC92CED1BDD47277BB;
-			remoteInfo = "Pods-Tests-TBXML";
-		};
-		FA7C960FEB58778F827D1379 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E485467FB09A936677F8BED9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F6EA2C0D82955D327368A3B3;
+			remoteGlobalIDString = C9AAFBC65DA4EB484143C971;
 			remoteInfo = "Pods-FlatBalloon-FlatBalloon";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		026DA103857A98AE681BFFF4 /* Pods-Tests-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-FlatBalloon-dummy.m"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
-		04D82CF146FA59B6F1A039B6 /* TBXML+Compression.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TBXML+Compression.m"; path = "TBXML-Code/TBXML+Compression.m"; sourceTree = "<group>"; };
-		0A69D19D9A7913C91B524DD2 /* Pods-Tests-TBXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-TBXML.xcconfig"; path = "../Pods-Tests-TBXML/Pods-Tests-TBXML.xcconfig"; sourceTree = "<group>"; };
-		0BB40B2D1DFB0F9BB003DA1B /* libPods-FlatBalloon-TBXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon-TBXML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		10B34EE2E027820FEE31D055 /* Pods-FlatBalloon-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatBalloon-resources.sh"; sourceTree = "<group>"; };
-		166B6918ED6A9C428C77C0BF /* libPods-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		183C0E9E2464D3A4445A3F48 /* libPods-Tests-TBXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-TBXML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		245ABC033482799470586FEB /* Pods-Tests-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon-Private.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
-		320F65E169FAC65FC1D39685 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		32597BA74205D5EB08C65F22 /* TBXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = "TBXML-Code/TBXML.m"; sourceTree = "<group>"; };
-		386A3F195666A1AEECAF87BB /* TBXML+HTTP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TBXML+HTTP.m"; path = "TBXML-Code/TBXML+HTTP.m"; sourceTree = "<group>"; };
-		3F0A793D6D95060E894322BE /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4273AA135A1E5B996F7B9BBD /* Pods-FlatBalloon-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
-		4B9BEF33A073B62D9EECDF3D /* Pods-FlatBalloon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.debug.xcconfig"; sourceTree = "<group>"; };
-		4F84DD0EF5A1A3B3872B8CC2 /* Pods-FlatBalloon-TBXML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-TBXML-Private.xcconfig"; sourceTree = "<group>"; };
-		51B6234729C7C9EA59649AD2 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		55520D76C14499043A2F0149 /* AQViewInjector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQViewInjector.h; sourceTree = "<group>"; };
-		5F80BF5989CCF5D8C57C7CA5 /* Pods-FlatBalloon-TBXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-TBXML.xcconfig"; sourceTree = "<group>"; };
-		66B4F52847FAAF8B5523C657 /* TBXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = "TBXML-Headers/TBXML.h"; sourceTree = "<group>"; };
-		679B3EC3A85DEF86E40D9174 /* Pods-FlatBalloon-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-environment.h"; sourceTree = "<group>"; };
-		7002E1C621176B812B27325E /* AQAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQAttributes.h; sourceTree = "<group>"; };
-		74092FC232E6713A88CC8E27 /* Pods-FlatBalloon-TBXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-TBXML-dummy.m"; sourceTree = "<group>"; };
-		78FE56CA4584F72244072111 /* AQLayoutInflator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQLayoutInflator.m; sourceTree = "<group>"; };
-		7BDCE5A0DC89DD93C0ADF174 /* TBXML+HTTP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TBXML+HTTP.h"; path = "TBXML-Headers/TBXML+HTTP.h"; sourceTree = "<group>"; };
-		7E7642704A2C03DDD3248D99 /* Pods-Tests-TBXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-TBXML-dummy.m"; path = "../Pods-Tests-TBXML/Pods-Tests-TBXML-dummy.m"; sourceTree = "<group>"; };
-		7F0D02BAA249DA2154EA540B /* AQLayoutInflator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQLayoutInflator.h; sourceTree = "<group>"; };
-		80B75BFE3F5A87EE3E80A972 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
-		8584351232C8630099122231 /* Pods-Tests-TBXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-TBXML-prefix.pch"; path = "../Pods-Tests-TBXML/Pods-Tests-TBXML-prefix.pch"; sourceTree = "<group>"; };
-		8641DCC5F76A36DF04D770AC /* Pods-FlatBalloon-TBXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-TBXML-prefix.pch"; sourceTree = "<group>"; };
-		898F2ECEC561ACCAB68B3353 /* Pods-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
-		8EE5A83CBF4E941C8BDF011C /* libPods-Tests-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F1ABEEC8EE04A53AF92CB7E /* AQAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQAttributes.m; sourceTree = "<group>"; };
-		8F77117C25388DF04A456E53 /* Pods-Tests-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
-		8FC318A7B1D80C8BB395C0D6 /* Pods-FlatBalloon-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
-		95F8F2A9657841EA222CD5A5 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9AC3C59AB1CEB762927EC41A /* Pods-FlatBalloon-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
-		9C8BCB315404538143603E6D /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
-		AAF4224E42F77274A4819474 /* Pods-FlatBalloon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlatBalloon-acknowledgements.plist"; sourceTree = "<group>"; };
-		B777B6B00996D0D8BC1B9A00 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BB3EC46E9CA2D95DA9E1905E /* TBXML+Compression.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TBXML+Compression.h"; path = "TBXML-Headers/TBXML+Compression.h"; sourceTree = "<group>"; };
-		C1E0A3C4D0EABA5172353F16 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C602E64E527F2BDEF8871C09 /* AQResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQResources.m; sourceTree = "<group>"; };
-		C863791BC61BF6562E888957 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		C90D085381BABFB081ADFD86 /* Pods-Tests-TBXML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-TBXML-Private.xcconfig"; path = "../Pods-Tests-TBXML/Pods-Tests-TBXML-Private.xcconfig"; sourceTree = "<group>"; };
-		C9DD221C4FF2367FC55AA1CD /* libPods-FlatBalloon-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D026515198E2CCEBD769717C /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D406A58F7A3210AF35D128B3 /* AQViewInjector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQViewInjector.m; sourceTree = "<group>"; };
-		D61B7B715A7901A06D4DC355 /* Pods-Tests-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-FlatBalloon-prefix.pch"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
-		E0B8B68DC0903C9F10688BE2 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		EAE55AAE9A87344C6A82570A /* AQResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQResources.h; sourceTree = "<group>"; };
-		F188664402D751DF18AE959A /* Pods-FlatBalloon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.release.xcconfig"; sourceTree = "<group>"; };
-		F478CE72BE978166ACE13DC8 /* Pods-FlatBalloon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlatBalloon-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FA83916A1AB2532B0040BFD0 /* TBXML+ChildIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+ChildIterator.h"; sourceTree = "<group>"; };
-		FA83916B1AB2532B0040BFD0 /* TBXML+ChildIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+ChildIterator.m"; sourceTree = "<group>"; };
-		FA83916D1AB254530040BFD0 /* NSString+Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
-		FA83916E1AB254530040BFD0 /* NSString+Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
-		FA8391701AB2554A0040BFD0 /* AQLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQLayout.h; sourceTree = "<group>"; };
-		FA8391711AB25E330040BFD0 /* AQInflatableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQInflatableViewController.h; sourceTree = "<group>"; };
-		FA8391721AB25E330040BFD0 /* AQInflatableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQInflatableViewController.m; sourceTree = "<group>"; };
+		03D21415B6EDBFD41ED63555 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		03EE157D59FA5E308B8E875E /* AQLayoutInflator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQLayoutInflator.m; sourceTree = "<group>"; };
+		07370E6ECAD5F7B9312F19E6 /* Pods-FlatBalloon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.debug.xcconfig"; sourceTree = "<group>"; };
+		0BEF0E9BB1F0A8D15A5A9D76 /* Pods-FlatBalloon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlatBalloon-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0E42A4DBCF36043C1C9B2015 /* libPods-FlatBalloon-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6ABCE3488E93C83A54B061 /* Pods-Tests-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon-Private.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
+		12D5AE3006487D22C35AF5B1 /* AQLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQLayout.m; sourceTree = "<group>"; };
+		17FADD9D427BB47868D56A00 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		22556FD8132C72BEF73E2D23 /* TBXML+ChildIterator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TBXML+ChildIterator.m"; sourceTree = "<group>"; };
+		242BFE2EAD574680915AE88A /* AQAssociatedObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQAssociatedObjects.h; sourceTree = "<group>"; };
+		27135C830607A810BF361F10 /* AQAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQAttributes.h; sourceTree = "<group>"; };
+		3344F544208E5D5B085BB4E0 /* NSString+Convert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
+		3F30786CD89416023903E3FC /* libPods-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4027743B62C4393E3601E252 /* AQAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQAttributes.m; sourceTree = "<group>"; };
+		40889F9FB144B1FBED264E66 /* Pods-FlatBalloon-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
+		413E0479012125D3410C1CEF /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		446FA03BF9E75BBA2813FE53 /* Pods-FlatBalloon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.release.xcconfig"; sourceTree = "<group>"; };
+		45EF5BAC91812A1FC38F4535 /* Pods-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
+		49DDB2B60224F5B33D767AE7 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
+		5284B0775D6DF690CBEABA0D /* AQResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQResources.h; sourceTree = "<group>"; };
+		55C9A211D4EC5572C7D62FC6 /* Pods-FlatBalloon-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatBalloon-resources.sh"; sourceTree = "<group>"; };
+		56A69527ED7151B237FB2EBD /* AQInflatableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQInflatableViewController.h; sourceTree = "<group>"; };
+		5793027BB1F6C07992BE9AA8 /* Pods-FlatBalloon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlatBalloon-acknowledgements.plist"; sourceTree = "<group>"; };
+		5CE0F2055DEA12F73C529AED /* AQInflatableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQInflatableViewController.m; sourceTree = "<group>"; };
+		6BF7F9E369AAAC75C1BBBEB1 /* Pods-Tests-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
+		6C3FF1D1A2EDA4037DEE2962 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		727BD47E9701E145C633DB32 /* TBXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		799B7F0AC81B31C5C275002D /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7CD78365DE2BF336D76FE613 /* AQViewInjector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQViewInjector.h; sourceTree = "<group>"; };
+		7F299AA06064D4883421010C /* NSString+Convert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
+		8DB024954E7F7801175AB6C3 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		95F07521E59270904808BAFE /* Pods-Tests-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-FlatBalloon-prefix.pch"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
+		97F1CF1AFFE513135E1EB9C2 /* Pods-Tests-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-FlatBalloon-dummy.m"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
+		998E197433267640A0E2C44D /* Pods-FlatBalloon-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
+		A94D138B4A66F4E68796ABA9 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AABB82FCFD82FBF0A36C7F16 /* AQResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQResources.m; sourceTree = "<group>"; };
+		AEC9F50BCA97E69E412E6E20 /* Pods-FlatBalloon-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
+		AED05014AFE7CD8AE4242A17 /* AQLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQLayout.h; sourceTree = "<group>"; };
+		B92B1F4A6C56FFD2766412AA /* AQLayoutInflator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AQLayoutInflator.h; sourceTree = "<group>"; };
+		C5F7F669E400C8E90772F2F7 /* AQViewInjector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AQViewInjector.m; sourceTree = "<group>"; };
+		D6288B21B3300FA84185AD31 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		E1564DBEAC36466CC97D0CCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E20010ACC147B60F9B06ED91 /* libPods-Tests-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC8E157AFE7F3B6C0F178F3F /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		EDEA725C32A3ECA865F0B7F4 /* Pods-FlatBalloon-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-environment.h"; sourceTree = "<group>"; };
+		F58E5A9D00A1DAC89653BDC2 /* TBXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		FCFE9B6D9D3618335E8C9448 /* TBXML+ChildIterator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TBXML+ChildIterator.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		25B5BA7D760DCDB83E2160D1 /* Frameworks */ = {
+		0E7C8D980196755A3415FC78 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F0A6C3E899B65E726A61AD8 /* Foundation.framework in Frameworks */,
+				D7EC089476072AB6A7F55E97 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3051E2772B78DFF63DC78326 /* Frameworks */ = {
+		26668CCAF2654D90B015FB18 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC2F6036DE37A67B89F0C5BB /* Foundation.framework in Frameworks */,
+				AE0670BDD30FB1EC7E3D89DC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9E8D0F859DE51BE3560A7606 /* Frameworks */ = {
+		50ACC81BD35D12DD5CFA8821 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F74D8B19E94B56E608F2DC5 /* Foundation.framework in Frameworks */,
+				E9E01D68C189128C6547316F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD18B7DB26495EEB25CAA0C4 /* Frameworks */ = {
+		E374711DAA1F91179A12D727 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				953D252E6F784CA41A39B67D /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C956D2907720D6AA853BB889 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1ED5A2B09B1D2A1F0DFD8D9A /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC84ADAA396BC46F6E7FAC15 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6FE2925A8FD01F9709555624 /* Foundation.framework in Frameworks */,
+				2A2D9DF36C1294680D230C2B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A1F36978138BD8701394DCA /* Development Pods */ = {
+		2C1D36AEDBF7607B96413360 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				55AEE2A618967E6EB952FDD1 /* FlatBalloon */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		21831F236FEF369A98C98A2A /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				45A65ACA9435F80AD012A122 /* Pods-FlatBalloon */,
-				CEE57CC9102AE77C72D628AF /* Pods-Tests */,
+				E004E6B0B928F5ADFEDEEA03 /* Pods-FlatBalloon */,
+				3FD3DDF3DF8E880F72A88FFE /* Pods-Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		2541998B0A762F5CFCFA5AB4 /* Pod */ = {
+		3175886FCFB01AD23DCE5E24 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E735299C80BEB8556109B7D9 /* Classes */,
+				B79A9379F6C201505C6C9C2B /* FlatBalloon */,
 			);
-			path = Pod;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		33806262B80EF2E445F44B5E /* Support Files */ = {
+		3FD3DDF3DF8E880F72A88FFE /* Pods-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				5F80BF5989CCF5D8C57C7CA5 /* Pods-FlatBalloon-TBXML.xcconfig */,
-				4F84DD0EF5A1A3B3872B8CC2 /* Pods-FlatBalloon-TBXML-Private.xcconfig */,
-				74092FC232E6713A88CC8E27 /* Pods-FlatBalloon-TBXML-dummy.m */,
-				8641DCC5F76A36DF04D770AC /* Pods-FlatBalloon-TBXML-prefix.pch */,
-				0A69D19D9A7913C91B524DD2 /* Pods-Tests-TBXML.xcconfig */,
-				C90D085381BABFB081ADFD86 /* Pods-Tests-TBXML-Private.xcconfig */,
-				7E7642704A2C03DDD3248D99 /* Pods-Tests-TBXML-dummy.m */,
-				8584351232C8630099122231 /* Pods-Tests-TBXML-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-FlatBalloon-TBXML";
-			sourceTree = "<group>";
-		};
-		358CBA19E32F07A01EDBEA3A = {
-			isa = PBXGroup;
-			children = (
-				E0B8B68DC0903C9F10688BE2 /* Podfile */,
-				0A1F36978138BD8701394DCA /* Development Pods */,
-				F761831FC999C12ABDA93468 /* Frameworks */,
-				624F7AD84A1684AF22BB002D /* Pods */,
-				78A1E7585E75DBE3EFEDD84D /* Products */,
-				21831F236FEF369A98C98A2A /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		45A65ACA9435F80AD012A122 /* Pods-FlatBalloon */ = {
-			isa = PBXGroup;
-			children = (
-				F478CE72BE978166ACE13DC8 /* Pods-FlatBalloon-acknowledgements.markdown */,
-				AAF4224E42F77274A4819474 /* Pods-FlatBalloon-acknowledgements.plist */,
-				898F2ECEC561ACCAB68B3353 /* Pods-FlatBalloon-dummy.m */,
-				679B3EC3A85DEF86E40D9174 /* Pods-FlatBalloon-environment.h */,
-				10B34EE2E027820FEE31D055 /* Pods-FlatBalloon-resources.sh */,
-				4B9BEF33A073B62D9EECDF3D /* Pods-FlatBalloon.debug.xcconfig */,
-				F188664402D751DF18AE959A /* Pods-FlatBalloon.release.xcconfig */,
-			);
-			name = "Pods-FlatBalloon";
-			path = "Target Support Files/Pods-FlatBalloon";
-			sourceTree = "<group>";
-		};
-		55AEE2A618967E6EB952FDD1 /* FlatBalloon */ = {
-			isa = PBXGroup;
-			children = (
-				2541998B0A762F5CFCFA5AB4 /* Pod */,
-				DB1AB919FF591B0E7C760732 /* Support Files */,
-			);
-			name = FlatBalloon;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		624F7AD84A1684AF22BB002D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F853A1A521A3AE1911043CF9 /* TBXML */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		78A1E7585E75DBE3EFEDD84D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				166B6918ED6A9C428C77C0BF /* libPods-FlatBalloon.a */,
-				C9DD221C4FF2367FC55AA1CD /* libPods-FlatBalloon-FlatBalloon.a */,
-				0BB40B2D1DFB0F9BB003DA1B /* libPods-FlatBalloon-TBXML.a */,
-				C1E0A3C4D0EABA5172353F16 /* libPods-Tests.a */,
-				8EE5A83CBF4E941C8BDF011C /* libPods-Tests-FlatBalloon.a */,
-				183C0E9E2464D3A4445A3F48 /* libPods-Tests-TBXML.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		CEE57CC9102AE77C72D628AF /* Pods-Tests */ = {
-			isa = PBXGroup;
-			children = (
-				B777B6B00996D0D8BC1B9A00 /* Pods-Tests-acknowledgements.markdown */,
-				D026515198E2CCEBD769717C /* Pods-Tests-acknowledgements.plist */,
-				320F65E169FAC65FC1D39685 /* Pods-Tests-dummy.m */,
-				80B75BFE3F5A87EE3E80A972 /* Pods-Tests-environment.h */,
-				51B6234729C7C9EA59649AD2 /* Pods-Tests-resources.sh */,
-				3F0A793D6D95060E894322BE /* Pods-Tests.debug.xcconfig */,
-				95F8F2A9657841EA222CD5A5 /* Pods-Tests.release.xcconfig */,
+				03D21415B6EDBFD41ED63555 /* Pods-Tests-acknowledgements.markdown */,
+				799B7F0AC81B31C5C275002D /* Pods-Tests-acknowledgements.plist */,
+				EC8E157AFE7F3B6C0F178F3F /* Pods-Tests-dummy.m */,
+				D6288B21B3300FA84185AD31 /* Pods-Tests-environment.h */,
+				8DB024954E7F7801175AB6C3 /* Pods-Tests-resources.sh */,
+				6C3FF1D1A2EDA4037DEE2962 /* Pods-Tests.debug.xcconfig */,
+				413E0479012125D3410C1CEF /* Pods-Tests.release.xcconfig */,
 			);
 			name = "Pods-Tests";
 			path = "Target Support Files/Pods-Tests";
 			sourceTree = "<group>";
 		};
-		DB1AB919FF591B0E7C760732 /* Support Files */ = {
+		662B884FA3E0659FC18FD603 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				9AC3C59AB1CEB762927EC41A /* Pods-FlatBalloon-FlatBalloon.xcconfig */,
-				9C8BCB315404538143603E6D /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */,
-				4273AA135A1E5B996F7B9BBD /* Pods-FlatBalloon-FlatBalloon-dummy.m */,
-				8FC318A7B1D80C8BB395C0D6 /* Pods-FlatBalloon-FlatBalloon-prefix.pch */,
-				8F77117C25388DF04A456E53 /* Pods-Tests-FlatBalloon.xcconfig */,
-				245ABC033482799470586FEB /* Pods-Tests-FlatBalloon-Private.xcconfig */,
-				026DA103857A98AE681BFFF4 /* Pods-Tests-FlatBalloon-dummy.m */,
-				D61B7B715A7901A06D4DC355 /* Pods-Tests-FlatBalloon-prefix.pch */,
+				E1564DBEAC36466CC97D0CCB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7A298A4CC9940E9961A62986 = {
+			isa = PBXGroup;
+			children = (
+				17FADD9D427BB47868D56A00 /* Podfile */,
+				3175886FCFB01AD23DCE5E24 /* Development Pods */,
+				825997D8302B2BCEAF60A124 /* Frameworks */,
+				9AAF5F141A63F91DE35FE1F1 /* Products */,
+				2C1D36AEDBF7607B96413360 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		825997D8302B2BCEAF60A124 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				662B884FA3E0659FC18FD603 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AAF5F141A63F91DE35FE1F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F30786CD89416023903E3FC /* libPods-FlatBalloon.a */,
+				0E42A4DBCF36043C1C9B2015 /* libPods-FlatBalloon-FlatBalloon.a */,
+				A94D138B4A66F4E68796ABA9 /* libPods-Tests.a */,
+				E20010ACC147B60F9B06ED91 /* libPods-Tests-FlatBalloon.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CB39D2005CB6508FC1DB6B7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEC9F50BCA97E69E412E6E20 /* Pods-FlatBalloon-FlatBalloon.xcconfig */,
+				49DDB2B60224F5B33D767AE7 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */,
+				40889F9FB144B1FBED264E66 /* Pods-FlatBalloon-FlatBalloon-dummy.m */,
+				998E197433267640A0E2C44D /* Pods-FlatBalloon-FlatBalloon-prefix.pch */,
+				6BF7F9E369AAAC75C1BBBEB1 /* Pods-Tests-FlatBalloon.xcconfig */,
+				0E6ABCE3488E93C83A54B061 /* Pods-Tests-FlatBalloon-Private.xcconfig */,
+				97F1CF1AFFE513135E1EB9C2 /* Pods-Tests-FlatBalloon-dummy.m */,
+				95F07521E59270904808BAFE /* Pods-Tests-FlatBalloon-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Pods-FlatBalloon-FlatBalloon";
 			sourceTree = "<group>";
 		};
-		E735299C80BEB8556109B7D9 /* Classes */ = {
+		9E476B5761B43A84C14DA13C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7002E1C621176B812B27325E /* AQAttributes.h */,
-				8F1ABEEC8EE04A53AF92CB7E /* AQAttributes.m */,
-				7F0D02BAA249DA2154EA540B /* AQLayoutInflator.h */,
-				78FE56CA4584F72244072111 /* AQLayoutInflator.m */,
-				EAE55AAE9A87344C6A82570A /* AQResources.h */,
-				C602E64E527F2BDEF8871C09 /* AQResources.m */,
-				55520D76C14499043A2F0149 /* AQViewInjector.h */,
-				D406A58F7A3210AF35D128B3 /* AQViewInjector.m */,
-				FA83916A1AB2532B0040BFD0 /* TBXML+ChildIterator.h */,
-				FA83916B1AB2532B0040BFD0 /* TBXML+ChildIterator.m */,
-				FA83916D1AB254530040BFD0 /* NSString+Convert.h */,
-				FA83916E1AB254530040BFD0 /* NSString+Convert.m */,
-				FA8391701AB2554A0040BFD0 /* AQLayout.h */,
-				FA8391711AB25E330040BFD0 /* AQInflatableViewController.h */,
-				FA8391721AB25E330040BFD0 /* AQInflatableViewController.m */,
+				242BFE2EAD574680915AE88A /* AQAssociatedObjects.h */,
+				27135C830607A810BF361F10 /* AQAttributes.h */,
+				4027743B62C4393E3601E252 /* AQAttributes.m */,
+				56A69527ED7151B237FB2EBD /* AQInflatableViewController.h */,
+				5CE0F2055DEA12F73C529AED /* AQInflatableViewController.m */,
+				AED05014AFE7CD8AE4242A17 /* AQLayout.h */,
+				12D5AE3006487D22C35AF5B1 /* AQLayout.m */,
+				B92B1F4A6C56FFD2766412AA /* AQLayoutInflator.h */,
+				03EE157D59FA5E308B8E875E /* AQLayoutInflator.m */,
+				5284B0775D6DF690CBEABA0D /* AQResources.h */,
+				AABB82FCFD82FBF0A36C7F16 /* AQResources.m */,
+				7CD78365DE2BF336D76FE613 /* AQViewInjector.h */,
+				C5F7F669E400C8E90772F2F7 /* AQViewInjector.m */,
+				7F299AA06064D4883421010C /* NSString+Convert.h */,
+				3344F544208E5D5B085BB4E0 /* NSString+Convert.m */,
+				727BD47E9701E145C633DB32 /* TBXML.h */,
+				F58E5A9D00A1DAC89653BDC2 /* TBXML.m */,
+				FCFE9B6D9D3618335E8C9448 /* TBXML+ChildIterator.h */,
+				22556FD8132C72BEF73E2D23 /* TBXML+ChildIterator.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		F761831FC999C12ABDA93468 /* Frameworks */ = {
+		B79A9379F6C201505C6C9C2B /* FlatBalloon */ = {
 			isa = PBXGroup;
 			children = (
-				FB7999424A778EF099626A14 /* iOS */,
+				FD7931122E2417B6EE3BEC59 /* Pod */,
+				9CB39D2005CB6508FC1DB6B7 /* Support Files */,
 			);
-			name = Frameworks;
+			name = FlatBalloon;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		F853A1A521A3AE1911043CF9 /* TBXML */ = {
+		E004E6B0B928F5ADFEDEEA03 /* Pods-FlatBalloon */ = {
 			isa = PBXGroup;
 			children = (
-				66B4F52847FAAF8B5523C657 /* TBXML.h */,
-				32597BA74205D5EB08C65F22 /* TBXML.m */,
-				BB3EC46E9CA2D95DA9E1905E /* TBXML+Compression.h */,
-				04D82CF146FA59B6F1A039B6 /* TBXML+Compression.m */,
-				7BDCE5A0DC89DD93C0ADF174 /* TBXML+HTTP.h */,
-				386A3F195666A1AEECAF87BB /* TBXML+HTTP.m */,
-				33806262B80EF2E445F44B5E /* Support Files */,
+				0BEF0E9BB1F0A8D15A5A9D76 /* Pods-FlatBalloon-acknowledgements.markdown */,
+				5793027BB1F6C07992BE9AA8 /* Pods-FlatBalloon-acknowledgements.plist */,
+				45EF5BAC91812A1FC38F4535 /* Pods-FlatBalloon-dummy.m */,
+				EDEA725C32A3ECA865F0B7F4 /* Pods-FlatBalloon-environment.h */,
+				55C9A211D4EC5572C7D62FC6 /* Pods-FlatBalloon-resources.sh */,
+				07370E6ECAD5F7B9312F19E6 /* Pods-FlatBalloon.debug.xcconfig */,
+				446FA03BF9E75BBA2813FE53 /* Pods-FlatBalloon.release.xcconfig */,
 			);
-			path = TBXML;
+			name = "Pods-FlatBalloon";
+			path = "Target Support Files/Pods-FlatBalloon";
 			sourceTree = "<group>";
 		};
-		FB7999424A778EF099626A14 /* iOS */ = {
+		FD7931122E2417B6EE3BEC59 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				C863791BC61BF6562E888957 /* Foundation.framework */,
+				9E476B5761B43A84C14DA13C /* Classes */,
 			);
-			name = iOS;
+			path = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2D23D38696C0FF51188687AB /* Headers */ = {
+		1BCD528BC2774CCEEEE44D46 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				280D79F9AF46989002477667 /* TBXML+Compression.h in Headers */,
-				0D865AED02C151085B9E0A96 /* TBXML+HTTP.h in Headers */,
-				D54EED0482B7CD8889B1885E /* TBXML.h in Headers */,
+				B1369B96AF88960E32465D36 /* AQAssociatedObjects.h in Headers */,
+				7ABBB983E4B96B03FA78EA64 /* AQAttributes.h in Headers */,
+				727EAF5D0D334D2BCEC3AF82 /* AQInflatableViewController.h in Headers */,
+				411E1EF745FCCAF194E8B5CB /* AQLayout.h in Headers */,
+				B2AC3970CF5C9A2239CF2C8C /* AQLayoutInflator.h in Headers */,
+				C2972BF5BF871353CFDCD96E /* AQResources.h in Headers */,
+				036791935FB0826E3154A7E8 /* AQViewInjector.h in Headers */,
+				4F18E98C64F0C663109D6296 /* NSString+Convert.h in Headers */,
+				D7C0596391EE4B62741E39FC /* TBXML+ChildIterator.h in Headers */,
+				337AC363ABE4C70FEC134F6D /* TBXML.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9808A05E301CF82A739C7ABA /* Headers */ = {
+		CCF591C870165533D1AC422F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2904FAEEB2C174BD89284A5F /* AQAttributes.h in Headers */,
-				1B363BED35A26C7A51FC25F0 /* AQLayoutInflator.h in Headers */,
-				22997E34BF51BAD38A3D13B2 /* AQResources.h in Headers */,
-				BBB0AC6355F020F280D43861 /* AQViewInjector.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7F7F56CB32DF04A04739822 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7D3D58FE0EF4A29D610D39E1 /* AQAttributes.h in Headers */,
-				A4848CEA4593ACED40E78833 /* AQLayoutInflator.h in Headers */,
-				33FD30770B696E4797F75D91 /* AQResources.h in Headers */,
-				615B6A67B73CB55BC0F37DEA /* AQViewInjector.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FFD862A22E60F73CB39C03F9 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E6F4958BC2C8F0E03544E45F /* TBXML+Compression.h in Headers */,
-				701BA7F48F44A3D76F0FE729 /* TBXML+HTTP.h in Headers */,
-				8108444FA35E83CAA7F5A488 /* TBXML.h in Headers */,
+				29CBA6A187CF7DD0F1288EBA /* AQAssociatedObjects.h in Headers */,
+				F6380D38ED26A9CB1C65D7CB /* AQAttributes.h in Headers */,
+				4A41DE4E83B3E23FC7A38DF1 /* AQInflatableViewController.h in Headers */,
+				727AC7EA75B1B0147C6D467D /* AQLayout.h in Headers */,
+				05627FE36E3E525940E0F423 /* AQLayoutInflator.h in Headers */,
+				053972747721F162C1B426E5 /* AQResources.h in Headers */,
+				40132BB12216FD004A3ED9D4 /* AQViewInjector.h in Headers */,
+				1E46C35718656EFB7A0EF279 /* NSString+Convert.h in Headers */,
+				3098C379B80B54DE1F58E7C4 /* TBXML+ChildIterator.h in Headers */,
+				A5258BCCA45B76C8763BFBF3 /* TBXML.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		23802B010C56740A0868A65A /* Pods-FlatBalloon-TBXML */ = {
+		28C1E367BCF70F3501D73FF3 /* Pods-FlatBalloon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1D4C71CC240953703627B74 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-TBXML" */;
+			buildConfigurationList = F83CBD87B1DCED25578BBAAD /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */;
 			buildPhases = (
-				F86DC172351F0358711E2E80 /* Sources */,
-				3051E2772B78DFF63DC78326 /* Frameworks */,
-				2D23D38696C0FF51188687AB /* Headers */,
+				9F9B5071713BA8EF31966806 /* Sources */,
+				E374711DAA1F91179A12D727 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = "Pods-FlatBalloon-TBXML";
-			productName = "Pods-FlatBalloon-TBXML";
-			productReference = 0BB40B2D1DFB0F9BB003DA1B /* libPods-FlatBalloon-TBXML.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		26E855B2E056A170CAD44983 /* Pods-Tests-FlatBalloon */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 215970DC23944F9CE07A7EEC /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */;
-			buildPhases = (
-				773737B887B5F492E3B299FC /* Sources */,
-				DC84ADAA396BC46F6E7FAC15 /* Frameworks */,
-				E7F7F56CB32DF04A04739822 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				76968B7096F26C789A9D3E8B /* PBXTargetDependency */,
-			);
-			name = "Pods-Tests-FlatBalloon";
-			productName = "Pods-Tests-FlatBalloon";
-			productReference = 8EE5A83CBF4E941C8BDF011C /* libPods-Tests-FlatBalloon.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		5F85B65AC49C4C3576694407 /* Pods-FlatBalloon */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1C0249F315C04D819EF759CD /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */;
-			buildPhases = (
-				9F119F72C631C2ACC6C0E21D /* Sources */,
-				BD18B7DB26495EEB25CAA0C4 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2183DEDC656D9B5721C9159B /* PBXTargetDependency */,
-				A7065BE9660307189FD8CF42 /* PBXTargetDependency */,
+				855A1C2A6A2D7B6B1870DCF9 /* PBXTargetDependency */,
 			);
 			name = "Pods-FlatBalloon";
 			productName = "Pods-FlatBalloon";
-			productReference = 166B6918ED6A9C428C77C0BF /* libPods-FlatBalloon.a */;
+			productReference = 3F30786CD89416023903E3FC /* libPods-FlatBalloon.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A0338CCC92CED1BDD47277BB /* Pods-Tests-TBXML */ = {
+		6A6FD8BE0CBE52A09EF04AC5 /* Pods-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C81DAC78627462763CC09D81 /* Build configuration list for PBXNativeTarget "Pods-Tests-TBXML" */;
+			buildConfigurationList = 571D69500E735122C3F5EED4 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
 			buildPhases = (
-				7DC482F6FA3D4D468E435F53 /* Sources */,
-				25B5BA7D760DCDB83E2160D1 /* Frameworks */,
-				FFD862A22E60F73CB39C03F9 /* Headers */,
+				BC426BE312818001B7EE2ADA /* Sources */,
+				26668CCAF2654D90B015FB18 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = "Pods-Tests-TBXML";
-			productName = "Pods-Tests-TBXML";
-			productReference = 183C0E9E2464D3A4445A3F48 /* libPods-Tests-TBXML.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F6EA2C0D82955D327368A3B3 /* Pods-FlatBalloon-FlatBalloon */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5BB9491549906E952B9A2430 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */;
-			buildPhases = (
-				6D91C5FAD0520B15B51FFBD1 /* Sources */,
-				9E8D0F859DE51BE3560A7606 /* Frameworks */,
-				9808A05E301CF82A739C7ABA /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F12F8B1AD2A4EF5573817AFF /* PBXTargetDependency */,
-			);
-			name = "Pods-FlatBalloon-FlatBalloon";
-			productName = "Pods-FlatBalloon-FlatBalloon";
-			productReference = C9DD221C4FF2367FC55AA1CD /* libPods-FlatBalloon-FlatBalloon.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		FDEB5BEFA3F7D398231E80A4 /* Pods-Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9BFE04128F1855218918581C /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
-			buildPhases = (
-				A4B03581034AE280624181BF /* Sources */,
-				C956D2907720D6AA853BB889 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				34567A52DB9DCE07BF4035A3 /* PBXTargetDependency */,
-				B8A40B8F4B30650A780B2D9A /* PBXTargetDependency */,
+				8393610A19EB212307A37F1E /* PBXTargetDependency */,
 			);
 			name = "Pods-Tests";
 			productName = "Pods-Tests";
-			productReference = C1E0A3C4D0EABA5172353F16 /* libPods-Tests.a */;
+			productReference = A94D138B4A66F4E68796ABA9 /* libPods-Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C9AAFBC65DA4EB484143C971 /* Pods-FlatBalloon-FlatBalloon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74AACCAC5BEF75BACC957124 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */;
+			buildPhases = (
+				9E60BAD270EA1530ACFDB88A /* Sources */,
+				0E7C8D980196755A3415FC78 /* Frameworks */,
+				CCF591C870165533D1AC422F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FlatBalloon-FlatBalloon";
+			productName = "Pods-FlatBalloon-FlatBalloon";
+			productReference = 0E42A4DBCF36043C1C9B2015 /* libPods-FlatBalloon-FlatBalloon.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E5771F53E0029EE4433E345F /* Pods-Tests-FlatBalloon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8809607DBD0D06C1810EB5AA /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */;
+			buildPhases = (
+				9FB7D6F8DEE446C17755F092 /* Sources */,
+				50ACC81BD35D12DD5CFA8821 /* Frameworks */,
+				1BCD528BC2774CCEEEE44D46 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-FlatBalloon";
+			productName = "Pods-Tests-FlatBalloon";
+			productReference = E20010ACC147B60F9B06ED91 /* libPods-Tests-FlatBalloon.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E485467FB09A936677F8BED9 /* Project object */ = {
+		B626C766426A105481C273F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = BD73F6583C33446FAC273A0B /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = E3D03CD5F906F431BF3B3BC5 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 358CBA19E32F07A01EDBEA3A;
-			productRefGroup = 78A1E7585E75DBE3EFEDD84D /* Products */;
+			mainGroup = 7A298A4CC9940E9961A62986;
+			productRefGroup = 9AAF5F141A63F91DE35FE1F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F85B65AC49C4C3576694407 /* Pods-FlatBalloon */,
-				F6EA2C0D82955D327368A3B3 /* Pods-FlatBalloon-FlatBalloon */,
-				23802B010C56740A0868A65A /* Pods-FlatBalloon-TBXML */,
-				FDEB5BEFA3F7D398231E80A4 /* Pods-Tests */,
-				26E855B2E056A170CAD44983 /* Pods-Tests-FlatBalloon */,
-				A0338CCC92CED1BDD47277BB /* Pods-Tests-TBXML */,
+				28C1E367BCF70F3501D73FF3 /* Pods-FlatBalloon */,
+				C9AAFBC65DA4EB484143C971 /* Pods-FlatBalloon-FlatBalloon */,
+				6A6FD8BE0CBE52A09EF04AC5 /* Pods-Tests */,
+				E5771F53E0029EE4433E345F /* Pods-Tests-FlatBalloon */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6D91C5FAD0520B15B51FFBD1 /* Sources */ = {
+		9E60BAD270EA1530ACFDB88A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C672E016E5D78CC1579787CB /* AQAttributes.m in Sources */,
-				C9C5D1B6D093910D228A0E03 /* AQLayoutInflator.m in Sources */,
-				34D05A9C94E03E36832D0EC8 /* AQResources.m in Sources */,
-				A2FA7E8097561C2622610EF1 /* AQViewInjector.m in Sources */,
-				3BC6B71ABCA76C631489C805 /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */,
+				18AE18D32623978C3F3D9A65 /* AQAttributes.m in Sources */,
+				BAB31A2AB5718B82DB9E7571 /* AQInflatableViewController.m in Sources */,
+				7BCB93CB2797BF3B2C641ADE /* AQLayout.m in Sources */,
+				75A5A8F0A1ECE77A496155F5 /* AQLayoutInflator.m in Sources */,
+				A2AAFD2ED6CECCDD5EE9605F /* AQResources.m in Sources */,
+				86D4CB2330C55FA499359189 /* AQViewInjector.m in Sources */,
+				F24BED724DB3C832729C6298 /* NSString+Convert.m in Sources */,
+				5ACE565FB6F291D6F57703CE /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */,
+				951576856249D192F6643D93 /* TBXML+ChildIterator.m in Sources */,
+				1586CFF6838A3BD0B267F953 /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		773737B887B5F492E3B299FC /* Sources */ = {
+		9F9B5071713BA8EF31966806 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9887D062EB30558266C94CD5 /* AQAttributes.m in Sources */,
-				784CB5B6DEAF66523A5931AD /* AQLayoutInflator.m in Sources */,
-				BBEA6400D0F8AC40E0784309 /* AQResources.m in Sources */,
-				50316804536D9F490DD5D20E /* AQViewInjector.m in Sources */,
-				8DDE8F89A8FA96F4F2F492E6 /* Pods-Tests-FlatBalloon-dummy.m in Sources */,
+				2F1AF9377586CEE01B6C72DE /* Pods-FlatBalloon-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DC482F6FA3D4D468E435F53 /* Sources */ = {
+		9FB7D6F8DEE446C17755F092 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B90A3441C489AE099B4D1850 /* Pods-Tests-TBXML-dummy.m in Sources */,
-				BABDA6EF5E69B25AA94B1B5D /* TBXML+Compression.m in Sources */,
-				78C1C02E3D5B8DC5F29D6092 /* TBXML+HTTP.m in Sources */,
-				B094AB8313BCDEEFE3906C39 /* TBXML.m in Sources */,
+				1747B5725993886B33699BB7 /* AQAttributes.m in Sources */,
+				F1EA545F4AD8C130E02222F6 /* AQInflatableViewController.m in Sources */,
+				CF4CD9FC4EB5B4021F86124D /* AQLayout.m in Sources */,
+				8B51BFC54C5AF6DCB9E0ECC0 /* AQLayoutInflator.m in Sources */,
+				907C737703E427B1E9AAE367 /* AQResources.m in Sources */,
+				734852E7A97F7D239977BBEA /* AQViewInjector.m in Sources */,
+				D6E5C6A47200E115A4A41CEF /* NSString+Convert.m in Sources */,
+				16AE91397ADCCAAF977EA098 /* Pods-Tests-FlatBalloon-dummy.m in Sources */,
+				323813716759B05CD8B0D591 /* TBXML+ChildIterator.m in Sources */,
+				4CA09FD10F40DF32BE5DDF26 /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9F119F72C631C2ACC6C0E21D /* Sources */ = {
+		BC426BE312818001B7EE2ADA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA83916F1AB254530040BFD0 /* NSString+Convert.m in Sources */,
-				FA83916C1AB2532B0040BFD0 /* TBXML+ChildIterator.m in Sources */,
-				FA8391731AB25E330040BFD0 /* AQInflatableViewController.m in Sources */,
-				55D2C0892EC5C0305CD9C608 /* Pods-FlatBalloon-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A4B03581034AE280624181BF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				177A0DEF07815817AB5065E1 /* Pods-Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F86DC172351F0358711E2E80 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1484D42B08C3AC4DF16FFB55 /* Pods-FlatBalloon-TBXML-dummy.m in Sources */,
-				0C96F75458883DE796891EC0 /* TBXML+Compression.m in Sources */,
-				B24FE47C12B6B88A28641B29 /* TBXML+HTTP.m in Sources */,
-				E96F67ABAD20E4E65BAA3C3B /* TBXML.m in Sources */,
+				701B5068776AFF8BC151EEB3 /* Pods-Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2183DEDC656D9B5721C9159B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-FlatBalloon-FlatBalloon";
-			target = F6EA2C0D82955D327368A3B3 /* Pods-FlatBalloon-FlatBalloon */;
-			targetProxy = FA7C960FEB58778F827D1379 /* PBXContainerItemProxy */;
-		};
-		34567A52DB9DCE07BF4035A3 /* PBXTargetDependency */ = {
+		8393610A19EB212307A37F1E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Tests-FlatBalloon";
-			target = 26E855B2E056A170CAD44983 /* Pods-Tests-FlatBalloon */;
-			targetProxy = 53F99B2FA272D4B07401B5ED /* PBXContainerItemProxy */;
+			target = E5771F53E0029EE4433E345F /* Pods-Tests-FlatBalloon */;
+			targetProxy = 2860595668387FBD8C1DB2F4 /* PBXContainerItemProxy */;
 		};
-		76968B7096F26C789A9D3E8B /* PBXTargetDependency */ = {
+		855A1C2A6A2D7B6B1870DCF9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Tests-TBXML";
-			target = A0338CCC92CED1BDD47277BB /* Pods-Tests-TBXML */;
-			targetProxy = 3CBDB373716FFFBB348460EE /* PBXContainerItemProxy */;
-		};
-		A7065BE9660307189FD8CF42 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-FlatBalloon-TBXML";
-			target = 23802B010C56740A0868A65A /* Pods-FlatBalloon-TBXML */;
-			targetProxy = 0F56EA225533299A7AA5C1A0 /* PBXContainerItemProxy */;
-		};
-		B8A40B8F4B30650A780B2D9A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Tests-TBXML";
-			target = A0338CCC92CED1BDD47277BB /* Pods-Tests-TBXML */;
-			targetProxy = BD5A7947E3B26C98853808A2 /* PBXContainerItemProxy */;
-		};
-		F12F8B1AD2A4EF5573817AFF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-FlatBalloon-TBXML";
-			target = 23802B010C56740A0868A65A /* Pods-FlatBalloon-TBXML */;
-			targetProxy = 391AAF412DF11022756328E3 /* PBXContainerItemProxy */;
+			name = "Pods-FlatBalloon-FlatBalloon";
+			target = C9AAFBC65DA4EB484143C971 /* Pods-FlatBalloon-FlatBalloon */;
+			targetProxy = 683DCD4C5F95F6040341B575 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		099E8159B43A7C25A156C4DB /* Debug */ = {
+		4062F099740955E24CF2DBB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F84DD0EF5A1A3B3872B8CC2 /* Pods-FlatBalloon-TBXML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-TBXML/Pods-FlatBalloon-TBXML-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		382F418B6991252270D45DBB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C8BCB315404538143603E6D /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-FlatBalloon/Pods-FlatBalloon-FlatBalloon-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		3F8611A931C911FF902591B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F0A793D6D95060E894322BE /* Pods-Tests.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5F368D64267441A25370DBCC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F188664402D751DF18AE959A /* Pods-FlatBalloon.release.xcconfig */;
+			baseConfigurationReference = 413E0479012125D3410C1CEF /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -749,119 +524,7 @@
 			};
 			name = Release;
 		};
-		645EAE3C25A6923ECBA8FD50 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 245ABC033482799470586FEB /* Pods-Tests-FlatBalloon-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		74AD8F82C182BE87CF6AC535 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C90D085381BABFB081ADFD86 /* Pods-Tests-TBXML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-TBXML/Pods-Tests-TBXML-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8323AA3F99D84C29FD78619C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B9BEF33A073B62D9EECDF3D /* Pods-FlatBalloon.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9CA7E5FEB8A114A9FE3DD799 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95F8F2A9657841EA222CD5A5 /* Pods-Tests.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		B4902515514565D1F2D5B8E3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C90D085381BABFB081ADFD86 /* Pods-Tests-TBXML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-TBXML/Pods-Tests-TBXML-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		BD91B557EF77FADB1C04E75E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F84DD0EF5A1A3B3872B8CC2 /* Pods-FlatBalloon-TBXML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-TBXML/Pods-FlatBalloon-TBXML-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		C60DA90FB9B111A316E1F80E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 245ABC033482799470586FEB /* Pods-Tests-FlatBalloon-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		DA81134DD7398C224272220D /* Release */ = {
+		4654EF8E65EC53C1FF12FBED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -895,7 +558,71 @@
 			};
 			name = Release;
 		};
-		E348E3E4A56AD74FF431F0F6 /* Debug */ = {
+		4D85EBB5B8EF16D9D44081AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E6ABCE3488E93C83A54B061 /* Pods-Tests-FlatBalloon-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4F850AFC99EE75808E8BBFE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49DDB2B60224F5B33D767AE7 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-FlatBalloon/Pods-FlatBalloon-FlatBalloon-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		553349A7E5C9912D99E7B029 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E6ABCE3488E93C83A54B061 /* Pods-Tests-FlatBalloon-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		708945B9DB30729F0A2C326D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C3FF1D1A2EDA4037DEE2962 /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9D996B1A321AEFFA6485594F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -934,9 +661,9 @@
 			};
 			name = Debug;
 		};
-		FC55D70BAAB94A3A8A1C1B46 /* Release */ = {
+		B36A54F8521705C51EFEA5A2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C8BCB315404538143603E6D /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
+			baseConfigurationReference = 49DDB2B60224F5B33D767AE7 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-FlatBalloon/Pods-FlatBalloon-FlatBalloon-prefix.pch";
@@ -950,73 +677,87 @@
 			};
 			name = Release;
 		};
+		C0103ACAB4A88EDFC72F42AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07370E6ECAD5F7B9312F19E6 /* Pods-FlatBalloon.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D3A7DE9E5BEF78F10E24302D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 446FA03BF9E75BBA2813FE53 /* Pods-FlatBalloon.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C0249F315C04D819EF759CD /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */ = {
+		571D69500E735122C3F5EED4 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8323AA3F99D84C29FD78619C /* Debug */,
-				5F368D64267441A25370DBCC /* Release */,
+				708945B9DB30729F0A2C326D /* Debug */,
+				4062F099740955E24CF2DBB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		215970DC23944F9CE07A7EEC /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */ = {
+		74AACCAC5BEF75BACC957124 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				645EAE3C25A6923ECBA8FD50 /* Debug */,
-				C60DA90FB9B111A316E1F80E /* Release */,
+				4F850AFC99EE75808E8BBFE0 /* Debug */,
+				B36A54F8521705C51EFEA5A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5BB9491549906E952B9A2430 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */ = {
+		8809607DBD0D06C1810EB5AA /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				382F418B6991252270D45DBB /* Debug */,
-				FC55D70BAAB94A3A8A1C1B46 /* Release */,
+				553349A7E5C9912D99E7B029 /* Debug */,
+				4D85EBB5B8EF16D9D44081AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9BFE04128F1855218918581C /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+		E3D03CD5F906F431BF3B3BC5 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3F8611A931C911FF902591B6 /* Debug */,
-				9CA7E5FEB8A114A9FE3DD799 /* Release */,
+				9D996B1A321AEFFA6485594F /* Debug */,
+				4654EF8E65EC53C1FF12FBED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD73F6583C33446FAC273A0B /* Build configuration list for PBXProject "Pods" */ = {
+		F83CBD87B1DCED25578BBAAD /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E348E3E4A56AD74FF431F0F6 /* Debug */,
-				DA81134DD7398C224272220D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C81DAC78627462763CC09D81 /* Build configuration list for PBXNativeTarget "Pods-Tests-TBXML" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				74AD8F82C182BE87CF6AC535 /* Debug */,
-				B4902515514565D1F2D5B8E3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E1D4C71CC240953703627B74 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-TBXML" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				099E8159B43A7C25A156C4DB /* Debug */,
-				BD91B557EF77FADB1C04E75E /* Release */,
+				C0103ACAB4A88EDFC72F42AE /* Debug */,
+				D3A7DE9E5BEF78F10E24302D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E485467FB09A936677F8BED9 /* Project object */;
+	rootObject = B626C766426A105481C273F8 /* Project object */;
 }
