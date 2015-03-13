@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
   s.name             = 'FlatBalloon'
   s.version          = '0.0.1'
-  s.summary          = 'An Android-like layout inflation and bucketed resource suite.'
+  s.summary          = 'An Android-like layout inflation and bucketed resource library.'
   s.homepage         = 'https://github.com/AlexQuinlivan/FlatBalloon'
   s.license          = 'Apache License, Version 2.0'
   s.author           = { 'Alex Quinlivan' => 'alex@quinlivan.co.nz' }
