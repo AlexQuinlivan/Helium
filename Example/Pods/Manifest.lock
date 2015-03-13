@@ -1,5 +1,7 @@
 PODS:
-  - FlatBalloon (0.1.0)
+  - FlatBalloon (0.0.1):
+    - TBXML (~> 1.5)
+  - TBXML (1.5)
 
 DEPENDENCIES:
   - FlatBalloon (from `../`)
@@ -9,6 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FlatBalloon: c298a3deb00c6ebcc67b24d55b6d3a2e4796deee
+  FlatBalloon: f993e20983314ecd2b0ebe1f58af3d49e5faed45
+  TBXML: a279440030ba55c40e1455cafba3b0a44e1963d4
 
 COCOAPODS: 0.36.0

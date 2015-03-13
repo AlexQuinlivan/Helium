@@ -6,33 +6,18 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
-
+# TODO: this
 Pod::Spec.new do |s|
-  s.name             = "FlatBalloon"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of FlatBalloon."
-  s.description      = <<-DESC
-                       An optional longer description of FlatBalloon
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/FlatBalloon"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
-  s.author           = { "Alex Quinlivan" => "alex@quinlivan.co.nz" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/FlatBalloon.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.name             = 'FlatBalloon'
+  s.version          = '0.0.1'
+  s.summary          = 'An Android-like layout inflation and bucketed resource suite.'
+  s.homepage         = 'https://github.com/AlexQuinlivan/FlatBalloon'
+  s.license          = 'Apache License, Version 2.0'
+  s.author           = { 'Alex Quinlivan' => 'alex@quinlivan.co.nz' }
+  s.source           = { :git => 'https://github.com/AlexQuinlivan/FlatBalloon.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/AlexQuinlivan'
   s.platform     = :ios, '7.0'
   s.requires_arc = true
-
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'FlatBalloon' => ['Pod/Assets/*.png']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'TBXML', '~> 1.5'
 end
