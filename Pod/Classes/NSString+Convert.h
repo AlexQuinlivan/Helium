@@ -1,6 +1,6 @@
 //
 //  NSString+Convert.h
-//  Pods
+//  FlatBalloon
 //
 //  Created by Alex Quinlivan on 13/03/15.
 //

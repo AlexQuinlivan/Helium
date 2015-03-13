@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AQAppDelegate.h"
+#import "FLBAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AQAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([FLBAppDelegate class]));
     }
 }
