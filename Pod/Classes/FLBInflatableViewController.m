@@ -8,16 +8,16 @@
 
 #import "FLBInflatableViewController.h"
 #import "FLBLayoutInflator.h"
+#import "FLBLayoutRootView.h"
 
 @implementation FLBInflatableViewController
 
 -(void) loadView {
     UIView* view = self.inflateView;
-    self.view = view;
-    UIViewAutoresizing mask = UIViewAutoresizingNone;
-    mask |= (view.layoutWidth == FLBLayoutRuleFill) ? UIViewAutoresizingFlexibleWidth : 0;
-    mask |= (view.layoutHeight == FLBLayoutRuleFill) ? UIViewAutoresizingFlexibleHeight : 0;
-    view.autoresizingMask = mask;
+    UIView* root = [[FLBLayoutRootView alloc] initWithFrame:CGRectZero];
+    [root addSubview:view];
+    self.view = root;
+    root.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [FLBViewInjector injectViewsInto:self withRootView:self.view];
 }
 

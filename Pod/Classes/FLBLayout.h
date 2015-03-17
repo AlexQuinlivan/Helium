@@ -19,12 +19,7 @@ typedef NS_ENUM(NSInteger, FLBLayoutOrientation) {
     FLBLayoutOrientationHorizontal,
 };
 
-/**
- * A protocol that all views allowing subviews at inflation time
- * must conform to if they wish to be inflated.
- */
-@protocol FLBLayout <NSObject> @end
-
+@protocol FLBLayoutManager;
 
 @interface UIView (FLBLayoutProperties)
 
@@ -38,5 +33,15 @@ typedef NS_ENUM(NSInteger, FLBLayoutOrientation) {
 @property (nonatomic) CGFloat layoutWidth;
 @property (nonatomic) CGFloat layoutHeight;
 @property (nonatomic) CGFloat layoutWeight;
+@property (nonatomic) id<FLBLayoutManager> flb_layoutManager;
+
+@end
+
+// linear / frame / relative
+@protocol FLBLayoutManager <NSObject>
+@required
+
+-(void) flb_measure:(UIView *) view;
+-(void) flb_layout:(UIView *) view;
 
 @end

@@ -9,6 +9,9 @@
 #import "FLBLayoutInflator.h"
 #import "FLBResources.h"
 #import "FLBAttributes.h"
+#import "FLBLinearLayoutManager.h"
+#import "FLBFrameLayoutManager.h"
+#import "FLBRelativeLayoutManager.h"
 #import "TBXML.h"
 #import "TBXML+ChildIterator.h"
 #import "NSString+Convert.h"
@@ -66,20 +69,27 @@ static NSString* const FLBInflatorExceptionName = @"FLBLayoutInflatorException";
 }
 
 -(void) applyAttributesToView:(UIView *) view fromElement:(TBXMLElement *) element {
-    __block BOOL layoutWidthSet = NO, layoutHeightSet = NO;
+    __block BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = NO;
     [TBXML iterateAttributesOfElement:element
                             withBlock:^(TBXMLAttribute* attribute, NSString* name, NSString* value) {
                                 NSString* propertyName = [name toCamelCaps];
                                 propertyName = [NSString stringWithFormat:@"set%@:", propertyName];
                                 SEL propertySel = NSSelectorFromString(propertyName);
-                                if ([view respondsToSelector:propertySel]) {
+                                if ([view respondsToSelector:propertySel]
+                                    || [view respondsToSelector:(propertySel = [FLBAttributes selectorAliasForAttributeWithName:name])]) {
                                     [self performSetter:propertySel onView:view withName:name andValue:value];
                                     layoutWidthSet |= [@"layout_width" isEqualToString:name];
                                     layoutHeightSet |= [@"layout_height" isEqualToString:name];
+                                    layoutManagerSet |= [@"layout" isEqualToString:name];
                                 } else {
                                     NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
                                 }
                             }];
+    if (!layoutManagerSet) {
+        @throw [NSException exceptionWithName:FLBInflatorExceptionName
+                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated without a layout manager being assigned", [TBXML elementName:element]]
+                                     userInfo:nil];
+    }
     if (!layoutWidthSet || !layoutHeightSet) {
         @throw [NSException exceptionWithName:FLBInflatorExceptionName
                                        reason:[NSString stringWithFormat:@"View (`%@`) inflated without both layout_width and layout_height", [TBXML elementName:element]]
@@ -131,7 +141,7 @@ case _attr: {\
                 orientation = FLBLayoutOrientationHorizontal;
             } else {
                 @throw [NSException exceptionWithName:FLBInflatorExceptionName
-                                               reason:[NSString stringWithFormat:@"Unexpected orientation value `%@`", name]
+                                               reason:[NSString stringWithFormat:@"Unexpected orientation value `%@`", value]
                                              userInfo:nil];
             }
             method(view, setterSelector, orientation);\
@@ -148,6 +158,25 @@ case _attr: {\
                 layoutRuled = [FLBResources cgFloatValue:value];
             }
             method(view, setterSelector, layoutRuled);
+            break;
+        }
+        case ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER: {
+            void (*method)(id, SEL, id<FLBLayoutManager>) = (void *)setterImp;
+            id<FLBLayoutManager> manager = nil;
+            if ([@"linear" isEqualToString:value]) {
+                manager = [FLBLinearLayoutManager new];
+            } else if ([@"frame" isEqualToString:value]) {
+                manager = [FLBFrameLayoutManager new];
+            } else if ([@"relative" isEqualToString:value]) {
+                manager = [FLBRelativeLayoutManager new];
+//            } else if (self.someMapOfUserDefinedLayouts[value]) {
+//            todo: Make extensible
+            } else {
+                @throw [NSException exceptionWithName:FLBInflatorExceptionName
+                                               reason:[NSString stringWithFormat:@"Unexpected layout `%@`", value]
+                                             userInfo:nil];
+            }
+            method(view, setterSelector, manager);
             break;
         }
         default: {

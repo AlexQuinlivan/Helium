@@ -28,10 +28,13 @@ typedef NS_ENUM(NSInteger, FLBAttributeType) {
     ATTRIBUTE_TYPE_STRING_HASH,
     ATTRIBUTE_TYPE_VIEW_ORIENTATION,
     ATTRIBUTE_TYPE_VIEW_LAYOUT_RULE,
+    ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER,
 };
 
 @interface FLBAttributes : NSObject
 
 +(FLBAttributeType) attributeTypeForName:(NSString *) attributeName;
++(SEL) selectorAliasForAttributeType:(FLBAttributeType) attributeType;
++(SEL) selectorAliasForAttributeWithName:(NSString *) attributeName;
 
 @end

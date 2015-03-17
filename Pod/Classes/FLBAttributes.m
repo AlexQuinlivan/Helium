@@ -20,6 +20,24 @@
     }
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+
++(SEL) selectorAliasForAttributeType:(FLBAttributeType) attributeType {
+    switch (attributeType) {
+        case ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER:
+            return @selector(setFlb_layoutManager:);
+        default:
+            return nil;
+    }
+}
+
+#pragma clang diagnostic pop
+
++(SEL) selectorAliasForAttributeWithName:(NSString *) attributeName {
+    return [self selectorAliasForAttributeType:[self attributeTypeForName:attributeName]];
+}
+
 //todo: build from values/attrs
 +(NSDictionary *) typeMap {
     static NSDictionary* map;
@@ -28,6 +46,7 @@
         map = @{
                 @"layout_width" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_RULE),
                 @"layout_height" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_RULE),
+                @"layout" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER),
                 @"padding_left" : @(ATTRIBUTE_TYPE_CG_FLOAT),
                 @"margins" : @(ATTRIBUTE_TYPE_UI_EDGE_INSETS),
                 @"margin_left" : @(ATTRIBUTE_TYPE_CG_FLOAT),

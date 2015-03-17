@@ -53,6 +53,14 @@
 		E5C4A8583A56FA468FBE3743 /* FLBInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0646B6B0316674E48E9103C /* FLBInflatableViewController.m */; };
 		E7DD99E145D7CDA1D02D08CF /* FLBInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD8CA166486AD8802F03BFF /* FLBInflatableViewController.h */; };
 		EB17ECD888F6DE9166A921A8 /* FLBLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5840C6A824E5644B54A1D1AA /* FLBLayoutInflator.m */; };
+		FA9801AA1AB7EA2C00E98541 /* FLBLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801A81AB7EA2C00E98541 /* FLBLayoutRootView.h */; };
+		FA9801AB1AB7EA2C00E98541 /* FLBLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801A91AB7EA2C00E98541 /* FLBLayoutRootView.m */; };
+		FA9801B01AB7EE9500E98541 /* FLBLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801AE1AB7EE9500E98541 /* FLBLinearLayoutManager.h */; };
+		FA9801B11AB7EE9500E98541 /* FLBLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801AF1AB7EE9500E98541 /* FLBLinearLayoutManager.m */; };
+		FA9801B41AB7EEC200E98541 /* FLBFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801B21AB7EEC200E98541 /* FLBFrameLayoutManager.h */; };
+		FA9801B51AB7EEC200E98541 /* FLBFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801B31AB7EEC200E98541 /* FLBFrameLayoutManager.m */; };
+		FA9801B81AB7EEE200E98541 /* FLBRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801B61AB7EEE200E98541 /* FLBRelativeLayoutManager.h */; };
+		FA9801B91AB7EEE200E98541 /* FLBRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801B71AB7EEE200E98541 /* FLBRelativeLayoutManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +127,14 @@
 		E8DC34EAE77329248BDA5442 /* Pods-FlatBalloon-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-environment.h"; sourceTree = "<group>"; };
 		ED41B72E63A56D3B336B0CD3 /* TBXML+ChildIterator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TBXML+ChildIterator.h"; sourceTree = "<group>"; };
 		F130C9F32739487DF4B98B6D /* TBXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		FA9801A81AB7EA2C00E98541 /* FLBLayoutRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBLayoutRootView.h; sourceTree = "<group>"; };
+		FA9801A91AB7EA2C00E98541 /* FLBLayoutRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBLayoutRootView.m; sourceTree = "<group>"; };
+		FA9801AE1AB7EE9500E98541 /* FLBLinearLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBLinearLayoutManager.h; sourceTree = "<group>"; };
+		FA9801AF1AB7EE9500E98541 /* FLBLinearLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBLinearLayoutManager.m; sourceTree = "<group>"; };
+		FA9801B21AB7EEC200E98541 /* FLBFrameLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBFrameLayoutManager.h; sourceTree = "<group>"; };
+		FA9801B31AB7EEC200E98541 /* FLBFrameLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBFrameLayoutManager.m; sourceTree = "<group>"; };
+		FA9801B61AB7EEE200E98541 /* FLBRelativeLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBRelativeLayoutManager.h; sourceTree = "<group>"; };
+		FA9801B71AB7EEE200E98541 /* FLBRelativeLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBRelativeLayoutManager.m; sourceTree = "<group>"; };
 		FD46FDBC3E2B3C24E0A64912 /* FLBAssociatedObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBAssociatedObjects.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +246,14 @@
 				F130C9F32739487DF4B98B6D /* TBXML.m */,
 				ED41B72E63A56D3B336B0CD3 /* TBXML+ChildIterator.h */,
 				B3F9DBCF36023966B708843D /* TBXML+ChildIterator.m */,
+				FA9801A81AB7EA2C00E98541 /* FLBLayoutRootView.h */,
+				FA9801A91AB7EA2C00E98541 /* FLBLayoutRootView.m */,
+				FA9801AE1AB7EE9500E98541 /* FLBLinearLayoutManager.h */,
+				FA9801AF1AB7EE9500E98541 /* FLBLinearLayoutManager.m */,
+				FA9801B21AB7EEC200E98541 /* FLBFrameLayoutManager.h */,
+				FA9801B31AB7EEC200E98541 /* FLBFrameLayoutManager.m */,
+				FA9801B61AB7EEE200E98541 /* FLBRelativeLayoutManager.h */,
+				FA9801B71AB7EEE200E98541 /* FLBRelativeLayoutManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -313,9 +337,13 @@
 				08FEC2557316CA10E32D278E /* FLBAssociatedObjects.h in Headers */,
 				9803FF1ED20D8813B96826D5 /* FLBAttributes.h in Headers */,
 				E7DD99E145D7CDA1D02D08CF /* FLBInflatableViewController.h in Headers */,
+				FA9801B41AB7EEC200E98541 /* FLBFrameLayoutManager.h in Headers */,
 				7A5A484DED546FCC48523D76 /* FLBLayout.h in Headers */,
+				FA9801AA1AB7EA2C00E98541 /* FLBLayoutRootView.h in Headers */,
 				8EC59EA6C04455033CFBFBD1 /* FLBLayoutInflator.h in Headers */,
+				FA9801B01AB7EE9500E98541 /* FLBLinearLayoutManager.h in Headers */,
 				4DA2CFAE5D77367674466D78 /* FLBResources.h in Headers */,
+				FA9801B81AB7EEE200E98541 /* FLBRelativeLayoutManager.h in Headers */,
 				17166C4EAB32393789F8274E /* FLBViewInjector.h in Headers */,
 				76EE597AD3A24CEB528BDE42 /* NSString+Convert.h in Headers */,
 				46D513BA5037438C2B3819FA /* TBXML+ChildIterator.h in Headers */,
@@ -473,8 +501,12 @@
 				E5C4A8583A56FA468FBE3743 /* FLBInflatableViewController.m in Sources */,
 				15A6EAB429A9536BC7F86EBF /* FLBLayout.m in Sources */,
 				EB17ECD888F6DE9166A921A8 /* FLBLayoutInflator.m in Sources */,
+				FA9801B51AB7EEC200E98541 /* FLBFrameLayoutManager.m in Sources */,
 				C410EC36CE962C26F3C222F6 /* FLBResources.m in Sources */,
+				FA9801B91AB7EEE200E98541 /* FLBRelativeLayoutManager.m in Sources */,
 				233A8AC055542FBABE1DD058 /* FLBViewInjector.m in Sources */,
+				FA9801AB1AB7EA2C00E98541 /* FLBLayoutRootView.m in Sources */,
+				FA9801B11AB7EE9500E98541 /* FLBLinearLayoutManager.m in Sources */,
 				C921FC4B206D27E6B448FBE0 /* NSString+Convert.m in Sources */,
 				BD58804265B23DD4452061A9 /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */,
 				67639AC825F20969A5CB0D5F /* TBXML+ChildIterator.m in Sources */,
