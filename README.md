@@ -1,12 +1,12 @@
 AlexQuinlivan/FlatBalloon
 =========================
-
 An Android-like view inflation and bucketed resource library for iOS. 
+If you would like to use a library that is similar to this and actually works, check out [iDroidLayout](https://github.com/tomquist/iDroidLayout)
 
 
 Note
 ----
-This project is in its very infant stages and is only intended (at this point) as a side project to explore a bit more of the Objective-C runtime before throwing it away completely. That being said, it does have certain goals [(see Goals)](#goals). 
+This project is in its very infant stages (it doesn't yet do what it says) and is only intended (at this point) as a side project to explore a bit more of the Objective-C runtime before throwing it away completely. That being said, it does have certain goals [(see Goals)](#goals). 
 
 
 Goals
@@ -61,11 +61,11 @@ INJECT_VIEW(example, example)
 
 Installation
 ------------
-
 FlatBalloon is (not yet) available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
-
-    pod 'FlatBalloon', :git => 'https://github.com/AlexQuinlivan/FlatBalloon.git'
+```ruby
+pod 'FlatBalloon', :git => 'https://github.com/AlexQuinlivan/FlatBalloon.git'
+```
 
 
 License
