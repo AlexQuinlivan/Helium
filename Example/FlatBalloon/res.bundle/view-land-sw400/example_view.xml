@@ -7,7 +7,7 @@
     background_color="#F00">
     <UIView
         layout_width="match_parent"
-        layout_height="400"
+        layout_height="200"
         layout="frame"
         background_color="#ABCDEF" />
 </UIView>

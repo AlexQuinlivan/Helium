@@ -1,5 +1,7 @@
 PODS:
-  - FlatBalloon (0.0.1)
+  - EDSemver (0.3.0)
+  - FlatBalloon (0.0.1):
+    - EDSemver (~> 0.3.0)
 
 DEPENDENCIES:
   - FlatBalloon (from `../`)
@@ -9,6 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FlatBalloon: 57ffa9a4a62c822b3fd08624a60373a8074e6f12
+  EDSemver: 1eb8b041bc8681c341681bda9d4e4a61f8f495f1
+  FlatBalloon: 4b3da743e48be54d17a309817994628176591bbe
 
 COCOAPODS: 0.36.0

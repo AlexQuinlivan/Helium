@@ -7,322 +7,431 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08FEC2557316CA10E32D278E /* FLBAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = FD46FDBC3E2B3C24E0A64912 /* FLBAssociatedObjects.h */; };
-		15A6EAB429A9536BC7F86EBF /* FLBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C036C1E97F4BF3D85F34FE2 /* FLBLayout.m */; };
-		17166C4EAB32393789F8274E /* FLBViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BB7F2A5EF6C901A63ECBA50 /* FLBViewInjector.h */; };
-		21028EBBA82C80B75BC75005 /* FLBInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD8CA166486AD8802F03BFF /* FLBInflatableViewController.h */; };
-		233A8AC055542FBABE1DD058 /* FLBViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = D22FEE550A2567FD9CBB580A /* FLBViewInjector.m */; };
-		2F97BDC6135A1514134CE087 /* FLBAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = D861ED636B3EAC688F985207 /* FLBAttributes.m */; };
-		38DC2039DCC8376B1DA6D0B6 /* FLBAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = D861ED636B3EAC688F985207 /* FLBAttributes.m */; };
-		3D3444EB526FCCA8D1C94F8C /* FLBResources.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F9FBD2320B2F1B4AAD874 /* FLBResources.m */; };
-		46D513BA5037438C2B3819FA /* TBXML+ChildIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = ED41B72E63A56D3B336B0CD3 /* TBXML+ChildIterator.h */; };
-		473B1DB04260D66E69DE7353 /* FLBViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = D22FEE550A2567FD9CBB580A /* FLBViewInjector.m */; };
-		480E81A83BAE7925B108FB71 /* FLBLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5840C6A824E5644B54A1D1AA /* FLBLayoutInflator.m */; };
-		4DA2CFAE5D77367674466D78 /* FLBResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EDA0713D9DD6C23A69288A /* FLBResources.h */; };
-		4FB33EEDD4332E733531C35C /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 95698B43E1B4D9F215FAEEEA /* NSString+Convert.m */; };
-		515E25EB9C8D8A1D387424F0 /* FLBAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = FD46FDBC3E2B3C24E0A64912 /* FLBAssociatedObjects.h */; };
-		52A206559EBF83BEEBCD159A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C9E6AC39EC7F8A3E6EE806 /* Foundation.framework */; };
-		5FF1E608DA725751E19437B9 /* FLBAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4DC501E2B9ED037E9BA138 /* FLBAttributes.h */; };
-		624543BCF257800C54BD0842 /* TBXML+ChildIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F9DBCF36023966B708843D /* TBXML+ChildIterator.m */; };
-		6523E7C3C969C924AA72A64E /* FLBLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A80EF9B2F45B400B151490F /* FLBLayout.h */; };
-		67639AC825F20969A5CB0D5F /* TBXML+ChildIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F9DBCF36023966B708843D /* TBXML+ChildIterator.m */; };
-		72263AC555C251EC356E7226 /* Pods-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E5B47C299ACAEE115F53A0 /* Pods-FlatBalloon-dummy.m */; };
-		76EE597AD3A24CEB528BDE42 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F06A9615A2DE07C9DCD21F /* NSString+Convert.h */; };
-		7A5A484DED546FCC48523D76 /* FLBLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A80EF9B2F45B400B151490F /* FLBLayout.h */; };
-		7DF78B86303D174577410A31 /* FLBInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0646B6B0316674E48E9103C /* FLBInflatableViewController.m */; };
-		8C98BAE379A9731F67F86300 /* TBXML+ChildIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = ED41B72E63A56D3B336B0CD3 /* TBXML+ChildIterator.h */; };
-		8EC59EA6C04455033CFBFBD1 /* FLBLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DC356E2AB0D5185E63A6DC9 /* FLBLayoutInflator.h */; };
-		8FCE5CB847A2B82916EBD268 /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = E7BFC140BE7109361D816169 /* TBXML.h */; };
-		91351474084B2BA039D451A7 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = F130C9F32739487DF4B98B6D /* TBXML.m */; };
-		91B551F999E1F76C3427B19B /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = E7BFC140BE7109361D816169 /* TBXML.h */; };
-		9803FF1ED20D8813B96826D5 /* FLBAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4DC501E2B9ED037E9BA138 /* FLBAttributes.h */; };
-		98DB91B45AA7BA926058AA37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C9E6AC39EC7F8A3E6EE806 /* Foundation.framework */; };
-		B40A0A3BC595032D8F85C081 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C9E6AC39EC7F8A3E6EE806 /* Foundation.framework */; };
-		BD58804265B23DD4452061A9 /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7C0E596432E02E80A6EF7 /* Pods-FlatBalloon-FlatBalloon-dummy.m */; };
-		BDB8A6FA8F6E15E3853A8B02 /* FLBLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DC356E2AB0D5185E63A6DC9 /* FLBLayoutInflator.h */; };
-		C154120CB427128B70F5F2EE /* Pods-Tests-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D53CCFA1780D55F96B11D /* Pods-Tests-FlatBalloon-dummy.m */; };
-		C2DCCCE363BB03E85C3E0279 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 83ADAAD38D43E0DADC532A49 /* Pods-Tests-dummy.m */; };
-		C410EC36CE962C26F3C222F6 /* FLBResources.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F9FBD2320B2F1B4AAD874 /* FLBResources.m */; };
-		C453F4C47F1484FB31A1A552 /* FLBResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 40EDA0713D9DD6C23A69288A /* FLBResources.h */; };
-		C737F5A7BF637BAFB7CFB9BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C9E6AC39EC7F8A3E6EE806 /* Foundation.framework */; };
-		C8F8E7DE913A3DA25AFF19DB /* FLBViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BB7F2A5EF6C901A63ECBA50 /* FLBViewInjector.h */; };
-		C921FC4B206D27E6B448FBE0 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 95698B43E1B4D9F215FAEEEA /* NSString+Convert.m */; };
-		D014B8FF32AF029A2F770175 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = F130C9F32739487DF4B98B6D /* TBXML.m */; };
-		D1475881DBA34F29E94CF437 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F06A9615A2DE07C9DCD21F /* NSString+Convert.h */; };
-		D43453990131FEBF41EAD049 /* FLBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C036C1E97F4BF3D85F34FE2 /* FLBLayout.m */; };
-		E5C4A8583A56FA468FBE3743 /* FLBInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0646B6B0316674E48E9103C /* FLBInflatableViewController.m */; };
-		E7DD99E145D7CDA1D02D08CF /* FLBInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD8CA166486AD8802F03BFF /* FLBInflatableViewController.h */; };
-		EB17ECD888F6DE9166A921A8 /* FLBLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5840C6A824E5644B54A1D1AA /* FLBLayoutInflator.m */; };
-		FA9801AA1AB7EA2C00E98541 /* FLBLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801A81AB7EA2C00E98541 /* FLBLayoutRootView.h */; };
-		FA9801AB1AB7EA2C00E98541 /* FLBLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801A91AB7EA2C00E98541 /* FLBLayoutRootView.m */; };
-		FA9801B01AB7EE9500E98541 /* FLBLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801AE1AB7EE9500E98541 /* FLBLinearLayoutManager.h */; };
-		FA9801B11AB7EE9500E98541 /* FLBLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801AF1AB7EE9500E98541 /* FLBLinearLayoutManager.m */; };
-		FA9801B41AB7EEC200E98541 /* FLBFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801B21AB7EEC200E98541 /* FLBFrameLayoutManager.h */; };
-		FA9801B51AB7EEC200E98541 /* FLBFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801B31AB7EEC200E98541 /* FLBFrameLayoutManager.m */; };
-		FA9801B81AB7EEE200E98541 /* FLBRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA9801B61AB7EEE200E98541 /* FLBRelativeLayoutManager.h */; };
-		FA9801B91AB7EEE200E98541 /* FLBRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9801B71AB7EEE200E98541 /* FLBRelativeLayoutManager.m */; };
+		02D42CF39B6C3D61592BDF93 /* FLBAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A13C9CADBF5D86883326D7 /* FLBAttributes.h */; };
+		03A21AD19A0C00A07A44F0ED /* FLBInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E33F2BDDE94A82BAAF40B73 /* FLBInflatableViewController.h */; };
+		0982D48D624DC5568641315D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529CCEDC2822596044E3D1B8 /* Foundation.framework */; };
+		0988F4C9FE11D19D76240771 /* FLBFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F871E5BF0D58EB3F8A3188A1 /* FLBFrameLayoutManager.h */; };
+		0EC052AA0125FE6DBABADCA2 /* FLBLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBE9619CA43654304BEBE32 /* FLBLinearLayoutManager.h */; };
+		0ECFA3E6132D5511D0D0168B /* FLBLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D89AB9806D1D36215CE242B1 /* FLBLinearLayoutManager.m */; };
+		13FAF204557A226BD7144695 /* FLBLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = 35B4FDA7A31B1652958DCBAE /* FLBLayoutRootView.h */; };
+		18ABD98AD03E38E5BC2AFC55 /* FLBAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A229ABF9EAF7EEEE0729687 /* FLBAssociatedObjects.h */; };
+		190498F2C30C54BF20C9CF5C /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FAD5F045BC2D8F689E91F4 /* TBXML.h */; };
+		19144AF442CBDD947D4A915D /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 59ECCD880EE5CB95C806E3D5 /* TBXML.m */; };
+		271156DA2E379952E402C618 /* FLBInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096EE9A0B7C37C43842E601F /* FLBInflatableViewController.m */; };
+		2D2E27E990A18DEA9BB12937 /* FLBLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D89AB9806D1D36215CE242B1 /* FLBLinearLayoutManager.m */; };
+		355F46B80DCE7F95D0CBD395 /* FLBViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = E9C8A747145D53E52AE9C47A /* FLBViewInjector.h */; };
+		37854223CBC15256E395B78F /* FLBInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096EE9A0B7C37C43842E601F /* FLBInflatableViewController.m */; };
+		3BF9DE9E4D549C3951C32DED /* FLBRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6827C86750D063DFB1589C6B /* FLBRelativeLayoutManager.h */; };
+		407A22023C393D0A49364318 /* TBXML+ChildIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E56BF1BC81797F4CA0F397 /* TBXML+ChildIterator.m */; };
+		428A209EE6EE40ED3DE87C67 /* FLBViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAE1CD76BB100A27EEDDEB /* FLBViewInjector.m */; };
+		43A0A973F2F8E5BAC150E892 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529CCEDC2822596044E3D1B8 /* Foundation.framework */; };
+		479A1C319C47C723647C730D /* FLBInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E33F2BDDE94A82BAAF40B73 /* FLBInflatableViewController.h */; };
+		492FFE3E4B2628A59287938F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529CCEDC2822596044E3D1B8 /* Foundation.framework */; };
+		4AC635ECF41C726C24A62CD6 /* FLBRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182449D75D23D8403D259A9 /* FLBRelativeLayoutManager.m */; };
+		4B31ED134F8A6CB3E3BE01A1 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B80741F57C3960611A844F /* Pods-Tests-dummy.m */; };
+		4B80D348F0C7D15E47921A95 /* FLBAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F61ACD8C5EA8C78CBF33511 /* FLBAttributes.m */; };
+		4BFAD0821FAD4FFE2741A7DF /* FLBAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A13C9CADBF5D86883326D7 /* FLBAttributes.h */; };
+		4C86C8DD1E8A4ABF09A78ABE /* FLBLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DCC23679F4DD2F65CF0C29 /* FLBLayoutRootView.m */; };
+		54BD890208DF431D9DE2EBD2 /* FLBFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F871E5BF0D58EB3F8A3188A1 /* FLBFrameLayoutManager.h */; };
+		63B19840BB745D125B2EBB7B /* Pods-Tests-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB597B05FFAF1B8343FD743F /* Pods-Tests-FlatBalloon-dummy.m */; };
+		66CDC1AE78EAFFA9EBE50810 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B2560E1D94745C9B6AE2E72 /* NSString+Convert.h */; };
+		689CF661A8A511FE934D1947 /* FLBViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = E9C8A747145D53E52AE9C47A /* FLBViewInjector.h */; };
+		6B866B172B77DAE8B9C022B9 /* Pods-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B2897CF7014416ECA843DC /* Pods-FlatBalloon-dummy.m */; };
+		72B164E6E496984941195E75 /* FLBFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B3A71D182F4A3859E89BB6 /* FLBFrameLayoutManager.m */; };
+		78D9E50E13F5E8EAA4715647 /* FLBLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A38BA7CCB38A113A563F61 /* FLBLayout.h */; };
+		7A9A9E275489DEDE4E203EC6 /* FLBLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 11DBAE5A68AE6ED58BAB7844 /* FLBLayoutInflator.h */; };
+		8331AD33ED6C20C25368D348 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2978253624C805955A17B683 /* NSString+Convert.m */; };
+		85DF6BFE70E6B598FB0179C9 /* FLBResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 023E71BAEAED8333B6EDB791 /* FLBResources.h */; };
+		90E8ED8F413332A2B3A29523 /* EDSemver.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9CB0C4C7654549DB70BFD4 /* EDSemver.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9245FF1C50661448EBF9B737 /* FLBLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 19A38BA7CCB38A113A563F61 /* FLBLayout.h */; };
+		9E3DE08F77CF40989AF7E24A /* FLBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D021AC2EAEC60EE4334EC036 /* FLBLayout.m */; };
+		9E607DFFDF4889DE6BCC1793 /* FLBLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1A0F9DDBFBB24100A2A9A /* FLBLayoutInflator.m */; };
+		9F7FE38B16FB6CE8D52DC4D2 /* TBXML.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FAD5F045BC2D8F689E91F4 /* TBXML.h */; };
+		A18EFA1C001D5440AD6A4615 /* Pods-Tests-EDSemver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4204B614AF243A0B0D9C5E /* Pods-Tests-EDSemver-dummy.m */; };
+		A28783486BCD5340BE25A73C /* FLBRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4182449D75D23D8403D259A9 /* FLBRelativeLayoutManager.m */; };
+		AB2066B3BBAA6E647BA3CFA2 /* Pods-FlatBalloon-EDSemver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6782C8867E3A2ACC95A88600 /* Pods-FlatBalloon-EDSemver-dummy.m */; };
+		AC100E7D7BE8C6C240BF7395 /* FLBResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 023E71BAEAED8333B6EDB791 /* FLBResources.h */; };
+		AF6480EE46F4AE2600960F9E /* FLBFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B3A71D182F4A3859E89BB6 /* FLBFrameLayoutManager.m */; };
+		B1036F1FF714025A0E6A8A43 /* FLBRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6827C86750D063DFB1589C6B /* FLBRelativeLayoutManager.h */; };
+		B8DEF507123ADBE5400C37B3 /* FLBLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = 35B4FDA7A31B1652958DCBAE /* FLBLayoutRootView.h */; };
+		B95A1C5D3A0C0BBD6F9995C4 /* TBXML+ChildIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF6AA28BB6223716443BE0F /* TBXML+ChildIterator.h */; };
+		BFBF882A21B75203B4AB5715 /* FLBLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1A0F9DDBFBB24100A2A9A /* FLBLayoutInflator.m */; };
+		C012B1924FCEEDD63F6E995F /* FLBLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 11DBAE5A68AE6ED58BAB7844 /* FLBLayoutInflator.h */; };
+		C05A750C62E4DD9DD12D5CAA /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8519F0463C07D8D4AAAB83F9 /* Pods-FlatBalloon-FlatBalloon-dummy.m */; };
+		C2541907F4135EA8D22CB936 /* FLBAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F61ACD8C5EA8C78CBF33511 /* FLBAttributes.m */; };
+		C7B19840F4102A88659B47A3 /* TBXML+ChildIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E56BF1BC81797F4CA0F397 /* TBXML+ChildIterator.m */; };
+		CF911E001E7182E2D6CC8241 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529CCEDC2822596044E3D1B8 /* Foundation.framework */; };
+		D60FC09007A56ACA670AA5E2 /* FLBAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A229ABF9EAF7EEEE0729687 /* FLBAssociatedObjects.h */; };
+		D9137186FFE9B6362872C1ED /* FLBResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 885FA1A07A6703DE517704F0 /* FLBResources.m */; };
+		DB0C02299AAB29274DD6B50C /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 59ECCD880EE5CB95C806E3D5 /* TBXML.m */; };
+		DB6A5D12003E1190B4614570 /* FLBLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D021AC2EAEC60EE4334EC036 /* FLBLayout.m */; };
+		DC780B2D71AD466E9530CA24 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B2560E1D94745C9B6AE2E72 /* NSString+Convert.h */; };
+		DC9768DA9B188251CAE69C34 /* FLBViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAE1CD76BB100A27EEDDEB /* FLBViewInjector.m */; };
+		E50F562E8199F68242680196 /* FLBResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 885FA1A07A6703DE517704F0 /* FLBResources.m */; };
+		E97ADC3C5169BC9EB24A36D3 /* EDSemver.h in Headers */ = {isa = PBXBuildFile; fileRef = DCCDCAB7A3DDFE8EEFCBC0C5 /* EDSemver.h */; };
+		EBC3CB2050A5D523D3887A18 /* FLBLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DCC23679F4DD2F65CF0C29 /* FLBLayoutRootView.m */; };
+		EEE9F93AECDC3DF5404AEE89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529CCEDC2822596044E3D1B8 /* Foundation.framework */; };
+		EFF1D8F9271AD90D85B16421 /* EDSemver.h in Headers */ = {isa = PBXBuildFile; fileRef = DCCDCAB7A3DDFE8EEFCBC0C5 /* EDSemver.h */; };
+		F3088B425AC704EA064BC90D /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2978253624C805955A17B683 /* NSString+Convert.m */; };
+		F7E564561356274B091C5412 /* FLBLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBE9619CA43654304BEBE32 /* FLBLinearLayoutManager.h */; };
+		F98DA240D594FCB76025DED7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529CCEDC2822596044E3D1B8 /* Foundation.framework */; };
+		FC3648FCF2AE8DED6C5BA761 /* TBXML+ChildIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF6AA28BB6223716443BE0F /* TBXML+ChildIterator.h */; };
+		FC97E01246F24E989C0B8D6F /* EDSemver.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9CB0C4C7654549DB70BFD4 /* EDSemver.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		88035E274DD69181BB60AA13 /* PBXContainerItemProxy */ = {
+		3A61B2A3A2DD7A70FBD1DA2C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 05557AB85432774982FB7F5B /* Project object */;
+			containerPortal = 2F5226B08DFD3AAE900549C9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3CB8611E61374B9541152611;
-			remoteInfo = "Pods-Tests-FlatBalloon";
+			remoteGlobalIDString = DE35546D17FFAD4FD4619A89;
+			remoteInfo = "Pods-Tests-EDSemver";
 		};
-		A8FD99CE56DAF5FCD682CCEA /* PBXContainerItemProxy */ = {
+		45F683CC634862797119BCA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 05557AB85432774982FB7F5B /* Project object */;
+			containerPortal = 2F5226B08DFD3AAE900549C9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9FB48E6A4F95EF086E3BFE26;
+			remoteGlobalIDString = 37F455BC7F3163A9DA30047B;
+			remoteInfo = "Pods-FlatBalloon-EDSemver";
+		};
+		72A17D8792585234C41BA186 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F5226B08DFD3AAE900549C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42384E6E959EF8C61C6DFE9C;
 			remoteInfo = "Pods-FlatBalloon-FlatBalloon";
+		};
+		8942FD29F2A0A85243289B62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F5226B08DFD3AAE900549C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE35546D17FFAD4FD4619A89;
+			remoteInfo = "Pods-Tests-EDSemver";
+		};
+		EC0A9A02E23BBE02BC2A7099 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F5226B08DFD3AAE900549C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37F455BC7F3163A9DA30047B;
+			remoteInfo = "Pods-FlatBalloon-EDSemver";
+		};
+		F16D164F13B4993E85166CDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F5226B08DFD3AAE900549C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D87C6E5F9DB278ECEFA01032;
+			remoteInfo = "Pods-Tests-FlatBalloon";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		027304BD877109B0CAE8262F /* libPods-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0C3440DC9D11CA6CB9DA60C3 /* Pods-Tests-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
-		0F4D3CBDBCA70F23C40769A3 /* Pods-FlatBalloon-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatBalloon-resources.sh"; sourceTree = "<group>"; };
-		14E9919C29EAE02BC01A1673 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
-		1AB8E94C0CCAFBF2270ED390 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		21F06A9615A2DE07C9DCD21F /* NSString+Convert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
-		221F306B3BCD713676169E4B /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		28F7C0E596432E02E80A6EF7 /* Pods-FlatBalloon-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
-		297A47714A5BB4FE5F1FC178 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		2B029B35DF4636F49A32F85D /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		2C036C1E97F4BF3D85F34FE2 /* FLBLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBLayout.m; sourceTree = "<group>"; };
-		2DAAB0ECEFC585AF5C059742 /* Pods-FlatBalloon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.release.xcconfig"; sourceTree = "<group>"; };
-		2F7D53CCFA1780D55F96B11D /* Pods-Tests-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-FlatBalloon-dummy.m"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
-		37E5B47C299ACAEE115F53A0 /* Pods-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
-		3BD8CA166486AD8802F03BFF /* FLBInflatableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBInflatableViewController.h; sourceTree = "<group>"; };
-		40EDA0713D9DD6C23A69288A /* FLBResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBResources.h; sourceTree = "<group>"; };
-		4BB7F2A5EF6C901A63ECBA50 /* FLBViewInjector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBViewInjector.h; sourceTree = "<group>"; };
-		55E4AA44605C3230107DB729 /* libPods-Tests-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5840C6A824E5644B54A1D1AA /* FLBLayoutInflator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBLayoutInflator.m; sourceTree = "<group>"; };
-		6A80EF9B2F45B400B151490F /* FLBLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBLayout.h; sourceTree = "<group>"; };
-		6DC356E2AB0D5185E63A6DC9 /* FLBLayoutInflator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBLayoutInflator.h; sourceTree = "<group>"; };
-		6F6394F8794070574A4D9B51 /* Pods-FlatBalloon-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
-		72B4B465E96E7DDB5AB720FC /* Pods-FlatBalloon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.debug.xcconfig"; sourceTree = "<group>"; };
-		7676CE0E62088BE83857E072 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		7F7F3C35EFD990B3FBCE36F4 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
-		83ADAAD38D43E0DADC532A49 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		87904127295E028C95C974CA /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		949AE267A8D9708B1CFC926D /* Pods-Tests-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-FlatBalloon-prefix.pch"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
-		95698B43E1B4D9F215FAEEEA /* NSString+Convert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
-		975EF4D3D2278A6158FBCC2A /* Pods-FlatBalloon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlatBalloon-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9F4DC501E2B9ED037E9BA138 /* FLBAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBAttributes.h; sourceTree = "<group>"; };
-		A88AB45CCF4732435C123B68 /* Pods-FlatBalloon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlatBalloon-acknowledgements.plist"; sourceTree = "<group>"; };
-		B0646B6B0316674E48E9103C /* FLBInflatableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBInflatableViewController.m; sourceTree = "<group>"; };
-		B3F9DBCF36023966B708843D /* TBXML+ChildIterator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TBXML+ChildIterator.m"; sourceTree = "<group>"; };
-		B61F9FBD2320B2F1B4AAD874 /* FLBResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBResources.m; sourceTree = "<group>"; };
-		C10C08176E136EE6E6E77B1D /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C9C9E6AC39EC7F8A3E6EE806 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CAC40D2D13A01C53C1AA98AD /* Pods-Tests-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon-Private.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
-		CB6D700764381F360DF93E80 /* Pods-FlatBalloon-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
-		D22FEE550A2567FD9CBB580A /* FLBViewInjector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBViewInjector.m; sourceTree = "<group>"; };
-		D861ED636B3EAC688F985207 /* FLBAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBAttributes.m; sourceTree = "<group>"; };
-		E7BFC140BE7109361D816169 /* TBXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
-		E864A18BB8A05DB1B05A1EEB /* libPods-FlatBalloon-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8DC34EAE77329248BDA5442 /* Pods-FlatBalloon-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-environment.h"; sourceTree = "<group>"; };
-		ED41B72E63A56D3B336B0CD3 /* TBXML+ChildIterator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TBXML+ChildIterator.h"; sourceTree = "<group>"; };
-		F130C9F32739487DF4B98B6D /* TBXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
-		FA9801A81AB7EA2C00E98541 /* FLBLayoutRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBLayoutRootView.h; sourceTree = "<group>"; };
-		FA9801A91AB7EA2C00E98541 /* FLBLayoutRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBLayoutRootView.m; sourceTree = "<group>"; };
-		FA9801AE1AB7EE9500E98541 /* FLBLinearLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBLinearLayoutManager.h; sourceTree = "<group>"; };
-		FA9801AF1AB7EE9500E98541 /* FLBLinearLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBLinearLayoutManager.m; sourceTree = "<group>"; };
-		FA9801B21AB7EEC200E98541 /* FLBFrameLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBFrameLayoutManager.h; sourceTree = "<group>"; };
-		FA9801B31AB7EEC200E98541 /* FLBFrameLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBFrameLayoutManager.m; sourceTree = "<group>"; };
-		FA9801B61AB7EEE200E98541 /* FLBRelativeLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBRelativeLayoutManager.h; sourceTree = "<group>"; };
-		FA9801B71AB7EEE200E98541 /* FLBRelativeLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBRelativeLayoutManager.m; sourceTree = "<group>"; };
-		FD46FDBC3E2B3C24E0A64912 /* FLBAssociatedObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBAssociatedObjects.h; sourceTree = "<group>"; };
+		023E71BAEAED8333B6EDB791 /* FLBResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBResources.h; sourceTree = "<group>"; };
+		054A55BC079F5B4A98F7EBCD /* Pods-FlatBalloon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlatBalloon-acknowledgements.markdown"; sourceTree = "<group>"; };
+		096EE9A0B7C37C43842E601F /* FLBInflatableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBInflatableViewController.m; sourceTree = "<group>"; };
+		11DBAE5A68AE6ED58BAB7844 /* FLBLayoutInflator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBLayoutInflator.h; sourceTree = "<group>"; };
+		1357BA47A9EAC34A082A888A /* Pods-FlatBalloon-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-environment.h"; sourceTree = "<group>"; };
+		19A38BA7CCB38A113A563F61 /* FLBLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBLayout.h; sourceTree = "<group>"; };
+		1A36D92AEC54CBA85CD443AE /* Pods-FlatBalloon-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatBalloon-resources.sh"; sourceTree = "<group>"; };
+		1F5A4DF4D0056F42156619AD /* Pods-Tests-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon-Private.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
+		218B71A46B377F360979BE92 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		239FF8092145E24AD8B06A4C /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		259131EA93C440781C6CBD25 /* Pods-Tests-EDSemver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-EDSemver-prefix.pch"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch"; sourceTree = "<group>"; };
+		2978253624C805955A17B683 /* NSString+Convert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
+		29FBAE5BEEE278EF9FCE895D /* Pods-Tests-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-FlatBalloon.xcconfig"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
+		2B9CF6C230A6CD80A0F9F7FD /* Pods-FlatBalloon-EDSemver-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-EDSemver-Private.xcconfig"; sourceTree = "<group>"; };
+		2E33F2BDDE94A82BAAF40B73 /* FLBInflatableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBInflatableViewController.h; sourceTree = "<group>"; };
+		2FBE9619CA43654304BEBE32 /* FLBLinearLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBLinearLayoutManager.h; sourceTree = "<group>"; };
+		31D2C0551D3B8E91FBD04C17 /* Pods-FlatBalloon-FlatBalloon.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon.xcconfig"; sourceTree = "<group>"; };
+		35B4FDA7A31B1652958DCBAE /* FLBLayoutRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBLayoutRootView.h; sourceTree = "<group>"; };
+		3A229ABF9EAF7EEEE0729687 /* FLBAssociatedObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBAssociatedObjects.h; sourceTree = "<group>"; };
+		3E6CC41C2C13196D84394715 /* libPods-FlatBalloon-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4182449D75D23D8403D259A9 /* FLBRelativeLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBRelativeLayoutManager.m; sourceTree = "<group>"; };
+		529CCEDC2822596044E3D1B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		53DCC23679F4DD2F65CF0C29 /* FLBLayoutRootView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBLayoutRootView.m; sourceTree = "<group>"; };
+		57A25E5FA3587851F4037A0C /* Pods-Tests-EDSemver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-EDSemver.xcconfig"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver.xcconfig"; sourceTree = "<group>"; };
+		59ECCD880EE5CB95C806E3D5 /* TBXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		633031F44AE2BDA2082E4C9E /* libPods-FlatBalloon-EDSemver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon-EDSemver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63BA4912B50981FA05DA1113 /* libPods-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64B2897CF7014416ECA843DC /* Pods-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
+		6619091B7DF400CA287D9DDF /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6782C8867E3A2ACC95A88600 /* Pods-FlatBalloon-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-EDSemver-dummy.m"; sourceTree = "<group>"; };
+		6827C86750D063DFB1589C6B /* FLBRelativeLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBRelativeLayoutManager.h; sourceTree = "<group>"; };
+		68B80741F57C3960611A844F /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		6A80476DFE8E25F4AC56133B /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F4B73C3EE3861DA3B57917B /* libPods-Tests-EDSemver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-EDSemver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73A65AD349CAA764A9C98CC6 /* Pods-Tests-EDSemver-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-EDSemver-Private.xcconfig"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-Private.xcconfig"; sourceTree = "<group>"; };
+		7D03D7268A7D237AFB631374 /* Pods-FlatBalloon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.release.xcconfig"; sourceTree = "<group>"; };
+		7F61ACD8C5EA8C78CBF33511 /* FLBAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBAttributes.m; sourceTree = "<group>"; };
+		8519F0463C07D8D4AAAB83F9 /* Pods-FlatBalloon-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatBalloon-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
+		885FA1A07A6703DE517704F0 /* FLBResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBResources.m; sourceTree = "<group>"; };
+		89E56BF1BC81797F4CA0F397 /* TBXML+ChildIterator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TBXML+ChildIterator.m"; sourceTree = "<group>"; };
+		8B2560E1D94745C9B6AE2E72 /* NSString+Convert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
+		8DC222B06C7E52332E11B146 /* Pods-FlatBalloon-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
+		8EBAE1CD76BB100A27EEDDEB /* FLBViewInjector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBViewInjector.m; sourceTree = "<group>"; };
+		91C5A3B6FF34DAA055FF7CC8 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9321D95444E2DA5A359D853D /* Pods-FlatBalloon-EDSemver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-EDSemver.xcconfig"; sourceTree = "<group>"; };
+		998822F51071914FEDDBD293 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		A9A13C9CADBF5D86883326D7 /* FLBAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBAttributes.h; sourceTree = "<group>"; };
+		ABC4CFA409053B50EF812F7D /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AD29B0EB5C894E8104D34AE3 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon-FlatBalloon-Private.xcconfig"; sourceTree = "<group>"; };
+		AD9CB0C4C7654549DB70BFD4 /* EDSemver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EDSemver.m; path = EDSemver/EDSemver.m; sourceTree = "<group>"; };
+		AE1AF6EE19EEFCE27CA6D0CA /* Pods-FlatBalloon-EDSemver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatBalloon-EDSemver-prefix.pch"; sourceTree = "<group>"; };
+		AEF1A0F9DDBFBB24100A2A9A /* FLBLayoutInflator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBLayoutInflator.m; sourceTree = "<group>"; };
+		AFF6AA28BB6223716443BE0F /* TBXML+ChildIterator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TBXML+ChildIterator.h"; sourceTree = "<group>"; };
+		B4F9CF3E8F87963DEA13BD83 /* Pods-FlatBalloon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlatBalloon-acknowledgements.plist"; sourceTree = "<group>"; };
+		B518C9BB261C2DEC79EB141E /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		CB597B05FFAF1B8343FD743F /* Pods-Tests-FlatBalloon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-FlatBalloon-dummy.m"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-dummy.m"; sourceTree = "<group>"; };
+		D021AC2EAEC60EE4334EC036 /* FLBLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBLayout.m; sourceTree = "<group>"; };
+		D89AB9806D1D36215CE242B1 /* FLBLinearLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBLinearLayoutManager.m; sourceTree = "<group>"; };
+		D9D11CB65D5542674AADAC57 /* Pods-Tests-FlatBalloon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-FlatBalloon-prefix.pch"; path = "../Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch"; sourceTree = "<group>"; };
+		DB7877BFA793780B75AF793A /* Pods-FlatBalloon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatBalloon.debug.xcconfig"; sourceTree = "<group>"; };
+		DCCDCAB7A3DDFE8EEFCBC0C5 /* EDSemver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EDSemver.h; path = EDSemver/EDSemver.h; sourceTree = "<group>"; };
+		E64FE104E43B208BC3FC33CE /* libPods-Tests-FlatBalloon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-FlatBalloon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C8A747145D53E52AE9C47A /* FLBViewInjector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBViewInjector.h; sourceTree = "<group>"; };
+		F2B3A71D182F4A3859E89BB6 /* FLBFrameLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FLBFrameLayoutManager.m; sourceTree = "<group>"; };
+		F2FAD5F045BC2D8F689E91F4 /* TBXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		F871E5BF0D58EB3F8A3188A1 /* FLBFrameLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FLBFrameLayoutManager.h; sourceTree = "<group>"; };
+		FA4204B614AF243A0B0D9C5E /* Pods-Tests-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-EDSemver-dummy.m"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		80F9069C9C5ACDCEB34CE04E /* Frameworks */ = {
+		1C3909F26F4CFFDC839955A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B40A0A3BC595032D8F85C081 /* Foundation.framework in Frameworks */,
+				0982D48D624DC5568641315D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8FDEB9539D977C9CBBCF1D88 /* Frameworks */ = {
+		4B4ADC57F0EA2D0639A8AAB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52A206559EBF83BEEBCD159A /* Foundation.framework in Frameworks */,
+				492FFE3E4B2628A59287938F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA9507B3A74F315A472002B1 /* Frameworks */ = {
+		57220F6C33B2F0A988EAB610 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98DB91B45AA7BA926058AA37 /* Foundation.framework in Frameworks */,
+				43A0A973F2F8E5BAC150E892 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DBC3DB2FAF26A6DCDC66B72F /* Frameworks */ = {
+		A790E5D062B4F79763237F61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C737F5A7BF637BAFB7CFB9BD /* Foundation.framework in Frameworks */,
+				EEE9F93AECDC3DF5404AEE89 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B32430D0F8454A4962CB1315 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F98DA240D594FCB76025DED7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D06D7332DCBF77AE1D5466BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF911E001E7182E2D6CC8241 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E22CE45EB2F1EAF4F597090 /* Development Pods */ = {
+		2CE7560094B58A93ECD57C1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				551FC037849F065FD9982748 /* FlatBalloon */,
+				529CCEDC2822596044E3D1B8 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4B558FA71E732B703D107F4B /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE9117BAA8CE2E42ED313A17 /* FlatBalloon */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		1924B226CB999F52FCD2A8A2 = {
+		6202EF73482210684972AF24 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7676CE0E62088BE83857E072 /* Podfile */,
-				0E22CE45EB2F1EAF4F597090 /* Development Pods */,
-				385C8F5ECA0ADA58FF73B246 /* Frameworks */,
-				BDE4FDC56C5EA40FB58AA3D1 /* Products */,
-				6E886F0F3B85C81579DE47EE /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		23E28935D907AC0FD395343F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6F6394F8794070574A4D9B51 /* Pods-FlatBalloon-FlatBalloon.xcconfig */,
-				14E9919C29EAE02BC01A1673 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */,
-				28F7C0E596432E02E80A6EF7 /* Pods-FlatBalloon-FlatBalloon-dummy.m */,
-				CB6D700764381F360DF93E80 /* Pods-FlatBalloon-FlatBalloon-prefix.pch */,
-				0C3440DC9D11CA6CB9DA60C3 /* Pods-Tests-FlatBalloon.xcconfig */,
-				CAC40D2D13A01C53C1AA98AD /* Pods-Tests-FlatBalloon-Private.xcconfig */,
-				2F7D53CCFA1780D55F96B11D /* Pods-Tests-FlatBalloon-dummy.m */,
-				949AE267A8D9708B1CFC926D /* Pods-Tests-FlatBalloon-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Pods-FlatBalloon-FlatBalloon";
-			sourceTree = "<group>";
-		};
-		36DE2879B9939A18F1064F52 /* Pods-Tests */ = {
-			isa = PBXGroup;
-			children = (
-				221F306B3BCD713676169E4B /* Pods-Tests-acknowledgements.markdown */,
-				C10C08176E136EE6E6E77B1D /* Pods-Tests-acknowledgements.plist */,
-				83ADAAD38D43E0DADC532A49 /* Pods-Tests-dummy.m */,
-				7F7F3C35EFD990B3FBCE36F4 /* Pods-Tests-environment.h */,
-				2B029B35DF4636F49A32F85D /* Pods-Tests-resources.sh */,
-				297A47714A5BB4FE5F1FC178 /* Pods-Tests.debug.xcconfig */,
-				1AB8E94C0CCAFBF2270ED390 /* Pods-Tests.release.xcconfig */,
-			);
-			name = "Pods-Tests";
-			path = "Target Support Files/Pods-Tests";
-			sourceTree = "<group>";
-		};
-		36E1B426AE6D76C1B39F9907 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				FD46FDBC3E2B3C24E0A64912 /* FLBAssociatedObjects.h */,
-				9F4DC501E2B9ED037E9BA138 /* FLBAttributes.h */,
-				D861ED636B3EAC688F985207 /* FLBAttributes.m */,
-				3BD8CA166486AD8802F03BFF /* FLBInflatableViewController.h */,
-				B0646B6B0316674E48E9103C /* FLBInflatableViewController.m */,
-				6A80EF9B2F45B400B151490F /* FLBLayout.h */,
-				2C036C1E97F4BF3D85F34FE2 /* FLBLayout.m */,
-				6DC356E2AB0D5185E63A6DC9 /* FLBLayoutInflator.h */,
-				5840C6A824E5644B54A1D1AA /* FLBLayoutInflator.m */,
-				40EDA0713D9DD6C23A69288A /* FLBResources.h */,
-				B61F9FBD2320B2F1B4AAD874 /* FLBResources.m */,
-				4BB7F2A5EF6C901A63ECBA50 /* FLBViewInjector.h */,
-				D22FEE550A2567FD9CBB580A /* FLBViewInjector.m */,
-				21F06A9615A2DE07C9DCD21F /* NSString+Convert.h */,
-				95698B43E1B4D9F215FAEEEA /* NSString+Convert.m */,
-				E7BFC140BE7109361D816169 /* TBXML.h */,
-				F130C9F32739487DF4B98B6D /* TBXML.m */,
-				ED41B72E63A56D3B336B0CD3 /* TBXML+ChildIterator.h */,
-				B3F9DBCF36023966B708843D /* TBXML+ChildIterator.m */,
-				FA9801A81AB7EA2C00E98541 /* FLBLayoutRootView.h */,
-				FA9801A91AB7EA2C00E98541 /* FLBLayoutRootView.m */,
-				FA9801AE1AB7EE9500E98541 /* FLBLinearLayoutManager.h */,
-				FA9801AF1AB7EE9500E98541 /* FLBLinearLayoutManager.m */,
-				FA9801B21AB7EEC200E98541 /* FLBFrameLayoutManager.h */,
-				FA9801B31AB7EEC200E98541 /* FLBFrameLayoutManager.m */,
-				FA9801B61AB7EEE200E98541 /* FLBRelativeLayoutManager.h */,
-				FA9801B71AB7EEE200E98541 /* FLBRelativeLayoutManager.m */,
+				3A229ABF9EAF7EEEE0729687 /* FLBAssociatedObjects.h */,
+				A9A13C9CADBF5D86883326D7 /* FLBAttributes.h */,
+				7F61ACD8C5EA8C78CBF33511 /* FLBAttributes.m */,
+				F871E5BF0D58EB3F8A3188A1 /* FLBFrameLayoutManager.h */,
+				F2B3A71D182F4A3859E89BB6 /* FLBFrameLayoutManager.m */,
+				2E33F2BDDE94A82BAAF40B73 /* FLBInflatableViewController.h */,
+				096EE9A0B7C37C43842E601F /* FLBInflatableViewController.m */,
+				19A38BA7CCB38A113A563F61 /* FLBLayout.h */,
+				D021AC2EAEC60EE4334EC036 /* FLBLayout.m */,
+				11DBAE5A68AE6ED58BAB7844 /* FLBLayoutInflator.h */,
+				AEF1A0F9DDBFBB24100A2A9A /* FLBLayoutInflator.m */,
+				35B4FDA7A31B1652958DCBAE /* FLBLayoutRootView.h */,
+				53DCC23679F4DD2F65CF0C29 /* FLBLayoutRootView.m */,
+				2FBE9619CA43654304BEBE32 /* FLBLinearLayoutManager.h */,
+				D89AB9806D1D36215CE242B1 /* FLBLinearLayoutManager.m */,
+				6827C86750D063DFB1589C6B /* FLBRelativeLayoutManager.h */,
+				4182449D75D23D8403D259A9 /* FLBRelativeLayoutManager.m */,
+				023E71BAEAED8333B6EDB791 /* FLBResources.h */,
+				885FA1A07A6703DE517704F0 /* FLBResources.m */,
+				E9C8A747145D53E52AE9C47A /* FLBViewInjector.h */,
+				8EBAE1CD76BB100A27EEDDEB /* FLBViewInjector.m */,
+				8B2560E1D94745C9B6AE2E72 /* NSString+Convert.h */,
+				2978253624C805955A17B683 /* NSString+Convert.m */,
+				F2FAD5F045BC2D8F689E91F4 /* TBXML.h */,
+				59ECCD880EE5CB95C806E3D5 /* TBXML.m */,
+				AFF6AA28BB6223716443BE0F /* TBXML+ChildIterator.h */,
+				89E56BF1BC81797F4CA0F397 /* TBXML+ChildIterator.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		385C8F5ECA0ADA58FF73B246 /* Frameworks */ = {
+		6CE9CE6CC8910E89F202B016 /* Pods-FlatBalloon */ = {
 			isa = PBXGroup;
 			children = (
-				BB31B53F5F8EE546A5D6314E /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		43934B5870B1CCAC7C03C1A9 /* Pods-FlatBalloon */ = {
-			isa = PBXGroup;
-			children = (
-				975EF4D3D2278A6158FBCC2A /* Pods-FlatBalloon-acknowledgements.markdown */,
-				A88AB45CCF4732435C123B68 /* Pods-FlatBalloon-acknowledgements.plist */,
-				37E5B47C299ACAEE115F53A0 /* Pods-FlatBalloon-dummy.m */,
-				E8DC34EAE77329248BDA5442 /* Pods-FlatBalloon-environment.h */,
-				0F4D3CBDBCA70F23C40769A3 /* Pods-FlatBalloon-resources.sh */,
-				72B4B465E96E7DDB5AB720FC /* Pods-FlatBalloon.debug.xcconfig */,
-				2DAAB0ECEFC585AF5C059742 /* Pods-FlatBalloon.release.xcconfig */,
+				054A55BC079F5B4A98F7EBCD /* Pods-FlatBalloon-acknowledgements.markdown */,
+				B4F9CF3E8F87963DEA13BD83 /* Pods-FlatBalloon-acknowledgements.plist */,
+				64B2897CF7014416ECA843DC /* Pods-FlatBalloon-dummy.m */,
+				1357BA47A9EAC34A082A888A /* Pods-FlatBalloon-environment.h */,
+				1A36D92AEC54CBA85CD443AE /* Pods-FlatBalloon-resources.sh */,
+				DB7877BFA793780B75AF793A /* Pods-FlatBalloon.debug.xcconfig */,
+				7D03D7268A7D237AFB631374 /* Pods-FlatBalloon.release.xcconfig */,
 			);
 			name = "Pods-FlatBalloon";
 			path = "Target Support Files/Pods-FlatBalloon";
 			sourceTree = "<group>";
 		};
-		551FC037849F065FD9982748 /* FlatBalloon */ = {
+		6EB9B0C573AD5AA5AD7D74AC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				866CEB26DFE5C2A34A0842FE /* Pod */,
-				23E28935D907AC0FD395343F /* Support Files */,
+				9321D95444E2DA5A359D853D /* Pods-FlatBalloon-EDSemver.xcconfig */,
+				2B9CF6C230A6CD80A0F9F7FD /* Pods-FlatBalloon-EDSemver-Private.xcconfig */,
+				6782C8867E3A2ACC95A88600 /* Pods-FlatBalloon-EDSemver-dummy.m */,
+				AE1AF6EE19EEFCE27CA6D0CA /* Pods-FlatBalloon-EDSemver-prefix.pch */,
+				57A25E5FA3587851F4037A0C /* Pods-Tests-EDSemver.xcconfig */,
+				73A65AD349CAA764A9C98CC6 /* Pods-Tests-EDSemver-Private.xcconfig */,
+				FA4204B614AF243A0B0D9C5E /* Pods-Tests-EDSemver-dummy.m */,
+				259131EA93C440781C6CBD25 /* Pods-Tests-EDSemver-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-FlatBalloon-EDSemver";
+			sourceTree = "<group>";
+		};
+		726AE3F576539290A3F3DA2C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4C327BBB2DF7375E98C7DCA /* EDSemver */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7D4E96FF967752FF41061410 /* Pods-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				218B71A46B377F360979BE92 /* Pods-Tests-acknowledgements.markdown */,
+				6619091B7DF400CA287D9DDF /* Pods-Tests-acknowledgements.plist */,
+				68B80741F57C3960611A844F /* Pods-Tests-dummy.m */,
+				998822F51071914FEDDBD293 /* Pods-Tests-environment.h */,
+				B518C9BB261C2DEC79EB141E /* Pods-Tests-resources.sh */,
+				239FF8092145E24AD8B06A4C /* Pods-Tests.debug.xcconfig */,
+				91C5A3B6FF34DAA055FF7CC8 /* Pods-Tests.release.xcconfig */,
+			);
+			name = "Pods-Tests";
+			path = "Target Support Files/Pods-Tests";
+			sourceTree = "<group>";
+		};
+		90D55749C4FDBC6B9BB29420 = {
+			isa = PBXGroup;
+			children = (
+				ABC4CFA409053B50EF812F7D /* Podfile */,
+				4B558FA71E732B703D107F4B /* Development Pods */,
+				A33E943CA2DD819F5F33FB38 /* Frameworks */,
+				726AE3F576539290A3F3DA2C /* Pods */,
+				F8F663A737E902918BCEFAC7 /* Products */,
+				A303D2222A004E1EEB1F016C /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A303D2222A004E1EEB1F016C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CE9CE6CC8910E89F202B016 /* Pods-FlatBalloon */,
+				7D4E96FF967752FF41061410 /* Pods-Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A33E943CA2DD819F5F33FB38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CE7560094B58A93ECD57C1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD7CAB654215CB4FAFF95EE6 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				6202EF73482210684972AF24 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		BDCD68B608478DC5EA7AF0B2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				31D2C0551D3B8E91FBD04C17 /* Pods-FlatBalloon-FlatBalloon.xcconfig */,
+				AD29B0EB5C894E8104D34AE3 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */,
+				8519F0463C07D8D4AAAB83F9 /* Pods-FlatBalloon-FlatBalloon-dummy.m */,
+				8DC222B06C7E52332E11B146 /* Pods-FlatBalloon-FlatBalloon-prefix.pch */,
+				29FBAE5BEEE278EF9FCE895D /* Pods-Tests-FlatBalloon.xcconfig */,
+				1F5A4DF4D0056F42156619AD /* Pods-Tests-FlatBalloon-Private.xcconfig */,
+				CB597B05FFAF1B8343FD743F /* Pods-Tests-FlatBalloon-dummy.m */,
+				D9D11CB65D5542674AADAC57 /* Pods-Tests-FlatBalloon-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-FlatBalloon-FlatBalloon";
+			sourceTree = "<group>";
+		};
+		C4C327BBB2DF7375E98C7DCA /* EDSemver */ = {
+			isa = PBXGroup;
+			children = (
+				DCCDCAB7A3DDFE8EEFCBC0C5 /* EDSemver.h */,
+				AD9CB0C4C7654549DB70BFD4 /* EDSemver.m */,
+				6EB9B0C573AD5AA5AD7D74AC /* Support Files */,
+			);
+			path = EDSemver;
+			sourceTree = "<group>";
+		};
+		CE9117BAA8CE2E42ED313A17 /* FlatBalloon */ = {
+			isa = PBXGroup;
+			children = (
+				AD7CAB654215CB4FAFF95EE6 /* Pod */,
+				BDCD68B608478DC5EA7AF0B2 /* Support Files */,
 			);
 			name = FlatBalloon;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		6E886F0F3B85C81579DE47EE /* Targets Support Files */ = {
+		F8F663A737E902918BCEFAC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				43934B5870B1CCAC7C03C1A9 /* Pods-FlatBalloon */,
-				36DE2879B9939A18F1064F52 /* Pods-Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		866CEB26DFE5C2A34A0842FE /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				36E1B426AE6D76C1B39F9907 /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		BB31B53F5F8EE546A5D6314E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C9C9E6AC39EC7F8A3E6EE806 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		BDE4FDC56C5EA40FB58AA3D1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				027304BD877109B0CAE8262F /* libPods-FlatBalloon.a */,
-				E864A18BB8A05DB1B05A1EEB /* libPods-FlatBalloon-FlatBalloon.a */,
-				87904127295E028C95C974CA /* libPods-Tests.a */,
-				55E4AA44605C3230107DB729 /* libPods-Tests-FlatBalloon.a */,
+				63BA4912B50981FA05DA1113 /* libPods-FlatBalloon.a */,
+				633031F44AE2BDA2082E4C9E /* libPods-FlatBalloon-EDSemver.a */,
+				3E6CC41C2C13196D84394715 /* libPods-FlatBalloon-FlatBalloon.a */,
+				6A80476DFE8E25F4AC56133B /* libPods-Tests.a */,
+				6F4B73C3EE3861DA3B57917B /* libPods-Tests-EDSemver.a */,
+				E64FE104E43B208BC3FC33CE /* libPods-Tests-FlatBalloon.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,219 +439,357 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		204F20F0F9C1706B9B6B85D5 /* Headers */ = {
+		1E4A3901C91F9FA4B332F2A2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08FEC2557316CA10E32D278E /* FLBAssociatedObjects.h in Headers */,
-				9803FF1ED20D8813B96826D5 /* FLBAttributes.h in Headers */,
-				E7DD99E145D7CDA1D02D08CF /* FLBInflatableViewController.h in Headers */,
-				FA9801B41AB7EEC200E98541 /* FLBFrameLayoutManager.h in Headers */,
-				7A5A484DED546FCC48523D76 /* FLBLayout.h in Headers */,
-				FA9801AA1AB7EA2C00E98541 /* FLBLayoutRootView.h in Headers */,
-				8EC59EA6C04455033CFBFBD1 /* FLBLayoutInflator.h in Headers */,
-				FA9801B01AB7EE9500E98541 /* FLBLinearLayoutManager.h in Headers */,
-				4DA2CFAE5D77367674466D78 /* FLBResources.h in Headers */,
-				FA9801B81AB7EEE200E98541 /* FLBRelativeLayoutManager.h in Headers */,
-				17166C4EAB32393789F8274E /* FLBViewInjector.h in Headers */,
-				76EE597AD3A24CEB528BDE42 /* NSString+Convert.h in Headers */,
-				46D513BA5037438C2B3819FA /* TBXML+ChildIterator.h in Headers */,
-				91B551F999E1F76C3427B19B /* TBXML.h in Headers */,
+				E97ADC3C5169BC9EB24A36D3 /* EDSemver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E529FEB1C699591C92076F8 /* Headers */ = {
+		6360A6CB6B758BFFA685F2F6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				515E25EB9C8D8A1D387424F0 /* FLBAssociatedObjects.h in Headers */,
-				5FF1E608DA725751E19437B9 /* FLBAttributes.h in Headers */,
-				21028EBBA82C80B75BC75005 /* FLBInflatableViewController.h in Headers */,
-				6523E7C3C969C924AA72A64E /* FLBLayout.h in Headers */,
-				BDB8A6FA8F6E15E3853A8B02 /* FLBLayoutInflator.h in Headers */,
-				C453F4C47F1484FB31A1A552 /* FLBResources.h in Headers */,
-				C8F8E7DE913A3DA25AFF19DB /* FLBViewInjector.h in Headers */,
-				D1475881DBA34F29E94CF437 /* NSString+Convert.h in Headers */,
-				8C98BAE379A9731F67F86300 /* TBXML+ChildIterator.h in Headers */,
-				8FCE5CB847A2B82916EBD268 /* TBXML.h in Headers */,
+				D60FC09007A56ACA670AA5E2 /* FLBAssociatedObjects.h in Headers */,
+				02D42CF39B6C3D61592BDF93 /* FLBAttributes.h in Headers */,
+				0988F4C9FE11D19D76240771 /* FLBFrameLayoutManager.h in Headers */,
+				03A21AD19A0C00A07A44F0ED /* FLBInflatableViewController.h in Headers */,
+				78D9E50E13F5E8EAA4715647 /* FLBLayout.h in Headers */,
+				C012B1924FCEEDD63F6E995F /* FLBLayoutInflator.h in Headers */,
+				13FAF204557A226BD7144695 /* FLBLayoutRootView.h in Headers */,
+				0EC052AA0125FE6DBABADCA2 /* FLBLinearLayoutManager.h in Headers */,
+				B1036F1FF714025A0E6A8A43 /* FLBRelativeLayoutManager.h in Headers */,
+				85DF6BFE70E6B598FB0179C9 /* FLBResources.h in Headers */,
+				689CF661A8A511FE934D1947 /* FLBViewInjector.h in Headers */,
+				DC780B2D71AD466E9530CA24 /* NSString+Convert.h in Headers */,
+				FC3648FCF2AE8DED6C5BA761 /* TBXML+ChildIterator.h in Headers */,
+				190498F2C30C54BF20C9CF5C /* TBXML.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83632852EE34AA1A37BAF540 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18ABD98AD03E38E5BC2AFC55 /* FLBAssociatedObjects.h in Headers */,
+				4BFAD0821FAD4FFE2741A7DF /* FLBAttributes.h in Headers */,
+				54BD890208DF431D9DE2EBD2 /* FLBFrameLayoutManager.h in Headers */,
+				479A1C319C47C723647C730D /* FLBInflatableViewController.h in Headers */,
+				9245FF1C50661448EBF9B737 /* FLBLayout.h in Headers */,
+				7A9A9E275489DEDE4E203EC6 /* FLBLayoutInflator.h in Headers */,
+				B8DEF507123ADBE5400C37B3 /* FLBLayoutRootView.h in Headers */,
+				F7E564561356274B091C5412 /* FLBLinearLayoutManager.h in Headers */,
+				3BF9DE9E4D549C3951C32DED /* FLBRelativeLayoutManager.h in Headers */,
+				AC100E7D7BE8C6C240BF7395 /* FLBResources.h in Headers */,
+				355F46B80DCE7F95D0CBD395 /* FLBViewInjector.h in Headers */,
+				66CDC1AE78EAFFA9EBE50810 /* NSString+Convert.h in Headers */,
+				B95A1C5D3A0C0BBD6F9995C4 /* TBXML+ChildIterator.h in Headers */,
+				9F7FE38B16FB6CE8D52DC4D2 /* TBXML.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED3CF64F29325E6CAE2D1B44 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF1D8F9271AD90D85B16421 /* EDSemver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		033063D5A4A08ECA0FF7A269 /* Pods-FlatBalloon */ = {
+		37F455BC7F3163A9DA30047B /* Pods-FlatBalloon-EDSemver */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 071B5CE2DFFC10BEE035EE62 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */;
+			buildConfigurationList = 45C35BBD20B45609D416F9B8 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-EDSemver" */;
 			buildPhases = (
-				138EEF0147F903AEB6B29341 /* Sources */,
-				DBC3DB2FAF26A6DCDC66B72F /* Frameworks */,
+				A1AD2F41DC11D60A28278242 /* Sources */,
+				A790E5D062B4F79763237F61 /* Frameworks */,
+				ED3CF64F29325E6CAE2D1B44 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				490176F4F890652FD5D7257E /* PBXTargetDependency */,
 			);
-			name = "Pods-FlatBalloon";
-			productName = "Pods-FlatBalloon";
-			productReference = 027304BD877109B0CAE8262F /* libPods-FlatBalloon.a */;
+			name = "Pods-FlatBalloon-EDSemver";
+			productName = "Pods-FlatBalloon-EDSemver";
+			productReference = 633031F44AE2BDA2082E4C9E /* libPods-FlatBalloon-EDSemver.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		3CB8611E61374B9541152611 /* Pods-Tests-FlatBalloon */ = {
+		42384E6E959EF8C61C6DFE9C /* Pods-FlatBalloon-FlatBalloon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA5B22B2733EE3E91857FF94 /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */;
+			buildConfigurationList = 5C707E6D59823BFCB2B7425B /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */;
 			buildPhases = (
-				1B408310BE7FE26AE3A0EB91 /* Sources */,
-				8FDEB9539D977C9CBBCF1D88 /* Frameworks */,
-				2E529FEB1C699591C92076F8 /* Headers */,
+				63015CEE848299FACE206112 /* Sources */,
+				1C3909F26F4CFFDC839955A9 /* Frameworks */,
+				6360A6CB6B758BFFA685F2F6 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = "Pods-Tests-FlatBalloon";
-			productName = "Pods-Tests-FlatBalloon";
-			productReference = 55E4AA44605C3230107DB729 /* libPods-Tests-FlatBalloon.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		9FB48E6A4F95EF086E3BFE26 /* Pods-FlatBalloon-FlatBalloon */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F76327FBB71F5AE2755ADED7 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */;
-			buildPhases = (
-				34928B854C98E6014F7D2A27 /* Sources */,
-				CA9507B3A74F315A472002B1 /* Frameworks */,
-				204F20F0F9C1706B9B6B85D5 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
+				BD42F078308DE3299B047F01 /* PBXTargetDependency */,
 			);
 			name = "Pods-FlatBalloon-FlatBalloon";
 			productName = "Pods-FlatBalloon-FlatBalloon";
-			productReference = E864A18BB8A05DB1B05A1EEB /* libPods-FlatBalloon-FlatBalloon.a */;
+			productReference = 3E6CC41C2C13196D84394715 /* libPods-FlatBalloon-FlatBalloon.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		BAC792CD5B882210754702B1 /* Pods-Tests */ = {
+		841E652D020F4E66E41D754A /* Pods-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14B258FB4E2E4257A03CBE63 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildConfigurationList = AA50FF2939E04C34E97B8320 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
 			buildPhases = (
-				F129D5E097DD4718749B8D20 /* Sources */,
-				80F9069C9C5ACDCEB34CE04E /* Frameworks */,
+				83C622284975359D9691D812 /* Sources */,
+				B32430D0F8454A4962CB1315 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DC4FD9A2A8B58C7113ED0BB5 /* PBXTargetDependency */,
+				2A9D787FDAF5EA6DFFD92197 /* PBXTargetDependency */,
+				344FD418BA793CAE0F2B4052 /* PBXTargetDependency */,
 			);
 			name = "Pods-Tests";
 			productName = "Pods-Tests";
-			productReference = 87904127295E028C95C974CA /* libPods-Tests.a */;
+			productReference = 6A80476DFE8E25F4AC56133B /* libPods-Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D64071DB5185CAB32E802435 /* Pods-FlatBalloon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D922E435829BBDA2E7EE724 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */;
+			buildPhases = (
+				460FF8BA4ABA7AA931D75CBA /* Sources */,
+				D06D7332DCBF77AE1D5466BA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE40447456687D3B8D1B9982 /* PBXTargetDependency */,
+				E397FF6A5119FF65B12F4D87 /* PBXTargetDependency */,
+			);
+			name = "Pods-FlatBalloon";
+			productName = "Pods-FlatBalloon";
+			productReference = 63BA4912B50981FA05DA1113 /* libPods-FlatBalloon.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D87C6E5F9DB278ECEFA01032 /* Pods-Tests-FlatBalloon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FABF994833BB281E319A73D0 /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */;
+			buildPhases = (
+				FFF66D56BF500C7EC319F00B /* Sources */,
+				4B4ADC57F0EA2D0639A8AAB7 /* Frameworks */,
+				83632852EE34AA1A37BAF540 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65C3923AC023BB27987053D1 /* PBXTargetDependency */,
+			);
+			name = "Pods-Tests-FlatBalloon";
+			productName = "Pods-Tests-FlatBalloon";
+			productReference = E64FE104E43B208BC3FC33CE /* libPods-Tests-FlatBalloon.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DE35546D17FFAD4FD4619A89 /* Pods-Tests-EDSemver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A84BB09641153F25A4D2B13 /* Build configuration list for PBXNativeTarget "Pods-Tests-EDSemver" */;
+			buildPhases = (
+				907CB08CB1747FB4DDD7CFD0 /* Sources */,
+				57220F6C33B2F0A988EAB610 /* Frameworks */,
+				1E4A3901C91F9FA4B332F2A2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-EDSemver";
+			productName = "Pods-Tests-EDSemver";
+			productReference = 6F4B73C3EE3861DA3B57917B /* libPods-Tests-EDSemver.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		05557AB85432774982FB7F5B /* Project object */ = {
+		2F5226B08DFD3AAE900549C9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 34A11CF3EF7EC57671AED781 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = BD1DCA2003C54CA80D327674 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1924B226CB999F52FCD2A8A2;
-			productRefGroup = BDE4FDC56C5EA40FB58AA3D1 /* Products */;
+			mainGroup = 90D55749C4FDBC6B9BB29420;
+			productRefGroup = F8F663A737E902918BCEFAC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				033063D5A4A08ECA0FF7A269 /* Pods-FlatBalloon */,
-				9FB48E6A4F95EF086E3BFE26 /* Pods-FlatBalloon-FlatBalloon */,
-				BAC792CD5B882210754702B1 /* Pods-Tests */,
-				3CB8611E61374B9541152611 /* Pods-Tests-FlatBalloon */,
+				D64071DB5185CAB32E802435 /* Pods-FlatBalloon */,
+				37F455BC7F3163A9DA30047B /* Pods-FlatBalloon-EDSemver */,
+				42384E6E959EF8C61C6DFE9C /* Pods-FlatBalloon-FlatBalloon */,
+				841E652D020F4E66E41D754A /* Pods-Tests */,
+				DE35546D17FFAD4FD4619A89 /* Pods-Tests-EDSemver */,
+				D87C6E5F9DB278ECEFA01032 /* Pods-Tests-FlatBalloon */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		138EEF0147F903AEB6B29341 /* Sources */ = {
+		460FF8BA4ABA7AA931D75CBA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72263AC555C251EC356E7226 /* Pods-FlatBalloon-dummy.m in Sources */,
+				6B866B172B77DAE8B9C022B9 /* Pods-FlatBalloon-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1B408310BE7FE26AE3A0EB91 /* Sources */ = {
+		63015CEE848299FACE206112 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F97BDC6135A1514134CE087 /* FLBAttributes.m in Sources */,
-				7DF78B86303D174577410A31 /* FLBInflatableViewController.m in Sources */,
-				D43453990131FEBF41EAD049 /* FLBLayout.m in Sources */,
-				480E81A83BAE7925B108FB71 /* FLBLayoutInflator.m in Sources */,
-				3D3444EB526FCCA8D1C94F8C /* FLBResources.m in Sources */,
-				473B1DB04260D66E69DE7353 /* FLBViewInjector.m in Sources */,
-				4FB33EEDD4332E733531C35C /* NSString+Convert.m in Sources */,
-				C154120CB427128B70F5F2EE /* Pods-Tests-FlatBalloon-dummy.m in Sources */,
-				624543BCF257800C54BD0842 /* TBXML+ChildIterator.m in Sources */,
-				91351474084B2BA039D451A7 /* TBXML.m in Sources */,
+				C2541907F4135EA8D22CB936 /* FLBAttributes.m in Sources */,
+				72B164E6E496984941195E75 /* FLBFrameLayoutManager.m in Sources */,
+				37854223CBC15256E395B78F /* FLBInflatableViewController.m in Sources */,
+				DB6A5D12003E1190B4614570 /* FLBLayout.m in Sources */,
+				9E607DFFDF4889DE6BCC1793 /* FLBLayoutInflator.m in Sources */,
+				EBC3CB2050A5D523D3887A18 /* FLBLayoutRootView.m in Sources */,
+				0ECFA3E6132D5511D0D0168B /* FLBLinearLayoutManager.m in Sources */,
+				4AC635ECF41C726C24A62CD6 /* FLBRelativeLayoutManager.m in Sources */,
+				E50F562E8199F68242680196 /* FLBResources.m in Sources */,
+				428A209EE6EE40ED3DE87C67 /* FLBViewInjector.m in Sources */,
+				F3088B425AC704EA064BC90D /* NSString+Convert.m in Sources */,
+				C05A750C62E4DD9DD12D5CAA /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */,
+				407A22023C393D0A49364318 /* TBXML+ChildIterator.m in Sources */,
+				DB0C02299AAB29274DD6B50C /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		34928B854C98E6014F7D2A27 /* Sources */ = {
+		83C622284975359D9691D812 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38DC2039DCC8376B1DA6D0B6 /* FLBAttributes.m in Sources */,
-				E5C4A8583A56FA468FBE3743 /* FLBInflatableViewController.m in Sources */,
-				15A6EAB429A9536BC7F86EBF /* FLBLayout.m in Sources */,
-				EB17ECD888F6DE9166A921A8 /* FLBLayoutInflator.m in Sources */,
-				FA9801B51AB7EEC200E98541 /* FLBFrameLayoutManager.m in Sources */,
-				C410EC36CE962C26F3C222F6 /* FLBResources.m in Sources */,
-				FA9801B91AB7EEE200E98541 /* FLBRelativeLayoutManager.m in Sources */,
-				233A8AC055542FBABE1DD058 /* FLBViewInjector.m in Sources */,
-				FA9801AB1AB7EA2C00E98541 /* FLBLayoutRootView.m in Sources */,
-				FA9801B11AB7EE9500E98541 /* FLBLinearLayoutManager.m in Sources */,
-				C921FC4B206D27E6B448FBE0 /* NSString+Convert.m in Sources */,
-				BD58804265B23DD4452061A9 /* Pods-FlatBalloon-FlatBalloon-dummy.m in Sources */,
-				67639AC825F20969A5CB0D5F /* TBXML+ChildIterator.m in Sources */,
-				D014B8FF32AF029A2F770175 /* TBXML.m in Sources */,
+				4B31ED134F8A6CB3E3BE01A1 /* Pods-Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F129D5E097DD4718749B8D20 /* Sources */ = {
+		907CB08CB1747FB4DDD7CFD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2DCCCE363BB03E85C3E0279 /* Pods-Tests-dummy.m in Sources */,
+				90E8ED8F413332A2B3A29523 /* EDSemver.m in Sources */,
+				A18EFA1C001D5440AD6A4615 /* Pods-Tests-EDSemver-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1AD2F41DC11D60A28278242 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC97E01246F24E989C0B8D6F /* EDSemver.m in Sources */,
+				AB2066B3BBAA6E647BA3CFA2 /* Pods-FlatBalloon-EDSemver-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFF66D56BF500C7EC319F00B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B80D348F0C7D15E47921A95 /* FLBAttributes.m in Sources */,
+				AF6480EE46F4AE2600960F9E /* FLBFrameLayoutManager.m in Sources */,
+				271156DA2E379952E402C618 /* FLBInflatableViewController.m in Sources */,
+				9E3DE08F77CF40989AF7E24A /* FLBLayout.m in Sources */,
+				BFBF882A21B75203B4AB5715 /* FLBLayoutInflator.m in Sources */,
+				4C86C8DD1E8A4ABF09A78ABE /* FLBLayoutRootView.m in Sources */,
+				2D2E27E990A18DEA9BB12937 /* FLBLinearLayoutManager.m in Sources */,
+				A28783486BCD5340BE25A73C /* FLBRelativeLayoutManager.m in Sources */,
+				D9137186FFE9B6362872C1ED /* FLBResources.m in Sources */,
+				DC9768DA9B188251CAE69C34 /* FLBViewInjector.m in Sources */,
+				8331AD33ED6C20C25368D348 /* NSString+Convert.m in Sources */,
+				63B19840BB745D125B2EBB7B /* Pods-Tests-FlatBalloon-dummy.m in Sources */,
+				C7B19840F4102A88659B47A3 /* TBXML+ChildIterator.m in Sources */,
+				19144AF442CBDD947D4A915D /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		490176F4F890652FD5D7257E /* PBXTargetDependency */ = {
+		2A9D787FDAF5EA6DFFD92197 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-FlatBalloon-FlatBalloon";
-			target = 9FB48E6A4F95EF086E3BFE26 /* Pods-FlatBalloon-FlatBalloon */;
-			targetProxy = A8FD99CE56DAF5FCD682CCEA /* PBXContainerItemProxy */;
+			name = "Pods-Tests-EDSemver";
+			target = DE35546D17FFAD4FD4619A89 /* Pods-Tests-EDSemver */;
+			targetProxy = 3A61B2A3A2DD7A70FBD1DA2C /* PBXContainerItemProxy */;
 		};
-		DC4FD9A2A8B58C7113ED0BB5 /* PBXTargetDependency */ = {
+		344FD418BA793CAE0F2B4052 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Tests-FlatBalloon";
-			target = 3CB8611E61374B9541152611 /* Pods-Tests-FlatBalloon */;
-			targetProxy = 88035E274DD69181BB60AA13 /* PBXContainerItemProxy */;
+			target = D87C6E5F9DB278ECEFA01032 /* Pods-Tests-FlatBalloon */;
+			targetProxy = F16D164F13B4993E85166CDA /* PBXContainerItemProxy */;
+		};
+		65C3923AC023BB27987053D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-EDSemver";
+			target = DE35546D17FFAD4FD4619A89 /* Pods-Tests-EDSemver */;
+			targetProxy = 8942FD29F2A0A85243289B62 /* PBXContainerItemProxy */;
+		};
+		BD42F078308DE3299B047F01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-FlatBalloon-EDSemver";
+			target = 37F455BC7F3163A9DA30047B /* Pods-FlatBalloon-EDSemver */;
+			targetProxy = 45F683CC634862797119BCA9 /* PBXContainerItemProxy */;
+		};
+		BE40447456687D3B8D1B9982 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-FlatBalloon-EDSemver";
+			target = 37F455BC7F3163A9DA30047B /* Pods-FlatBalloon-EDSemver */;
+			targetProxy = EC0A9A02E23BBE02BC2A7099 /* PBXContainerItemProxy */;
+		};
+		E397FF6A5119FF65B12F4D87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-FlatBalloon-FlatBalloon";
+			target = 42384E6E959EF8C61C6DFE9C /* Pods-FlatBalloon-FlatBalloon */;
+			targetProxy = 72A17D8792585234C41BA186 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0D1FED17D46EEDE50F944467 /* Debug */ = {
+		0A70529F14CCA22BD8D73410 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72B4B465E96E7DDB5AB720FC /* Pods-FlatBalloon.debug.xcconfig */;
+			baseConfigurationReference = AD29B0EB5C894E8104D34AE3 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-FlatBalloon/Pods-FlatBalloon-FlatBalloon-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1670B0C4B7575BBDACF10BD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F5A4DF4D0056F42156619AD /* Pods-Tests-FlatBalloon-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		27B75372CE93DE732979B89B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB7877BFA793780B75AF793A /* Pods-FlatBalloon.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -556,28 +803,12 @@
 			};
 			name = Debug;
 		};
-		347C5B0AE89EC4020E2C929B /* Release */ = {
+		288BEE8FECBDEAF4A42BC2A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CAC40D2D13A01C53C1AA98AD /* Pods-Tests-FlatBalloon-Private.xcconfig */;
+			baseConfigurationReference = 73A65AD349CAA764A9C98CC6 /* Pods-Tests-EDSemver-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		3B5C8E3F294A00CFB1B453EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CAC40D2D13A01C53C1AA98AD /* Pods-Tests-FlatBalloon-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -588,7 +819,23 @@
 			};
 			name = Debug;
 		};
-		7CFA3B072ED0B44BFC94B03D /* Release */ = {
+		3077FF85B7CBEADC7FAB48E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73A65AD349CAA764A9C98CC6 /* Pods-Tests-EDSemver-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		39CFD320128DDDF0191E8CCF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -622,60 +869,12 @@
 			};
 			name = Release;
 		};
-		8D4D07E09B736BBEBE1BF80D /* Release */ = {
+		3DFF101C9B5AA7D4029B9228 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AB8E94C0CCAFBF2270ED390 /* Pods-Tests.release.xcconfig */;
+			baseConfigurationReference = 1F5A4DF4D0056F42156619AD /* Pods-Tests-FlatBalloon-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		9233162860528827A4D5AC70 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DAAB0ECEFC585AF5C059742 /* Pods-FlatBalloon.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		A7A39D7AA16DEAC367CBE505 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 297A47714A5BB4FE5F1FC178 /* Pods-Tests.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		C7CA2A8B2E9349382841FB3E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14E9919C29EAE02BC01A1673 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-FlatBalloon/Pods-FlatBalloon-FlatBalloon-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-FlatBalloon/Pods-Tests-FlatBalloon-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -686,23 +885,7 @@
 			};
 			name = Release;
 		};
-		E498E488A98CB8BF14C76C5C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14E9919C29EAE02BC01A1673 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-FlatBalloon/Pods-FlatBalloon-FlatBalloon-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		FE6388FE4034177B64A737AF /* Debug */ = {
+		4D0934D9E44201615262D82C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -741,55 +924,169 @@
 			};
 			name = Debug;
 		};
+		6663ECE60434E82EF99796D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD29B0EB5C894E8104D34AE3 /* Pods-FlatBalloon-FlatBalloon-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-FlatBalloon/Pods-FlatBalloon-FlatBalloon-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		92BFB0297AD85BC314BF58FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D03D7268A7D237AFB631374 /* Pods-FlatBalloon.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B711E42009E511DE47218D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 239FF8092145E24AD8B06A4C /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DBA743F433513048956C895F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91C5A3B6FF34DAA055FF7CC8 /* Pods-Tests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E877935787235D2B9D906401 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B9CF6C230A6CD80A0F9F7FD /* Pods-FlatBalloon-EDSemver-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-EDSemver/Pods-FlatBalloon-EDSemver-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F81DD5AD2F3B8AE40D763C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B9CF6C230A6CD80A0F9F7FD /* Pods-FlatBalloon-EDSemver-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-FlatBalloon-EDSemver/Pods-FlatBalloon-EDSemver-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		071B5CE2DFFC10BEE035EE62 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */ = {
+		0A84BB09641153F25A4D2B13 /* Build configuration list for PBXNativeTarget "Pods-Tests-EDSemver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0D1FED17D46EEDE50F944467 /* Debug */,
-				9233162860528827A4D5AC70 /* Release */,
+				288BEE8FECBDEAF4A42BC2A6 /* Debug */,
+				3077FF85B7CBEADC7FAB48E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14B258FB4E2E4257A03CBE63 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+		0D922E435829BBDA2E7EE724 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A7A39D7AA16DEAC367CBE505 /* Debug */,
-				8D4D07E09B736BBEBE1BF80D /* Release */,
+				27B75372CE93DE732979B89B /* Debug */,
+				92BFB0297AD85BC314BF58FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34A11CF3EF7EC57671AED781 /* Build configuration list for PBXProject "Pods" */ = {
+		45C35BBD20B45609D416F9B8 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-EDSemver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE6388FE4034177B64A737AF /* Debug */,
-				7CFA3B072ED0B44BFC94B03D /* Release */,
+				E877935787235D2B9D906401 /* Debug */,
+				F81DD5AD2F3B8AE40D763C77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA5B22B2733EE3E91857FF94 /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */ = {
+		5C707E6D59823BFCB2B7425B /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B5C8E3F294A00CFB1B453EE /* Debug */,
-				347C5B0AE89EC4020E2C929B /* Release */,
+				0A70529F14CCA22BD8D73410 /* Debug */,
+				6663ECE60434E82EF99796D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F76327FBB71F5AE2755ADED7 /* Build configuration list for PBXNativeTarget "Pods-FlatBalloon-FlatBalloon" */ = {
+		AA50FF2939E04C34E97B8320 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E498E488A98CB8BF14C76C5C /* Debug */,
-				C7CA2A8B2E9349382841FB3E /* Release */,
+				B711E42009E511DE47218D47 /* Debug */,
+				DBA743F433513048956C895F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD1DCA2003C54CA80D327674 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D0934D9E44201615262D82C /* Debug */,
+				39CFD320128DDDF0191E8CCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FABF994833BB281E319A73D0 /* Build configuration list for PBXNativeTarget "Pods-Tests-FlatBalloon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1670B0C4B7575BBDACF10BD2 /* Debug */,
+				3DFF101C9B5AA7D4029B9228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 05557AB85432774982FB7F5B /* Project object */;
+	rootObject = 2F5226B08DFD3AAE900549C9 /* Project object */;
 }

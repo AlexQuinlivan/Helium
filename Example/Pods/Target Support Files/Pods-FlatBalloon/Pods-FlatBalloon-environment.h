@@ -6,6 +6,12 @@
 // project.
 
 
+// EDSemver
+#define COCOAPODS_POD_AVAILABLE_EDSemver
+#define COCOAPODS_VERSION_MAJOR_EDSemver 0
+#define COCOAPODS_VERSION_MINOR_EDSemver 3
+#define COCOAPODS_VERSION_PATCH_EDSemver 0
+
 // FlatBalloon
 #define COCOAPODS_POD_AVAILABLE_FlatBalloon
 #define COCOAPODS_VERSION_MAJOR_FlatBalloon 0

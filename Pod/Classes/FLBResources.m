@@ -7,6 +7,7 @@
 //
 
 #import "FLBResources.h"
+#import "EDSemver.h"
 
 static NSString* const FLBResourcesExceptionName = @"FLBResourcesException";
 
@@ -19,13 +20,54 @@ static NSString* const FLBResourceIntegerPrefix = @"@integer";
 static NSString* const FLBResourceBoolPrefix = @"@bool";
 static NSString* const FLBResourceColorPrefix = @"@color";
 
+// language > uiidiom > sw > w > h > orientation > density > version
+static uint8_t const FLBDeviceLanguagePriority = 0x80;
+static uint8_t const FLBDeviceUIIdiomPriority = 0x40;
+static uint8_t const FLBDeviceShortestWidthPriority = 0x20;
+static uint8_t const FLBDeviceWidthPriority = 0x10;
+static uint8_t const FLBDeviceHeightPriority = 0x08;
+static uint8_t const FLBDeviceOrientationPriority = 0x04;
+static uint8_t const FLBDeviceDensityPriority = 0x02;
+static uint8_t const FLBDeviceVersionPriority = 0x01;
+
+
+@interface FLBDeviceConfig : NSObject
+-(instancetype) initWithQualifiers:(NSArray *) qualifiers;
+-(BOOL) isSubconfigOfConfig:(FLBDeviceConfig *) config;
+@property (nonatomic, strong) NSString* orientation;
+@property (nonatomic, strong) NSString* scale;
+@property (nonatomic, strong) NSString* uiIdiom;
+@property (nonatomic, strong) NSString* language;
+@property (nonatomic, strong) NSNumber* width;
+@property (nonatomic, strong) NSNumber* height;
+@property (nonatomic, strong) EDSemver* systemVersion;
+@property (nonatomic, readonly) NSNumber* shortestWidth;
+@property (nonatomic) uint8_t priority;
++(FLBDeviceConfig *) currentDevice;
+@end
+
+
+@interface FLBBucketResource : NSObject
+@property (nonatomic, strong) NSString* path;
+@property (nonatomic, strong) FLBDeviceConfig* config;
+@end
+
+
 @interface FLBResourceTuple : NSObject
 -(instancetype) initWithResourceId:(NSString *) resourceId;
 @property (nonatomic, strong) NSString* resourceType;
 @property (nonatomic, strong) NSString* resourceName;
 @end
 
+
 @implementation FLBResources
+
++(void) initialize {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        (void) [self buckets];
+    });
+}
 
 // @layout
 // @view which one? They mean different things in this context
@@ -54,7 +96,16 @@ static NSString* const FLBResourceColorPrefix = @"@color";
     }
 #endif
     if ([FLBResourceViewPrefix isEqualToString:tuple.resourceType]) {
-        return [NSString stringWithFormat:@"res.bundle/view/%@%@", tuple.resourceName, @".xml"];
+        FLBDeviceConfig* currentDevice = FLBDeviceConfig.currentDevice;
+        NSArray* resources = self.buckets[resourceId];
+        for (FLBBucketResource* resource in resources) {
+            if ([resource.config isSubconfigOfConfig:currentDevice]) {
+                return resource.path;
+            }
+        }
+        @throw [NSException exceptionWithName:FLBResourcesExceptionName
+                                       reason:[NSString stringWithFormat:@"Failed to find resource (%@) that matches the current device config", resourceId]
+                                     userInfo:@{@"current_device":currentDevice}];
     } else {
         @throw [NSException exceptionWithName:FLBResourcesExceptionName
                                        reason:[NSString stringWithFormat:@"Unexpected resource type \"%@\" in resourceId. resId: %@", tuple.resourceName, resourceId]
@@ -219,6 +270,61 @@ static NSString* const FLBResourceColorPrefix = @"@color";
     return aliases;
 }
 
++(NSDictionary *) buckets {
+    static NSDictionary* buckets;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSMutableDictionary* mutBuckets = [NSMutableDictionary new];
+        NSString* resPath = [NSString stringWithFormat:@"%@/res.bundle", [NSBundle mainBundle].bundlePath];
+        NSBundle* resBundle = [NSBundle bundleWithPath:resPath];
+        NSArray* bucketDirs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[resBundle bundleURL]
+                                                             includingPropertiesForKeys:@[]
+                                                                                options:NSDirectoryEnumerationSkipsSubdirectoryDescendants | NSDirectoryEnumerationSkipsHiddenFiles
+                                                                                  error:nil];
+        for (NSString* bucketFullPath in bucketDirs) {
+            NSString* bucketPath = bucketFullPath.lastPathComponent;
+            NSArray* bucketQualifiers = [bucketPath componentsSeparatedByString:@"-"];
+            NSString* bucketString = bucketQualifiers[0];
+            if (bucketQualifiers.count) {
+                bucketQualifiers = [bucketQualifiers subarrayWithRange:NSMakeRange(1, bucketQualifiers.count-1)];
+            }
+            FLBDeviceConfig* bucketDeviceConfig = [[FLBDeviceConfig alloc] initWithQualifiers:bucketQualifiers];
+            NSArray* bucketContents = [resBundle pathsForResourcesOfType:@"xml" inDirectory:bucketPath];
+            for (NSString* filePath in bucketContents) {
+                NSString* fileName = filePath.lastPathComponent;
+                fileName = [fileName substringToIndex:fileName.length - 4]; // - ".xml"
+                NSString* resourceId = [NSString stringWithFormat:@"@%@/%@", bucketString, fileName];
+                NSMutableArray* resource = mutBuckets[resourceId];
+                if (!resource) {
+                    resource = [NSMutableArray new];
+                    mutBuckets[resourceId] = resource;
+                }
+                FLBBucketResource* bucketResource = [FLBBucketResource new];
+                bucketResource.path = [filePath stringByReplacingOccurrencesOfString:resPath withString:@"res.bundle"];
+                bucketResource.config = bucketDeviceConfig;
+                NSUInteger newIndex = [resource indexOfObject:bucketResource
+                                                inSortedRange:NSMakeRange(0, resource.count)
+                                                      options:NSBinarySearchingInsertionIndex
+                                              usingComparator:^NSComparisonResult(FLBBucketResource* obj1, FLBBucketResource* obj2) {
+                                                  NSInteger obj1Priority = (NSInteger) obj1.config.priority;
+                                                  NSInteger obj2Priority = (NSInteger) obj2.config.priority;
+                                                  NSInteger result = obj1Priority - obj2Priority;
+                                                  if (!result) {
+                                                      return NSOrderedSame;
+                                                  } else if (result > 0) {
+                                                      return NSOrderedAscending;
+                                                  } else {
+                                                      return NSOrderedDescending;
+                                                  }
+                                              }];
+                [resource insertObject:bucketResource atIndex:newIndex];
+            }
+        }
+        buckets = mutBuckets;
+    });
+    return buckets;
+}
+
 @end
 
 
@@ -238,3 +344,146 @@ static NSString* const FLBResourceColorPrefix = @"@color";
 
 @end
 
+
+@implementation FLBDeviceConfig {
+    NSNumber* qualifiedShortestWidth;
+}
+
++(FLBDeviceConfig *) currentDevice {
+    static FLBDeviceConfig* currentDevice;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        currentDevice = [FLBDeviceConfig new];
+        [currentDevice registerDeviceConfigs];
+    });
+    return currentDevice;
+}
+
++(NSNumber *) shortestWidthNaN {
+    static NSNumber* shortestWidthNaN;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shortestWidthNaN = @-1;
+    });
+    return shortestWidthNaN;
+}
+
+-(instancetype) initWithQualifiers:(NSArray *) qualifiers {
+    if (self = [super init]) {
+        self->qualifiedShortestWidth = FLBDeviceConfig.shortestWidthNaN;
+        uint8_t priority = 0;
+        for (NSString* qualifier in qualifiers) {
+            uint8_t qualifierPriority = 0;
+            if ([@"land" isEqualToString:qualifier]
+                || [@"port" isEqualToString:qualifier]) {
+                self.orientation = qualifier;
+                qualifierPriority = FLBDeviceOrientationPriority;
+            } else if ([@"ipad" isEqualToString:qualifier]
+                       || [@"iphone" isEqualToString:qualifier]) {
+                self.uiIdiom = qualifier;
+                qualifierPriority = FLBDeviceUIIdiomPriority;
+            } else if ([qualifier hasPrefix:@"sw"]) {
+                NSInteger val = [[qualifier substringFromIndex:2] integerValue];
+                self->qualifiedShortestWidth = @(val);
+                qualifierPriority = FLBDeviceShortestWidthPriority;
+            } else if ([qualifier hasPrefix:@"w"]) {
+                NSInteger val = [[qualifier substringFromIndex:1] integerValue];
+                self.width = @(val);
+                qualifierPriority = FLBDeviceWidthPriority;
+            } else if ([qualifier hasPrefix:@"h"]) {
+                NSInteger val = [[qualifier substringFromIndex:1] integerValue];
+                self.height = @(val);
+                qualifierPriority = FLBDeviceHeightPriority;
+            } else if ([qualifier hasPrefix:@"@"]) {
+                self.scale = qualifier;
+                qualifierPriority = FLBDeviceDensityPriority;
+            } else if ([qualifier hasPrefix:@"v"]) {
+                self.systemVersion = [EDSemver semverWithString:qualifier];
+                qualifierPriority = FLBDeviceVersionPriority;
+            } else if ([NSLocale.ISOLanguageCodes containsObject:qualifier]) {
+                self.language = qualifier;
+                qualifierPriority = FLBDeviceLanguagePriority;
+            } else {
+                @throw [NSException exceptionWithName:FLBResourcesExceptionName
+                                               reason:[NSString stringWithFormat:@"Unexpected resource qualifier (%@)", qualifier]
+                                             userInfo:nil];
+            }
+            priority |= qualifierPriority;
+        }
+        self.priority = priority;
+    }
+    return self;
+}
+
+-(void) registerDeviceConfigs {
+    self.scale = [NSString stringWithFormat:@"@%gx", [UIScreen mainScreen].scale];
+    self.uiIdiom = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"ipad" : @"iphone";
+    self.language = [NSBundle mainBundle].preferredLocalizations[0];
+    self.systemVersion = [EDSemver semverWithString:[UIDevice currentDevice].systemVersion];
+    self.priority = 0xFFFF;
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orientationDidChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
+    [self orientationDidChange:nil];
+}
+
+-(void) orientationDidChange:(NSNotification *) notification {
+    switch ([UIApplication sharedApplication].statusBarOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:
+            self.orientation = @"land";
+            break;
+        default:
+            self.orientation = @"port";
+            break;
+    }
+    UIScreen* mainScreen = [UIScreen mainScreen];
+    self.width = @(mainScreen.bounds.size.width);
+    self.height = @(mainScreen.bounds.size.height);
+}
+
+-(NSNumber *) shortestWidth {
+    if (self->qualifiedShortestWidth) {
+        return (self->qualifiedShortestWidth != FLBDeviceConfig.shortestWidthNaN) ? self->qualifiedShortestWidth : nil;
+    } else {
+        return @(MIN(self.width.integerValue, self.height.integerValue));
+    }
+}
+
+-(NSString *) description {
+    return [NSString stringWithFormat:@"(orientation=%@, scale=%@, width=%@, height=%@, shortestWidth=%@, uiIdiom=%@, language=%@)", self.orientation, self.scale, self.width, self.height, self.shortestWidth, self.uiIdiom, self.language];
+}
+
+-(BOOL) isSubconfigOfConfig:(FLBDeviceConfig *) config {
+    if (self.orientation && ![self.orientation isEqualToString:config.orientation]) {
+        return NO;
+    } else if (self.scale && ![self.scale isEqualToString:config.scale]) {
+        return NO;
+    } else if (self.uiIdiom && ![self.uiIdiom isEqualToString:config.uiIdiom]) {
+        return NO;
+    } else if (self.language && ![self.language isEqualToString:config.language]) {
+        return NO;
+    } else if (self.width && ![self.width isEqualToNumber:config.width]) {
+        return NO;
+    } else if (self.height && ![self.height isEqualToNumber:config.height]) {
+        return NO;
+    } else if (self.systemVersion && !([self.systemVersion isEqualTo:config.systemVersion]
+                                      || [self.systemVersion isLessThan:config.systemVersion])) {
+        return NO;
+    } else if (self.shortestWidth && ![self.shortestWidth isEqualToNumber:config.shortestWidth]) {
+        return NO;
+    }
+    return YES;
+}
+
+@end
+
+@implementation FLBBucketResource
+
+-(NSString *) description {
+    return self.config.description;
+}
+
+@end
