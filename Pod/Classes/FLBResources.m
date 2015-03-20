@@ -34,6 +34,7 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
 @interface FLBDeviceConfig : NSObject
 -(instancetype) initWithQualifiers:(NSArray *) qualifiers;
 -(BOOL) isSubconfigOfConfig:(FLBDeviceConfig *) config;
+-(NSComparisonResult) compareQualifiers:(FLBDeviceConfig *) config;
 @property (nonatomic, strong) NSString* orientation;
 @property (nonatomic, strong) NSString* scale;
 @property (nonatomic, strong) NSString* uiIdiom;
@@ -99,6 +100,7 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
         FLBDeviceConfig* currentDevice = FLBDeviceConfig.currentDevice;
         NSArray* resources = self.buckets[resourceId];
         for (FLBBucketResource* resource in resources) {
+            NSLog(@"%@", resource);
             if ([resource.config isSubconfigOfConfig:currentDevice]) {
                 return resource.path;
             }
@@ -306,11 +308,13 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
                                                 inSortedRange:NSMakeRange(0, resource.count)
                                                       options:NSBinarySearchingInsertionIndex
                                               usingComparator:^NSComparisonResult(FLBBucketResource* obj1, FLBBucketResource* obj2) {
-                                                  NSInteger obj1Priority = (NSInteger) obj1.config.priority;
-                                                  NSInteger obj2Priority = (NSInteger) obj2.config.priority;
+                                                  FLBDeviceConfig* config1 = obj1.config;
+                                                  FLBDeviceConfig* config2 = obj2.config;
+                                                  NSInteger obj1Priority = (NSInteger) config1.priority;
+                                                  NSInteger obj2Priority = (NSInteger) config2.priority;
                                                   NSInteger result = obj1Priority - obj2Priority;
                                                   if (!result) {
-                                                      return NSOrderedSame;
+                                                      return [config1 compareQualifiers:config2];
                                                   } else if (result > 0) {
                                                       return NSOrderedAscending;
                                                   } else {
@@ -321,6 +325,7 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
             }
         }
         buckets = mutBuckets;
+        NSLog(@"buckets: %@", buckets);
     });
     return buckets;
 }
@@ -459,23 +464,55 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
 -(BOOL) isSubconfigOfConfig:(FLBDeviceConfig *) config {
     if (self.orientation && ![self.orientation isEqualToString:config.orientation]) {
         return NO;
-    } else if (self.scale && ![self.scale isEqualToString:config.scale]) {
-        return NO;
     } else if (self.uiIdiom && ![self.uiIdiom isEqualToString:config.uiIdiom]) {
         return NO;
     } else if (self.language && ![self.language isEqualToString:config.language]) {
         return NO;
-    } else if (self.width && ![self.width isEqualToNumber:config.width]) {
-        return NO;
-    } else if (self.height && ![self.height isEqualToNumber:config.height]) {
-        return NO;
-    } else if (self.systemVersion && !([self.systemVersion isEqualTo:config.systemVersion]
-                                      || [self.systemVersion isLessThan:config.systemVersion])) {
-        return NO;
-    } else if (self.shortestWidth && ![self.shortestWidth isEqualToNumber:config.shortestWidth]) {
+    } else if ([self compareQualifiers:config] == NSOrderedAscending) {
         return NO;
     }
     return YES;
+}
+
+-(NSComparisonResult) compareQualifiers:(FLBDeviceConfig *) config {
+    if (self.shortestWidth) {
+        NSComparisonResult result = NSOrderedSame;
+        result = [config.shortestWidth compare:self.shortestWidth];
+        if (result != NSOrderedSame) {
+            return result;
+        }
+    }
+    if (self.width) {
+        NSComparisonResult result = NSOrderedSame;
+        result = [config.width compare:self.width];
+        if (result != NSOrderedSame) {
+            return result;
+        }
+    }
+    if (self.height) {
+        NSComparisonResult result = NSOrderedSame;
+        result = [config.height compare:self.height];
+        if (result != NSOrderedSame) {
+            return result;
+        }
+    }
+    if (self.scale) {
+        NSComparisonResult result = NSOrderedSame;
+        NSNumber* selfScale = @([[self.scale substringWithRange:NSMakeRange(1, self.scale.length-2)] integerValue]);
+        NSNumber* configScale = @([[config.scale substringWithRange:NSMakeRange(1, config.scale.length-2)] integerValue]);
+        result = [configScale compare:selfScale];
+        if (result != NSOrderedSame) {
+            return result;
+        }
+    }
+    if (self.systemVersion) {
+        NSComparisonResult result = NSOrderedSame;
+        result = [config.systemVersion compare:self.systemVersion];
+        if (result != NSOrderedSame) {
+            return result;
+        }
+    }
+    return NSOrderedSame;
 }
 
 @end
@@ -483,7 +520,7 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
 @implementation FLBBucketResource
 
 -(NSString *) description {
-    return self.config.description;
+    return self.path;
 }
 
 @end
