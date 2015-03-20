@@ -422,7 +422,7 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
     self.uiIdiom = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"ipad" : @"iphone";
     self.language = [NSBundle mainBundle].preferredLocalizations[0];
     self.systemVersion = [EDSemver semverWithString:[UIDevice currentDevice].systemVersion];
-    self.priority = 0xFFFF;
+    self.priority = 0xFF;
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(orientationDidChange:)
