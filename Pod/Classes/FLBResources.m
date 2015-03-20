@@ -100,7 +100,6 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
         FLBDeviceConfig* currentDevice = FLBDeviceConfig.currentDevice;
         NSArray* resources = self.buckets[resourceId];
         for (FLBBucketResource* resource in resources) {
-            NSLog(@"%@", resource);
             if ([resource.config isSubconfigOfConfig:currentDevice]) {
                 return resource.path;
             }
