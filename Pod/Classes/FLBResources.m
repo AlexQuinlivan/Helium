@@ -84,7 +84,6 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
                                        reason:[NSString stringWithFormat:@"Expected \"/\" in resourceId. resId: %@", resourceId]
                                      userInfo:nil];
     }
-#ifdef DEBUG
     if (!tuple.resourceType.length) {
         @throw [NSException exceptionWithName:FLBResourcesExceptionName
                                        reason:[NSString stringWithFormat:@"Expected resource type in resourceId. resId: %@", resourceId]
@@ -95,7 +94,6 @@ static uint8_t const FLBDeviceVersionPriority = 0x01;
                                        reason:[NSString stringWithFormat:@"Expected resource name in resourceId. resId: %@", resourceId]
                                      userInfo:nil];
     }
-#endif
     if ([FLBResourceViewPrefix isEqualToString:tuple.resourceType]) {
         FLBDeviceConfig* currentDevice = FLBDeviceConfig.currentDevice;
         NSArray* resources = self.buckets[resourceId];
