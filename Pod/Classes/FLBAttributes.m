@@ -61,6 +61,8 @@
                 @"background_color" : @(ATTRIBUTE_TYPE_UI_COLOR),
                 @"tag" : @(ATTRIBUTE_TYPE_STRING_HASH),
                 @"orientation" : @(ATTRIBUTE_TYPE_VIEW_ORIENTATION),
+                @"alpha" : @(ATTRIBUTE_TYPE_CG_FLOAT),
+                @"hidden" : @(ATTRIBUTE_TYPE_BOOL),
                 };
     });
     return map;

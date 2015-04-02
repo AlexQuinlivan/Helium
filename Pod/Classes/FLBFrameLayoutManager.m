@@ -16,6 +16,9 @@
     uint32_t maxHeight = 0;
     uint32_t maxWidth = 0;
     for (UIView* child in view.subviews) {
+        if (child.isHidden) {
+            continue;
+        }
         [FLBLayout measureChildWithMargins:child
                                   ofParent:view
                            parentWidthSpec:widthMeasureSpec
@@ -54,6 +57,9 @@
     NSInteger parentTop = paddingTop;
     NSInteger parentBottom = bottom - top - paddingBottom;
     for (UIView* child in view.subviews) {
+        if (child.isHidden) {
+            continue;
+        }
         UIEdgeInsets margins = child.flb_margins;
         int32_t marginLeft = margins.left;
         int32_t marginRight = margins.right;
