@@ -46,6 +46,8 @@
                 @"layout_height" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_PARAM),
                 @"layout_gravity" : @(ATTRIBUTE_TYPE_VIEW_GRAVITY),
                 @"layout" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER),
+                @"min_width" : @(ATTRIBUTE_TYPE_CG_FLOAT),
+                @"min_height" : @(ATTRIBUTE_TYPE_CG_FLOAT),
                 @"padding" : @(ATTRIBUTE_TYPE_UI_EDGE_INSETS),
                 @"padding_left" : @(ATTRIBUTE_TYPE_CG_FLOAT),
                 @"padding_top" : @(ATTRIBUTE_TYPE_CG_FLOAT),
