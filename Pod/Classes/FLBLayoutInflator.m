@@ -86,9 +86,10 @@ static NSString* const FLBInflatorExceptionName = @"FLBLayoutInflatorException";
                                 }
                             }];
     if (!layoutManagerSet) {
-        @throw [NSException exceptionWithName:FLBInflatorExceptionName
-                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated without a layout manager being assigned", [TBXML elementName:element]]
-                                     userInfo:nil];
+        //todo: this was incorrect
+//        @throw [NSException exceptionWithName:FLBInflatorExceptionName
+//                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated without a layout manager being assigned", [TBXML elementName:element]]
+//                                     userInfo:nil];
     }
     if (!layoutWidthSet || !layoutHeightSet) {
         @throw [NSException exceptionWithName:FLBInflatorExceptionName
@@ -126,14 +127,14 @@ case _attr: {\
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_UI_EDGE_INSETS, UIEdgeInsets, uiEdgeInsetsValue);
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_UI_COLOR, UIColor*, uiColorValue);
         case ATTRIBUTE_TYPE_STRING_HASH: {
-            void (*method)(id, SEL, NSInteger) = (void *)setterImp;\
-            NSString* resolvedValue = [FLBResources stringValue:value];\
-            method(view, setterSelector, resolvedValue.hash);\
+            void (*method)(id, SEL, NSInteger) = (void *)setterImp;
+            NSString* resolvedValue = [FLBResources stringValue:value];
+            method(view, setterSelector, resolvedValue.hash);
             break;
         }
         case ATTRIBUTE_TYPE_VIEW_ORIENTATION: {
-            void (*method)(id, SEL, FLBLayoutOrientation) = (void *)setterImp;\
-            NSString* resolvedValue = [FLBResources stringValue:value];\
+            void (*method)(id, SEL, FLBLayoutOrientation) = (void *)setterImp;
+            NSString* resolvedValue = [FLBResources stringValue:value];
             FLBLayoutOrientation orientation;
             if ([@"vertical" isEqualToString:resolvedValue]) {
                 orientation = FLBLayoutOrientationVertical;
@@ -144,16 +145,16 @@ case _attr: {\
                                                reason:[NSString stringWithFormat:@"Unexpected orientation value `%@`", value]
                                              userInfo:nil];
             }
-            method(view, setterSelector, orientation);\
+            method(view, setterSelector, orientation);
             break;
         }
-        case ATTRIBUTE_TYPE_VIEW_LAYOUT_RULE: {
+        case ATTRIBUTE_TYPE_VIEW_LAYOUT_PARAM: {
             void (*method)(id, SEL, CGFloat) = (void *)setterImp;
             CGFloat layoutRuled = 0.0f;
             if ([@"match_parent" isEqualToString:value]) {
-                layoutRuled = FLBLayoutRuleFill;
+                layoutRuled = FLBLayoutParamMatch;
             } else if ([@"wrap_content" isEqualToString:value]) {
-                layoutRuled = FLBLayoutRuleWrap;
+                layoutRuled = FLBLayoutParamWrap;
             } else {
                 layoutRuled = [FLBResources cgFloatValue:value];
             }
@@ -177,6 +178,41 @@ case _attr: {\
                                              userInfo:nil];
             }
             method(view, setterSelector, manager);
+            break;
+        }
+        case ATTRIBUTE_TYPE_VIEW_GRAVITY: {
+            void (*method)(id, SEL, FLBGravity) = (void *)setterImp;
+            FLBGravity gravity = 0;
+            value = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
+            NSArray* gravityQualifiers = [value componentsSeparatedByString:@"|"];
+            for (NSString* qualifier in gravityQualifiers) {
+                if ([@"top" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityTop;
+                } else if ([@"bottom" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityBottom;
+                } else if ([@"left" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityLeft;
+                } else if ([@"right" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityRight;
+                } else if ([@"center_vertical" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityCenterVertical;
+                } else if ([@"center_horizontal" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityCenterHorizontal;
+                } else if ([@"fill_vertical" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityFillVertical;
+                } else if ([@"fill_horizontal" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityFillHorizontal;
+                } else if ([@"center" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityCenter;
+                } else if ([@"fill" isEqualToString:qualifier]) {
+                    gravity |= FLBGravityFill;
+                } else {
+                    @throw [NSException exceptionWithName:FLBInflatorExceptionName
+                                                   reason:[NSString stringWithFormat:@"Unexpected gravity constant found `%@`", qualifier]
+                                                 userInfo:nil];
+                }
+            }
+            method(view, setterSelector, gravity);
             break;
         }
         default: {

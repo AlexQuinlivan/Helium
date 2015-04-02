@@ -10,31 +10,101 @@
 
 @implementation FLBFrameLayoutManager
 
--(void) flb_measure:(UIView *) view {
-    CGRect frame = CGRectMake(0, 0, 0, 0);
-    if (view.layoutHeight == FLBLayoutRuleFill) {
-        frame.size.height = view.superview.bounds.size.height;
-    } else if (view.layoutHeight == FLBLayoutRuleWrap) {
-        //TOOD:
-    } else {
-        frame.size.height = view.layoutHeight;
+-(void) measure:(UIView *) view
+      widthSpec:(FLBMeasureSpec) widthMeasureSpec
+     heightSpec:(FLBMeasureSpec) heightMeasureSpec {
+    uint32_t maxHeight = 0;
+    uint32_t maxWidth = 0;
+    for (UIView* child in view.subviews) {
+        [FLBLayout measureChildWithMargins:child
+                                  ofParent:view
+                           parentWidthSpec:widthMeasureSpec
+                                 widthUsed:0
+                          parentHeightSpec:heightMeasureSpec
+                                heightUsed:0];
+        maxWidth = MAX(maxWidth, child.measuredWidth);
+        maxHeight = MAX(maxHeight, child.measuredHeight);
     }
-    if (view.layoutWidth == FLBLayoutRuleFill) {
-        frame.size.width = view.superview.bounds.size.height;
-    } else if (view.layoutWidth == FLBLayoutRuleWrap) {
-        //TODO:
-    } else {
-        frame.size.width = view.layoutWidth;
-    }
-    view.frame = frame;
-    for (UIView* subview in view.subviews) {
-        [subview.flb_layoutManager flb_measure:subview];
-        [subview.flb_layoutManager flb_layout:subview];
-    }
+    UIEdgeInsets padding = view.flb_padding;
+    int32_t paddingLeft = padding.left;
+    int32_t paddingRight = padding.right;
+    int32_t paddingTop = padding.top;
+    int32_t paddingBottom = padding.bottom;
+    maxWidth += paddingLeft + paddingRight;
+    maxHeight += paddingTop + paddingBottom;
+    maxWidth = MAX(maxWidth, view.minWidth);
+    maxHeight = MAX(maxHeight, view.minHeight);
+    view.measuredWidth = [FLBLayout resolveSize:maxWidth spec:widthMeasureSpec];
+    view.measuredHeight = [FLBLayout resolveSize:maxHeight spec:heightMeasureSpec];
 }
 
--(void) flb_layout:(UIView *) view {
-    
+-(void) layout:(UIView *) view
+          left:(NSInteger) left
+           top:(NSInteger) top
+         right:(NSInteger) right
+        bottom:(NSInteger) bottom {
+    view.frame = CGRectMake(left, top, right - left, bottom - top);
+    UIEdgeInsets padding = view.flb_padding;
+    int32_t paddingLeft = padding.left;
+    int32_t paddingRight = padding.right;
+    int32_t paddingTop = padding.top;
+    int32_t paddingBottom = padding.bottom;
+    NSInteger parentLeft = paddingLeft;
+    NSInteger parentRight = right - left - paddingRight;
+    NSInteger parentTop = paddingTop;
+    NSInteger parentBottom = bottom - top - paddingBottom;
+    for (UIView* child in view.subviews) {
+        UIEdgeInsets margins = child.flb_margins;
+        int32_t marginLeft = margins.left;
+        int32_t marginRight = margins.right;
+        int32_t marginTop = margins.top;
+        int32_t marginBottom = margins.bottom;
+        CGFloat width = child.measuredWidth;
+        CGFloat height = child.measuredHeight;
+        NSInteger childLeft = parentLeft;
+        NSInteger childTop = parentTop;
+        FLBGravity gravity = child.layoutGravity;
+        if (gravity) {
+            FLBGravity horizontalGravity = gravity & FLBGravityHorizontalMask;
+            FLBGravity verticalGravity = gravity & FLBGravityVerticalMask;
+            switch (horizontalGravity) {
+                case FLBGravityLeft:
+                    childLeft = parentLeft + marginLeft;
+                    break;
+                case FLBGravityCenterHorizontal:
+                    childLeft = parentLeft + (parentRight - parentLeft + marginLeft + marginRight - width) / 2;
+                    break;
+                case FLBGravityRight:
+                    childLeft = parentRight - width - marginRight;
+                    break;
+                default:
+                    childLeft = parentLeft + marginLeft;
+            }
+            switch (verticalGravity) {
+                case FLBGravityTop:
+                    childTop = parentTop + marginTop;
+                    break;
+                case FLBGravityCenterVertical:
+                    childTop = parentTop + (parentBottom - parentTop + marginTop + marginBottom - height) / 2;
+                    break;
+                case FLBGravityBottom:
+                    childTop = parentBottom - height - marginBottom;
+                    break;
+                default:
+                    childTop = parentTop + marginTop;
+            }
+        }
+        if (child.flb_layoutManager) {
+            [child.flb_layoutManager layout:child
+                                       left:childLeft
+                                        top:childTop
+                                      right:childLeft + width
+                                     bottom:childTop + height];
+        } else {
+            child.frame = CGRectMake(childLeft, childTop, width, height);
+            NSLog(@"%ld %ld %f %f (%@)", childLeft, childTop, childLeft + width, childTop + height, NSStringFromCGRect(child.frame));
+        }
+    }
 }
 
 @end
