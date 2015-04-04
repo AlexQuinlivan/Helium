@@ -31,8 +31,7 @@ ASSOCIATE_VALUE_NO_SETTER(_type, _name, _camel, _nsvalueaccessor)\
 }\
 
 #define ASSOCIATE_VALUE_NO_SETTER(_type, _name, _camel, _nsvalueaccessor) \
-@dynamic _name;\
-static char k##_camel##AssociationKey;\
+ASSOCIATED_PROPERTY(_name, _camel)\
 ASSOCIATED_ACCESSOR(_type, _name, _nsvalueaccessor, &k##_camel##AssociationKey)
 
 
@@ -40,3 +39,9 @@ ASSOCIATED_ACCESSOR(_type, _name, _nsvalueaccessor, &k##_camel##AssociationKey)
 -(_type) _name {\
     return [objc_getAssociatedObject(self, _key) _accessor];\
 }\
+
+
+#define ASSOCIATED_PROPERTY(_name, _camel)\
+@dynamic _name;\
+static char k##_camel##AssociationKey;\
+

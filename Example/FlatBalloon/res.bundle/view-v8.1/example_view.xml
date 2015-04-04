@@ -9,13 +9,19 @@
         layout_width="wrap_content"
         layout_height="wrap_content"
         layout_gravity="center"
+        orientation="vertical"
         min_height="200"
-        layout="frame"
+        layout="linear"
         padding="10"
         background_color="#3000">
         <UIView
             layout_width="100"
             layout_height="100"
+            background_color="#0F0" />
+        <UIView
+            layout_width="100"
+            layout_height="100"
+            margin_top="10"
             background_color="#0F0" />
     </UIView>
 </UIView>

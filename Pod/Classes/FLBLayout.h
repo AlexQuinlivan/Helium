@@ -15,8 +15,8 @@ typedef NS_ENUM(NSInteger, FLBLayoutParam) {
 };
 
 typedef NS_ENUM(NSInteger, FLBLayoutOrientation) {
-    FLBLayoutOrientationVertical,
     FLBLayoutOrientationHorizontal,
+    FLBLayoutOrientationVertical,
 };
 
 
@@ -87,7 +87,11 @@ typedef NS_ENUM(int32_t, FLBGravity) {
 @property (nonatomic) CGFloat measuredHeight;
 @property (nonatomic) CGFloat minWidth;
 @property (nonatomic) CGFloat minHeight;
-@property (nonatomic) id<FLBLayoutManager> flb_layoutManager;
+@property (nonatomic) FLBLayoutOrientation flb_orientation;
+@property (nonatomic) NSInteger flb_baselineAlignedChildIndex;
+@property (nonatomic) CGFloat flb_weightSum;
+@property (nonatomic) FLBGravity flb_gravity;
+@property (nonatomic, strong) id<FLBLayoutManager> flb_layoutManager;
 
 @end
 
@@ -130,6 +134,10 @@ typedef NS_ENUM(int32_t, FLBGravity) {
                       widthUsed:(NSInteger) widthUsed
                parentHeightSpec:(FLBMeasureSpec) parentHeightMeasureSpec
                      heightUsed:(NSInteger) heightUsed;
++(void) measureView:(UIView *) view
+          widthSpec:(FLBMeasureSpec) widthMeasureSpec
+         heightSpec:(FLBMeasureSpec) heightMeasureSpec;
++(void) setChild:(UIView *) child frame:(CGRect) frame;
 
 +(CGRect) applyGravity:(FLBGravity) gravity
            toContainer:(CGRect) container

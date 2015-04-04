@@ -24,14 +24,20 @@
 #pragma clang diagnostic ignored "-Wundeclared-selector"
 
 +(SEL) selectorAliasForAttributeWithName:(NSString *) attributeName {
-    if ([@"layout" isEqualToString:attributeName]) {
-        return @selector(setFlb_layoutManager:);
-    } else if ([@"padding" isEqualToString:attributeName]) {
-        return @selector(setFlb_padding:);
-    } else if ([@"margins" isEqualToString:attributeName]) {
-        return @selector(setFlb_margins:);
-    }
-    return nil;
+    static NSDictionary* aliasMap;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        aliasMap = @{
+                     @"layout" : [NSValue valueWithPointer:@selector(setFlb_layoutManager:)],
+                     @"padding" : [NSValue valueWithPointer:@selector(setFlb_padding:)],
+                     @"margins" : [NSValue valueWithPointer:@selector(setFlb_margins:)],
+                     @"orientation" : [NSValue valueWithPointer:@selector(setFlb_orientation:)],
+                     @"baseline_child_index" : [NSValue valueWithPointer:@selector(setFlb_baselineChildIndex:)],
+                     @"weight_sum" : [NSValue valueWithPointer:@selector(setFlb_weightSum:)],
+                     @"gravity" : [NSValue valueWithPointer:@selector(setFlb_gravity:)],
+                     };
+    });
+    return [aliasMap[attributeName] pointerValue];
 }
 
 #pragma clang diagnostic pop

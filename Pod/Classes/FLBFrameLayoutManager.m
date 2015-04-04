@@ -100,16 +100,7 @@
                     childTop = parentTop + marginTop;
             }
         }
-        if (child.flb_layoutManager) {
-            [child.flb_layoutManager layout:child
-                                       left:childLeft
-                                        top:childTop
-                                      right:childLeft + width
-                                     bottom:childTop + height];
-        } else {
-            child.frame = CGRectMake(childLeft, childTop, width, height);
-            NSLog(@"%ld %ld %f %f (%@)", childLeft, childTop, childLeft + width, childTop + height, NSStringFromCGRect(child.frame));
-        }
+        [FLBLayout setChild:child frame:CGRectMake(childLeft, childTop, width, height)];
     }
 }
 

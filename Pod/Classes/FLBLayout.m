@@ -114,6 +114,30 @@ ASSOCIATE_VALUE_NO_SETTER(UIEdgeInsets, flb_padding, Flb_padding, UIEdgeInsetsVa
     return self.flb_padding.bottom;
 }
 
+ASSOCIATED_PROPERTY(flb_baselineAlignedChildIndex, Flb_baselineAlignedChildIndex);
+-(void) setFlb_baselineAlignedChildIndex:(NSInteger) flb_baselineAlignedChildIndex {
+    objc_setAssociatedObject(self, &kFlb_baselineAlignedChildIndexAssociationKey,
+                             @(flb_baselineAlignedChildIndex), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
+}
+
+-(NSInteger) flb_baselineAlignedChildIndex {
+    NSNumber* flb_baselineAlignedChildIndex = objc_getAssociatedObject(self, &kFlb_baselineAlignedChildIndexAssociationKey);
+    return (flb_baselineAlignedChildIndex)? flb_baselineAlignedChildIndex.integerValue : -1;
+}
+
+ASSOCIATED_PROPERTY(flb_weightSum, Flb_weightSum);
+-(void) setFlb_weightSum:(CGFloat) flb_weightSum {
+    objc_setAssociatedObject(self, &kFlb_weightSumAssociationKey,
+                             @(flb_weightSum), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
+}
+
+-(CGFloat) flb_weightSum {
+    NSNumber* flb_weightSum = objc_getAssociatedObject(self, &kFlb_weightSumAssociationKey);
+    return (flb_weightSum)? flb_weightSum.floatValue : -1.f;
+}
+
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, translationX, TranslationX, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, translationY, TranslationY, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, minWidth, MinWidth, floatValue);
@@ -122,6 +146,8 @@ ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, layoutWidth, LayoutWidth, floatValue)
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, layoutHeight, LayoutHeight, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, layoutWeight, LayoutWeight, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(FLBGravity, layoutGravity, LayoutGravity, intValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(FLBGravity, flb_gravity, Flb_gravity, intValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(FLBLayoutOrientation, flb_orientation, Flb_orientation, integerValue);
 ASSOCIATE_NUMBER(CGFloat, measuredWidth, MeasuredWidth, floatValue);
 ASSOCIATE_NUMBER(CGFloat, measuredHeight, MeasuredHeight, floatValue);
 ASSOCIATE_OBJECT(NSObject, flb_layoutManager, Flb_layoutManager);
@@ -244,13 +270,35 @@ ASSOCIATE_OBJECT(NSObject, flb_layoutManager, Flb_layoutManager);
     FLBMeasureSpec childHeightMeasureSpec = [self childMeasureSpec:parentHeightMeasureSpec
                                                            padding:paddingTop + paddingBottom + marginTop + marginBottom + ((int32_t) heightUsed)
                                                          dimension:childView.layoutHeight];
-    if (childView.flb_layoutManager) {
-        [childView.flb_layoutManager measure:childView
-                                   widthSpec:childWidthMeasureSpec
-                                  heightSpec:childHeightMeasureSpec];
+    [self measureView:childView
+            widthSpec:childWidthMeasureSpec
+           heightSpec:childHeightMeasureSpec];
+}
+
++(void) measureView:(UIView *) view
+          widthSpec:(FLBMeasureSpec) widthMeasureSpec
+         heightSpec:(FLBMeasureSpec) heightMeasureSpec {
+    id<FLBLayoutManager> layoutManager = view.flb_layoutManager;
+    if (layoutManager) {
+        [layoutManager measure:view
+                     widthSpec:widthMeasureSpec
+                    heightSpec:heightMeasureSpec];
     } else {
-        childView.measuredWidth = [self defaultSize:childView.minWidth spec:childWidthMeasureSpec];
-        childView.measuredHeight = [self defaultSize:childView.minHeight spec:childHeightMeasureSpec];
+        view.measuredWidth = [self defaultSize:view.minWidth spec:widthMeasureSpec];
+        view.measuredHeight = [self defaultSize:view.minHeight spec:heightMeasureSpec];
+    }
+}
+
++(void) setChild:(UIView *) child frame:(CGRect) frame {
+    id<FLBLayoutManager> layoutManager = child.flb_layoutManager;
+    if (layoutManager) {
+        [layoutManager layout:child
+                         left:frame.origin.x
+                          top:frame.origin.y
+                        right:frame.origin.x + frame.size.width
+                       bottom:frame.origin.y + frame.size.height];
+    } else {
+        child.frame = frame;
     }
 }
 
