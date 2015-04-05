@@ -4,10 +4,11 @@
     layout_width="match_parent"
     layout_height="match_parent"
     layout="frame"
+    padding="10"
     background_color="#F00">
     <UIView
         layout_width="wrap_content"
-        layout_height="wrap_content"
+        layout_height="match_parent"
         layout_gravity="center"
         orientation="vertical"
         min_height="200"
@@ -15,12 +16,14 @@
         padding="10"
         background_color="#3000">
         <UIView
-            layout_width="100"
-            layout_height="100"
+            layout_width="match_parent"
+            layout_height="0"
+            layout_weight="1"
             background_color="#0F0" />
         <UIView
-            layout_width="100"
-            layout_height="100"
+            layout_width="match_parent"
+            layout_height="0"
+            layout_weight="1"
             margin_top="10"
             background_color="#0F0" />
     </UIView>
