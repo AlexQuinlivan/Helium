@@ -1,6 +1,6 @@
 //
 //  NSString+Convert.h
-//  FlatBalloon
+//  Helium
 //
 //  Created by Alex Quinlivan on 13/03/15.
 //

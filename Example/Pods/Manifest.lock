@@ -1,17 +1,17 @@
 PODS:
   - EDSemver (0.3.0)
-  - FlatBalloon (0.0.1):
+  - Helium (0.0.1):
     - EDSemver (~> 0.3.0)
 
 DEPENDENCIES:
-  - FlatBalloon (from `../`)
+  - Helium (from `../`)
 
 EXTERNAL SOURCES:
-  FlatBalloon:
-    :path: ../
+  Helium:
+    :path: "../"
 
 SPEC CHECKSUMS:
-  EDSemver: 1eb8b041bc8681c341681bda9d4e4a61f8f495f1
-  FlatBalloon: 4b3da743e48be54d17a309817994628176591bbe
+  EDSemver: 124a90685873628ec30f42504b461a1a61757568
+  Helium: 1ab13b6e38fca1a192ff094338fbb3ec72d5104c
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.1

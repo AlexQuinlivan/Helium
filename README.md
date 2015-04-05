@@ -1,4 +1,4 @@
-AlexQuinlivan/FlatBalloon
+AlexQuinlivan/Helium
 =========================
 An Android-like view inflation and bucketed resource library for iOS. 
 If you would like to use a library that is similar to this and actually works, check out [iDroidLayout](https://github.com/tomquist/iDroidLayout)
@@ -21,7 +21,7 @@ Goals
 
 Usage
 -----
-The api for this is changing very rapidly, the [example project](https://github.com/AlexQuinlivan/FlatBalloon/tree/master/Example) should be using the most up-to-date version of where this library is heading.
+The api for this is changing very rapidly, the [example project](https://github.com/AlexQuinlivan/Helium/tree/master/Example) should be using the most up-to-date version of where this library is heading.
 
 todo: Actually make this relevant and up to date, using the best practices as well. (Maybe it wont even end up in the final README)
 
@@ -44,11 +44,11 @@ todo: Actually make this relevant and up to date, using the best practices as we
 
 #### An example view controller implementation
 ```objc
-@interface FLBViewController ()
+@interface HLMViewController ()
 @property (nonatomic, weak) UIView* example;
 @end
 
-@implementation FLBViewController
+@implementation HLMViewController
 INJECT_VIEW(example, example)
 
 -(NSString *) layoutResource {
@@ -61,10 +61,10 @@ INJECT_VIEW(example, example)
 
 Installation
 ------------
-FlatBalloon is (not yet) available through [CocoaPods](http://cocoapods.org). To install
+Helium is (not yet) available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 ```ruby
-pod 'FlatBalloon', :git => 'https://github.com/AlexQuinlivan/FlatBalloon.git'
+pod 'Helium', :git => 'https://github.com/AlexQuinlivan/Helium.git'
 ```
 
 
