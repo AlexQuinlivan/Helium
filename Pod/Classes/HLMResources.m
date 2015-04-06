@@ -299,7 +299,8 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
                     mutBuckets[resourceId] = resource;
                 }
                 HLMBucketResource* bucketResource = [HLMBucketResource new];
-                bucketResource.path = [filePath stringByReplacingOccurrencesOfString:resPath withString:@"res.bundle"];
+                NSRange rangeOfResBundle = [filePath rangeOfString:@"res.bundle"];
+                bucketResource.path = [filePath substringFromIndex:rangeOfResBundle.location];
                 bucketResource.config = bucketDeviceConfig;
                 NSUInteger newIndex = [resource indexOfObject:bucketResource
                                                 inSortedRange:NSMakeRange(0, resource.count)
