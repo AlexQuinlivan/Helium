@@ -26,7 +26,6 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
         NSString* resourcePath = [NSString stringWithFormat:@"%@/%@", [NSBundle mainBundle].bundlePath, [HLMResources resolveResourcePath:layoutResource]];
         NSError* error;
         NSData* data = [[NSFileManager defaultManager] contentsAtPath:resourcePath];
-        NSLog(@"%@", resourcePath);
         self->layoutXml = [[GDataXMLDocument alloc] initWithData:data
                                                          options:0
                                                            error:&error];
