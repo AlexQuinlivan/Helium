@@ -11,6 +11,7 @@
 
 static NSString* const HLMViewInjectorPrefix = @"inject_$$";
 static NSString* const HLMInjectorSeperator = @"_$$";
+static NSString* const HLMInjectorSettingOptional = @"optional";
 
 @implementation HLMViewInjector
 
@@ -46,7 +47,7 @@ static NSString* const HLMInjectorSeperator = @"_$$";
         // Find the view to inject
         UIView* injectable = [root viewWithTag:tagName.hash];
         if (!injectable) {
-            if ([injectorSetting isEqualToString:@"optional"]) {
+            if ([injectorSetting isEqualToString:HLMInjectorSettingOptional]) {
                 return;
             } else {
                 @throw [NSException exceptionWithName:@"HLMViewInjectionException"
