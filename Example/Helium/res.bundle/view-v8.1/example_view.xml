@@ -68,6 +68,7 @@
                     layout_height="match_parent"
                     background_color="#000" />
                 <UIView
+                    tag="blue_square"
                     layout_width="0"
                     layout_height="match_parent"
                     layout_weight="1"
