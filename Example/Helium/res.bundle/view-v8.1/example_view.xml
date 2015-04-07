@@ -77,4 +77,28 @@
             </UIView>
         </UIView>
     </UIView>
+    <UIView
+        tag="square_0"
+        layout_width="80"
+        layout_height="80"
+        layout_gravity="left|top"
+        background_color="#AAF44336" />
+    <UIView
+        tag="square_1"
+        layout_width="80"
+        layout_height="80"
+        layout_gravity="left|bottom"
+        background_color="#AA4CAF50" />
+    <UIView
+        tag="square_2"
+        layout_width="80"
+        layout_height="80"
+        layout_gravity="right|bottom"
+        background_color="#AA2196F3" />
+    <UIView
+        tag="square_3"
+        layout_width="80"
+        layout_height="80"
+        layout_gravity="right|top"
+        background_color="#AAFFEB3B" />
 </UIView>
