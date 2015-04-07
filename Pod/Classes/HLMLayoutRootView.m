@@ -8,7 +8,7 @@
 
 #import "HLMLayoutRootView.h"
 #import "HLMLayout.h"
-#define LAYOUT_PERF
+
 @implementation HLMLayoutRootView
 
 -(void) layoutSubviews {
