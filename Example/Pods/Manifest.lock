@@ -2,6 +2,9 @@ PODS:
   - EDSemver (0.3.0)
   - Helium (0.0.1):
     - EDSemver (~> 0.3.0)
+    - Helium/no-arc (= 0.0.1)
+  - Helium/no-arc (0.0.1):
+    - EDSemver (~> 0.3.0)
 
 DEPENDENCIES:
   - Helium (from `../`)
@@ -12,6 +15,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   EDSemver: 124a90685873628ec30f42504b461a1a61757568
-  Helium: 1ab13b6e38fca1a192ff094338fbb3ec72d5104c
+  Helium: cce06e498ed3a91fd5feeba67be57b6920cabb4a
 
 COCOAPODS: 0.36.1

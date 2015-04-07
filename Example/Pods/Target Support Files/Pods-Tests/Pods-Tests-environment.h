@@ -18,3 +18,9 @@
 #define COCOAPODS_VERSION_MINOR_Helium 0
 #define COCOAPODS_VERSION_PATCH_Helium 1
 
+// Helium/no-arc
+#define COCOAPODS_POD_AVAILABLE_Helium_no_arc
+#define COCOAPODS_VERSION_MAJOR_Helium_no_arc 0
+#define COCOAPODS_VERSION_MINOR_Helium_no_arc 0
+#define COCOAPODS_VERSION_PATCH_Helium_no_arc 1
+

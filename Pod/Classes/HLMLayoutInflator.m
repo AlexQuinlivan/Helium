@@ -12,36 +12,39 @@
 #import "HLMLinearLayoutManager.h"
 #import "HLMFrameLayoutManager.h"
 #import "HLMRelativeLayoutManager.h"
-#import "TBXML.h"
-#import "TBXML+ChildIterator.h"
+#import "GDataXMLNode.h"
 #import "NSString+Convert.h"
 
 static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 
 @implementation HLMLayoutInflator {
-    TBXML* layoutXml;
+    GDataXMLDocument* layoutXml;
 }
 
 -(instancetype) initWithLayout:(NSString *) layoutResource {
     if (self = [super init]) {
-        NSString* resourcePath = [HLMResources resolveResourcePath:layoutResource];
-        NSError* tbxmlError;
-        self->layoutXml = [TBXML tbxmlWithXMLFile:resourcePath error:&tbxmlError];
-        if (tbxmlError) {
+        NSString* resourcePath = [NSString stringWithFormat:@"%@/%@", [NSBundle mainBundle].bundlePath, [HLMResources resolveResourcePath:layoutResource]];
+        NSError* error;
+        NSData* data = [[NSFileManager defaultManager] contentsAtPath:resourcePath];
+        NSLog(@"%@", resourcePath);
+        self->layoutXml = [[GDataXMLDocument alloc] initWithData:data
+                                                         options:0
+                                                           error:&error];
+        if (error) {
             @throw [NSException exceptionWithName:HLMInflatorExceptionName
-                                           reason:[NSString stringWithFormat:@"Error loading %@, %@", resourcePath, tbxmlError]
-                                         userInfo:@{@"error":tbxmlError}];
+                                           reason:[NSString stringWithFormat:@"Error loading %@, %@", resourcePath, error]
+                                         userInfo:@{@"error":error}];
         }
     }
     return self;
 }
 
 -(UIView *) inflate {
-    return [self inflateViewFromXml:self->layoutXml.rootXMLElement];
+    return [self inflateViewFromXml:self->layoutXml.rootElement];
 }
 
--(UIView *) inflateViewFromXml:(TBXMLElement *) element {
-    NSString* className = [TBXML elementName:element];
+-(UIView *) inflateViewFromXml:(GDataXMLElement *) element {
+    NSString* className = element.name;
     if (!className) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
                                        reason:@"Found element with no name"
@@ -61,31 +64,33 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     return view;
 }
 
--(void) inflateChildrenOfView:(UIView *) view fromElement:(TBXMLElement *) element {
-    [TBXML iterateChildrenOfElement:element
-                          withBlock:^(TBXMLElement* child) {
-                              UIView* childView = [self inflateViewFromXml:child];
-                              [view addSubview:childView];
-                          }];
+-(void) inflateChildrenOfView:(UIView *) view fromElement:(GDataXMLElement *) element {
+    NSArray* children = element.children;
+    for (GDataXMLElement* child in children) {
+        UIView* childView = [self inflateViewFromXml:child];
+        [view addSubview:childView];
+    }
 }
 
--(void) applyAttributesToView:(UIView *) view fromElement:(TBXMLElement *) element {
-    __block BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = NO;
-    [TBXML iterateAttributesOfElement:element
-                            withBlock:^(TBXMLAttribute* attribute, NSString* name, NSString* value) {
-                                NSString* propertyName = [name toCamelCaps];
-                                propertyName = [NSString stringWithFormat:@"set%@:", propertyName];
-                                SEL propertySel = NSSelectorFromString(propertyName);
-                                if ([view respondsToSelector:propertySel]
-                                    || [view respondsToSelector:(propertySel = [HLMAttributes selectorAliasForAttributeWithName:name])]) {
-                                    [self performSetter:propertySel onView:view withName:name andValue:value];
-                                    layoutWidthSet |= [@"layout_width" isEqualToString:name];
-                                    layoutHeightSet |= [@"layout_height" isEqualToString:name];
-                                    layoutManagerSet |= [@"layout" isEqualToString:name];
-                                } else {
-                                    NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
-                                }
-                            }];
+-(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element {
+    BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = NO;
+    NSArray* attributes = element.attributes;
+    for (GDataXMLNode* attribute in attributes) {
+        NSString* name = attribute.name;
+        NSString* value = attribute.stringValue;
+        NSString* propertyName = [name toCamelCaps];
+        propertyName = [NSString stringWithFormat:@"set%@:", propertyName];
+        SEL propertySel = NSSelectorFromString(propertyName);
+        if ([view respondsToSelector:propertySel]
+            || [view respondsToSelector:(propertySel = [HLMAttributes selectorAliasForAttributeWithName:name])]) {
+            [self performSetter:propertySel onView:view withName:name andValue:value];
+            layoutWidthSet |= [@"layout_width" isEqualToString:name];
+            layoutHeightSet |= [@"layout_height" isEqualToString:name];
+            layoutManagerSet |= [@"layout" isEqualToString:name];
+        } else {
+            NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
+        }
+    }
     if (!layoutManagerSet) {
         //todo: this was incorrect
 //        @throw [NSException exceptionWithName:HLMInflatorExceptionName
@@ -94,7 +99,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     }
     if (!layoutWidthSet || !layoutHeightSet) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
-                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated without both layout_width and layout_height", [TBXML elementName:element]]
+                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated without both layout_width and layout_height", element.name]
                                      userInfo:nil];
     }
 }

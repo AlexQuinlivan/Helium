@@ -17,9 +17,21 @@
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
+  "exclude_files": "Pod/Classes/**/GDataXMLNode.{h,m}",
   "dependencies": {
     "EDSemver": [
       "~> 0.3.0"
     ]
-  }
+  },
+  "libraries": "xml2",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": "Pod/Classes/GDataXMLNode.{h,m}",
+      "requires_arc": false
+    }
+  ]
 }
