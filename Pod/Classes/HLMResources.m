@@ -144,7 +144,7 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
             @throw [self unexpectedResourceExceptionParsing:@"NSNumber*" withResourceId:numberResource];
         }
     } else {
-        if ([numberResource containsString:@"."]) {
+        if ([numberResource rangeOfString:@"."].location != NSNotFound) {
             value = @([numberResource floatValue]);
         } else if ([self.boolAliases containsObject:numberResource]) {
             value = @([numberResource boolValue]);
