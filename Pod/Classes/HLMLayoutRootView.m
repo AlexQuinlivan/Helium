@@ -8,10 +8,13 @@
 
 #import "HLMLayoutRootView.h"
 #import "HLMLayout.h"
-
+#define LAYOUT_PERF
 @implementation HLMLayoutRootView
 
 -(void) layoutSubviews {
+#ifdef LAYOUT_PERF
+    NSDate* layoutStarted = NSDate.date;
+#endif
     [super layoutSubviews];
     NSArray* subviews = self.subviews;
     NSUInteger subviewCount = subviews.count;
@@ -35,9 +38,12 @@
         [subview.hlm_layoutManager layout:subview
                                      left:0
                                       top:0
-                                    right:subview.measuredWidth
-                                   bottom:subview.measuredHeight];
+                                    right:subview.hlm_measuredWidth
+                                   bottom:subview.hlm_measuredHeight];
     }
+#ifdef LAYOUT_PERF
+    NSLog(@"[VERBOSE]: Layout took %.3fms", [NSDate.date timeIntervalSinceDate:layoutStarted]);
+#endif
 }
 
 @end
