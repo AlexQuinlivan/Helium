@@ -55,6 +55,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     }
     NSLog(@"[INFO]: Inflating <%@>", className);
     UIView* view = [(UIView *)[clazz alloc] initWithFrame:HLMLayoutInflator.minFrame];
+    view.clipsToBounds = YES;
     [self applyAttributesToView:view fromElement:element];
     [self inflateChildrenOfView:view fromElement:element];
     return view;
