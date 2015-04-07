@@ -28,9 +28,23 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         aliasMap = @{
+                     @"layout_width" : [NSValue valueWithPointer:@selector(setHlm_layoutWidth:)],
+                     @"layout_height" : [NSValue valueWithPointer:@selector(setHlm_layoutHeight:)],
+                     @"layout_gravity" : [NSValue valueWithPointer:@selector(setHlm_layoutGravity:)],
+                     @"layout_weight" : [NSValue valueWithPointer:@selector(setHlm_layoutWeight:)],
                      @"layout" : [NSValue valueWithPointer:@selector(setHlm_layoutManager:)],
+                     @"min_width" : [NSValue valueWithPointer:@selector(setHlm_minWidth:)],
+                     @"min_height" : [NSValue valueWithPointer:@selector(setHlm_minHeight:)],
                      @"padding" : [NSValue valueWithPointer:@selector(setHlm_padding:)],
+                     @"padding_left" : [NSValue valueWithPointer:@selector(setHlm_paddingLeft:)],
+                     @"padding_top" : [NSValue valueWithPointer:@selector(setHlm_paddingTop:)],
+                     @"padding_right" : [NSValue valueWithPointer:@selector(setHlm_paddingRight:)],
+                     @"padding_bottom" : [NSValue valueWithPointer:@selector(setHlm_paddingBottom:)],
                      @"margins" : [NSValue valueWithPointer:@selector(setHlm_margins:)],
+                     @"margin_left" : [NSValue valueWithPointer:@selector(setHlm_marginLeft:)],
+                     @"margin_top" : [NSValue valueWithPointer:@selector(setHlm_marginTop:)],
+                     @"margin_right" : [NSValue valueWithPointer:@selector(setHlm_marginRight:)],
+                     @"margin_bottom" : [NSValue valueWithPointer:@selector(setHlm_marginBottom:)],
                      @"orientation" : [NSValue valueWithPointer:@selector(setHlm_orientation:)],
                      @"baseline_child_index" : [NSValue valueWithPointer:@selector(setHlm_baselineChildIndex:)],
                      @"weight_sum" : [NSValue valueWithPointer:@selector(setHlm_weightSum:)],
@@ -70,6 +84,9 @@
                 @"orientation" : @(ATTRIBUTE_TYPE_VIEW_ORIENTATION),
                 @"alpha" : @(ATTRIBUTE_TYPE_CG_FLOAT),
                 @"hidden" : @(ATTRIBUTE_TYPE_BOOL),
+                @"baseline_child_index" : @(ATTRIBUTE_TYPE_NS_INTEGER),
+                @"weight_sum" : @(ATTRIBUTE_TYPE_CG_FLOAT),
+                @"gravity" : @(ATTRIBUTE_TYPE_VIEW_GRAVITY),
                 };
     });
     return map;

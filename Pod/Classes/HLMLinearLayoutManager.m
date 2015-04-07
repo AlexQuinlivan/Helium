@@ -60,18 +60,18 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
         if (child.isHidden) {
             continue;
         }
-        CGFloat childWeight = child.layoutWeight;
-        CGFloat childLayoutHeight = child.layoutHeight;
-        CGFloat childLayoutWidth = child.layoutWidth;
+        CGFloat childWeight = child.hlm_layoutWeight;
+        CGFloat childLayoutHeight = child.hlm_layoutHeight;
+        CGFloat childLayoutWidth = child.hlm_layoutWidth;
         totalWeight += childWeight;
         if (heightMode == HLMMeasureSpecExactly && childLayoutHeight == 0 && childWeight > 0) {
-            self.totalLength += child.marginTop + child.marginBottom;
+            self.totalLength += child.hlm_marginTop + child.hlm_marginBottom;
         } else {
             int32_t oldHeight = INT32_MIN;
             if (childLayoutHeight == 0 && childWeight > 0) {
                 oldHeight = 0;
                 childLayoutHeight = HLMLayoutParamWrap;
-                child.layoutHeight = childLayoutHeight;
+                child.hlm_layoutHeight = childLayoutHeight;
             }
             [HLMLayout measureChildWithMargins:child
                                       ofParent:view
@@ -81,9 +81,9 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
                                     heightUsed:totalWeight == 0 ? self.totalLength : 0];
             if (oldHeight != INT32_MIN) {
                 childLayoutHeight = oldHeight;
-                child.layoutHeight = childLayoutHeight;
+                child.hlm_layoutHeight = childLayoutHeight;
             }
-            self.totalLength += child.measuredHeight + child.marginTop + child.marginBottom;
+            self.totalLength += child.hlm_measuredHeight + child.hlm_marginTop + child.hlm_marginBottom;
         }
         if ((baselineChildIndex >= 0) && (baselineChildIndex == i + 1)) {
             self.baselineChildTop = self.totalLength;
@@ -102,8 +102,8 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
             matchWidth = true;
             matchWidthLocally = true;
         }
-        CGFloat margin = child.marginLeft + child.marginRight;
-        int32_t measuredWidth = child.measuredWidth + margin;
+        CGFloat margin = child.hlm_marginLeft + child.hlm_marginRight;
+        int32_t measuredWidth = child.hlm_measuredWidth + margin;
         maxWidth = MAX(maxWidth, measuredWidth);
         allFillParent = allFillParent && childLayoutWidth == HLMLayoutParamMatch;
         if (childWeight > 0) {
@@ -114,9 +114,9 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
                                            matchWidthLocally ? margin : measuredWidth);
         }
     }
-    self.totalLength += view.paddingTop + view.paddingBottom;
+    self.totalLength += view.hlm_paddingTop + view.hlm_paddingBottom;
     int32_t heightSize = self.totalLength;
-    heightSize = MAX(heightSize, view.minHeight);
+    heightSize = MAX(heightSize, view.hlm_minHeight);
     heightSize = [HLMLayout resolveSize:heightSize spec:heightMeasureSpec];
     int32_t delta = heightSize - self.totalLength;
     if (delta != 0 && totalWeight > 0.0f) {
@@ -127,18 +127,18 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
             if (child.isHidden) {
                 continue;
             }
-            CGFloat childExtra = child.layoutWeight;
-            CGFloat childLayoutHeight = child.layoutHeight;
-            CGFloat childLayoutWidth = child.layoutWidth;
+            CGFloat childExtra = child.hlm_layoutWeight;
+            CGFloat childLayoutHeight = child.hlm_layoutHeight;
+            CGFloat childLayoutWidth = child.hlm_layoutWidth;
             if (childExtra > 0) {
                 int32_t share = (int32_t) (childExtra * delta / weightSum);
                 weightSum -= childExtra;
                 delta -= share;
                 HLMMeasureSpec childWidthMeasureSpec = [HLMLayout childMeasureSpec:widthMeasureSpec
-                                                                           padding:child.paddingLeft + child.paddingRight + child.marginLeft + child.marginRight
+                                                                           padding:child.hlm_paddingLeft + child.hlm_paddingRight + child.hlm_marginLeft + child.hlm_marginRight
                                                                          dimension:childLayoutWidth];
                 if ((childLayoutHeight != 0) || (heightMode != HLMMeasureSpecExactly)) {
-                    int childHeight = child.measuredHeight + share;
+                    int childHeight = child.hlm_measuredHeight + share;
                     if (childHeight < 0) {
                         childHeight = 0;
                     }
@@ -152,27 +152,27 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
                 }
             }
             
-            CGFloat margin = child.marginLeft + child.marginRight;
-            int32_t measuredWidth = child.measuredWidth + margin;
+            CGFloat margin = child.hlm_marginLeft + child.hlm_marginRight;
+            int32_t measuredWidth = child.hlm_measuredWidth + margin;
             maxWidth = MAX(maxWidth, measuredWidth);
             BOOL matchWidthLocally = widthMode != HLMMeasureSpecExactly &&
             childLayoutWidth == HLMLayoutParamMatch;
-            child.layoutWidth = childLayoutWidth;
+            child.hlm_layoutWidth = childLayoutWidth;
             alternativeMaxWidth = MAX(alternativeMaxWidth, matchWidthLocally ? margin : measuredWidth);
             allFillParent = allFillParent && childLayoutWidth == HLMLayoutParamMatch;
-            self.totalLength += child.measuredHeight + child.marginTop + child.marginBottom;
+            self.totalLength += child.hlm_measuredHeight + child.hlm_marginTop + child.hlm_marginBottom;
         }
-        self.totalLength += view.paddingTop + view.paddingBottom;
+        self.totalLength += view.hlm_paddingTop + view.hlm_paddingBottom;
     } else {
         alternativeMaxWidth = MAX(alternativeMaxWidth, weightedMaxWidth);
     }
     if (!allFillParent && widthMode != HLMMeasureSpecExactly) {
         maxWidth = alternativeMaxWidth;
     }
-    maxWidth += view.paddingLeft + view.paddingRight;
-    maxWidth = MAX(maxWidth, view.minWidth);
-    view.measuredWidth = [HLMLayout resolveSize:maxWidth spec:widthMeasureSpec];
-    view.measuredHeight = heightSize;
+    maxWidth += view.hlm_paddingLeft + view.hlm_paddingRight;
+    maxWidth = MAX(maxWidth, view.hlm_minWidth);
+    view.hlm_measuredWidth = [HLMLayout resolveSize:maxWidth spec:widthMeasureSpec];
+    view.hlm_measuredHeight = heightSize;
     if (matchWidth) {
         [self forceUniformWidth:view
                           count:subviews.count
@@ -201,12 +201,12 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
         if (child.isHidden) {
             continue;
         }
-        CGFloat childWeight = child.layoutWeight;
-        CGFloat childLayoutHeight = child.layoutHeight;
-        CGFloat childLayoutWidth = child.layoutWidth;
+        CGFloat childWeight = child.hlm_layoutWeight;
+        CGFloat childLayoutHeight = child.hlm_layoutHeight;
+        CGFloat childLayoutWidth = child.hlm_layoutWidth;
         totalWeight += childWeight;
         if (widthMode == HLMMeasureSpecExactly && childLayoutWidth == 0 && childWeight > 0) {
-            self.totalLength += child.marginLeft + child.marginRight;
+            self.totalLength += child.hlm_marginLeft + child.hlm_marginRight;
             if (baselineAligned) {
                 HLMMeasureSpec freeSpec = [HLMLayout measureSpecWithSize:0 mode:HLMMeasureSpecUnspecified];
                 [HLMLayout measureView:child
@@ -218,7 +218,7 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
             if (childLayoutWidth == 0 && childWeight > 0) {
                 oldWidth = 0;
                 childLayoutWidth = HLMLayoutParamWrap;
-                child.layoutWidth = childLayoutWidth;
+                child.hlm_layoutWidth = childLayoutWidth;
             }
             [HLMLayout measureChildWithMargins:child
                                       ofParent:view
@@ -228,21 +228,21 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
                                     heightUsed:0];
             if (oldWidth != INT32_MIN) {
                 childLayoutWidth = oldWidth;
-                child.layoutWidth = childLayoutWidth;
+                child.hlm_layoutWidth = childLayoutWidth;
             }
-            self.totalLength += child.measuredWidth + child.marginLeft + child.marginRight;
+            self.totalLength += child.hlm_measuredWidth + child.hlm_marginLeft + child.hlm_marginRight;
         }
         BOOL matchHeightLocally = NO;
         if (heightMode != HLMMeasureSpecExactly && childLayoutHeight == HLMLayoutParamMatch) {
             matchHeight = YES;
             matchHeightLocally = YES;
         }
-        CGFloat margin = child.marginTop + child.marginBottom;
-        int32_t childHeight = child.measuredHeight + margin;
+        CGFloat margin = child.hlm_marginTop + child.hlm_marginBottom;
+        int32_t childHeight = child.hlm_measuredHeight + margin;
         if (baselineAligned) {
             int32_t childBaseline = -1; // todo: child baseline
             if (childBaseline != -1) {
-                HLMGravity gravity = ((child.layoutGravity < 0) ? view.hlm_gravity : child.layoutGravity) & HLMGravityVerticalMask;
+                HLMGravity gravity = ((child.hlm_layoutGravity < 0) ? view.hlm_gravity : child.hlm_layoutGravity) & HLMGravityVerticalMask;
                 int32_t index = ((gravity >> HLMGravityAxisYShift) & ~HLMGravityAxisSpecified) >> 1;
                 maxAscent[index] = MAX(maxAscent[index], childBaseline);
                 maxDescent[index] = MAX(maxDescent[index], childHeight - childBaseline);
@@ -270,9 +270,9 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
                                   MAX(maxDescent[HLMLinearLayoutIndexTop], maxDescent[HLMLinearLayoutIndexBottom])));
         maxHeight = MAX(maxHeight, ascent + descent);
     }
-    self.totalLength += view.paddingLeft + view.paddingRight;
+    self.totalLength += view.hlm_paddingLeft + view.hlm_paddingRight;
     int32_t widthSize = self.totalLength;
-    widthSize = MAX(widthSize, view.minWidth);
+    widthSize = MAX(widthSize, view.hlm_minWidth);
     widthSize = [HLMLayout resolveSize:widthSize spec:widthMeasureSpec];
     int32_t delta = widthSize - self.totalLength;
     if (delta != 0 && totalWeight > 0.0f) {
@@ -286,18 +286,18 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
             if (child.isHidden) {
                 continue;
             }
-            CGFloat childExtra = child.layoutWeight;
-            CGFloat childLayoutHeight = child.layoutHeight;
-            CGFloat childLayoutWidth = child.layoutWidth;
+            CGFloat childExtra = child.hlm_layoutWeight;
+            CGFloat childLayoutHeight = child.hlm_layoutHeight;
+            CGFloat childLayoutWidth = child.hlm_layoutWidth;
             if (childExtra > 0) {
                 int32_t share = (int32_t) (childExtra * delta / weightSum);
                 weightSum -= childExtra;
                 delta -= share;
                 HLMMeasureSpec childHeightMeasureSpec = [HLMLayout childMeasureSpec:heightMeasureSpec
-                                                                            padding:view.paddingTop + view.paddingBottom + child.marginTop + child.marginBottom
+                                                                            padding:view.hlm_paddingTop + view.hlm_paddingBottom + child.hlm_marginTop + child.hlm_marginBottom
                                                                           dimension:childLayoutHeight];
                 if ((childLayoutWidth != 0) || (widthMode != HLMMeasureSpecExactly)) {
-                    int childWidth = child.measuredWidth + share;
+                    int childWidth = child.hlm_measuredWidth + share;
                     if (childWidth < 0) {
                         childWidth = 0;
                     }
@@ -310,10 +310,10 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
                                 heightSpec:childHeightMeasureSpec];
                 }
             }
-            self.totalLength += child.measuredWidth + child.marginLeft + child.marginRight;
+            self.totalLength += child.hlm_measuredWidth + child.hlm_marginLeft + child.hlm_marginRight;
             BOOL matchHeightLocally = heightMode != HLMMeasureSpecExactly && childLayoutHeight == HLMLayoutParamMatch;
-            CGFloat margin = child.marginTop + child.marginBottom;
-            int32_t childHeight = child.measuredHeight + margin;
+            CGFloat margin = child.hlm_marginTop + child.hlm_marginBottom;
+            int32_t childHeight = child.hlm_measuredHeight + margin;
             maxHeight = MAX(maxHeight, childHeight);
             alternativeMaxHeight = MAX(alternativeMaxHeight,
                                        matchHeightLocally ? margin : childHeight);
@@ -321,14 +321,14 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
             if (baselineAligned) {
                 int32_t childBaseline = -1; // todo: child baseline
                 if (childBaseline != -1) {
-                    HLMGravity gravity = ((child.layoutGravity < 0) ? view.hlm_gravity : child.layoutGravity) & HLMGravityVerticalMask;
+                    HLMGravity gravity = ((child.hlm_layoutGravity < 0) ? view.hlm_gravity : child.hlm_layoutGravity) & HLMGravityVerticalMask;
                     int32_t index = ((gravity >> HLMGravityAxisYShift) & ~HLMGravityAxisSpecified) >> 1;
                     maxAscent[index] = MAX(maxAscent[index], childBaseline);
                     maxDescent[index] = MAX(maxDescent[index], childHeight - childBaseline);
                 }
             }
         }
-        self.totalLength += view.paddingLeft + view.paddingRight;
+        self.totalLength += view.hlm_paddingLeft + view.hlm_paddingRight;
         if (maxAscent[HLMLinearLayoutIndexTop] != -1 ||
             maxAscent[HLMLinearLayoutIndexCenterVertical] != -1 ||
             maxAscent[HLMLinearLayoutIndexBottom] != -1 ||
@@ -347,10 +347,10 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
     if (!allFillParent && heightMode != HLMMeasureSpecExactly) {
         maxHeight = alternativeMaxHeight;
     }
-    maxHeight += view.paddingTop + view.paddingBottom;
-    maxHeight = MAX(maxHeight, view.minHeight);
-    view.measuredWidth = widthSize;
-    view.measuredHeight = [HLMLayout resolveSize:maxHeight spec:heightMeasureSpec];
+    maxHeight += view.hlm_paddingTop + view.hlm_paddingBottom;
+    maxHeight = MAX(maxHeight, view.hlm_minHeight);
+    view.hlm_measuredWidth = widthSize;
+    view.hlm_measuredHeight = [HLMLayout resolveSize:maxHeight spec:heightMeasureSpec];
     if (matchHeight) {
         [self forceUniformHeight:view
                            count:subviews.count
@@ -393,7 +393,7 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
     int32_t width = (int32_t) (right - left);
     int32_t childRight = width - paddingRight;
     int32_t childSpace = width - paddingLeft - paddingRight;
-    HLMGravity gravity = view.layoutGravity;
+    HLMGravity gravity = view.hlm_layoutGravity;
     HLMGravity minorGravity = gravity & HLMGravityHorizontalMask;
     HLMGravity majorGravity = gravity & HLMGravityVerticalMask;
     if (majorGravity != HLMGravityTop) {
@@ -414,28 +414,28 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
         if (child.isHidden) {
             continue;
         }
-        int32_t childWidth = child.measuredWidth;
-        int32_t childHeight = child.measuredHeight;
-        HLMGravity gravity = child.layoutGravity;
+        int32_t childWidth = child.hlm_measuredWidth;
+        int32_t childHeight = child.hlm_measuredHeight;
+        HLMGravity gravity = child.hlm_layoutGravity;
         if (gravity < 0) {
             gravity = minorGravity;
         }
         switch (gravity & HLMGravityHorizontalMask) {
             case HLMGravityLeft:
-                childLeft = paddingLeft + child.marginLeft;
+                childLeft = paddingLeft + child.hlm_marginLeft;
                 break;
             case HLMGravityCenterHorizontal:
-                childLeft = paddingLeft + ((childSpace - childWidth) / 2) + child.marginLeft - child.marginRight;
+                childLeft = paddingLeft + ((childSpace - childWidth) / 2) + child.hlm_marginLeft - child.hlm_marginRight;
                 break;
             case HLMGravityRight:
-                childLeft = childRight - childWidth - child.marginRight;
+                childLeft = childRight - childWidth - child.hlm_marginRight;
                 break;
             default:
                 break;
         }
-        childTop += child.marginTop;
+        childTop += child.hlm_marginTop;
         [HLMLayout setChild:child frame:CGRectMake(childLeft, childTop, childWidth, childHeight)];
-        childTop += childHeight + child.marginBottom;
+        childTop += childHeight + child.hlm_marginBottom;
     }
 }
 
@@ -453,7 +453,7 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
     int32_t height = (int32_t) (bottom - top);
     int32_t childBottom = height - paddingBottom;
     int32_t childSpace = height - paddingTop - paddingBottom;
-    HLMGravity gravity = view.layoutGravity;
+    HLMGravity gravity = view.hlm_layoutGravity;
     HLMGravity majorGravity = gravity & HLMGravityHorizontalMask;
     HLMGravity minorGravity = gravity & HLMGravityVerticalMask;
     BOOL baselineAligned = view.hlm_baselineAligned;
@@ -475,11 +475,11 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
         if (child.isHidden) {
             continue;
         }
-        int32_t childWidth = child.measuredWidth;
-        int32_t childHeight = child.measuredHeight;
-        HLMGravity gravity = child.layoutGravity;
+        int32_t childWidth = child.hlm_measuredWidth;
+        int32_t childHeight = child.hlm_measuredHeight;
+        HLMGravity gravity = child.hlm_layoutGravity;
         int32_t childBaseline = -1;
-        if (baselineAligned && child.layoutHeight != HLMLayoutParamMatch) {
+        if (baselineAligned && child.hlm_layoutHeight != HLMLayoutParamMatch) {
             childBaseline = -1; // todo: child baseline
         }
         if (gravity < 0) {
@@ -487,19 +487,19 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
         }
         switch (gravity & HLMGravityVerticalMask) {
             case HLMGravityTop: {
-                childTop = paddingTop + child.marginTop;
+                childTop = paddingTop + child.hlm_marginTop;
                 if (childBaseline != -1) {
                     childTop += maxAscent[HLMLinearLayoutIndexTop] - childBaseline;
                 }
                 break;
             }
             case HLMGravityCenterVertical:
-                childTop = paddingTop + ((childSpace - childHeight) / 2) + child.marginTop - child.marginBottom;
+                childTop = paddingTop + ((childSpace - childHeight) / 2) + child.hlm_marginTop - child.hlm_marginBottom;
                 break;
             case HLMGravityBottom: {
-                childTop = childBottom - childHeight - child.marginBottom;
+                childTop = childBottom - childHeight - child.hlm_marginBottom;
                 if (childBaseline != -1) {
-                    int32_t descent = child.measuredHeight - childBaseline;
+                    int32_t descent = child.hlm_measuredHeight - childBaseline;
                     childTop -= (maxDescent[HLMLinearLayoutIndexBottom] - descent);
                 }
                 break;
@@ -507,30 +507,30 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
             default:
                 break;
         }
-        childLeft += child.marginLeft;
+        childLeft += child.hlm_marginLeft;
         [HLMLayout setChild:child frame:CGRectMake(childLeft, childTop, childWidth, childHeight)];
-        childLeft += childWidth + child.marginRight;
+        childLeft += childWidth + child.hlm_marginRight;
     }
 }
 
 -(void) forceUniformWidth:(UIView *) view
                     count:(NSUInteger) count
         heightMeasureSpec:(HLMMeasureSpec) heightMeasureSpec {
-    HLMMeasureSpec uniformMeasureSpec = [HLMLayout measureSpecWithSize:view.measuredWidth mode:HLMMeasureSpecExactly];
+    HLMMeasureSpec uniformMeasureSpec = [HLMLayout measureSpecWithSize:view.hlm_measuredWidth mode:HLMMeasureSpecExactly];
     NSArray* subviews = view.subviews;
     for (int i = 0; i < count; i++) {
         UIView* child = subviews[i];
         if (!child.isHidden) {
-            if (child.layoutWidth == HLMLayoutParamMatch) {
-                int32_t oldHeight = child.layoutHeight;
-                child.layoutHeight = child.measuredHeight;
+            if (child.hlm_layoutWidth == HLMLayoutParamMatch) {
+                int32_t oldHeight = child.hlm_layoutHeight;
+                child.hlm_layoutHeight = child.hlm_measuredHeight;
                 [HLMLayout measureChildWithMargins:child
                                           ofParent:view
                                    parentWidthSpec:uniformMeasureSpec
                                          widthUsed:0
                                   parentHeightSpec:heightMeasureSpec
                                         heightUsed:0];
-                child.layoutHeight = oldHeight;
+                child.hlm_layoutHeight = oldHeight;
             }
         }
     }
@@ -539,21 +539,21 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
 -(void) forceUniformHeight:(UIView *) view
                      count:(NSUInteger) count
           widthMeasureSpec:(HLMMeasureSpec) widthMeasureSpec {
-    HLMMeasureSpec uniformMeasureSpec = [HLMLayout measureSpecWithSize:view.measuredHeight mode:HLMMeasureSpecExactly];
+    HLMMeasureSpec uniformMeasureSpec = [HLMLayout measureSpecWithSize:view.hlm_measuredHeight mode:HLMMeasureSpecExactly];
     NSArray* subviews = view.subviews;
     for (int i = 0; i < count; i++) {
         UIView* child = subviews[i];
         if (!child.isHidden) {
-            if (child.layoutHeight == HLMLayoutParamMatch) {
-                int32_t oldWidth = child.layoutWidth;
-                child.layoutWidth = child.measuredWidth;
+            if (child.hlm_layoutHeight == HLMLayoutParamMatch) {
+                int32_t oldWidth = child.hlm_layoutWidth;
+                child.hlm_layoutWidth = child.hlm_measuredWidth;
                 [HLMLayout measureChildWithMargins:child
                                           ofParent:view
                                    parentWidthSpec:widthMeasureSpec
                                          widthUsed:0
                                   parentHeightSpec:uniformMeasureSpec
                                         heightUsed:0];
-                child.layoutWidth = oldWidth;
+                child.hlm_layoutWidth = oldWidth;
             }
         }
     }

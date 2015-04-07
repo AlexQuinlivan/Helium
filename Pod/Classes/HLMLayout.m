@@ -21,49 +21,49 @@ static uint32_t const HLMMeasureSpecModeMask = 0x3 << HLMMeasureSpecModeShift;
 @implementation UIView (HLMLayoutProperties)
 
 ASSOCIATE_VALUE_NO_SETTER(UIEdgeInsets, hlm_margins, Hlm_margins, UIEdgeInsetsValue);
--(void) setMargins:(UIEdgeInsets) margins {
+-(void) setHlm_margins:(UIEdgeInsets) margins {
     objc_setAssociatedObject(self, &kHlm_marginsAssociationKey,
                              [NSValue valueWithUIEdgeInsets:margins], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self setNeedsLayout];
 }
 
--(void) setMarginLeft:(CGFloat) marginLeft {
+-(void) setHlm_marginLeft:(CGFloat) marginLeft {
     UIEdgeInsets margins = self.hlm_margins;
     margins.left = marginLeft;
-    self.margins = margins;
+    self.hlm_margins = margins;
 }
 
--(void) setMarginTop:(CGFloat) marginTop {
+-(void) setHlm_marginTop:(CGFloat) marginTop {
     UIEdgeInsets margins = self.hlm_margins;
     margins.top = marginTop;
-    self.margins = margins;
+    self.hlm_margins = margins;
 }
 
--(void) setMarginRight:(CGFloat) marginRight {
+-(void) setHlm_marginRight:(CGFloat) marginRight {
     UIEdgeInsets margins = self.hlm_margins;
     margins.right = marginRight;
-    self.margins = margins;
+    self.hlm_margins = margins;
 }
 
--(void) setMarginBottom:(CGFloat) marginBottom {
+-(void) setHlm_marginBottom:(CGFloat) marginBottom {
     UIEdgeInsets margins = self.hlm_margins;
     margins.bottom = marginBottom;
-    self.margins = margins;
+    self.hlm_margins = margins;
 }
 
--(CGFloat) marginLeft {
+-(CGFloat) hlm_marginLeft {
     return self.hlm_margins.left;
 }
 
--(CGFloat) marginTop {
+-(CGFloat) hlm_marginTop {
     return self.hlm_margins.top;
 }
 
--(CGFloat) marginRight {
+-(CGFloat) hlm_marginRight {
     return self.hlm_margins.right;
 }
 
--(CGFloat) marginBottom {
+-(CGFloat) hlm_marginBottom {
     return self.hlm_margins.bottom;
 }
 
@@ -74,43 +74,43 @@ ASSOCIATE_VALUE_NO_SETTER(UIEdgeInsets, hlm_padding, Hlm_padding, UIEdgeInsetsVa
     [self setNeedsLayout];
 }
 
--(void) setPaddingLeft:(CGFloat) paddingLeft {
+-(void) setHlm_paddingLeft:(CGFloat) paddingLeft {
     UIEdgeInsets padding = self.hlm_padding;
     padding.left = paddingLeft;
     self.hlm_padding = padding;
 }
 
--(void) setPaddingTop:(CGFloat) paddingTop {
+-(void) setHlm_paddingTop:(CGFloat) paddingTop {
     UIEdgeInsets padding = self.hlm_padding;
     padding.top = paddingTop;
     self.hlm_padding = padding;
 }
 
--(void) setPaddingRight:(CGFloat) paddingRight {
+-(void) setHlm_paddingRight:(CGFloat) paddingRight {
     UIEdgeInsets padding = self.hlm_padding;
     padding.right = paddingRight;
     self.hlm_padding = padding;
 }
 
--(void) setPaddingBottom:(CGFloat) paddingBottom {
+-(void) setHlm_paddingBottom:(CGFloat) paddingBottom {
     UIEdgeInsets padding = self.hlm_padding;
     padding.bottom = paddingBottom;
     self.hlm_padding = padding;
 }
 
--(CGFloat) paddingLeft {
+-(CGFloat) hlm_paddingLeft {
     return self.hlm_padding.left;
 }
 
--(CGFloat) paddingTop {
+-(CGFloat) hlm_paddingTop {
     return self.hlm_padding.top;
 }
 
--(CGFloat) paddingRight {
+-(CGFloat) hlm_paddingRight {
     return self.hlm_padding.right;
 }
 
--(CGFloat) paddingBottom {
+-(CGFloat) hlm_paddingBottom {
     return self.hlm_padding.bottom;
 }
 
@@ -150,18 +150,18 @@ ASSOCIATED_PROPERTY(hlm_weightSum, Hlm_weightSum);
     return (hlm_weightSum)? hlm_weightSum.floatValue : -1.f;
 }
 
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, translationX, TranslationX, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, translationY, TranslationY, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, minWidth, MinWidth, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, minHeight, MinHeight, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, layoutWidth, LayoutWidth, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, layoutHeight, LayoutHeight, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, layoutWeight, LayoutWeight, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMGravity, layoutGravity, LayoutGravity, intValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationX, Hlm_translationX, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationY, Hlm_translationY, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minWidth, Hlm_minWidth, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minHeight, Hlm_minHeight, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutWidth, Hlm_layoutWidth, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutHeight, Hlm_layoutHeight, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutWeight, Hlm_layoutWeight, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMGravity, hlm_layoutGravity, Hlm_layoutGravity, intValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMGravity, hlm_gravity, Hlm_gravity, intValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMLayoutOrientation, hlm_orientation, Hlm_orientation, integerValue);
-ASSOCIATE_NUMBER(CGFloat, measuredWidth, MeasuredWidth, floatValue);
-ASSOCIATE_NUMBER(CGFloat, measuredHeight, MeasuredHeight, floatValue);
+ASSOCIATE_NUMBER(CGFloat, hlm_measuredWidth, Hlm_measuredWidth, floatValue);
+ASSOCIATE_NUMBER(CGFloat, hlm_measuredHeight, Hlm_measuredHeight, floatValue);
 ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
 
 @end
@@ -278,10 +278,10 @@ ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
     int32_t marginBottom = margins.bottom;
     HLMMeasureSpec childWidthMeasureSpec = [self childMeasureSpec:parentWidthMeasureSpec
                                                           padding:paddingLeft + paddingRight + marginLeft + marginRight + ((int32_t) widthUsed)
-                                                        dimension:childView.layoutWidth];
+                                                        dimension:childView.hlm_layoutWidth];
     HLMMeasureSpec childHeightMeasureSpec = [self childMeasureSpec:parentHeightMeasureSpec
                                                            padding:paddingTop + paddingBottom + marginTop + marginBottom + ((int32_t) heightUsed)
-                                                         dimension:childView.layoutHeight];
+                                                         dimension:childView.hlm_layoutHeight];
     [self measureView:childView
             widthSpec:childWidthMeasureSpec
            heightSpec:childHeightMeasureSpec];
@@ -296,8 +296,8 @@ ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
                      widthSpec:widthMeasureSpec
                     heightSpec:heightMeasureSpec];
     } else {
-        view.measuredWidth = [self defaultSize:view.minWidth spec:widthMeasureSpec];
-        view.measuredHeight = [self defaultSize:view.minHeight spec:heightMeasureSpec];
+        view.hlm_measuredWidth = [self defaultSize:view.hlm_minWidth spec:widthMeasureSpec];
+        view.hlm_measuredHeight = [self defaultSize:view.hlm_minHeight spec:heightMeasureSpec];
     }
 }
 

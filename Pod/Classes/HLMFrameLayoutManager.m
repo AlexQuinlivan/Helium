@@ -25,8 +25,8 @@
                                  widthUsed:0
                           parentHeightSpec:heightMeasureSpec
                                 heightUsed:0];
-        maxWidth = MAX(maxWidth, child.measuredWidth);
-        maxHeight = MAX(maxHeight, child.measuredHeight);
+        maxWidth = MAX(maxWidth, child.hlm_measuredWidth);
+        maxHeight = MAX(maxHeight, child.hlm_measuredHeight);
     }
     UIEdgeInsets padding = view.hlm_padding;
     int32_t paddingLeft = padding.left;
@@ -35,10 +35,10 @@
     int32_t paddingBottom = padding.bottom;
     maxWidth += paddingLeft + paddingRight;
     maxHeight += paddingTop + paddingBottom;
-    maxWidth = MAX(maxWidth, view.minWidth);
-    maxHeight = MAX(maxHeight, view.minHeight);
-    view.measuredWidth = [HLMLayout resolveSize:maxWidth spec:widthMeasureSpec];
-    view.measuredHeight = [HLMLayout resolveSize:maxHeight spec:heightMeasureSpec];
+    maxWidth = MAX(maxWidth, view.hlm_minWidth);
+    maxHeight = MAX(maxHeight, view.hlm_minHeight);
+    view.hlm_measuredWidth = [HLMLayout resolveSize:maxWidth spec:widthMeasureSpec];
+    view.hlm_measuredHeight = [HLMLayout resolveSize:maxHeight spec:heightMeasureSpec];
 }
 
 -(void) layout:(UIView *) view
@@ -65,11 +65,11 @@
         int32_t marginRight = margins.right;
         int32_t marginTop = margins.top;
         int32_t marginBottom = margins.bottom;
-        CGFloat width = child.measuredWidth;
-        CGFloat height = child.measuredHeight;
+        CGFloat width = child.hlm_measuredWidth;
+        CGFloat height = child.hlm_measuredHeight;
         NSInteger childLeft = parentLeft;
         NSInteger childTop = parentTop;
-        HLMGravity gravity = child.layoutGravity;
+        HLMGravity gravity = child.hlm_layoutGravity;
         if (gravity) {
             HLMGravity horizontalGravity = gravity & HLMGravityHorizontalMask;
             HLMGravity verticalGravity = gravity & HLMGravityVerticalMask;

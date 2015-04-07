@@ -67,26 +67,26 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 
 @interface UIView (HLMLayoutProperties)
 
-@property (nonatomic) CGFloat marginLeft;
-@property (nonatomic) CGFloat marginTop;
-@property (nonatomic) CGFloat marginRight;
-@property (nonatomic) CGFloat marginBottom;
+@property (nonatomic) CGFloat hlm_marginLeft;
+@property (nonatomic) CGFloat hlm_marginTop;
+@property (nonatomic) CGFloat hlm_marginRight;
+@property (nonatomic) CGFloat hlm_marginBottom;
 @property (nonatomic) UIEdgeInsets hlm_margins;
-@property (nonatomic) CGFloat paddingLeft;
-@property (nonatomic) CGFloat paddingTop;
-@property (nonatomic) CGFloat paddingRight;
-@property (nonatomic) CGFloat paddingBottom;
+@property (nonatomic) CGFloat hlm_paddingLeft;
+@property (nonatomic) CGFloat hlm_paddingTop;
+@property (nonatomic) CGFloat hlm_paddingRight;
+@property (nonatomic) CGFloat hlm_paddingBottom;
 @property (nonatomic) UIEdgeInsets hlm_padding;
-@property (nonatomic) CGFloat translationX;
-@property (nonatomic) CGFloat translationY;
-@property (nonatomic) CGFloat layoutWidth;
-@property (nonatomic) CGFloat layoutHeight;
-@property (nonatomic) CGFloat layoutWeight;
-@property (nonatomic) HLMGravity layoutGravity;
-@property (nonatomic) CGFloat measuredWidth;
-@property (nonatomic) CGFloat measuredHeight;
-@property (nonatomic) CGFloat minWidth;
-@property (nonatomic) CGFloat minHeight;
+@property (nonatomic) CGFloat hlm_translationX;
+@property (nonatomic) CGFloat hlm_translationY;
+@property (nonatomic) CGFloat hlm_layoutWidth;
+@property (nonatomic) CGFloat hlm_layoutHeight;
+@property (nonatomic) CGFloat hlm_layoutWeight;
+@property (nonatomic) HLMGravity hlm_layoutGravity;
+@property (nonatomic) CGFloat hlm_measuredWidth;
+@property (nonatomic) CGFloat hlm_measuredHeight;
+@property (nonatomic) CGFloat hlm_minWidth;
+@property (nonatomic) CGFloat hlm_minHeight;
 @property (nonatomic) HLMLayoutOrientation hlm_orientation;
 @property (nonatomic) BOOL hlm_baselineAligned;
 @property (nonatomic) NSInteger hlm_baselineAlignedChildIndex;
