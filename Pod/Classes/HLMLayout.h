@@ -88,6 +88,7 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 @property (nonatomic) CGFloat minWidth;
 @property (nonatomic) CGFloat minHeight;
 @property (nonatomic) HLMLayoutOrientation hlm_orientation;
+@property (nonatomic) BOOL hlm_baselineAligned;
 @property (nonatomic) NSInteger hlm_baselineAlignedChildIndex;
 @property (nonatomic) CGFloat hlm_weightSum;
 @property (nonatomic) HLMGravity hlm_gravity;

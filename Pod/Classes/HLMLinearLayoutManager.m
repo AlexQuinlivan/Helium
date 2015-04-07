@@ -8,12 +8,24 @@
 
 #import "HLMLinearLayoutManager.h"
 
+typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
+    HLMLinearLayoutIndexCenterVertical,
+    HLMLinearLayoutIndexTop,
+    HLMLinearLayoutIndexBottom,
+    HLMLinearLayoutIndexFill,
+};
+
 @interface HLMLinearLayoutManager ()
 @property (nonatomic) NSInteger baselineChildTop;
 @property (nonatomic) int32_t totalLength;
 @end
 
-@implementation HLMLinearLayoutManager
+// todo: child baseline alignment
+
+@implementation HLMLinearLayoutManager {
+    int32_t maxAscent[4];
+    int32_t maxDescent[4];
+}
 
 -(void) measure:(UIView *) view
       widthSpec:(HLMMeasureSpec) widthMeasureSpec
@@ -23,9 +35,9 @@
                     widthSpec:widthMeasureSpec
                    heightSpec:heightMeasureSpec];
     } else {
-//        [self measureHorizontal:view
-//                      widthSpec:widthMeasureSpec
-//                     heightSpec:heightMeasureSpec];
+        [self measureHorizontal:view
+                      widthSpec:widthMeasureSpec
+                     heightSpec:heightMeasureSpec];
     }
 }
 
@@ -38,14 +50,10 @@
     int32_t weightedMaxWidth = 0;
     BOOL allFillParent = YES;
     CGFloat totalWeight = 0;
-    
     HLMMeasureSpecMode widthMode = [HLMLayout measureSpecMode:widthMeasureSpec];
     HLMMeasureSpecMode heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
-    
     BOOL matchWidth = NO;
-    
     NSInteger baselineChildIndex = view.hlm_baselineAlignedChildIndex;
-    
     NSArray* subviews = view.subviews;
     for (int i = 0; i < subviews.count; i++) {
         UIView* child = subviews[i];
@@ -172,288 +180,183 @@
     }
 }
 
-//-(void) measureHorizontal:(UIView *) view
-//                widthSpec:(HLMMeasureSpec) widthMeasureSpec
-//               heightSpec:(HLMMeasureSpec) heightMeasureSpec {
-//    mTotalLength = 0;
-//    int maxHeight = 0;
-//    int alternativeMaxHeight = 0;
-//    int weightedMaxHeight = 0;
-//    boolean allFillParent = true;
-//    float totalWeight = 0;
-//    
-//    final int count = getVirtualChildCount();
-//    
-//    final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-//    final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-//    
-//    boolean matchHeight = false;
-//    
-//    if (mMaxAscent == null || mMaxDescent == null) {
-//        mMaxAscent = new int[VERTICAL_GRAVITY_COUNT];
-//        mMaxDescent = new int[VERTICAL_GRAVITY_COUNT];
-//    }
-//    
-//    final int[] maxAscent = mMaxAscent;
-//    final int[] maxDescent = mMaxDescent;
-//    
-//    maxAscent[0] = maxAscent[1] = maxAscent[2] = maxAscent[3] = -1;
-//    maxDescent[0] = maxDescent[1] = maxDescent[2] = maxDescent[3] = -1;
-//    
-//    final boolean baselineAligned = mBaselineAligned;
-//    
-//    // See how wide everyone is. Also remember max height.
-//    for (int i = 0; i < count; ++i) {
-//        final View child = getVirtualChildAt(i);
-//        
-//        if (child == null) {
-//            mTotalLength += measureNullChild(i);
-//            continue;
-//        }
-//        
-//        if (child.getVisibility() == GONE) {
-//            i += getChildrenSkipCount(child, i);
-//            continue;
-//        }
-//        
-//        final LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) child.getLayoutParams();
-//        
-//        totalWeight += lp.weight;
-//        
-//        if (widthMode == MeasureSpec.EXACTLY && lp.width == 0 && lp.weight > 0) {
-//            // Optimization: don't bother measuring children who are going to use
-//            // leftover space. These views will get measured again down below if
-//            // there is any leftover space.
-//            mTotalLength += lp.leftMargin + lp.rightMargin;
-//            
-//            // Baseline alignment requires to measure widgets to obtain the
-//            // baseline offset (in particular for TextViews).
-//            // The following defeats the optimization mentioned above.
-//            // Allow the child to use as much space as it wants because we
-//            // can shrink things later (and re-measure).
-//            if (baselineAligned) {
-//                final int freeSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
-//                child.measure(freeSpec, freeSpec);
-//            }
-//        } else {
-//            int oldWidth = Integer.MIN_VALUE;
-//            
-//            if (lp.width == 0 && lp.weight > 0) {
-//                // widthMode is either UNSPECIFIED OR AT_MOST, and this child
-//                // wanted to stretch to fill available space. Translate that to
-//                // WRAP_CONTENT so that it does not end up with a width of 0
-//                oldWidth = 0;
-//                lp.width = LayoutParams.WRAP_CONTENT;
-//            }
-//            
-//            // Determine how big this child would like to be. If this or
-//            // previous children have given a weight, then we allow it to
-//            // use all available space (and we will shrink things later
-//            // if needed).
-//            measureChildBeforeLayout(child, i, widthMeasureSpec,
-//                                     totalWeight == 0 ? mTotalLength : 0,
-//                                     heightMeasureSpec, 0);
-//            
-//            if (oldWidth != Integer.MIN_VALUE) {
-//                lp.width = oldWidth;
-//            }
-//            
-//            mTotalLength += child.getMeasuredWidth() + lp.leftMargin +
-//            lp.rightMargin + getNextLocationOffset(child);
-//        }
-//        
-//        boolean matchHeightLocally = false;
-//        if (heightMode != MeasureSpec.EXACTLY && lp.height == LayoutParams.FILL_PARENT) {
-//            // The height of the linear layout will scale, and at least one
-//            // child said it wanted to match our height. Set a flag indicating that
-//            // we need to remeasure at least that view when we know our height.
-//            matchHeight = true;
-//            matchHeightLocally = true;
-//        }
-//        
-//        final int margin = lp.topMargin + lp.bottomMargin;
-//        final int childHeight = child.getMeasuredHeight() + margin;
-//        
-//        if (baselineAligned) {
-//            final int childBaseline = child.getBaseline();
-//            if (childBaseline != -1) {
-//                // Translates the child's vertical gravity into an index
-//                // in the range 0..VERTICAL_GRAVITY_COUNT
-//                final int gravity = (lp.gravity < 0 ? mGravity : lp.gravity)
-//                & Gravity.VERTICAL_GRAVITY_MASK;
-//                final int index = ((gravity >> Gravity.AXIS_Y_SHIFT)
-//                                   & ~Gravity.AXIS_SPECIFIED) >> 1;
-//                
-//                maxAscent[index] = Math.max(maxAscent[index], childBaseline);
-//                maxDescent[index] = Math.max(maxDescent[index], childHeight - childBaseline);
-//            }
-//        }
-//        
-//        maxHeight = Math.max(maxHeight, childHeight);
-//        
-//        allFillParent = allFillParent && lp.height == LayoutParams.FILL_PARENT;
-//        if (lp.weight > 0) {
-//            /*
-//             * Heights of weighted Views are bogus if we end up
-//             * remeasuring, so keep them separate.
-//             */
-//            weightedMaxHeight = Math.max(weightedMaxHeight,
-//                                         matchHeightLocally ? margin : childHeight);
-//        } else {
-//            alternativeMaxHeight = Math.max(alternativeMaxHeight,
-//                                            matchHeightLocally ? margin : childHeight);
-//        }
-//        
-//        i += getChildrenSkipCount(child, i);
-//    }
-//    
-//    // Check mMaxAscent[INDEX_TOP] first because it maps to Gravity.TOP,
-//    // the most common case
-//    if (maxAscent[INDEX_TOP] != -1 ||
-//        maxAscent[INDEX_CENTER_VERTICAL] != -1 ||
-//        maxAscent[INDEX_BOTTOM] != -1 ||
-//        maxAscent[INDEX_FILL] != -1) {
-//        final int ascent = Math.max(maxAscent[INDEX_FILL],
-//                                    Math.max(maxAscent[INDEX_CENTER_VERTICAL],
-//                                             Math.max(maxAscent[INDEX_TOP], maxAscent[INDEX_BOTTOM])));
-//        final int descent = Math.max(maxDescent[INDEX_FILL],
-//                                     Math.max(maxDescent[INDEX_CENTER_VERTICAL],
-//                                              Math.max(maxDescent[INDEX_TOP], maxDescent[INDEX_BOTTOM])));
-//        maxHeight = Math.max(maxHeight, ascent + descent);
-//    }
-//    
-//    // Add in our padding
-//    mTotalLength += mPaddingLeft + mPaddingRight;
-//    
-//    int widthSize = mTotalLength;
-//    
-//    // Check against our minimum width
-//    widthSize = Math.max(widthSize, getSuggestedMinimumWidth());
-//    
-//    // Reconcile our calculated size with the widthMeasureSpec
-//    widthSize = resolveSize(widthSize, widthMeasureSpec);
-//    
-//    // Either expand children with weight to take up available space or
-//    // shrink them if they extend beyond our current bounds
-//    int delta = widthSize - mTotalLength;
-//    if (delta != 0 && totalWeight > 0.0f) {
-//        float weightSum = mWeightSum > 0.0f ? mWeightSum : totalWeight;
-//        
-//        maxAscent[0] = maxAscent[1] = maxAscent[2] = maxAscent[3] = -1;
-//        maxDescent[0] = maxDescent[1] = maxDescent[2] = maxDescent[3] = -1;
-//        maxHeight = -1;
-//        
-//        mTotalLength = 0;
-//        
-//        for (int i = 0; i < count; ++i) {
-//            final View child = getVirtualChildAt(i);
-//            
-//            if (child == null || child.getVisibility() == View.GONE) {
-//                continue;
-//            }
-//            
-//            final LinearLayout.LayoutParams lp =
-//            (LinearLayout.LayoutParams) child.getLayoutParams();
-//            
-//            float childExtra = lp.weight;
-//            if (childExtra > 0) {
-//                // Child said it could absorb extra space -- give him his share
-//                int share = (int) (childExtra * delta / weightSum);
-//                weightSum -= childExtra;
-//                delta -= share;
-//                
-//                final int childHeightMeasureSpec = getChildMeasureSpec(
-//                                                                       heightMeasureSpec,
-//                                                                       mPaddingTop + mPaddingBottom + lp.topMargin + lp.bottomMargin,
-//                                                                       lp.height);
-//                
-//                // TODO: Use a field like lp.isMeasured to figure out if this
-//                // child has been previously measured
-//                if ((lp.width != 0) || (widthMode != MeasureSpec.EXACTLY)) {
-//                    // child was measured once already above ... base new measurement
-//                    // on stored values
-//                    int childWidth = child.getMeasuredWidth() + share;
-//                    if (childWidth < 0) {
-//                        childWidth = 0;
-//                    }
-//                    
-//                    child.measure(
-//                                  MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY),
-//                                  childHeightMeasureSpec);
-//                } else {
-//                    // child was skipped in the loop above. Measure for this first time here
-//                    child.measure(MeasureSpec.makeMeasureSpec(
-//                                                              share > 0 ? share : 0, MeasureSpec.EXACTLY),
-//                                  childHeightMeasureSpec);
-//                }
-//            }
-//            
-//            mTotalLength += child.getMeasuredWidth() + lp.leftMargin +
-//            lp.rightMargin + getNextLocationOffset(child);
-//            
-//            boolean matchHeightLocally = heightMode != MeasureSpec.EXACTLY &&
-//            lp.height == LayoutParams.FILL_PARENT;
-//            
-//            final int margin = lp.topMargin + lp .bottomMargin;
-//            int childHeight = child.getMeasuredHeight() + margin;
-//            maxHeight = Math.max(maxHeight, childHeight);
-//            alternativeMaxHeight = Math.max(alternativeMaxHeight,
-//                                            matchHeightLocally ? margin : childHeight);
-//            
-//            allFillParent = allFillParent && lp.height == LayoutParams.FILL_PARENT;
-//            
-//            if (baselineAligned) {
-//                final int childBaseline = child.getBaseline();
-//                if (childBaseline != -1) {
-//                    // Translates the child's vertical gravity into an index in the range 0..2
-//                    final int gravity = (lp.gravity < 0 ? mGravity : lp.gravity)
-//                    & Gravity.VERTICAL_GRAVITY_MASK;
-//                    final int index = ((gravity >> Gravity.AXIS_Y_SHIFT)
-//                                       & ~Gravity.AXIS_SPECIFIED) >> 1;
-//                    
-//                    maxAscent[index] = Math.max(maxAscent[index], childBaseline);
-//                    maxDescent[index] = Math.max(maxDescent[index],
-//                                                 childHeight - childBaseline);
-//                }
-//            }
-//        }
-//        
-//        // Add in our padding
-//        mTotalLength += mPaddingLeft + mPaddingRight;
-//        
-//        // Check mMaxAscent[INDEX_TOP] first because it maps to Gravity.TOP,
-//        // the most common case
-//        if (maxAscent[INDEX_TOP] != -1 ||
-//            maxAscent[INDEX_CENTER_VERTICAL] != -1 ||
-//            maxAscent[INDEX_BOTTOM] != -1 ||
-//            maxAscent[INDEX_FILL] != -1) {
-//            final int ascent = Math.max(maxAscent[INDEX_FILL],
-//                                        Math.max(maxAscent[INDEX_CENTER_VERTICAL],
-//                                                 Math.max(maxAscent[INDEX_TOP], maxAscent[INDEX_BOTTOM])));
-//            final int descent = Math.max(maxDescent[INDEX_FILL],
-//                                         Math.max(maxDescent[INDEX_CENTER_VERTICAL],
-//                                                  Math.max(maxDescent[INDEX_TOP], maxDescent[INDEX_BOTTOM])));
-//            maxHeight = Math.max(maxHeight, ascent + descent);
-//        }
-//    } else {
-//        alternativeMaxHeight = Math.max(alternativeMaxHeight, weightedMaxHeight);
-//    }
-//    
-//    if (!allFillParent && heightMode != MeasureSpec.EXACTLY) {
-//        maxHeight = alternativeMaxHeight;
-//    }
-//    
-//    maxHeight += mPaddingTop + mPaddingBottom;
-//    
-//    // Check against our minimum height
-//    maxHeight = Math.max(maxHeight, getSuggestedMinimumHeight());
-//    
-//    setMeasuredDimension(widthSize, resolveSize(maxHeight, heightMeasureSpec));
-//    
-//    if (matchHeight) {
-//        forceUniformHeight(count, widthMeasureSpec);
-//    }
-//}
+-(void) measureHorizontal:(UIView *) view
+                widthSpec:(HLMMeasureSpec) widthMeasureSpec
+               heightSpec:(HLMMeasureSpec) heightMeasureSpec {
+    self.totalLength = 0;
+    int32_t maxHeight = 0;
+    int32_t alternativeMaxHeight = 0;
+    int32_t weightedMaxHeight = 0;
+    BOOL allFillParent = YES;
+    CGFloat totalWeight = 0;
+    HLMMeasureSpecMode widthMode = [HLMLayout measureSpecMode:widthMeasureSpec];
+    HLMMeasureSpecMode heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
+    BOOL matchHeight = NO;
+    memset(maxAscent, -1, sizeof(maxAscent));
+    memset(maxDescent, -1, sizeof(maxDescent));
+    BOOL baselineAligned = view.hlm_baselineAligned;
+    NSArray* subviews = view.subviews;
+    for (int i = 0; i < subviews.count; i++) {
+        UIView* child = subviews[i];
+        if (child.isHidden) {
+            continue;
+        }
+        CGFloat childWeight = child.layoutWeight;
+        CGFloat childLayoutHeight = child.layoutHeight;
+        CGFloat childLayoutWidth = child.layoutWidth;
+        totalWeight += childWeight;
+        if (widthMode == HLMMeasureSpecExactly && childLayoutWidth == 0 && childWeight > 0) {
+            self.totalLength += child.marginLeft + child.marginRight;
+            if (baselineAligned) {
+                HLMMeasureSpec freeSpec = [HLMLayout measureSpecWithSize:0 mode:HLMMeasureSpecUnspecified];
+                [HLMLayout measureView:child
+                             widthSpec:freeSpec
+                            heightSpec:freeSpec];
+            }
+        } else {
+            int32_t oldWidth = INT32_MIN;
+            if (childLayoutWidth == 0 && childWeight > 0) {
+                oldWidth = 0;
+                childLayoutWidth = HLMLayoutParamWrap;
+                child.layoutWidth = childLayoutWidth;
+            }
+            [HLMLayout measureChildWithMargins:child
+                                      ofParent:view
+                               parentWidthSpec:widthMeasureSpec
+                                     widthUsed:(totalWeight == 0) ? self.totalLength : 0
+                              parentHeightSpec:heightMeasureSpec
+                                    heightUsed:0];
+            if (oldWidth != INT32_MIN) {
+                childLayoutWidth = oldWidth;
+                child.layoutWidth = childLayoutWidth;
+            }
+            self.totalLength += child.measuredWidth + child.marginLeft + child.marginRight;
+        }
+        BOOL matchHeightLocally = NO;
+        if (heightMode != HLMMeasureSpecExactly && childLayoutHeight == HLMLayoutParamMatch) {
+            matchHeight = YES;
+            matchHeightLocally = YES;
+        }
+        CGFloat margin = child.marginTop + child.marginBottom;
+        int32_t childHeight = child.measuredHeight + margin;
+        if (baselineAligned) {
+            int32_t childBaseline = -1; // todo: child baseline
+            if (childBaseline != -1) {
+                HLMGravity gravity = ((child.layoutGravity < 0) ? view.hlm_gravity : child.layoutGravity) & HLMGravityVerticalMask;
+                int32_t index = ((gravity >> HLMGravityAxisYShift) & ~HLMGravityAxisSpecified) >> 1;
+                maxAscent[index] = MAX(maxAscent[index], childBaseline);
+                maxDescent[index] = MAX(maxDescent[index], childHeight - childBaseline);
+            }
+        }
+        maxHeight = MAX(maxHeight, childHeight);
+        allFillParent = allFillParent && childLayoutHeight == HLMLayoutParamMatch;
+        if (childWeight > 0) {
+            weightedMaxHeight = MAX(weightedMaxHeight,
+                                    matchHeightLocally ? margin : childHeight);
+        } else {
+            alternativeMaxHeight = MAX(alternativeMaxHeight,
+                                       matchHeightLocally ? margin : childHeight);
+        }
+    }
+    if (maxAscent[HLMLinearLayoutIndexTop] != -1 ||
+        maxAscent[HLMLinearLayoutIndexCenterVertical] != -1 ||
+        maxAscent[HLMLinearLayoutIndexBottom] != -1 ||
+        maxAscent[HLMLinearLayoutIndexFill] != -1) {
+        int32_t ascent = MAX(maxAscent[HLMLinearLayoutIndexFill],
+                             MAX(maxAscent[HLMLinearLayoutIndexCenterVertical],
+                                 MAX(maxAscent[HLMLinearLayoutIndexTop], maxAscent[HLMLinearLayoutIndexBottom])));
+        int32_t descent = MAX(maxDescent[HLMLinearLayoutIndexFill],
+                              MAX(maxDescent[HLMLinearLayoutIndexCenterVertical],
+                                  MAX(maxDescent[HLMLinearLayoutIndexTop], maxDescent[HLMLinearLayoutIndexBottom])));
+        maxHeight = MAX(maxHeight, ascent + descent);
+    }
+    self.totalLength += view.paddingLeft + view.paddingRight;
+    int32_t widthSize = self.totalLength;
+    widthSize = MAX(widthSize, view.minWidth);
+    widthSize = [HLMLayout resolveSize:widthSize spec:widthMeasureSpec];
+    int32_t delta = widthSize - self.totalLength;
+    if (delta != 0 && totalWeight > 0.0f) {
+        CGFloat weightSum = view.hlm_weightSum > 0.0f ?: totalWeight;
+        memset(maxAscent, -1, sizeof(maxAscent));
+        memset(maxDescent, -1, sizeof(maxDescent));
+        maxHeight = -1;
+        self.totalLength = 0;
+        for (int i = 0; i < subviews.count; i++) {
+            UIView* child = subviews[i];
+            if (child.isHidden) {
+                continue;
+            }
+            CGFloat childExtra = child.layoutWeight;
+            CGFloat childLayoutHeight = child.layoutHeight;
+            CGFloat childLayoutWidth = child.layoutWidth;
+            if (childExtra > 0) {
+                int32_t share = (int32_t) (childExtra * delta / weightSum);
+                weightSum -= childExtra;
+                delta -= share;
+                HLMMeasureSpec childHeightMeasureSpec = [HLMLayout childMeasureSpec:heightMeasureSpec
+                                                                            padding:view.paddingTop + view.paddingBottom + child.marginTop + child.marginBottom
+                                                                          dimension:childLayoutHeight];
+                if ((childLayoutWidth != 0) || (widthMode != HLMMeasureSpecExactly)) {
+                    int childWidth = child.measuredWidth + share;
+                    if (childWidth < 0) {
+                        childWidth = 0;
+                    }
+                    [HLMLayout measureView:child
+                                 widthSpec:[HLMLayout measureSpecWithSize:childWidth mode:HLMMeasureSpecExactly]
+                                heightSpec:childHeightMeasureSpec];
+                } else {
+                    [HLMLayout measureView:child
+                                 widthSpec:[HLMLayout measureSpecWithSize:(share > 0) ? share : 0 mode:HLMMeasureSpecExactly]
+                                heightSpec:childHeightMeasureSpec];
+                }
+            }
+            self.totalLength += child.measuredWidth + child.marginLeft + child.marginRight;
+            BOOL matchHeightLocally = heightMode != HLMMeasureSpecExactly && childLayoutHeight == HLMLayoutParamMatch;
+            CGFloat margin = child.marginTop + child.marginBottom;
+            int32_t childHeight = child.measuredHeight + margin;
+            maxHeight = MAX(maxHeight, childHeight);
+            alternativeMaxHeight = MAX(alternativeMaxHeight,
+                                       matchHeightLocally ? margin : childHeight);
+            allFillParent = allFillParent && childLayoutHeight == HLMMeasureSpecExactly;
+            if (baselineAligned) {
+                int32_t childBaseline = -1; // todo: child baseline
+                if (childBaseline != -1) {
+                    HLMGravity gravity = ((child.layoutGravity < 0) ? view.hlm_gravity : child.layoutGravity) & HLMGravityVerticalMask;
+                    int32_t index = ((gravity >> HLMGravityAxisYShift) & ~HLMGravityAxisSpecified) >> 1;
+                    maxAscent[index] = MAX(maxAscent[index], childBaseline);
+                    maxDescent[index] = MAX(maxDescent[index], childHeight - childBaseline);
+                }
+            }
+        }
+        self.totalLength += view.paddingLeft + view.paddingRight;
+        if (maxAscent[HLMLinearLayoutIndexTop] != -1 ||
+            maxAscent[HLMLinearLayoutIndexCenterVertical] != -1 ||
+            maxAscent[HLMLinearLayoutIndexBottom] != -1 ||
+            maxAscent[HLMLinearLayoutIndexFill] != -1) {
+            int32_t ascent = MAX(maxAscent[HLMLinearLayoutIndexFill],
+                                 MAX(maxAscent[HLMLinearLayoutIndexCenterVertical],
+                                     MAX(maxAscent[HLMLinearLayoutIndexTop], maxAscent[HLMLinearLayoutIndexBottom])));
+            int32_t descent = MAX(maxDescent[HLMLinearLayoutIndexFill],
+                                  MAX(maxDescent[HLMLinearLayoutIndexCenterVertical],
+                                      MAX(maxDescent[HLMLinearLayoutIndexTop], maxDescent[HLMLinearLayoutIndexBottom])));
+            maxHeight = MAX(maxHeight, ascent + descent);
+        }
+    } else {
+        alternativeMaxHeight = MAX(alternativeMaxHeight, weightedMaxHeight);
+    }
+    if (!allFillParent && heightMode != HLMMeasureSpecExactly) {
+        maxHeight = alternativeMaxHeight;
+    }
+    maxHeight += view.paddingTop + view.paddingBottom;
+    maxHeight = MAX(maxHeight, view.minHeight);
+    view.measuredWidth = widthSize;
+    view.measuredHeight = [HLMLayout resolveSize:maxHeight spec:heightMeasureSpec];
+    if (matchHeight) {
+        [self forceUniformHeight:view
+                           count:subviews.count
+                widthMeasureSpec:widthMeasureSpec];
+    }
+}
 
 -(void) layout:(UIView *) view
           left:(NSInteger) left
@@ -468,7 +371,11 @@
                        right:right
                       bottom:bottom];
     } else {
-//        [self layoutHorizontal:view];
+        [self layoutHorizontal:view
+                          left:left
+                           top:top
+                         right:right
+                        bottom:bottom];
     }
 }
 
@@ -481,7 +388,6 @@
     int32_t paddingLeft = padding.left;
     int32_t paddingRight = padding.right;
     int32_t paddingTop = padding.top;
-    int32_t paddingBottom = padding.bottom;
     int32_t childTop = paddingTop;
     int32_t childLeft = paddingLeft;
     int32_t width = (int32_t) (right - left);
@@ -532,109 +438,80 @@
         childTop += childHeight + child.marginBottom;
     }
 }
-//
-//-(void) layoutHorizontal:(UIView *) view {
-//    final int paddingTop = mPaddingTop;
-//
-//    int childTop = paddingTop;
-//    int childLeft = mPaddingLeft;
-//    
-//    // Where bottom of child should go
-//    final int height = mBottom - mTop;
-//    int childBottom = height - mPaddingBottom;
-//    
-//    // Space available for child
-//    int childSpace = height - paddingTop - mPaddingBottom;
-//    
-//    final int count = getVirtualChildCount();
-//    
-//    final int majorGravity = mGravity & Gravity.HORIZONTAL_GRAVITY_MASK;
-//    final int minorGravity = mGravity & Gravity.VERTICAL_GRAVITY_MASK;
-//    
-//    final boolean baselineAligned = mBaselineAligned;
-//    
-//    final int[] maxAscent = mMaxAscent;
-//    final int[] maxDescent = mMaxDescent;
-//    
-//    if (majorGravity != Gravity.LEFT) {
-//        switch (majorGravity) {
-//            case Gravity.RIGHT:
-//                // mTotalLength contains the padding already, we add the left
-//                // padding to compensate
-//                childLeft = mRight - mLeft + mPaddingLeft - mTotalLength;
-//                break;
-//                
-//            case Gravity.CENTER_HORIZONTAL:
-//                childLeft += ((mRight - mLeft) - mTotalLength) / 2;
-//                break;
-//        }
-//    }
-//    
-//    for (int i = 0; i < count; i++) {
-//        final View child = getVirtualChildAt(i);
-//        
-//        if (child == null) {
-//            childLeft += measureNullChild(i);
-//        } else if (child.getVisibility() != GONE) {
-//            final int childWidth = child.getMeasuredWidth();
-//            final int childHeight = child.getMeasuredHeight();
-//            int childBaseline = -1;
-//            
-//            final LinearLayout.LayoutParams lp =
-//            (LinearLayout.LayoutParams) child.getLayoutParams();
-//            
-//            if (baselineAligned && lp.height != LayoutParams.FILL_PARENT) {
-//                childBaseline = child.getBaseline();
-//            }
-//            
-//            int gravity = lp.gravity;
-//            if (gravity < 0) {
-//                gravity = minorGravity;
-//            }
-//            
-//            switch (gravity & Gravity.VERTICAL_GRAVITY_MASK) {
-//                case Gravity.TOP:
-//                    childTop = paddingTop + lp.topMargin;
-//                    if (childBaseline != -1) {
-//                        childTop += maxAscent[INDEX_TOP] - childBaseline;
-//                    }
-//                    break;
-//                    
-//                case Gravity.CENTER_VERTICAL:
-//                    // Removed support for baselign alignment when layout_gravity or
-//                    // gravity == center_vertical. See bug #1038483.
-//                    // Keep the code around if we need to re-enable this feature
-//                    // if (childBaseline != -1) {
-//                    //     // Align baselines vertically only if the child is smaller than us
-//                    //     if (childSpace - childHeight > 0) {
-//                    //         childTop = paddingTop + (childSpace / 2) - childBaseline;
-//                    //     } else {
-//                    //         childTop = paddingTop + (childSpace - childHeight) / 2;
-//                    //     }
-//                    // } else {
-//                    childTop = paddingTop + ((childSpace - childHeight) / 2)
-//                    + lp.topMargin - lp.bottomMargin;
-//                    break;
-//                    
-//                case Gravity.BOTTOM:
-//                    childTop = childBottom - childHeight - lp.bottomMargin;
-//                    if (childBaseline != -1) {
-//                        int descent = child.getMeasuredHeight() - childBaseline;
-//                        childTop -= (maxDescent[INDEX_BOTTOM] - descent);
-//                    }
-//                    break;
-//            }
-//            
-//            childLeft += lp.leftMargin;
-//            setChildFrame(child, childLeft + getLocationOffset(child), childTop,
-//                          childWidth, childHeight);
-//            childLeft += childWidth + lp.rightMargin +
-//            getNextLocationOffset(child);
-//            
-//            i += getChildrenSkipCount(child, i);
-//        }
-//    }
-//}
+
+-(void) layoutHorizontal:(UIView *) view
+                    left:(NSInteger) left
+                     top:(NSInteger) top
+                   right:(NSInteger) right
+                  bottom:(NSInteger) bottom {
+    UIEdgeInsets padding = view.hlm_padding;
+    int32_t paddingLeft = padding.left;
+    int32_t paddingBottom = padding.bottom;
+    int32_t paddingTop = padding.top;
+    int32_t childTop = paddingTop;
+    int32_t childLeft = paddingLeft;
+    int32_t height = (int32_t) (bottom - top);
+    int32_t childBottom = height - paddingBottom;
+    int32_t childSpace = height - paddingTop - paddingBottom;
+    HLMGravity gravity = view.layoutGravity;
+    HLMGravity majorGravity = gravity & HLMGravityHorizontalMask;
+    HLMGravity minorGravity = gravity & HLMGravityVerticalMask;
+    BOOL baselineAligned = view.hlm_baselineAligned;
+    if (majorGravity != HLMGravityLeft) {
+        switch (majorGravity) {
+            case HLMGravityRight:
+                childLeft = (int32_t) (right - left + paddingLeft - self.totalLength);
+                break;
+            case HLMGravityCenterHorizontal:
+                childLeft += ((right - left) - self.totalLength) / 2;
+                break;
+            default:
+                break;
+        }
+    }
+    NSArray* subviews = view.subviews;
+    for (int i = 0; i < subviews.count; i++) {
+        UIView* child = subviews[i];
+        if (child.isHidden) {
+            continue;
+        }
+        int32_t childWidth = child.measuredWidth;
+        int32_t childHeight = child.measuredHeight;
+        HLMGravity gravity = child.layoutGravity;
+        int32_t childBaseline = -1;
+        if (baselineAligned && child.layoutHeight != HLMLayoutParamMatch) {
+            childBaseline = -1; // todo: child baseline
+        }
+        if (gravity < 0) {
+            gravity = minorGravity;
+        }
+        switch (gravity & HLMGravityVerticalMask) {
+            case HLMGravityTop: {
+                childTop = paddingTop + child.marginTop;
+                if (childBaseline != -1) {
+                    childTop += maxAscent[HLMLinearLayoutIndexTop] - childBaseline;
+                }
+                break;
+            }
+            case HLMGravityCenterVertical:
+                childTop = paddingTop + ((childSpace - childHeight) / 2) + child.marginTop - child.marginBottom;
+                break;
+            case HLMGravityBottom: {
+                childTop = childBottom - childHeight - child.marginBottom;
+                if (childBaseline != -1) {
+                    int32_t descent = child.measuredHeight - childBaseline;
+                    childTop -= (maxDescent[HLMLinearLayoutIndexBottom] - descent);
+                }
+                break;
+            }
+            default:
+                break;
+        }
+        childLeft += child.marginLeft;
+        [HLMLayout setChild:child frame:CGRectMake(childLeft, childTop, childWidth, childHeight)];
+        childLeft += childWidth + child.marginRight;
+    }
+}
 
 -(void) forceUniformWidth:(UIView *) view
                     count:(NSUInteger) count
@@ -658,4 +535,28 @@
         }
     }
 }
+
+-(void) forceUniformHeight:(UIView *) view
+                     count:(NSUInteger) count
+          widthMeasureSpec:(HLMMeasureSpec) widthMeasureSpec {
+    HLMMeasureSpec uniformMeasureSpec = [HLMLayout measureSpecWithSize:view.measuredHeight mode:HLMMeasureSpecExactly];
+    NSArray* subviews = view.subviews;
+    for (int i = 0; i < count; i++) {
+        UIView* child = subviews[i];
+        if (!child.isHidden) {
+            if (child.layoutHeight == HLMLayoutParamMatch) {
+                int32_t oldWidth = child.layoutWidth;
+                child.layoutWidth = child.measuredWidth;
+                [HLMLayout measureChildWithMargins:child
+                                          ofParent:view
+                                   parentWidthSpec:widthMeasureSpec
+                                         widthUsed:0
+                                  parentHeightSpec:uniformMeasureSpec
+                                        heightUsed:0];
+                child.layoutWidth = oldWidth;
+            }
+        }
+    }
+}
+
 @end

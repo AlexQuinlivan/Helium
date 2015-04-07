@@ -114,6 +114,18 @@ ASSOCIATE_VALUE_NO_SETTER(UIEdgeInsets, hlm_padding, Hlm_padding, UIEdgeInsetsVa
     return self.hlm_padding.bottom;
 }
 
+ASSOCIATED_PROPERTY(hlm_baselineAligned, Hlm_baselineAligned);
+-(void) setHlm_baselineAligned:(BOOL) hlm_baselineAligned {
+    objc_setAssociatedObject(self, &kHlm_baselineAlignedAssociationKey,
+                             @(hlm_baselineAligned), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
+}
+
+-(BOOL) hlm_baselineAligned {
+    NSNumber* hlm_baselineAligned = objc_getAssociatedObject(self, &kHlm_baselineAlignedAssociationKey);
+    return (hlm_baselineAligned)? hlm_baselineAligned.boolValue : YES;
+}
+
 ASSOCIATED_PROPERTY(hlm_baselineAlignedChildIndex, Hlm_baselineAlignedChildIndex);
 -(void) setHlm_baselineAlignedChildIndex:(NSInteger) hlm_baselineAlignedChildIndex {
     objc_setAssociatedObject(self, &kHlm_baselineAlignedChildIndexAssociationKey,
