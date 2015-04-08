@@ -22,15 +22,10 @@ INJECT_VIEWS_4(squares, square_0, square_1, square_2, square_3)
     return @"@view/example_view";
 }
 
--(void) viewDidLoad {
-    [super viewDidLoad];
-    NSLog(@"%@", self.squares);
+-(void) viewDidAppear:(BOOL) animated {
+    [super viewDidAppear:animated];
     [self animate];
 }
-
-//-(void) dealloc {
-//    self.squares = nil;
-//}
 
 -(void) animate {
     __weak typeof(self) weakSelf = self;
