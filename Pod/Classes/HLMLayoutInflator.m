@@ -120,11 +120,10 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
             // todo: allow for user defined attributes
         }
     }
-    if (!layoutManagerSet) {
-        //todo: this was incorrect
-//        @throw [NSException exceptionWithName:HLMInflatorExceptionName
-//                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated without a layout manager being assigned", [TBXML elementName:element]]
-//                                     userInfo:nil];
+    if (!layoutManagerSet && element.children.count) {
+        @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated with no layout and has children", element.name]
+                                     userInfo:nil];
     }
     if (!layoutWidthSet || !layoutHeightSet) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
