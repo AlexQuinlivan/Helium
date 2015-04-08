@@ -1,13 +1,105 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<UIView
+<UIView xmlns:helium="http://quinlivan.co.nz/helium"
     tag="example"
-    layout_width="match_parent"
-    layout_height="match_parent"
-    layout="frame"
-    background_color="#F00">
+    helium:layout_width="match_parent"
+    helium:layout_height="match_parent"
+    helium:layout="frame"
+    helium:padding="10"
+    background_color="#FFF">
     <UIView
-        layout_width="match_parent"
-        layout_height="400"
-        layout="frame"
-        background_color="#ABCDEF" />
+        helium:layout_width="match_parent"
+        helium:layout_height="match_parent"
+        helium:layout_gravity="center"
+        helium:orientation="horizontal"
+        helium:min_height="200"
+        helium:layout="linear"
+        helium:padding="10"
+        background_color="#000">
+        <UIView
+            helium:layout_width="100"
+            helium:layout_height="match_parent"
+            helium:layout="linear"
+            helium:orientation="vertical">
+            <UIView
+                helium:layout_width="match_parent"
+                helium:layout_height="100"
+                background_color="#F8D57A" />
+            <UIView
+                helium:layout_width="match_parent"
+                helium:layout_height="0"
+                helium:layout_weight="1"
+                helium:margin_top="10"
+                background_color="#FFF" />
+        </UIView>
+        <UIView
+            helium:layout_width="0"
+            helium:layout_height="match_parent"
+            helium:layout_weight="1"
+            helium:margin_left="10"
+            helium:layout="linear"
+            helium:orientation="vertical">
+            <UIView
+                helium:layout_width="match_parent"
+                helium:layout_height="0"
+                helium:layout_weight="1"
+                background_color="#D5342F" />
+            <UIView
+                helium:layout_width="match_parent"
+                helium:layout_height="0"
+                helium:layout_weight="0.5"
+                helium:margin_top="10"
+                background_color="#FFF" />
+            <UIView
+                helium:layout_width="match_parent"
+                helium:layout_height="0"
+                helium:layout_weight="0.5"
+                helium:margin_top="10"
+                background_color="#FFF" />
+            <UIView
+                xmlns:app="http://quinlivan.co.nz/app"
+                helium:layout_width="match_parent"
+                helium:layout_height="0"
+                helium:layout_weight="1"
+                helium:layout="linear"
+                helium:orientation="horizontal"
+                helium:margin_top="10"
+                background_color="#000">
+                <UIView
+                    helium:layout_width="50"
+                    helium:layout_height="match_parent"
+                    background_color="#000" />
+                <UIView
+                    tag="blue_square"
+                    helium:layout_width="0"
+                    helium:layout_height="match_parent"
+                    helium:layout_weight="1"
+                    helium:margin_left="10"
+                    background_color="#152FA8" />
+            </UIView>
+        </UIView>
+    </UIView>
+    <UIView
+        tag="square_0"
+        helium:layout_width="80"
+        helium:layout_height="80"
+        helium:layout_gravity="left|top"
+        background_color="#AAF44336" />
+    <UIView
+        tag="square_1"
+        helium:layout_width="80"
+        helium:layout_height="80"
+        helium:layout_gravity="left|bottom"
+        background_color="#AA4CAF50" />
+    <UIView
+        tag="square_2"
+        helium:layout_width="80"
+        helium:layout_height="80"
+        helium:layout_gravity="right|bottom"
+        background_color="#AA2196F3" />
+    <UIView
+        tag="square_3"
+        helium:layout_width="80"
+        helium:layout_height="80"
+        helium:layout_gravity="right|top"
+        background_color="#AAFFEB3B" />
 </UIView>

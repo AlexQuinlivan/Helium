@@ -39,10 +39,10 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 }
 
 -(UIView *) inflate {
-    return [self inflateViewFromXml:self->layoutXml.rootElement];
+    return [self inflateViewFromXml:self->layoutXml.rootElement namespaces:@[]];
 }
 
--(UIView *) inflateViewFromXml:(GDataXMLElement *) element {
+-(UIView *) inflateViewFromXml:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
     NSString* className = element.name;
     if (!className) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
@@ -55,39 +55,68 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
                                        reason:[NSString stringWithFormat:@"Failed to find view with class name \"%@\"", className]
                                      userInfo:nil];
     }
+    NSArray* elementNamespaces = element.namespaces;
+    if (elementNamespaces.count) {
+        NSMutableArray* newNamespaces = [NSMutableArray arrayWithArray:namespaces];
+        [newNamespaces addObjectsFromArray:elementNamespaces];
+        namespaces = newNamespaces;
+    }
     NSLog(@"[INFO]: Inflating <%@>", className);
     UIView* view = [(UIView *)[clazz alloc] initWithFrame:HLMLayoutInflator.minFrame];
     view.clipsToBounds = YES;
-    [self applyAttributesToView:view fromElement:element];
-    [self inflateChildrenOfView:view fromElement:element];
+    [self applyAttributesToView:view fromElement:element namespaces:namespaces];
+    [self inflateChildrenOfView:view fromElement:element namespaces:namespaces];
     return view;
 }
 
--(void) inflateChildrenOfView:(UIView *) view fromElement:(GDataXMLElement *) element {
+-(void) inflateChildrenOfView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
     NSArray* children = element.children;
     for (GDataXMLElement* child in children) {
-        UIView* childView = [self inflateViewFromXml:child];
+        UIView* childView = [self inflateViewFromXml:child namespaces:namespaces];
         [view addSubview:childView];
     }
 }
 
--(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element {
+-(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
     BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = NO;
     NSArray* attributes = element.attributes;
-    for (GDataXMLNode* attribute in attributes) {
+    for (GDataXMLElement* attribute in attributes) {
         NSString* name = attribute.name;
         NSString* value = attribute.stringValue;
         NSString* propertyName = [name toCamelCaps];
-        propertyName = [NSString stringWithFormat:@"set%@:", propertyName];
-        SEL propertySel = NSSelectorFromString(propertyName);
-        if ([view respondsToSelector:propertySel]
-            || [view respondsToSelector:(propertySel = [HLMAttributes selectorAliasForAttributeWithName:name])]) {
-            [self performSetter:propertySel onView:view withName:name andValue:value];
-            layoutWidthSet |= [@"layout_width" isEqualToString:name];
-            layoutHeightSet |= [@"layout_height" isEqualToString:name];
-            layoutManagerSet |= [@"layout" isEqualToString:name];
+        NSString* namespace = nil; // nil == default namespace
+        for (GDataXMLNode* namespaceCandidate in namespaces) {
+            NSString* candidateName = namespaceCandidate.name;
+            NSString* candidateNeedle = [NSString stringWithFormat:@"%@:", namespaceCandidate.name];
+            NSRange testedRange = [name rangeOfString:candidateNeedle];
+            if (testedRange.location == 0) {
+                namespace = candidateName;
+                name = [name substringFromIndex:testedRange.length];
+            }
+        }
+        if (!namespace) {
+            // default namespace applies values directly to properties
+            NSString* selectorName = [NSString stringWithFormat:@"set%@:", propertyName];
+            SEL propertySel = NSSelectorFromString(selectorName);
+            if ([view respondsToSelector:propertySel]) {
+                [self performSetter:propertySel onView:view withName:name andValue:value];
+            } else {
+                NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
+            }
+        } else if ([namespace isEqualToString:@"helium"]) {
+            // helium namespace applies to helium attributes
+            SEL propertySel = [HLMAttributes selectorAliasForAttributeWithName:name];
+            if ([view respondsToSelector:propertySel]) {
+                [self performSetter:propertySel onView:view withName:name andValue:value];
+                layoutWidthSet |= [@"layout_width" isEqualToString:name];
+                layoutHeightSet |= [@"layout_height" isEqualToString:name];
+                layoutManagerSet |= [@"layout" isEqualToString:name];
+            } else {
+                NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
+            }
         } else {
-            NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
+            // user defined namespace applies to user defined attributes
+            // todo: allow for user defined attributes
         }
     }
     if (!layoutManagerSet) {
