@@ -92,6 +92,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
             if (testedRange.location == 0) {
                 namespace = candidateName;
                 name = [name substringFromIndex:testedRange.length];
+                break;
             }
         }
         if (!namespace) {
