@@ -28,16 +28,16 @@ todo: Actually make this relevant and up to date, using the best practices as we
 #### An example view xml file
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<UIView
-    tag="example"
-    layout_width="match_parent"
-    layout_height="match_parent"
-    layout="frame"
+<UIView xmlns:helium="http://quinlivan.co.nz/helium"
+    tag="example_tag"
+    helium:layout_width="match_parent"
+    helium:layout_height="match_parent"
+    helium:layout="frame"
     background_color="#F00">
     <UIView
-        layout_width="match_parent"
-        layout_height="200"
-        layout="frame"
+        helium:layout_width="200"
+        helium:layout_height="200"
+        helium:layout_gravity="center_vertical|right"
         background_color="#ABCDEF" />
 </UIView>
 ```
@@ -49,7 +49,7 @@ todo: Actually make this relevant and up to date, using the best practices as we
 @end
 
 @implementation HLMViewController
-INJECT_VIEW(example, example)
+INJECT_VIEW_OPTIONAL(example, example_tag)
 
 -(NSString *) layoutResource {
     return @"@view/example_view";
