@@ -72,7 +72,6 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                 HLMAttribute* attribute = [[HLMAttribute alloc] initWithName:name
                                                                       format:format
                                                                propertyAlias:propertyAlias];
-                NSLog(@"%@, %@", attribute.nmspace, attribute.name);
                 attributeMap[attribute.nmspace][attribute.name] = attribute;
             }
         }
@@ -88,11 +87,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                           HLMAttributesNamespaceHelium : [NSMutableDictionary new],
                           HLMAttributesNamespaceUser : [NSMutableDictionary new],
                           };
-        attributesMap[HLMAttributesNamespaceHelium][@"layout"] = [[HLMAttribute alloc] initWithName:@"layout" format:@"layout_manager" propertyAlias:@"hlm_layoutManager"];
-
-        attributesMap[HLMAttributesNamespaceHelium][@"layout_width"] = [[HLMAttribute alloc] initWithName:@"layout_width" format:@"layout_param" propertyAlias:@"hlm_layoutWidth"];
-        attributesMap[HLMAttributesNamespaceHelium][@"layout_height"] = [[HLMAttribute alloc] initWithName:@"layout_height" format:@"layout_param" propertyAlias:@"hlm_layoutHeight"];
-});
+    });
     return attributesMap;
 }
 
