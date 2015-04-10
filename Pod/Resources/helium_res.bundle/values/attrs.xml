@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <styleable name="UIView">
+        <attr name="helium:layout_width" format="layout_param" property_alias="hlm_layoutWidth" />
+        <attr name="helium:layout_height" format="layout_param" property_alias="hlm_layoutHeight" />
+        <attr name="helium:layout_gravity" format="gravity" property_alias="hlm_layoutGravity" />
+        <attr name="helium:layout_weight" format="cgfloat" property_alias="hlm_layoutWeight" />
+        <attr name="helium:layout" format="layout_manager" property_alias="hlm_layoutManager" />
+        <attr name="helium:min_width" format="cgfloat" property_alias="hlm_minWidth" />
+        <attr name="helium:min_height" format="cgfloat" property_alias="hlm_minHeight" />
+        <attr name="helium:padding" format="edge_insets" property_alias="hlm_padding" />
+        <attr name="helium:padding_left" format="cgfloat" property_alias="hlm_paddingLeft" />
+        <attr name="helium:padding_top" format="cgfloat" property_alias="hlm_paddingTop" />
+        <attr name="helium:padding_right" format="cgfloat" property_alias="hlm_paddingRight" />
+        <attr name="helium:padding_bottom" format="cgfloat" property_alias="hlm_paddingBottom" />
+        <attr name="helium:margins" format="edge_insets" property_alias="hlm_margins" />
+        <attr name="helium:margin_left" format="cgfloat" property_alias="hlm_marginLeft" />
+        <attr name="helium:margin_top" format="cgfloat" property_alias="hlm_marginTop" />
+        <attr name="helium:margin_right" format="cgfloat" property_alias="hlm_marginRight" />
+        <attr name="helium:margin_bottom" format="cgfloat" property_alias="hlm_marginBottom" />
+        <attr name="helium:orientation" format="layout_orientation" property_alias="hlm_orientation" />
+        <attr name="helium:baseline_aligned" format="bool" property_alias="hlm_baselineAligned" />
+        <attr name="helium:baseline_child_index" format="integer" property_alias="hlm_baselineAlignedChildIndex" />
+        <attr name="helium:weight_sum" format="cgfloat" property_alias="hlm_weightSum" />
+        <attr name="helium:gravity" format="gravity" property_alias="hlm_gravity" />
+        <attr name="background_color" format="color" />
+        <attr name="tag" format="string_hash" />
+    </styleable>
+</resources>

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <styleable name="UIView">
-        <attr name="layout_width">ATTRIBUTE_TYPE_VIEW_LAYOUT_RULE</attr>
-        <attr name="layout_height">ATTRIBUTE_TYPE_VIEW_LAYOUT_RULE</attr>
-        <attr name="layout_weight">ATTRIBUTE_TYPE_CG_FLOAT</attr>
-        <attr name="background_color">ATTRIBUTE_TYPE_UI_COLOR</attr>
-        <attr name="margins">ATTRIBUTE_TYPE_UI_EDGE_INSETS</attr>
     </styleable>
 </resources>

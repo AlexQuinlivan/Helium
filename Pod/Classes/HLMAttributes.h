@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class HLMAttribute;
 
 typedef NS_ENUM(NSInteger, HLMAttributeType) {
     ATTRIBUTE_TYPE_STRING,
@@ -34,7 +35,21 @@ typedef NS_ENUM(NSInteger, HLMAttributeType) {
 
 @interface HLMAttributes : NSObject
 
-+(HLMAttributeType) attributeTypeForName:(NSString *) attributeName;
-+(SEL) selectorAliasForAttributeWithName:(NSString *) attributeName;
++(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace;
+
+@end
+
+
+@interface HLMAttribute : NSObject
+
+-(instancetype) initWithName:(NSString *) name
+                      format:(NSString *) format
+               propertyAlias:(NSString *) propertyAlias;
+
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) NSString* nmspace;
+@property (nonatomic) HLMAttributeType type;
+@property (nonatomic) SEL getter;
+@property (nonatomic) SEL setter;
 
 @end

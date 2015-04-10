@@ -83,41 +83,31 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     for (GDataXMLElement* attribute in attributes) {
         NSString* name = attribute.name;
         NSString* value = attribute.stringValue;
-        NSString* propertyName = [name toCamelCaps];
-        NSString* namespace = nil; // nil == default namespace
+        NSString* nmspace = nil;
         for (GDataXMLNode* namespaceCandidate in namespaces) {
             NSString* candidateName = namespaceCandidate.name;
             NSString* candidateNeedle = [NSString stringWithFormat:@"%@:", namespaceCandidate.name];
             NSRange testedRange = [name rangeOfString:candidateNeedle];
             if (testedRange.location == 0) {
-                namespace = candidateName;
+                nmspace = candidateName;
                 name = [name substringFromIndex:testedRange.length];
                 break;
             }
         }
-        if (!namespace) {
-            // default namespace applies values directly to properties
-            NSString* selectorName = [NSString stringWithFormat:@"set%@:", propertyName];
-            SEL propertySel = NSSelectorFromString(selectorName);
-            if ([view respondsToSelector:propertySel]) {
-                [self performSetter:propertySel onView:view withName:name andValue:value];
-            } else {
-                NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
-            }
-        } else if ([namespace isEqualToString:@"helium"]) {
-            // helium namespace applies to helium attributes
-            SEL propertySel = [HLMAttributes selectorAliasForAttributeWithName:name];
-            if ([view respondsToSelector:propertySel]) {
-                [self performSetter:propertySel onView:view withName:name andValue:value];
+        HLMAttribute* hlmAttribute = [HLMAttributes attributeForName:name inNamespace:nmspace];
+        if (!hlmAttribute) {
+            NSLog(@"[ERROR]: Undeclared attribute `%@` skipped", name);
+        } else {
+            if ([view respondsToSelector:hlmAttribute.setter]) {
+                [self setAttribute:hlmAttribute
+                            onView:view
+                         withValue:value];
                 layoutWidthSet |= [@"layout_width" isEqualToString:name];
                 layoutHeightSet |= [@"layout_height" isEqualToString:name];
                 layoutManagerSet |= [@"layout" isEqualToString:name];
             } else {
-                NSLog(@"[WARNING]: View does not recognise property: %@", propertyName);
+                NSLog(@"[WARNING]: View does not recognise property: %@", hlmAttribute.name);
             }
-        } else {
-            // user defined namespace applies to user defined attributes
-            // todo: allow for user defined attributes
         }
     }
     if (!layoutManagerSet && element.children.count) {
@@ -140,8 +130,9 @@ case _attr: {\
     break;\
 }
 
--(void) performSetter:(SEL) setterSelector onView:(UIView *) view withName:(NSString *) name andValue:(NSString *) value {
-    HLMAttributeType type = [HLMAttributes attributeTypeForName:name];
+-(void) setAttribute:(HLMAttribute *) attribute onView:(UIView *) view withValue:(NSString *) value {
+    HLMAttributeType type = attribute.type;
+    SEL setterSelector = attribute.setter;
     IMP setterImp = [view methodForSelector:setterSelector];
     switch (type) {
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_STRING, NSString*, stringValue);
@@ -250,7 +241,7 @@ case _attr: {\
             break;
         }
         default: {
-            NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", name, NSStringFromClass(view.class));
+            NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", attribute.name, NSStringFromClass(view.class));
             break;
         }
     }

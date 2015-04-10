@@ -18,6 +18,7 @@
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
   "exclude_files": "Pod/Classes/**/GDataXMLNode.{h,m}",
+  "resources": "Pod/Resources/helium_res.bundle",
   "dependencies": {
     "EDSemver": [
       "~> 0.3.0"

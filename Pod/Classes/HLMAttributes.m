@@ -7,89 +7,186 @@
 //
 
 #import "HLMAttributes.h"
+#import "HLMResources.h"
+#import "NSString+Convert.h"
+#import "GDataXMLNode.h"
+#import <libxml/tree.h>
 
+static NSString* const HLMAttributeFormatInteger = @"integer";
+static NSString* const HLMAttributeFormatInt = @"int";
+static NSString* const HLMAttributeFormatFloat = @"float";
+static NSString* const HLMAttributeFormatCGFloat = @"cgfloat";
+static NSString* const HLMAttributeFormatBool = @"bool";
+static NSString* const HLMAttributeFormatString = @"string";
+static NSString* const HLMAttributeFormatGravity = @"gravity";
+static NSString* const HLMAttributeFormatLayoutParam = @"layout_param";
+static NSString* const HLMAttributeFormatLayoutManager = @"layout_manager";
+static NSString* const HLMAttributeFormatLayoutOrientation = @"layout_orientation";
+static NSString* const HLMAttributeFormatColor = @"color";
+static NSString* const HLMAttributeFormatStringHash = @"string_hash";
+static NSString* const HLMAttributeFormatEdgeInsets = @"edge_insets";
+static NSString* const HLMAttributeFormatNumber = @"number";
+static NSString* const HLMAttributeFormatUnsignedInteger = @"unsigned_integer";
+static NSString* const HLMAttributeFormatChar = @"char";
+static NSString* const HLMAttributeFormatLong = @"long";
+static NSString* const HLMAttributeFormatDouble = @"double";
+static NSString* const HLMAttributeFormatCGRect = @"cgrect";
+static NSString* const HLMAttributeFormatCGSize = @"cgsize";
+static NSString* const HLMAttributeFormatCGPoint = @"cgpoint";
+
+static NSString* const HLMAttributesNamespaceDefault = @"default";
+static NSString* const HLMAttributesNamespaceHelium = @"helium";
+static NSString* const HLMAttributesNamespaceUser = @"user";
+
+// @todo: This does not listen to device config changes
 @implementation HLMAttributes
 
-+(HLMAttributeType) attributeTypeForName:(NSString *) attributeName {
-    NSNumber* type = self.typeMap[attributeName];
-    if (type) {
-        return [type integerValue];
-    } else {
-        NSLog(@"[WARNING]: Unkown attribute type, defaulting to NSString: %@", attributeName);
-        return ATTRIBUTE_TYPE_STRING;
++(void) initialize {
+    [super initialize];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self loadAttributesFromResources];
+    });
+}
+
++(void) loadAttributesFromResources {
+    NSDictionary* attributeMap = self.attributeMap;
+    NSArray* paths = [HLMResources pathsForResource:@"@values/attrs"];
+    for (NSString* attrPath in paths) {
+        NSString* fullPath = [NSString stringWithFormat:@"%@/%@", NSBundle.mainBundle.bundlePath, attrPath];
+        NSError* error;
+        NSData* data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
+        GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithData:data
+                                                                    options:0
+                                                                      error:&error];
+        NSArray* styleables = [document.rootElement elementsForName:@"styleable"];
+        for (GDataXMLElement* styleable in styleables) {
+            NSString* styledClass = [styleable attributeForName:@"name"].stringValue; // @todo: Unused, use this to apply attrs to classes
+            for (GDataXMLElement* attr in styleable.children) {
+                if (attr.XMLNode->type == XML_TEXT_NODE) {
+                    continue;
+                }
+                NSString* name = [attr attributeForName:@"name"].stringValue;
+                NSString* format = [attr attributeForName:@"format"].stringValue;
+                NSString* propertyAlias = [attr attributeForName:@"property_alias"].stringValue;
+                HLMAttribute* attribute = [[HLMAttribute alloc] initWithName:name
+                                                                      format:format
+                                                               propertyAlias:propertyAlias];
+                NSLog(@"%@, %@", attribute.nmspace, attribute.name);
+                attributeMap[attribute.nmspace][attribute.name] = attribute;
+            }
+        }
     }
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-
-+(SEL) selectorAliasForAttributeWithName:(NSString *) attributeName {
-    static NSDictionary* aliasMap;
++(NSDictionary *) attributeMap {
+    static NSDictionary* attributesMap;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        aliasMap = @{
-                     @"layout_width" : [NSValue valueWithPointer:@selector(setHlm_layoutWidth:)],
-                     @"layout_height" : [NSValue valueWithPointer:@selector(setHlm_layoutHeight:)],
-                     @"layout_gravity" : [NSValue valueWithPointer:@selector(setHlm_layoutGravity:)],
-                     @"layout_weight" : [NSValue valueWithPointer:@selector(setHlm_layoutWeight:)],
-                     @"layout" : [NSValue valueWithPointer:@selector(setHlm_layoutManager:)],
-                     @"min_width" : [NSValue valueWithPointer:@selector(setHlm_minWidth:)],
-                     @"min_height" : [NSValue valueWithPointer:@selector(setHlm_minHeight:)],
-                     @"padding" : [NSValue valueWithPointer:@selector(setHlm_padding:)],
-                     @"padding_left" : [NSValue valueWithPointer:@selector(setHlm_paddingLeft:)],
-                     @"padding_top" : [NSValue valueWithPointer:@selector(setHlm_paddingTop:)],
-                     @"padding_right" : [NSValue valueWithPointer:@selector(setHlm_paddingRight:)],
-                     @"padding_bottom" : [NSValue valueWithPointer:@selector(setHlm_paddingBottom:)],
-                     @"margins" : [NSValue valueWithPointer:@selector(setHlm_margins:)],
-                     @"margin_left" : [NSValue valueWithPointer:@selector(setHlm_marginLeft:)],
-                     @"margin_top" : [NSValue valueWithPointer:@selector(setHlm_marginTop:)],
-                     @"margin_right" : [NSValue valueWithPointer:@selector(setHlm_marginRight:)],
-                     @"margin_bottom" : [NSValue valueWithPointer:@selector(setHlm_marginBottom:)],
-                     @"orientation" : [NSValue valueWithPointer:@selector(setHlm_orientation:)],
-                     @"baseline_child_index" : [NSValue valueWithPointer:@selector(setHlm_baselineChildIndex:)],
-                     @"weight_sum" : [NSValue valueWithPointer:@selector(setHlm_weightSum:)],
-                     @"gravity" : [NSValue valueWithPointer:@selector(setHlm_gravity:)],
-                     };
-    });
-    return [aliasMap[attributeName] pointerValue];
+        attributesMap = @{
+                          HLMAttributesNamespaceDefault : [NSMutableDictionary new],
+                          HLMAttributesNamespaceHelium : [NSMutableDictionary new],
+                          HLMAttributesNamespaceUser : [NSMutableDictionary new],
+                          };
+        attributesMap[HLMAttributesNamespaceHelium][@"layout"] = [[HLMAttribute alloc] initWithName:@"layout" format:@"layout_manager" propertyAlias:@"hlm_layoutManager"];
+
+        attributesMap[HLMAttributesNamespaceHelium][@"layout_width"] = [[HLMAttribute alloc] initWithName:@"layout_width" format:@"layout_param" propertyAlias:@"hlm_layoutWidth"];
+        attributesMap[HLMAttributesNamespaceHelium][@"layout_height"] = [[HLMAttribute alloc] initWithName:@"layout_height" format:@"layout_param" propertyAlias:@"hlm_layoutHeight"];
+});
+    return attributesMap;
 }
 
-#pragma clang diagnostic pop
++(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace {
+    if (!nmspace || [@"" isEqualToString:nmspace]
+        || [HLMAttributesNamespaceDefault isEqualToString:nmspace]) {
+        nmspace = HLMAttributesNamespaceDefault;
+    } else if (![HLMAttributesNamespaceHelium isEqualToString:nmspace]) {
+        nmspace = HLMAttributesNamespaceUser;
+    }
+    return self.attributeMap[nmspace][name];
+}
 
-//todo: build from values/attrs
-+(NSDictionary *) typeMap {
-    static NSDictionary* map;
+@end
+
+@implementation HLMAttribute
+
+-(instancetype) initWithName:(NSString *) name
+                      format:(NSString *) format
+               propertyAlias:(NSString *) propertyAlias {
+    if (self = [super init]) {
+        self.type = [HLMAttribute typeForFormat:format];
+        [self extractNameAndNamespaceFromName:name];
+        [self extractSelectorsWithName:name propertyAlias:propertyAlias];
+    }
+    return self;
+}
+
+// @discussion: Should formats be extensible?
++(HLMAttributeType) typeForFormat:(NSString *) format {
+    if (!format) {
+        @throw [NSException exceptionWithName:@"HLMAttributeException"
+                                       reason:@"Attribute attempted to create without format type"
+                                     userInfo:nil];
+    }
+    static NSDictionary* typeMap;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        map = @{
-                @"layout_width" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_PARAM),
-                @"layout_height" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_PARAM),
-                @"layout_gravity" : @(ATTRIBUTE_TYPE_VIEW_GRAVITY),
-                @"layout_weight" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"layout" : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER),
-                @"min_width" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"min_height" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"padding" : @(ATTRIBUTE_TYPE_UI_EDGE_INSETS),
-                @"padding_left" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"padding_top" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"padding_right" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"padding_bottom" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"margins" : @(ATTRIBUTE_TYPE_UI_EDGE_INSETS),
-                @"margin_left" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"margin_top" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"margin_right" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"margin_bottom" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"background_color" : @(ATTRIBUTE_TYPE_UI_COLOR),
-                @"tag" : @(ATTRIBUTE_TYPE_STRING_HASH),
-                @"orientation" : @(ATTRIBUTE_TYPE_VIEW_ORIENTATION),
-                @"alpha" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"hidden" : @(ATTRIBUTE_TYPE_BOOL),
-                @"baseline_child_index" : @(ATTRIBUTE_TYPE_NS_INTEGER),
-                @"weight_sum" : @(ATTRIBUTE_TYPE_CG_FLOAT),
-                @"gravity" : @(ATTRIBUTE_TYPE_VIEW_GRAVITY),
-                };
+        typeMap = @{
+                    HLMAttributeFormatInteger : @(ATTRIBUTE_TYPE_NS_INTEGER),
+                    HLMAttributeFormatInt : @(ATTRIBUTE_TYPE_INT),
+                    HLMAttributeFormatFloat : @(ATTRIBUTE_TYPE_FLOAT),
+                    HLMAttributeFormatCGFloat : @(ATTRIBUTE_TYPE_CG_FLOAT),
+                    HLMAttributeFormatBool : @(ATTRIBUTE_TYPE_BOOL),
+                    HLMAttributeFormatString : @(ATTRIBUTE_TYPE_STRING),
+                    HLMAttributeFormatGravity : @(ATTRIBUTE_TYPE_VIEW_GRAVITY),
+                    HLMAttributeFormatLayoutParam : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_PARAM),
+                    HLMAttributeFormatLayoutManager : @(ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER),
+                    HLMAttributeFormatLayoutOrientation : @(ATTRIBUTE_TYPE_VIEW_ORIENTATION),
+                    HLMAttributeFormatColor : @(ATTRIBUTE_TYPE_UI_COLOR),
+                    HLMAttributeFormatStringHash : @(ATTRIBUTE_TYPE_STRING_HASH),
+                    HLMAttributeFormatEdgeInsets : @(ATTRIBUTE_TYPE_UI_EDGE_INSETS),
+                    HLMAttributeFormatNumber : @(ATTRIBUTE_TYPE_NS_NUMBER),
+                    HLMAttributeFormatUnsignedInteger : @(ATTRIBUTE_TYPE_NS_UNSIGNED_INTEGER),
+                    HLMAttributeFormatChar : @(ATTRIBUTE_TYPE_CHAR),
+                    HLMAttributeFormatLong : @(ATTRIBUTE_TYPE_LONG),
+                    HLMAttributeFormatDouble : @(ATTRIBUTE_TYPE_DOUBLE),
+                    HLMAttributeFormatCGRect : @(ATTRIBUTE_TYPE_CG_RECT),
+                    HLMAttributeFormatCGSize : @(ATTRIBUTE_TYPE_CG_SIZE),
+                    HLMAttributeFormatCGPoint : @(ATTRIBUTE_TYPE_CG_POINT),
+                    };
     });
-    return map;
+    NSNumber* type = typeMap[format];
+    if (!type) {
+        @throw [NSException exceptionWithName:@"HLMAttributeException"
+                                       reason:[NSString stringWithFormat:@"Unknown attribute format `%@`", format]
+                                     userInfo:nil];
+    }
+    return type.integerValue;
+}
+
+-(void) extractNameAndNamespaceFromName:(NSString *) name {
+    NSRange rangeOfColon = [name rangeOfString:@":"];
+    if (rangeOfColon.location == NSNotFound) {
+        self.name = name;
+        self.nmspace = HLMAttributesNamespaceDefault;
+    } else {
+        NSString* nmspace = [name substringToIndex:rangeOfColon.location];
+        if (![nmspace isEqualToString:HLMAttributesNamespaceHelium]) {
+            nmspace = HLMAttributesNamespaceUser;
+        }
+        self.name = [name substringFromIndex:rangeOfColon.location + rangeOfColon.length];
+        self.nmspace = nmspace;
+    }
+}
+
+-(void) extractSelectorsWithName:(NSString *) name propertyAlias:(NSString *) propertyAlias {
+    NSString* propertyName = (propertyAlias) ?: name.toCamelCase;
+    NSRange firstChar = NSMakeRange(0, 1);
+    NSString* capitalizedName = [propertyName stringByReplacingCharactersInRange:firstChar
+                                                                      withString:[propertyName substringWithRange:firstChar].capitalizedString];
+    NSString* setterName = [NSString stringWithFormat:@"set%@:", capitalizedName];
+    self.getter = NSSelectorFromString(propertyName);
+    self.setter = NSSelectorFromString(setterName);
 }
 
 @end

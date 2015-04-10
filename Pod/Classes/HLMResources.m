@@ -64,6 +64,7 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
 @implementation HLMResources
 
 +(void) initialize {
+    [super initialize];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         (void) [self buckets];
@@ -110,6 +111,10 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
                                        reason:[NSString stringWithFormat:@"Unexpected resource type \"%@\" in resourceId. resId: %@", tuple.resourceName, resourceId]
                                      userInfo:nil];
     }
+}
+
++(NSArray *) pathsForResource:(NSString *) resource {
+    return self.buckets[resource];
 }
 
 +(NSString *) resolveResourceValue:(NSString *) resourceId {
@@ -274,58 +279,72 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSMutableDictionary* mutBuckets = [NSMutableDictionary new];
-        NSString* resPath = [NSString stringWithFormat:@"%@/res.bundle", [NSBundle mainBundle].bundlePath];
-        NSBundle* resBundle = [NSBundle bundleWithPath:resPath];
-        NSArray* bucketDirs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[resBundle bundleURL]
-                                                             includingPropertiesForKeys:@[]
-                                                                                options:NSDirectoryEnumerationSkipsSubdirectoryDescendants | NSDirectoryEnumerationSkipsHiddenFiles
-                                                                                  error:nil];
-        for (NSString* bucketFullPath in bucketDirs) {
-            NSString* bucketPath = bucketFullPath.lastPathComponent;
-            NSArray* bucketQualifiers = [bucketPath componentsSeparatedByString:@"-"];
-            NSString* bucketString = bucketQualifiers[0];
-            if (bucketQualifiers.count) {
-                bucketQualifiers = [bucketQualifiers subarrayWithRange:NSMakeRange(1, bucketQualifiers.count-1)];
-            }
-            HLMDeviceConfig* bucketDeviceConfig = [[HLMDeviceConfig alloc] initWithQualifiers:bucketQualifiers];
-            NSArray* bucketContents = [resBundle pathsForResourcesOfType:@"xml" inDirectory:bucketPath];
-            for (NSString* filePath in bucketContents) {
-                NSString* fileName = filePath.lastPathComponent;
-                fileName = [fileName substringToIndex:fileName.length - 4]; // - ".xml"
-                NSString* resourceId = [NSString stringWithFormat:@"@%@/%@", bucketString, fileName];
-                NSMutableArray* resource = mutBuckets[resourceId];
-                if (!resource) {
-                    resource = [NSMutableArray new];
-                    mutBuckets[resourceId] = resource;
-                }
-                HLMBucketResource* bucketResource = [HLMBucketResource new];
-                NSRange rangeOfResBundle = [filePath rangeOfString:@"res.bundle"];
-                bucketResource.path = [filePath substringFromIndex:rangeOfResBundle.location];
-                bucketResource.config = bucketDeviceConfig;
-                NSUInteger newIndex = [resource indexOfObject:bucketResource
-                                                inSortedRange:NSMakeRange(0, resource.count)
-                                                      options:NSBinarySearchingInsertionIndex
-                                              usingComparator:^NSComparisonResult(HLMBucketResource* obj1, HLMBucketResource* obj2) {
-                                                  HLMDeviceConfig* config1 = obj1.config;
-                                                  HLMDeviceConfig* config2 = obj2.config;
-                                                  NSInteger obj1Priority = (NSInteger) config1.priority;
-                                                  NSInteger obj2Priority = (NSInteger) config2.priority;
-                                                  NSInteger result = obj1Priority - obj2Priority;
-                                                  if (!result) {
-                                                      return [config1 compareQualifiers:config2];
-                                                  } else if (result > 0) {
-                                                      return NSOrderedAscending;
-                                                  } else {
-                                                      return NSOrderedDescending;
-                                                  }
-                                              }];
-                [resource insertObject:bucketResource atIndex:newIndex];
-            }
-        }
+        [self addBundleWithName:@"res" toBuckets:mutBuckets];
+        [self addBundleWithName:@"helium_res" toBuckets:mutBuckets];
         buckets = mutBuckets;
         NSLog(@"buckets: %@", buckets);
     });
     return buckets;
+}
+
++(void) addBundleWithName:(NSString *) bundleName toBuckets:(NSMutableDictionary *) mutBuckets {
+    NSString* resPath = [NSBundle.mainBundle pathForResource:bundleName ofType:@"bundle"];
+    NSBundle* resBundle = [NSBundle bundleWithPath:resPath];
+    NSArray* bucketDirs = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[resBundle bundleURL]
+                                                        includingPropertiesForKeys:@[]
+                                                                           options:NSDirectoryEnumerationSkipsSubdirectoryDescendants | NSDirectoryEnumerationSkipsHiddenFiles
+                                                                             error:nil];
+    for (NSString* bucketFullPath in bucketDirs) {
+        NSString* bucketPath = bucketFullPath.lastPathComponent;
+        NSArray* bucketQualifiers = [bucketPath componentsSeparatedByString:@"-"];
+        NSString* bucketString = bucketQualifiers[0];
+        if (bucketQualifiers.count) {
+            bucketQualifiers = [bucketQualifiers subarrayWithRange:NSMakeRange(1, bucketQualifiers.count-1)];
+        }
+        HLMDeviceConfig* bucketDeviceConfig = [[HLMDeviceConfig alloc] initWithQualifiers:bucketQualifiers];
+        NSArray* bucketContents = [resBundle pathsForResourcesOfType:@"xml" inDirectory:bucketPath];
+        for (NSString* filePath in bucketContents) {
+            NSString* fileName = filePath.lastPathComponent;
+            fileName = [fileName substringToIndex:fileName.length - 4]; // - ".xml"
+            NSString* resourceId = [NSString stringWithFormat:@"@%@/%@", bucketString, fileName];
+            NSMutableArray* resource = mutBuckets[resourceId];
+            if (!resource) {
+                resource = [NSMutableArray new];
+                mutBuckets[resourceId] = resource;
+            }
+            HLMBucketResource* bucketResource = [HLMBucketResource new];
+            NSRange rangeOfResBundle = [filePath rangeOfString:[NSString stringWithFormat:@"%@.bundle", bundleName]];
+            bucketResource.path = [filePath substringFromIndex:rangeOfResBundle.location];
+            bucketResource.config = bucketDeviceConfig;
+            NSUInteger newIndex = [resource indexOfObject:bucketResource
+                                            inSortedRange:NSMakeRange(0, resource.count)
+                                                  options:NSBinarySearchingInsertionIndex
+                                          usingComparator:^NSComparisonResult(HLMBucketResource* obj1, HLMBucketResource* obj2) {
+                                              BOOL obj1HlmRes = [obj1.path hasPrefix:@"helium_res"];
+                                              BOOL obj2HlmRes = [obj2.path hasPrefix:@"helium_res"];
+                                              if (obj1HlmRes != obj2HlmRes) {
+                                                  if (obj1HlmRes) {
+                                                      return NSOrderedAscending;
+                                                  } else {
+                                                      return NSOrderedDescending;
+                                                  }
+                                              }
+                                              HLMDeviceConfig* config1 = obj1.config;
+                                              HLMDeviceConfig* config2 = obj2.config;
+                                              NSInteger obj1Priority = (NSInteger) config1.priority;
+                                              NSInteger obj2Priority = (NSInteger) config2.priority;
+                                              NSInteger result = obj1Priority - obj2Priority;
+                                              if (!result) {
+                                                  return [config1 compareQualifiers:config2];
+                                              } else if (result > 0) {
+                                                  return NSOrderedAscending;
+                                              } else {
+                                                  return NSOrderedDescending;
+                                              }
+                                          }];
+            [resource insertObject:bucketResource atIndex:newIndex];
+        }
+    }
 }
 
 @end

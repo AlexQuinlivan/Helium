@@ -11,6 +11,7 @@
 @interface HLMResources : NSObject
 
 +(NSString *) resolveResourcePath:(NSString *) resourceId;
++(NSArray *) pathsForResource:(NSString *) resource;
 
 // Attribute resolving
 
