@@ -254,7 +254,7 @@ case _attr: {\
             if ([view isKindOfClass:[UILabel class]]) {
                 currentFont = ((UILabel *) view).font;
             }
-            font = [UIFont fontWithName:value size:(font.pointSize) ?: 15];
+            font = [UIFont fontWithName:value size:(currentFont.pointSize) ?: 15];
             method(view, setterSelector, font);
             break;
         }
