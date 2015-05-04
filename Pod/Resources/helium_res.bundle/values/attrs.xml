@@ -30,6 +30,7 @@
         <attr name="helium:text_size" format="cgfloat" property_alias="hlm_textSize" />
         <attr name="text" format="string" />
         <attr name="text_color" format="color" />
+        <attr name="font" format="font" />
         <attr name="number_of_lines" format="integer" />
     </styleable>
 </resources>

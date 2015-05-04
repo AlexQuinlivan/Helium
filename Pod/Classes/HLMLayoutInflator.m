@@ -247,6 +247,17 @@ case _attr: {\
             method(view, setterSelector, gravity);
             break;
         }
+        case ATTRIBUTE_TYPE_UI_FONT: {
+            void (*method)(id, SEL, UIFont*) = (void *)setterImp;
+            UIFont* font;
+            UIFont* currentFont;
+            if ([view isKindOfClass:[UILabel class]]) {
+                currentFont = ((UILabel *) view).font;
+            }
+            font = [UIFont fontWithName:value size:(font.pointSize) ?: 15];
+            method(view, setterSelector, font);
+            break;
+        }
         default: {
             NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", attribute.name, NSStringFromClass(view.class));
             break;
