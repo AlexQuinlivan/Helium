@@ -26,4 +26,8 @@
         <attr name="background_color" format="color" />
         <attr name="tag" format="string_hash" />
     </styleable>
+    <styleable name="UILabel">
+        <attr name="text" format="string" />
+        <attr name="text_color" format="color" />
+    </styleable>
 </resources>
