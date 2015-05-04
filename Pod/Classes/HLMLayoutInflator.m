@@ -279,6 +279,7 @@ case _attr: {\
                                              userInfo:nil];
             }
             method(view, setterSelector, renderingMode);
+            break;
         }
         case ATTRIBUTE_TYPE_UI_VIEW_CONTENT_MODE: {
             void (*method)(id, SEL, UIViewContentMode) = (void *)setterImp;
@@ -315,6 +316,7 @@ case _attr: {\
                                              userInfo:nil];
             }
             method(view, setterSelector, contentMode);
+            break;
         }
         default: {
             NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", attribute.name, NSStringFromClass(view.class));
