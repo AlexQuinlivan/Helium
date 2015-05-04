@@ -33,4 +33,9 @@
         <attr name="font" format="font" />
         <attr name="number_of_lines" format="integer" />
     </styleable>
+    <styleable name="UIImageView">
+        <attr name="image" format="image" />
+        <attr name="highlighted_image" format="image" />
+        <attr name="tint_color" format="color" />
+    </styleable>
 </resources>

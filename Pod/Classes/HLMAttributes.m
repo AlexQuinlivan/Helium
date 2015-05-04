@@ -34,6 +34,7 @@ static NSString* const HLMAttributeFormatCGRect = @"cgrect";
 static NSString* const HLMAttributeFormatCGSize = @"cgsize";
 static NSString* const HLMAttributeFormatCGPoint = @"cgpoint";
 static NSString* const HLMAttributeFormatFont = @"font";
+static NSString* const HLMAttributeFormatImage = @"image";
 
 static NSString* const HLMAttributesNamespaceDefault = @"default";
 static NSString* const HLMAttributesNamespaceHelium = @"helium";
@@ -153,6 +154,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                     HLMAttributeFormatCGSize : @(ATTRIBUTE_TYPE_CG_SIZE),
                     HLMAttributeFormatCGPoint : @(ATTRIBUTE_TYPE_CG_POINT),
                     HLMAttributeFormatFont : @(ATTRIBUTE_TYPE_UI_FONT),
+                    HLMAttributeFormatImage : @(ATTRIBUTE_TYPE_UI_IMAGE),
                     };
     });
     NSNumber* type = typeMap[format];

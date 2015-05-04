@@ -258,6 +258,12 @@ case _attr: {\
             method(view, setterSelector, font);
             break;
         }
+        case ATTRIBUTE_TYPE_UI_IMAGE: {
+            void (*method)(id, SEL, UIImage*) = (void *)setterImp;
+            UIImage* image = [UIImage imageNamed:value];
+            method(view, setterSelector, image);
+            break;
+        }
         default: {
             NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", attribute.name, NSStringFromClass(view.class));
             break;
