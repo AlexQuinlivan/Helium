@@ -264,6 +264,22 @@ case _attr: {\
             method(view, setterSelector, image);
             break;
         }
+        case ATTRIBUTE_TYPE_UI_IMAGE_RENDERING_MODE: {
+            void (*method)(id, SEL, UIImageRenderingMode) = (void *)setterImp;
+            UIImageRenderingMode renderingMode;
+            if ([@"automatic" isEqualToString:value]) {
+                renderingMode = UIImageRenderingModeAutomatic;
+            } else if ([@"always_original" isEqualToString:value]) {
+                renderingMode = UIImageRenderingModeAlwaysOriginal;
+            } else if ([@"always_template" isEqualToString:value]) {
+                renderingMode = UIImageRenderingModeAlwaysTemplate;
+            } else {
+                @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                               reason:[NSString stringWithFormat:@"Unexpected image rendering mode found `%@`", value]
+                                             userInfo:nil];
+            }
+            method(view, setterSelector, renderingMode);
+        }
         default: {
             NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", attribute.name, NSStringFromClass(view.class));
             break;

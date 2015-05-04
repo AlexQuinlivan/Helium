@@ -181,6 +181,47 @@ ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
 @end
 
 
+@implementation UIImageView (HLMLayoutProperties)
+
+ASSOCIATE_VALUE_NO_SETTER(UIImageRenderingMode, hlm_imageRenderingMode, Hlm_imageRenderingMode, integerValue);
+-(void) setHlm_imageRenderingMode:(UIImageRenderingMode) hlm_imageRenderingMode {
+    objc_setAssociatedObject(self, &kHlm_imageRenderingModeAssociationKey,
+                             @(hlm_imageRenderingMode), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    UIImage* image = self.image;
+    UIImage* highlightedImage = self.highlightedImage;
+    if (image) {
+        self.image = [image imageWithRenderingMode:hlm_imageRenderingMode];
+    }
+    if (highlightedImage) {
+        self.highlightedImage = [highlightedImage imageWithRenderingMode:hlm_imageRenderingMode];
+    }
+}
+
+ASSOCIATED_PROPERTY(hlm_image, Hlm_image)
+ASSOCIATED_ACCESSOR(UIImage*, hlm_image, self, &kHlm_imageAssociationKey);
+-(void) setHlm_image:(UIImage *) hlm_image {
+    UIImageRenderingMode renderingMode = self.hlm_imageRenderingMode;
+    if (renderingMode != UIImageRenderingModeAutomatic) {
+        hlm_image = [hlm_image imageWithRenderingMode:renderingMode];
+    }
+    objc_setAssociatedObject(self, &kHlm_imageAssociationKey,
+                             hlm_image, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+ASSOCIATED_PROPERTY(hlm_highlightedImage, Hlm_highlightedImage)
+ASSOCIATED_ACCESSOR(UIImage*, hlm_highlightedImage, self, &kHlm_highlightedImageAssociationKey);
+-(void) setHlm_highlightedImage:(UIImage *) hlm_highlightedImage {
+    UIImageRenderingMode renderingMode = self.hlm_imageRenderingMode;
+    if (renderingMode != UIImageRenderingModeAutomatic) {
+        hlm_highlightedImage = [hlm_highlightedImage imageWithRenderingMode:renderingMode];
+    }
+    objc_setAssociatedObject(self, &kHlm_highlightedImageAssociationKey,
+                             hlm_highlightedImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+
+
 @implementation HLMLayout
 
 #pragma mark - MeasureSpec impl

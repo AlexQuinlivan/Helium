@@ -102,6 +102,13 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 
 @end
 
+@interface UIImageView (HLMLayoutProperties)
+
+@property (nonatomic) UIImageRenderingMode hlm_imageRenderingMode;
+@property (nonatomic, strong) UIImage* hlm_image;
+@property (nonatomic, strong) UIImage* hlm_highlightedImage;
+
+@end
 
 #pragma mark - LayoutManager
 
