@@ -36,7 +36,7 @@
     <styleable name="UIImageView">
         <attr name="helium:image_rendering_mode" format="image_rendering_mode" property_alias="hlm_imageRenderingMode" />
         <attr name="helium:image" format="image" property_alias="hlm_image" />
-        <attr name="helium:highlighted_image" format="image" />
+        <attr name="helium:highlighted_image" format="image" property_alias="hlm_highlightedImage" />
         <attr name="tint_color" format="color" />
     </styleable>
 </resources>
