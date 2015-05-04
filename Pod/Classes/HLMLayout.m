@@ -348,8 +348,34 @@ ASSOCIATE_VALUE_NO_SETTER(UIImageRenderingMode, hlm_imageRenderingMode, Hlm_imag
                      widthSpec:widthMeasureSpec
                     heightSpec:heightMeasureSpec];
     } else {
-        view.hlm_measuredWidth = [self defaultSize:view.hlm_minWidth spec:widthMeasureSpec];
-        view.hlm_measuredHeight = [self defaultSize:view.hlm_minHeight spec:heightMeasureSpec];
+        HLMMeasureSpecMode widthMode = [self measureSpecMode:widthMeasureSpec];
+        uint32_t widthSize = [self measureSpecSize:widthMeasureSpec];
+        HLMMeasureSpecMode heightMode = [self measureSpecMode:heightMeasureSpec];
+        uint32_t heightSize = [self measureSpecSize:heightMeasureSpec];
+        CGRect frame = view.frame;
+        frame.size.width = (widthMode == HLMMeasureSpecUnspecified) ? INT16_MAX : widthSize;
+        frame.size.height = (heightMode == HLMMeasureSpecUnspecified) ? INT16_MAX : heightSize;
+        if (widthMode == HLMMeasureSpecExactly && heightMode == HLMMeasureSpecExactly) {
+            // nop
+        } else {
+            view.frame = frame;
+            [view sizeToFit];
+            frame = view.frame;
+            frame.size.width = MAX(frame.size.width, view.hlm_minWidth);
+            frame.size.height = MAX(frame.size.height, view.hlm_minHeight);
+        }
+        if (widthMode == HLMMeasureSpecAtMost) {
+            frame.size.width = MIN(frame.size.width, widthSize);
+        } else if (widthMode == HLMMeasureSpecExactly) {
+            frame.size.width = widthSize;
+        }
+        if (heightMode == HLMMeasureSpecAtMost) {
+            frame.size.height = MIN(frame.size.height, heightSize);
+        } else if (heightMode == HLMMeasureSpecExactly) {
+            frame.size.height = heightSize;
+        }
+        view.hlm_measuredWidth = frame.size.width;
+        view.hlm_measuredHeight = frame.size.height;
     }
 }
 
