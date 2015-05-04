@@ -25,7 +25,7 @@
         <attr name="helium:gravity" format="gravity" property_alias="hlm_gravity" />
         <attr name="background_color" format="color" />
         <attr name="tag" format="string_hash" />
-        <attr name="content_mode" format"content_mode" />
+        <attr name="content_mode" format="content_mode" />
     </styleable>
     <styleable name="UILabel">
         <attr name="helium:text_size" format="cgfloat" property_alias="hlm_textSize" />
