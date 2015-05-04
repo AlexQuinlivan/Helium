@@ -96,6 +96,12 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 
 @end
 
+@interface UILabel (HLMLayoutProperties)
+
+@property (nonatomic) CGFloat hlm_textSize;
+
+@end
+
 
 #pragma mark - LayoutManager
 

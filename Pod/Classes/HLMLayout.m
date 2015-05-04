@@ -166,6 +166,21 @@ ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
 
 @end
 
+
+@implementation UILabel (HLMLayoutProperties)
+
+-(void) setHlm_textSize:(CGFloat) hlm_textSize {
+    self.font = [self.font fontWithSize:hlm_textSize];
+    [self setNeedsLayout];
+}
+
+-(CGFloat) hlm_textSize {
+    return self.font.pointSize;
+}
+
+@end
+
+
 @implementation HLMLayout
 
 #pragma mark - MeasureSpec impl

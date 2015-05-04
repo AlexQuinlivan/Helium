@@ -27,6 +27,7 @@
         <attr name="tag" format="string_hash" />
     </styleable>
     <styleable name="UILabel">
+        <attr name="helium:text_size" format="cgfloat" property_alias="hlm_textSize" />
         <attr name="text" format="string" />
         <attr name="text_color" format="color" />
     </styleable>
