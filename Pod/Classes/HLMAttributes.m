@@ -61,6 +61,9 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                                                                       error:&error];
         NSArray* styleables = [document.rootElement elementsForName:@"styleable"];
         for (GDataXMLElement* styleable in styleables) {
+            if (styleable.XMLNode->type == XML_TEXT_NODE) {
+                continue;
+            }
             NSString* styledClass = [styleable attributeForName:@"name"].stringValue; // @todo: Unused, use this to apply attrs to classes
             for (GDataXMLElement* attr in styleable.children) {
                 if (attr.XMLNode->type == XML_TEXT_NODE) {
