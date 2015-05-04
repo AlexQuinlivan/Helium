@@ -280,6 +280,42 @@ case _attr: {\
             }
             method(view, setterSelector, renderingMode);
         }
+        case ATTRIBUTE_TYPE_UI_VIEW_CONTENT_MODE: {
+            void (*method)(id, SEL, UIViewContentMode) = (void *)setterImp;
+            UIViewContentMode contentMode;
+            if ([@"fill" isEqualToString:value]) {
+                contentMode = UIViewContentModeScaleToFill;
+            } else if ([@"aspect_fit" isEqualToString:value]) {
+                contentMode = UIViewContentModeScaleAspectFit;
+            } else if ([@"aspect_fill" isEqualToString:value]) {
+                contentMode = UIViewContentModeScaleAspectFill;
+            } else if ([@"redraw" isEqualToString:value]) {
+                contentMode = UIViewContentModeRedraw;
+            } else if ([@"center" isEqualToString:value]) {
+                contentMode = UIViewContentModeCenter;
+            } else if ([@"top" isEqualToString:value]) {
+                contentMode = UIViewContentModeTop;
+            } else if ([@"bottom" isEqualToString:value]) {
+                contentMode = UIViewContentModeBottom;
+            } else if ([@"left" isEqualToString:value]) {
+                contentMode = UIViewContentModeLeft;
+            } else if ([@"right" isEqualToString:value]) {
+                contentMode = UIViewContentModeRight;
+            } else if ([@"top_left" isEqualToString:value]) {
+                contentMode = UIViewContentModeTopLeft;
+            } else if ([@"top_right" isEqualToString:value]) {
+                contentMode = UIViewContentModeTopRight;
+            } else if ([@"bottom_left" isEqualToString:value]) {
+                contentMode = UIViewContentModeBottomLeft;
+            } else if ([@"bottom_right" isEqualToString:value]) {
+                contentMode = UIViewContentModeBottomRight;
+            } else {
+                @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                               reason:[NSString stringWithFormat:@"Unexpected view content mode found `%@`", value]
+                                             userInfo:nil];
+            }
+            method(view, setterSelector, contentMode);
+        }
         default: {
             NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", attribute.name, NSStringFromClass(view.class));
             break;
