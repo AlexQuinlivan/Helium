@@ -49,6 +49,10 @@ static NSString* const HLMInjectorSettingOptional = @"optional";
             injectable = [root viewWithTag:tagName.hash];
             if (!injectable) {
                 if ([injectorSetting isEqualToString:HLMInjectorSettingOptional]) {
+                    // Nil setter
+                    IMP setterImp = [object methodForSelector:selector];
+                    void (*setter)(id, SEL, id) = (void *)setterImp;
+                    setter(object, selector, nil);
                     continue;
                 } else {
                     @throw [NSException exceptionWithName:@"HLMViewInjectionException"
@@ -107,6 +111,10 @@ static NSString* const HLMInjectorSettingOptional = @"optional";
             UIView* view = [root viewWithTag:tagName.hash];
             if (!view) {
                 if ([injectorSetting isEqualToString:HLMInjectorSettingOptional]) {
+                    // Nil setter
+                    IMP setterImp = [object methodForSelector:selector];
+                    void (*setter)(id, SEL, id) = (void *)setterImp;
+                    setter(object, selector, nil);
                     continue;
                 } else {
                     @throw [NSException exceptionWithName:@"HLMControlTargetInjectionException"
