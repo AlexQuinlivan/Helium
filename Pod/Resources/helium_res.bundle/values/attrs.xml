@@ -40,4 +40,7 @@
         <attr name="helium:highlighted_image" format="image" property_alias="hlm_highlightedImage" />
         <attr name="tint_color" format="color" />
     </styleable>
+    <styleable name="UIButton">
+        <attr name="helium:highlighted_background_color" format="color" property_alias="hlm_highlightedBackgroundColor" />
+    </styleable>
 </resources>

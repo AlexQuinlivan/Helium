@@ -72,6 +72,7 @@
 		EF5D94497F619C3AB9C4365C /* HLMFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F653F224D9762C660B729429 /* HLMFrameLayoutManager.m */; };
 		F5E4960B5B37220BA069CC32 /* HLMRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 557BCC309D4ED4CAD0317CCE /* HLMRelativeLayoutManager.m */; };
 		F8DC7EE0DED7E303712D179C /* HLMViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90120655893A250DD11ABD /* HLMViewInjector.m */; };
+		FA5A9DDF1AF86083003BBE6E /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5A9DDE1AF86083003BBE6E /* UIColor+HLMImage.m */; };
 		FD744DF9C6C53E0A21DE5AF9 /* HLMResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C3EC38E8D2D79FE5590851 /* HLMResources.h */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,8 @@
 		F51FC5B15C17FD28C7DDA9B2 /* Pods-Helium-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-environment.h"; sourceTree = "<group>"; };
 		F653F224D9762C660B729429 /* HLMFrameLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMFrameLayoutManager.m; sourceTree = "<group>"; };
 		F74B79ADA551F2AF3664CD47 /* Pods-Tests-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-EDSemver-dummy.m"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-dummy.m"; sourceTree = "<group>"; };
+		FA5A9DDD1AF86083003BBE6E /* UIColor+HLMImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HLMImage.h"; sourceTree = "<group>"; };
+		FA5A9DDE1AF86083003BBE6E /* UIColor+HLMImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HLMImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,8 @@
 				1B90120655893A250DD11ABD /* HLMViewInjector.m */,
 				56DF38E5A2D825D3F81D18F2 /* NSString+Convert.h */,
 				53E05B4CF026D2E94BC7C654 /* NSString+Convert.m */,
+				FA5A9DDD1AF86083003BBE6E /* UIColor+HLMImage.h */,
+				FA5A9DDE1AF86083003BBE6E /* UIColor+HLMImage.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -682,6 +687,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5730D36E3533E803D8305D43 /* Pods-Helium-dummy.m in Sources */,
+				FA5A9DDF1AF86083003BBE6E /* UIColor+HLMImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

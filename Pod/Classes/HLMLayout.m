@@ -8,6 +8,7 @@
 
 #import "HLMLayout.h"
 #import "HLMAssociatedObjects.h"
+#import "UIColor+HLMImage.h"
 
 #define ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(_type, _name, _camel, _nsvalueaccessor) \
 ASSOCIATE_VALUE_NO_SETTER(_type, _name, _camel, _nsvalueaccessor)\
@@ -213,6 +214,19 @@ ASSOCIATE_VALUE_NO_SETTER(UIImageRenderingMode, hlm_imageRenderingMode, Hlm_imag
 
 -(UIImage *) hlm_highlightedImage {
     return self.highlightedImage;
+}
+
+@end
+
+
+@implementation UIButton (HLMLayoutProperties)
+
+ASSOCIATED_PROPERTY(hlm_highlightedBackgroundColor, Hlm_highlightedBackgroundColor)
+ASSOCIATED_ACCESSOR(UIColor*, hlm_highlightedBackgroundColor, self, &kHlm_highlightedBackgroundColorAssociationKey)
+-(void) setHlm_highlightedBackgroundColor:(UIColor *) hlm_highlightedBackgroundColor {
+    objc_setAssociatedObject(self, &kHlm_highlightedBackgroundColorAssociationKey,
+                             hlm_highlightedBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setBackgroundImage:hlm_highlightedBackgroundColor.hlm_asImage forState:UIControlStateHighlighted];
 }
 
 @end

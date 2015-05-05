@@ -110,6 +110,13 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 
 @end
 
+@interface UIButton (HLMLayoutProperties)
+
+@property (nonatomic, strong) UIColor* hlm_highlightedBackgroundColor;
+
+@end
+
+
 #pragma mark - LayoutManager
 
 // linear / frame / relative
