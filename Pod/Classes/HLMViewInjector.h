@@ -33,6 +33,8 @@
 #define INJECT_VIEWS_9(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8, T9) INJECT_VIEWS_8(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8 ## _$$ ## T9)
 #define INJECT_VIEWS_10(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) INJECT_VIEWS_9(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8, T9 ## _$$ ## T10)
 
+#define TARGET(_tag, _ui_control_event) \
+-(void) viewtarget_$$ ## _tag ## _$$ ## _ui_control_event
 
 @interface HLMViewInjector : NSObject
 
