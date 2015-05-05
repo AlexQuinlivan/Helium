@@ -36,6 +36,9 @@
 #define TARGET(_tag, _ui_control_event) \
 -(void) viewtarget_$$ ## _tag ## _$$ ## _ui_control_event
 
+#define TARGET_OPTIONAL(_tag, _ui_control_event) \
+-(void) viewtarget_$$ ## _tag ## _$$ ## _ui_control_event ## _$$optional
+
 @interface HLMViewInjector : NSObject
 
 +(void) injectViewsInto:(NSObject *) object withRootView:(UIView *) root;

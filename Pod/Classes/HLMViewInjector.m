@@ -49,7 +49,7 @@ static NSString* const HLMInjectorSettingOptional = @"optional";
             injectable = [root viewWithTag:tagName.hash];
             if (!injectable) {
                 if ([injectorSetting isEqualToString:HLMInjectorSettingOptional]) {
-                    return;
+                    continue;
                 } else {
                     @throw [NSException exceptionWithName:@"HLMViewInjectionException"
                                                    reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
@@ -96,19 +96,25 @@ static NSString* const HLMInjectorSettingOptional = @"optional";
         } else if ([methodName hasPrefix:HLMControlTargetInjectorPrefix]) {
             
             // Extract values from method name
+            NSString* injectorSetting;
             methodName = [methodName stringByReplacingOccurrencesOfString:HLMControlTargetInjectorPrefix withString:@""];
             NSArray* components = [methodName componentsSeparatedByString:HLMInjectorSeperator];
             NSString* tagName = components[0];
             NSString* controlEventName = components[1];
+            injectorSetting = (components.count > 2) ? components[2] : nil;
             
             // Find the view to inject
             UIView* view = [root viewWithTag:tagName.hash];
             if (!view) {
-                @throw [NSException exceptionWithName:@"HLMControlTargetInjectionException"
-                                               reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
-                                                       @"Did you mean for this to be an optional target injection? "
-                                                       @"Try TARGET_OPTIONAL(tag, controlEvent)", tagName]
-                                             userInfo:nil];
+                if ([injectorSetting isEqualToString:HLMInjectorSettingOptional]) {
+                    continue;
+                } else {
+                    @throw [NSException exceptionWithName:@"HLMControlTargetInjectionException"
+                                                   reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
+                                                           @"Did you mean for this to be an optional target injection? "
+                                                           @"Try TARGET_OPTIONAL(tag, controlEvent)", tagName]
+                                                 userInfo:nil];
+                }
             }
             if (![view isKindOfClass:[UIControl class]]) {
                 @throw [NSException exceptionWithName:@"HLMControlTargetInjectionException"
