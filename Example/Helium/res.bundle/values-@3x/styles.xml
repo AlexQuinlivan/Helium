@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <style name="example_view_style" parent="main_background">
+        <item name="helium:padding_left">60</item>
+        <item name="helium:padding_right">60</item>
+        <item name="helium:padding_top">16</item>
+        <item name="helium:padding_bottom">16</item>
+        <item name="background_color">#00f</item>
+    </style>
+    <style name="empty_concatenated_style">
+        <item name="background_color">#BEEF69</item>
+    </style>
+</resources>

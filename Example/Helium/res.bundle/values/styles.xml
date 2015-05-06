@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <style name="main_background">
-        <item name="background_color">@color/green</item>
+        <item name="background_color">#0f0</item>
     </style>
     <style name="example_view_style" parent="main_background">
-        <item name="margins">10</item>
+        <item name="helium:padding">10</item>
     </style>
+    <style name="empty_concatenated_style" />
 </resources>

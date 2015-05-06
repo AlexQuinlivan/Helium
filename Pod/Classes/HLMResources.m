@@ -31,26 +31,8 @@ static uint8_t const HLMDeviceDensityPriority = 0x02;
 static uint8_t const HLMDeviceVersionPriority = 0x01;
 
 
-@interface HLMDeviceConfig : NSObject
+@interface HLMDeviceConfig ()
 -(instancetype) initWithQualifiers:(NSArray *) qualifiers;
--(BOOL) isSubconfigOfConfig:(HLMDeviceConfig *) config;
--(NSComparisonResult) compareQualifiers:(HLMDeviceConfig *) config;
-@property (nonatomic, strong) NSString* orientation;
-@property (nonatomic, strong) NSString* scale;
-@property (nonatomic, strong) NSString* uiIdiom;
-@property (nonatomic, strong) NSString* language;
-@property (nonatomic, strong) NSNumber* width;
-@property (nonatomic, strong) NSNumber* height;
-@property (nonatomic, strong) EDSemver* systemVersion;
-@property (nonatomic, readonly) NSNumber* shortestWidth;
-@property (nonatomic) uint8_t priority;
-+(HLMDeviceConfig *) currentDevice;
-@end
-
-
-@interface HLMBucketResource : NSObject
-@property (nonatomic, strong) NSString* path;
-@property (nonatomic, strong) HLMDeviceConfig* config;
 @end
 
 
@@ -282,7 +264,6 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
         [self addBundleWithName:@"res" toBuckets:mutBuckets];
         [self addBundleWithName:@"helium_res" toBuckets:mutBuckets];
         buckets = mutBuckets;
-        NSLog(@"buckets: %@", buckets);
     });
     return buckets;
 }
@@ -319,32 +300,36 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
             NSUInteger newIndex = [resource indexOfObject:bucketResource
                                             inSortedRange:NSMakeRange(0, resource.count)
                                                   options:NSBinarySearchingInsertionIndex
-                                          usingComparator:^NSComparisonResult(HLMBucketResource* obj1, HLMBucketResource* obj2) {
-                                              BOOL obj1HlmRes = [obj1.path hasPrefix:@"helium_res"];
-                                              BOOL obj2HlmRes = [obj2.path hasPrefix:@"helium_res"];
-                                              if (obj1HlmRes != obj2HlmRes) {
-                                                  if (obj1HlmRes) {
-                                                      return NSOrderedAscending;
-                                                  } else {
-                                                      return NSOrderedDescending;
-                                                  }
-                                              }
-                                              HLMDeviceConfig* config1 = obj1.config;
-                                              HLMDeviceConfig* config2 = obj2.config;
-                                              NSInteger obj1Priority = (NSInteger) config1.priority;
-                                              NSInteger obj2Priority = (NSInteger) config2.priority;
-                                              NSInteger result = obj1Priority - obj2Priority;
-                                              if (!result) {
-                                                  return [config1 compareQualifiers:config2];
-                                              } else if (result > 0) {
-                                                  return NSOrderedAscending;
-                                              } else {
-                                                  return NSOrderedDescending;
-                                              }
-                                          }];
+                                          usingComparator:self.bucketComparator];
             [resource insertObject:bucketResource atIndex:newIndex];
         }
     }
+}
+
++(NSComparator) bucketComparator {
+    return ^NSComparisonResult(HLMBucketResource* obj1, HLMBucketResource* obj2) {
+        BOOL obj1HlmRes = [obj1.path hasPrefix:@"helium_res"];
+        BOOL obj2HlmRes = [obj2.path hasPrefix:@"helium_res"];
+        if (obj1HlmRes != obj2HlmRes) {
+            if (obj1HlmRes) {
+                return NSOrderedAscending;
+            } else {
+                return NSOrderedDescending;
+            }
+        }
+        HLMDeviceConfig* config1 = obj1.config;
+        HLMDeviceConfig* config2 = obj2.config;
+        NSInteger obj1Priority = (NSInteger) config1.priority;
+        NSInteger obj2Priority = (NSInteger) config2.priority;
+        NSInteger result = obj1Priority - obj2Priority;
+        if (!result) {
+            return [config1 compareQualifiers:config2];
+        } else if (result > 0) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedDescending;
+        }
+    };
 }
 
 @end

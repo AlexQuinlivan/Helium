@@ -56,8 +56,8 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
 +(void) loadAttributesFromResources {
     NSDictionary* attributeMap = self.attributeMap;
     NSArray* paths = [HLMResources pathsForResource:@"@values/attrs"];
-    for (NSString* attrPath in paths) {
-        NSString* fullPath = [NSString stringWithFormat:@"%@/%@", NSBundle.mainBundle.bundlePath, attrPath];
+    for (HLMBucketResource* attrPath in paths) {
+        NSString* fullPath = [NSString stringWithFormat:@"%@/%@", NSBundle.mainBundle.bundlePath, attrPath.path];
         NSError* error;
         NSData* data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
         GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithData:data

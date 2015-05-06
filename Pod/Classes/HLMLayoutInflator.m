@@ -9,6 +9,7 @@
 #import "HLMLayoutInflator.h"
 #import "HLMResources.h"
 #import "HLMAttributes.h"
+#import "HLMStyles.h"
 #import "HLMLinearLayoutManager.h"
 #import "HLMFrameLayoutManager.h"
 #import "HLMRelativeLayoutManager.h"
@@ -17,6 +18,11 @@
 #import <libxml/tree.h>
 
 static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
+
+@interface HLMRawAttribute : NSObject
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) NSString* value;
+@end
 
 @implementation HLMLayoutInflator {
     GDataXMLDocument* layoutXml;
@@ -62,7 +68,6 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
         [newNamespaces addObjectsFromArray:elementNamespaces];
         namespaces = newNamespaces;
     }
-    NSLog(@"[INFO]: Inflating <%@>", className);
     UIView* view = [(UIView *)[clazz alloc] initWithFrame:HLMLayoutInflator.minFrame];
     view.clipsToBounds = YES;
     [self applyAttributesToView:view fromElement:element namespaces:namespaces];
@@ -83,13 +88,43 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 
 -(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
     BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = NO;
-    NSArray* attributes = element.attributes;
-    for (GDataXMLElement* attribute in attributes) {
+    NSArray* attributeElements = element.attributes;
+    NSMutableArray* attributes = [[NSMutableArray alloc] initWithCapacity:attributeElements.count];
+    for (GDataXMLElement* attribute in attributeElements) {
         if (attribute.XMLNode->type == XML_TEXT_NODE) {
             continue;
         }
         NSString* name = attribute.name;
         NSString* value = attribute.stringValue;
+        if ([@"helium:style" isEqualToString:name]) {
+            value = [value stringByReplacingOccurrencesOfString:@"  " withString:@" "];
+            NSArray* components = [value componentsSeparatedByString:@" "];
+            for (NSInteger i = components.count-1; i >= 0; i--) {
+                NSString* styleName = components[i];
+                HLMStyle* style = [HLMStyles styleWithName:styleName];
+                while (style) {
+                    NSMutableArray* styleAttrs = [[NSMutableArray alloc] initWithCapacity:style.entries.count];
+                    for (HLMStyleEntry* entry in style.entries) {
+                        HLMRawAttribute* rawAttribute = [HLMRawAttribute new];
+                        rawAttribute.name = entry.name;
+                        rawAttribute.value = entry.value;
+                        [styleAttrs addObject:rawAttribute];
+                    }
+                    [styleAttrs addObjectsFromArray:attributes];
+                    attributes = styleAttrs;
+                    style = style.parent;
+                }
+            }
+        } else {
+            HLMRawAttribute* rawAttribute = [HLMRawAttribute new];
+            rawAttribute.name = name;
+            rawAttribute.value = value;
+            [attributes addObject:rawAttribute];
+        }
+    }
+    for (HLMRawAttribute* attribute in attributes) {
+        NSString* name = attribute.name;
+        NSString* value = attribute.value;
         NSString* nmspace = nil;
         for (GDataXMLNode* namespaceCandidate in namespaces) {
             NSString* candidateName = namespaceCandidate.name;
@@ -116,6 +151,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
                 NSLog(@"[WARNING]: View does not recognise property: %@", hlmAttribute.name);
             }
         }
+
     }
     if (!layoutManagerSet && element.children.count) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
@@ -332,6 +368,14 @@ case _attr: {\
         rect = CGRectMake(0, 0, 1, 1);
     });
     return rect;
+}
+
+@end
+
+@implementation HLMRawAttribute
+
+-(NSString *) description {
+    return [NSString stringWithFormat:@"%@=\"%@\"", self.name, self.value];
 }
 
 @end

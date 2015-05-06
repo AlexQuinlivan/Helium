@@ -4,8 +4,7 @@
     helium:layout_width="match_parent"
     helium:layout_height="match_parent"
     helium:layout="frame"
-    helium:padding="10"
-    background_color="#FFF">
+    helium:style="example_view_style empty_concatenated_style">
     <UIView
         helium:layout_width="match_parent"
         helium:layout_height="match_parent"

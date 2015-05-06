@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class EDSemver;
 
 @interface HLMResources : NSObject
 
 +(NSString *) resolveResourcePath:(NSString *) resourceId;
 +(NSArray *) pathsForResource:(NSString *) resource;
++(NSComparator) bucketComparator;
 
 // Attribute resolving
 
@@ -33,3 +35,26 @@
 +(UIColor *) uiColorValue:(NSString *) uiColorResource;
 
 @end
+
+
+@interface HLMDeviceConfig : NSObject
+-(BOOL) isSubconfigOfConfig:(HLMDeviceConfig *) config;
+-(NSComparisonResult) compareQualifiers:(HLMDeviceConfig *) config;
+@property (nonatomic, strong) NSString* orientation;
+@property (nonatomic, strong) NSString* scale;
+@property (nonatomic, strong) NSString* uiIdiom;
+@property (nonatomic, strong) NSString* language;
+@property (nonatomic, strong) NSNumber* width;
+@property (nonatomic, strong) NSNumber* height;
+@property (nonatomic, strong) EDSemver* systemVersion;
+@property (nonatomic, readonly) NSNumber* shortestWidth;
+@property (nonatomic) uint8_t priority;
++(HLMDeviceConfig *) currentDevice;
+@end
+
+
+@interface HLMBucketResource : NSObject
+@property (nonatomic, strong) NSString* path;
+@property (nonatomic, strong) HLMDeviceConfig* config;
+@end
+

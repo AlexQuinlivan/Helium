@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <style name="empty_concatenated_style">
+        <item name="background_color">#FFF</item>
+    </style>
+</resources>
