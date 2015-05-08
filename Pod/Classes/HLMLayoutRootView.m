@@ -49,7 +49,7 @@
         subview.hlm_paddingBottom = previousPaddingBottom;
     }
 #ifdef LAYOUT_PERF
-    NSLog(@"[VERBOSE]: Layout took %.1fms", [NSDate.date timeIntervalSinceDate:layoutStarted] * 100.f);
+    NSLog(@"[VERBOSE]: Layout took %.1fms", [NSDate.date timeIntervalSinceDate:layoutStarted] * 1000.f);
 #endif
 }
 
