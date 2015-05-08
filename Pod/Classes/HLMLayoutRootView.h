@@ -12,5 +12,6 @@
 
 @property (nonatomic, weak) id<UILayoutSupport> topLayoutGuide;
 @property (nonatomic, weak) id<UILayoutSupport> bottomLayoutGuide;
+@property (nonatomic, strong) NSString* resource;
 
 @end

@@ -24,9 +24,17 @@
 #ifdef VC_INFLATION_PERF
     NSDate* inflationStarted = NSDate.date;
 #endif
+    NSString* newResource = [HLMResources resolveResourcePath:self.layoutResource];
+    if (self.isViewLoaded && self.view) {
+        HLMLayoutRootView* root = (id) self.view;
+        if ([newResource isEqualToString:root.resource]) {
+            return;
+        }
+    }
     UIView* view = self.inflateView;
     view.clipsToBounds = !view.hlm_overridesLayoutGuides;
-    UIView* root = [[HLMLayoutRootView alloc] initWithFrame:CGRectZero];
+    HLMLayoutRootView* root = [[HLMLayoutRootView alloc] initWithFrame:CGRectZero];
+    root.resource = newResource;
     [root addSubview:view];
     if (self.isViewLoaded && self.view) {
         // @todo: Replace with some transition api
