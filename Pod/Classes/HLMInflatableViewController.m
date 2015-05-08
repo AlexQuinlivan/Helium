@@ -9,6 +9,7 @@
 #import "HLMInflatableViewController.h"
 #import "HLMLayoutInflator.h"
 #import "HLMLayoutRootView.h"
+#import "HLMResources.h"
 
 @implementation HLMInflatableViewController
 
@@ -20,13 +21,24 @@
 }
 
 -(void) loadView {
+#ifdef VC_INFLATION_PERF
+    NSDate* inflationStarted = NSDate.date;
+#endif
     UIView* view = self.inflateView;
     view.clipsToBounds = !view.hlm_overridesLayoutGuides;
     UIView* root = [[HLMLayoutRootView alloc] initWithFrame:CGRectZero];
     [root addSubview:view];
+    if (self.isViewLoaded && self.view) {
+        // @todo: Replace with some transition api
+        root.frame = self.view.frame;
+        [root layoutSubviews];
+    }
     self.view = root;
     root.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [HLMViewInjector injectViewsInto:self withRootView:self.view];
+#ifdef VC_INFLATION_PERF
+    NSLog(@"[VERBOSE]: Inflation took %.1fms", [NSDate.date timeIntervalSinceDate:inflationStarted] * 100.f);
+#endif
 }
 
 -(UIView *) inflateView {
@@ -45,6 +57,12 @@
     HLMLayoutRootView* rootView = ((HLMLayoutRootView *) self.view);
     rootView.topLayoutGuide = self.topLayoutGuide;
     rootView.bottomLayoutGuide = self.bottomLayoutGuide;
+}
+
+-(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation) toInterfaceOrientation duration:(NSTimeInterval) duration {
+    [[NSNotificationCenter defaultCenter] postNotificationName:HLMDeviceConfigDidChangeNotification object:@(toInterfaceOrientation)];
+    [self loadView];
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
 
 @end

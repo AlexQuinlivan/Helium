@@ -37,6 +37,8 @@
 @end
 
 
+extern NSString* const HLMDeviceConfigDidChangeNotification;
+
 @interface HLMDeviceConfig : NSObject
 -(BOOL) isSubconfigOfConfig:(HLMDeviceConfig *) config;
 -(NSComparisonResult) compareQualifiers:(HLMDeviceConfig *) config;

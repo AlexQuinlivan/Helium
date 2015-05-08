@@ -20,6 +20,8 @@ static NSString* const HLMResourceIntegerPrefix = @"@integer";
 static NSString* const HLMResourceBoolPrefix = @"@bool";
 static NSString* const HLMResourceColorPrefix = @"@color";
 
+NSString* const HLMDeviceConfigDidChangeNotification = @"HLMDeviceConfigDidChangeNotification";
+
 // language > uiidiom > sw > w > h > orientation > density > version
 static uint8_t const HLMDeviceLanguagePriority = 0x80;
 static uint8_t const HLMDeviceUIIdiomPriority = 0x40;
@@ -433,11 +435,31 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
                                              selector:@selector(orientationDidChange:)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orientationDidChangeInViewController:)
+                                                 name:HLMDeviceConfigDidChangeNotification
+                                               object:nil];
     [self orientationDidChange:nil];
 }
 
+-(void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 -(void) orientationDidChange:(NSNotification *) notification {
-    switch ([UIApplication sharedApplication].statusBarOrientation) {
+    [self deviceOrientationChanged:[UIApplication sharedApplication].statusBarOrientation];
+}
+
+-(void) orientationDidChangeInViewController:(NSNotification *) notification {
+    NSNumber* orientation = notification.object;
+    [self deviceOrientationChanged:orientation.integerValue];
+    NSNumber* temp = self.width;
+    self.width = self.height;
+    self.height = temp;
+}
+
+-(void) deviceOrientationChanged:(UIInterfaceOrientation) orientation {
+    switch (orientation) {
         case UIInterfaceOrientationLandscapeLeft:
         case UIInterfaceOrientationLandscapeRight:
             self.orientation = @"land";
