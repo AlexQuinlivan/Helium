@@ -23,6 +23,7 @@
         <attr name="helium:baseline_child_index" format="integer" property_alias="hlm_baselineAlignedChildIndex" />
         <attr name="helium:weight_sum" format="cgfloat" property_alias="hlm_weightSum" />
         <attr name="helium:gravity" format="gravity" property_alias="hlm_gravity" />
+        <attr name="helium:overrides_layout_guides" format="bool" property_alias="hlm_overridesLayoutGuides" />
         <attr name="background_color" format="color" />
         <attr name="tag" format="string_hash" />
         <attr name="content_mode" format="content_mode" />

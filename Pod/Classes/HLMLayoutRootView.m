@@ -17,12 +17,7 @@
 #endif
     [super layoutSubviews];
     NSArray* subviews = self.subviews;
-    NSUInteger subviewCount = subviews.count;
-    if (subviewCount > 1) {
-        @throw [NSException exceptionWithName:@"HLMLayoutException"
-                                       reason:@"HLMLayoutRootView has > 1 subviews. Expected 0..1"
-                                     userInfo:nil];
-    } else if (subviewCount) {
+    if (subviews.count) {
         UIView* subview = subviews[0];
         if (!subview.hlm_layoutManager) {
             @throw [NSException exceptionWithName:@"HLMLayoutException"
@@ -30,8 +25,19 @@
                                          userInfo:nil];
         }
         CGRect frame = self.frame;
-        HLMMeasureSpec rootWidthMeasureSpec = [HLMLayout measureSpecWithSize:frame.size.width mode:HLMMeasureSpecExactly];
-        HLMMeasureSpec rootHeightMeasureSpec = [HLMLayout measureSpecWithSize:frame.size.height mode:HLMMeasureSpecExactly];
+        CGFloat width = frame.size.width;
+        CGFloat height = frame.size.height;
+        BOOL overridesLayoutGuides = subview.hlm_overridesLayoutGuides;
+        CGFloat topGuideLength = self.topLayoutGuide.length;
+        CGFloat bottomGuideLength = self.bottomLayoutGuide.length;
+        CGFloat const previousPaddingTop = subview.hlm_paddingTop;
+        CGFloat const previousPaddingBottom = subview.hlm_paddingBottom;
+        if (!overridesLayoutGuides) {
+            subview.hlm_paddingTop += topGuideLength;
+            subview.hlm_paddingBottom += bottomGuideLength;
+        }
+        HLMMeasureSpec rootWidthMeasureSpec = [HLMLayout measureSpecWithSize:width mode:HLMMeasureSpecExactly];
+        HLMMeasureSpec rootHeightMeasureSpec = [HLMLayout measureSpecWithSize:height mode:HLMMeasureSpecExactly];
         [subview.hlm_layoutManager measure:subview
                                  widthSpec:rootWidthMeasureSpec
                                 heightSpec:rootHeightMeasureSpec];
@@ -40,6 +46,8 @@
                                       top:0
                                     right:subview.hlm_measuredWidth
                                    bottom:subview.hlm_measuredHeight];
+        subview.hlm_paddingTop = previousPaddingTop;
+        subview.hlm_paddingBottom = previousPaddingBottom;
     }
 #ifdef LAYOUT_PERF
     NSLog(@"[VERBOSE]: Layout took %.3fms", [NSDate.date timeIntervalSinceDate:layoutStarted]);

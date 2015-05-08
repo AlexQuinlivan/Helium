@@ -93,6 +93,7 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 @property (nonatomic) CGFloat hlm_weightSum;
 @property (nonatomic) HLMGravity hlm_gravity;
 @property (nonatomic, strong) id<HLMLayoutManager> hlm_layoutManager;
+@property (nonatomic) BOOL hlm_overridesLayoutGuides;
 
 @end
 

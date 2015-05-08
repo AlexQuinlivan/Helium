@@ -10,4 +10,7 @@
 
 @interface HLMLayoutRootView : UIView
 
+@property (nonatomic, weak) id<UILayoutSupport> topLayoutGuide;
+@property (nonatomic, weak) id<UILayoutSupport> bottomLayoutGuide;
+
 @end

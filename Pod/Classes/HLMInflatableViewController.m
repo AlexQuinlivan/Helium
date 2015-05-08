@@ -12,8 +12,16 @@
 
 @implementation HLMInflatableViewController
 
+-(instancetype) initWithNibName:(NSString *) nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    return self;
+}
+
 -(void) loadView {
     UIView* view = self.inflateView;
+    view.clipsToBounds = !view.hlm_overridesLayoutGuides;
     UIView* root = [[HLMLayoutRootView alloc] initWithFrame:CGRectZero];
     [root addSubview:view];
     self.view = root;
@@ -30,6 +38,13 @@
     @throw [NSException exceptionWithName:@"HLMAbstractSuperImplementationException"
                                    reason:@"-[HLMInflatableViewController layoutResource] should be overridden."
                                  userInfo:nil];
+}
+
+-(void) viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    HLMLayoutRootView* rootView = ((HLMLayoutRootView *) self.view);
+    rootView.topLayoutGuide = self.topLayoutGuide;
+    rootView.bottomLayoutGuide = self.bottomLayoutGuide;
 }
 
 @end
