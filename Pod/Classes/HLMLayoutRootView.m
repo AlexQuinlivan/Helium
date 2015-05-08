@@ -15,7 +15,6 @@
 #ifdef LAYOUT_PERF
     NSDate* layoutStarted = NSDate.date;
 #endif
-    [super layoutSubviews];
     NSArray* subviews = self.subviews;
     if (subviews.count) {
         UIView* subview = subviews[0];
