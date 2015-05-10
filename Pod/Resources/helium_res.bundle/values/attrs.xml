@@ -45,4 +45,7 @@
     <styleable name="UIButton">
         <attr name="helium:highlighted_background_color" format="color" property_alias="hlm_highlightedBackgroundColor" />
     </styleable>
+    <styleable name="UITextField">
+        <attr name="placeholder" format="string" />
+    </styleable>
 </resources>
