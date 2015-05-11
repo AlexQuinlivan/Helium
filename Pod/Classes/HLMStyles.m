@@ -130,6 +130,11 @@
     static NSMutableDictionary* styleMap;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        /* [MAP STRUCTURE]:
+         *
+         * styleMap[@"@style/{{style_name}}"] -> @[HLMStyle] (Ordered by -[HLMStyle resource])
+         *
+         */
         styleMap = [NSMutableDictionary new];
     });
     return styleMap;
