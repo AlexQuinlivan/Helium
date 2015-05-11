@@ -24,8 +24,16 @@
     return self;
 }
 
--(void) didInflate {
-    self.hlm_childView = self.subviews.lastObject;
+-(void) didInflateChild:(UIView *) childView {
+    if (self.hlm_childView && [self.subviews containsObject:self.hlm_childView]) {
+        @throw [NSException exceptionWithName:@"HLMScrollViewException"
+                                       reason:[NSString stringWithFormat:@"Reason: ScrollView's can only have"
+                                               @" 1 child. Cause: trying to add a `%@` to a scrollView that "
+                                               @"already has a `%@` child", NSStringFromClass(childView.class),
+                                               NSStringFromClass(self.hlm_childView.class)]
+                                     userInfo:nil];
+    }
+    self.hlm_childView = childView;
 }
 
 @end

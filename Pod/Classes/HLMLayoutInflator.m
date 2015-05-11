@@ -72,9 +72,9 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     view.clipsToBounds = YES;
     [self applyAttributesToView:view fromElement:element namespaces:namespaces];
     [self inflateChildrenOfView:view fromElement:element namespaces:namespaces];
-    if ([view respondsToSelector:@selector(didInflate)]
-        && [view conformsToProtocol:@protocol(HLMLayoutInflationListener)]) {
-        [view performSelector:@selector(didInflate)];
+    if ([view conformsToProtocol:@protocol(HLMLayoutInflationListener)]
+        && [view respondsToSelector:@selector(didInflateChildren)]) {
+        [view performSelector:@selector(didInflateChildren)];
     }
     return view;
 }
@@ -87,6 +87,10 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
         }
         UIView* childView = [self inflateViewFromXml:child namespaces:namespaces];
         [view addSubview:childView];
+        if ([view conformsToProtocol:@protocol(HLMLayoutInflationListener)]
+            && [view respondsToSelector:@selector(didInflateChild:)]) {
+            [view performSelector:@selector(didInflateChild:) withObject:childView];
+        }
     }
 }
 

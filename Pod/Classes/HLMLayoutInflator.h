@@ -21,6 +21,8 @@
 @optional
 
 // @todo: Better name? Steal onInflate?
--(void) didInflate;
+-(void) didInflateChildren;
+
+-(void) didInflateChild:(UIView *) childView;
 
 @end
