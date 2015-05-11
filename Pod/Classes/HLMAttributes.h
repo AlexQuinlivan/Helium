@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, HLMAttributeType) {
 
 @interface HLMAttributes : NSObject
 
-+(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace;
++(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace forView:(UIView *) view;
 
 @end
 

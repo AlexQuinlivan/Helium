@@ -11,6 +11,7 @@
 #import "NSString+Convert.h"
 #import "GDataXMLNode.h"
 #import <libxml/tree.h>
+#import <objc/runtime.h>
 
 static NSString* const HLMAttributeFormatInteger = @"integer";
 static NSString* const HLMAttributeFormatInt = @"int";
@@ -135,7 +136,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
     return attributesMap;
 }
 
-+(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace {
++(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace forView:(UIView *) view {
     NSParameterAssert(name);
     HLMDeviceConfig* currentDevice = HLMDeviceConfig.currentDevice;
     if (!nmspace || [@"" isEqualToString:nmspace]
@@ -146,16 +147,28 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
     }
     NSArray* attributeArray = self.attributeMap[nmspace][name];
     for (HLMAttribute* attribute in attributeArray) {
-        if ([attribute.resource.config isSubconfigOfConfig:currentDevice]) {
+        if ([attribute.resource.config isSubconfigOfConfig:currentDevice]
+            && [self doesAttribute:attribute applyToView:view]) {
             return attribute;
         }
     }
     @throw [NSException exceptionWithName:@"HLMAttributeException"
                                    reason:[NSString stringWithFormat:@"Failed to find an attribute matching the"
-                                           @" current device config under the name `%@%@`. Is there a default"
-                                           @" implemenation of this attribute? (config : %@)",
-                                           (nmspace) ? [nmspace stringByAppendingString:@":"] : @"", name, HLMDeviceConfig.currentDevice]
+                                           @" current device config under the name `%@%@` applied to a view with type `%@`",
+                                           (nmspace) ? [nmspace stringByAppendingString:@":"] : @"", name, NSStringFromClass(view.class)]
                                  userInfo:nil];
+}
+
++(BOOL) doesAttribute:(HLMAttribute *) attribute applyToView:(UIView *) view {
+    Class attrClass = attribute.styledClass;
+    Class viewClass = view.class;
+    do {
+        if (attrClass == viewClass) {
+            return YES;
+        }
+        viewClass = class_getSuperclass(viewClass);
+    } while (viewClass);
+    return NO;
 }
 
 @end
@@ -172,6 +185,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
         [self extractNameAndNamespaceFromName:name];
         [self extractSelectorsWithName:name propertyAlias:propertyAlias];
         self.resource = resource;
+        self.styledClass = clazz;
     }
     return self;
 }
