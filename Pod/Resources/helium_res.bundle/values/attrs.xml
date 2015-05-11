@@ -29,6 +29,7 @@
         <attr name="content_mode" format="content_mode" />
         <attr name="user_interaction_enabled" format="bool" />
         <attr name="hidden" format="bool" />
+        <attr name="clips_to_bounds" format="bool" />
     </styleable>
     <styleable name="UILabel">
         <attr name="helium:text_size" format="cgfloat" property_alias="hlm_textSize" />
