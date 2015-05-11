@@ -46,10 +46,6 @@ typedef NS_ENUM(NSInteger, HLMAttributeType) {
 
 @interface HLMAttribute : NSObject
 
--(instancetype) initWithName:(NSString *) name
-                      format:(NSString *) format
-               propertyAlias:(NSString *) propertyAlias;
-
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* nmspace;
 @property (nonatomic) HLMAttributeType type;

@@ -42,7 +42,19 @@ static NSString* const HLMAttributesNamespaceDefault = @"default";
 static NSString* const HLMAttributesNamespaceHelium = @"helium";
 static NSString* const HLMAttributesNamespaceUser = @"user";
 
-// @todo: This does not listen to device config changes
+@interface HLMAttribute ()
+
+-(instancetype) initWithName:(NSString *) name
+                      format:(NSString *) format
+               propertyAlias:(NSString *) propertyAlias
+                    resource:(HLMBucketResource *) resource
+                 styledClass:(Class) clazz;
+
+@property (nonatomic, strong) HLMBucketResource* resource;
+@property (nonatomic, strong) Class styledClass;
+
+@end
+
 @implementation HLMAttributes
 
 +(void) initialize {
@@ -68,7 +80,13 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
             if (styleable.XMLNode->type == XML_TEXT_NODE) {
                 continue;
             }
-            NSString* styledClass = [styleable attributeForName:@"name"].stringValue; // @todo: Unused, use this to apply attrs to classes
+            NSString* styledClassString = [styleable attributeForName:@"name"].stringValue; // @todo: Unused, use this to apply attrs to classes
+            Class styledClass = NSClassFromString(styledClassString);
+            if (!styledClass) {
+                @throw [NSException exceptionWithName:@"HLMAttributesLoadException"
+                                               reason:[NSString stringWithFormat:@"Failed to find class for styleable (%@)", styledClassString]
+                                             userInfo:nil];
+            }
             for (GDataXMLElement* attr in styleable.children) {
                 if (attr.XMLNode->type == XML_TEXT_NODE) {
                     continue;
@@ -78,8 +96,21 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                 NSString* propertyAlias = [attr attributeForName:@"property_alias"].stringValue;
                 HLMAttribute* attribute = [[HLMAttribute alloc] initWithName:name
                                                                       format:format
-                                                               propertyAlias:propertyAlias];
-                attributeMap[attribute.nmspace][attribute.name] = attribute;
+                                                               propertyAlias:propertyAlias
+                                                                    resource:attrPath
+                                                                 styledClass:styledClass];
+                NSMutableArray* attributesWithNameAndNamespace = attributeMap[attribute.nmspace][attribute.name];
+                if (!attributesWithNameAndNamespace) {
+                    attributesWithNameAndNamespace = [NSMutableArray new];
+                    attributeMap[attribute.nmspace][attribute.name] = attributesWithNameAndNamespace;
+                }
+                NSUInteger newIndex = [attributesWithNameAndNamespace indexOfObject:attribute
+                                                                      inSortedRange:NSMakeRange(0, attributesWithNameAndNamespace.count)
+                                                                            options:NSBinarySearchingInsertionIndex
+                                                                    usingComparator:^NSComparisonResult(HLMAttribute* obj1, HLMAttribute* obj2) {
+                                                                        return HLMResources.bucketComparator(obj1.resource, obj2.resource);
+                                                                    }];
+                [attributesWithNameAndNamespace insertObject:attribute atIndex:newIndex];
             }
         }
     }
@@ -89,23 +120,42 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
     static NSDictionary* attributesMap;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        /* [MAP STRUCTURE]:
+         *
+         * attributesMap[@"{{attribute_namespace}}"] -> 
+         *     @{@"{{attribute_name}}" : @[HLMAttribute] (Ordered by -[HLMAttribute resource])}
+         *
+         */
         attributesMap = @{
-                          HLMAttributesNamespaceDefault : [NSMutableDictionary new],
-                          HLMAttributesNamespaceHelium : [NSMutableDictionary new],
-                          HLMAttributesNamespaceUser : [NSMutableDictionary new],
-                          };
+            HLMAttributesNamespaceDefault : [NSMutableDictionary new],
+            HLMAttributesNamespaceHelium : [NSMutableDictionary new],
+            HLMAttributesNamespaceUser : [NSMutableDictionary new],
+        };
     });
     return attributesMap;
 }
 
 +(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace {
+    NSParameterAssert(name);
+    HLMDeviceConfig* currentDevice = HLMDeviceConfig.currentDevice;
     if (!nmspace || [@"" isEqualToString:nmspace]
         || [HLMAttributesNamespaceDefault isEqualToString:nmspace]) {
         nmspace = HLMAttributesNamespaceDefault;
     } else if (![HLMAttributesNamespaceHelium isEqualToString:nmspace]) {
         nmspace = HLMAttributesNamespaceUser;
     }
-    return self.attributeMap[nmspace][name];
+    NSArray* attributeArray = self.attributeMap[nmspace][name];
+    for (HLMAttribute* attribute in attributeArray) {
+        if ([attribute.resource.config isSubconfigOfConfig:currentDevice]) {
+            return attribute;
+        }
+    }
+    @throw [NSException exceptionWithName:@"HLMAttributeException"
+                                   reason:[NSString stringWithFormat:@"Failed to find an attribute matching the"
+                                           @" current device config under the name `%@%@`. Is there a default"
+                                           @" implemenation of this attribute? (config : %@)",
+                                           (nmspace) ? [nmspace stringByAppendingString:@":"] : @"", name, HLMDeviceConfig.currentDevice]
+                                 userInfo:nil];
 }
 
 @end
@@ -114,11 +164,14 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
 
 -(instancetype) initWithName:(NSString *) name
                       format:(NSString *) format
-               propertyAlias:(NSString *) propertyAlias {
+               propertyAlias:(NSString *) propertyAlias
+                    resource:(HLMBucketResource *) resource
+                 styledClass:(Class) clazz {
     if (self = [super init]) {
         self.type = [HLMAttribute typeForFormat:format];
         [self extractNameAndNamespaceFromName:name];
         [self extractSelectorsWithName:name propertyAlias:propertyAlias];
+        self.resource = resource;
     }
     return self;
 }
