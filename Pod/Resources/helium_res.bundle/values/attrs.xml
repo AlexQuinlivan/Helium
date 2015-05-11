@@ -49,4 +49,8 @@
     <styleable name="UITextField">
         <attr name="placeholder" format="string" />
     </styleable>
+    <styleable name="UIScrollView">
+        <attr name="always_bounce_vertical" format="bool" />
+        <attr name="always_bounce_horizontal" format="bool" />
+    </styleable>
 </resources>

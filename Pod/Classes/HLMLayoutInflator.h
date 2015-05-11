@@ -16,3 +16,11 @@
 -(UIView *) inflate;
 
 @end
+
+@protocol HLMLayoutInflationListener <NSObject>
+@optional
+
+// @todo: Better name? Steal onInflate?
+-(void) didInflate;
+
+@end

@@ -23,12 +23,69 @@
                 helium:layout_width="match_parent"
                 helium:layout_height="100"
                 background_color="#F8D57A" />
-            <UIView
+            <HLMScrollView
                 helium:layout_width="match_parent"
                 helium:layout_height="0"
                 helium:layout_weight="1"
                 helium:margin_top="10"
-                background_color="#FFF" />
+                helium:orientation="vertical"
+                always_bounce_vertical="YES">
+                <UIView
+                    helium:layout_width="match_parent"
+                    helium:layout_height="wrap_content"
+                    helium:layout="linear"
+                    helium:orientation="vertical">
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        background_color="#F8D57A" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#FFF" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#F8D57A" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#FFF" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#F8D57A" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#FFF" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#F8D57A" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#FFF" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#F8D57A" />
+                    <UIView
+                        helium:layout_width="match_parent"
+                        helium:layout_height="100"
+                        helium:margin_top="10"
+                        background_color="#FFF" />
+                </UIView>
+            </HLMScrollView>
         </UIView>
         <UIView
             helium:layout_width="0"

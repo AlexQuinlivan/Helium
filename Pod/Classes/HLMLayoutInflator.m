@@ -72,6 +72,10 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     view.clipsToBounds = YES;
     [self applyAttributesToView:view fromElement:element namespaces:namespaces];
     [self inflateChildrenOfView:view fromElement:element namespaces:namespaces];
+    if ([view respondsToSelector:@selector(didInflate)]
+        && [view conformsToProtocol:@protocol(HLMLayoutInflationListener)]) {
+        [view performSelector:@selector(didInflate)];
+    }
     return view;
 }
 
@@ -87,7 +91,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 }
 
 -(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
-    BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = NO;
+    BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = view.hlm_layoutManager;
     NSArray* attributeElements = element.attributes;
     NSMutableArray* attributes = [[NSMutableArray alloc] initWithCapacity:attributeElements.count];
     for (GDataXMLElement* attribute in attributeElements) {

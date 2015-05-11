@@ -76,6 +76,10 @@
 		FA02E2C61B00399D003D6C85 /* HLMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FA02E2C31B00399D003D6C85 /* HLMTableViewCell.h */; };
 		FA02E2C71B00399D003D6C85 /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */; };
 		FA02E2C81B00399D003D6C85 /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */; };
+		FA02E2CE1B005689003D6C85 /* HLMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = FA02E2CC1B005689003D6C85 /* HLMScrollView.h */; };
+		FA02E2CF1B005689003D6C85 /* HLMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = FA02E2CC1B005689003D6C85 /* HLMScrollView.h */; };
+		FA02E2D01B005689003D6C85 /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA02E2CD1B005689003D6C85 /* HLMScrollView.m */; };
+		FA02E2D11B005689003D6C85 /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA02E2CD1B005689003D6C85 /* HLMScrollView.m */; };
 		FA5A9DDF1AF86083003BBE6E /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5A9DDE1AF86083003BBE6E /* UIColor+HLMImage.m */; };
 		FA5A9DE61AF971CC003BBE6E /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5A9DE31AF970DB003BBE6E /* HLMStyles.h */; };
 		FA5A9DE71AF971CE003BBE6E /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5A9DE31AF970DB003BBE6E /* HLMStyles.h */; };
@@ -198,6 +202,8 @@
 		F74B79ADA551F2AF3664CD47 /* Pods-Tests-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-EDSemver-dummy.m"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-dummy.m"; sourceTree = "<group>"; };
 		FA02E2C31B00399D003D6C85 /* HLMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMTableViewCell.h; sourceTree = "<group>"; };
 		FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMTableViewCell.m; sourceTree = "<group>"; };
+		FA02E2CC1B005689003D6C85 /* HLMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMScrollView.h; sourceTree = "<group>"; };
+		FA02E2CD1B005689003D6C85 /* HLMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMScrollView.m; sourceTree = "<group>"; };
 		FA5A9DDD1AF86083003BBE6E /* UIColor+HLMImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HLMImage.h"; sourceTree = "<group>"; };
 		FA5A9DDE1AF86083003BBE6E /* UIColor+HLMImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HLMImage.m"; sourceTree = "<group>"; };
 		FA5A9DE31AF970DB003BBE6E /* HLMStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMStyles.h; sourceTree = "<group>"; };
@@ -477,6 +483,8 @@
 			children = (
 				FA02E2C31B00399D003D6C85 /* HLMTableViewCell.h */,
 				FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */,
+				FA02E2CC1B005689003D6C85 /* HLMScrollView.h */,
+				FA02E2CD1B005689003D6C85 /* HLMScrollView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -514,6 +522,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA02E2CF1B005689003D6C85 /* HLMScrollView.h in Headers */,
 				FA5A9DE71AF971CE003BBE6E /* HLMStyles.h in Headers */,
 				677640331373A4115BC2B300 /* GDataXMLNode.h in Headers */,
 				FA02E2C61B00399D003D6C85 /* HLMTableViewCell.h in Headers */,
@@ -544,6 +553,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA02E2CE1B005689003D6C85 /* HLMScrollView.h in Headers */,
 				FA5A9DE61AF971CC003BBE6E /* HLMStyles.h in Headers */,
 				9F75F51396C3E285ADBB7FEB /* GDataXMLNode.h in Headers */,
 				FA02E2C51B00399D003D6C85 /* HLMTableViewCell.h in Headers */,
@@ -754,6 +764,7 @@
 				A57E2FF1A1ADAE5F1442C66F /* HLMFrameLayoutManager.m in Sources */,
 				9550E19F625239F05FE6C42D /* HLMInflatableViewController.m in Sources */,
 				C569A686669A85AC4E0A4F46 /* HLMLayout.m in Sources */,
+				FA02E2D11B005689003D6C85 /* HLMScrollView.m in Sources */,
 				696B31BC47DAF6F5A78A552F /* HLMLayoutInflator.m in Sources */,
 				34C9E5B488E093F1F897956D /* HLMLayoutRootView.m in Sources */,
 				A1E429E94DC7188FBC26BD7A /* HLMLinearLayoutManager.m in Sources */,
@@ -776,6 +787,7 @@
 				EF5D94497F619C3AB9C4365C /* HLMFrameLayoutManager.m in Sources */,
 				B997F32494292910767F09AC /* HLMInflatableViewController.m in Sources */,
 				BC87BF24872545FC69117D1A /* HLMLayout.m in Sources */,
+				FA02E2D01B005689003D6C85 /* HLMScrollView.m in Sources */,
 				316795774676373038BFA577 /* HLMLayoutInflator.m in Sources */,
 				078C8103C2816A2061A0B2DB /* HLMLayoutRootView.m in Sources */,
 				614CCF4FEF40E8B0637E84E9 /* HLMLinearLayoutManager.m in Sources */,
