@@ -72,6 +72,10 @@
 		EF5D94497F619C3AB9C4365C /* HLMFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F653F224D9762C660B729429 /* HLMFrameLayoutManager.m */; };
 		F5E4960B5B37220BA069CC32 /* HLMRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 557BCC309D4ED4CAD0317CCE /* HLMRelativeLayoutManager.m */; };
 		F8DC7EE0DED7E303712D179C /* HLMViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B90120655893A250DD11ABD /* HLMViewInjector.m */; };
+		FA02E2C51B00399D003D6C85 /* HLMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FA02E2C31B00399D003D6C85 /* HLMTableViewCell.h */; };
+		FA02E2C61B00399D003D6C85 /* HLMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FA02E2C31B00399D003D6C85 /* HLMTableViewCell.h */; };
+		FA02E2C71B00399D003D6C85 /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */; };
+		FA02E2C81B00399D003D6C85 /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */; };
 		FA5A9DDF1AF86083003BBE6E /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5A9DDE1AF86083003BBE6E /* UIColor+HLMImage.m */; };
 		FA5A9DE61AF971CC003BBE6E /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5A9DE31AF970DB003BBE6E /* HLMStyles.h */; };
 		FA5A9DE71AF971CE003BBE6E /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5A9DE31AF970DB003BBE6E /* HLMStyles.h */; };
@@ -192,6 +196,8 @@
 		F51FC5B15C17FD28C7DDA9B2 /* Pods-Helium-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-environment.h"; sourceTree = "<group>"; };
 		F653F224D9762C660B729429 /* HLMFrameLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMFrameLayoutManager.m; sourceTree = "<group>"; };
 		F74B79ADA551F2AF3664CD47 /* Pods-Tests-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-EDSemver-dummy.m"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-dummy.m"; sourceTree = "<group>"; };
+		FA02E2C31B00399D003D6C85 /* HLMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMTableViewCell.h; sourceTree = "<group>"; };
+		FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMTableViewCell.m; sourceTree = "<group>"; };
 		FA5A9DDD1AF86083003BBE6E /* UIColor+HLMImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HLMImage.h"; sourceTree = "<group>"; };
 		FA5A9DDE1AF86083003BBE6E /* UIColor+HLMImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HLMImage.m"; sourceTree = "<group>"; };
 		FA5A9DE31AF970DB003BBE6E /* HLMStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMStyles.h; sourceTree = "<group>"; };
@@ -305,6 +311,7 @@
 		4DB283747FDF6174E1D707EE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FA02E2C21B00397A003D6C85 /* View */,
 				B5614B0E959D5D5174B6B295 /* HLMAssociatedObjects.h */,
 				B52E89B770F4AF363621B7C2 /* HLMAttributes.h */,
 				6F57883388F07A6DFFC24FD2 /* HLMAttributes.m */,
@@ -465,6 +472,15 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		FA02E2C21B00397A003D6C85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA02E2C31B00399D003D6C85 /* HLMTableViewCell.h */,
+				FA02E2C41B00399D003D6C85 /* HLMTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		FAEED1361123D7804EDAC75E /* EDSemver */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +516,7 @@
 			files = (
 				FA5A9DE71AF971CE003BBE6E /* HLMStyles.h in Headers */,
 				677640331373A4115BC2B300 /* GDataXMLNode.h in Headers */,
+				FA02E2C61B00399D003D6C85 /* HLMTableViewCell.h in Headers */,
 				4DA5C3474B9433FA9316174A /* HLMAssociatedObjects.h in Headers */,
 				8355E84623D1F3A2A9A84DA6 /* HLMAttributes.h in Headers */,
 				8F17E7AC2E9F8BBB50679D8F /* HLMFrameLayoutManager.h in Headers */,
@@ -529,6 +546,7 @@
 			files = (
 				FA5A9DE61AF971CC003BBE6E /* HLMStyles.h in Headers */,
 				9F75F51396C3E285ADBB7FEB /* GDataXMLNode.h in Headers */,
+				FA02E2C51B00399D003D6C85 /* HLMTableViewCell.h in Headers */,
 				83120F76BF252C23CB289E1F /* HLMAssociatedObjects.h in Headers */,
 				9C64145607C1991D687D888E /* HLMAttributes.h in Headers */,
 				2A4BA9CE55F033DD26E47011 /* HLMFrameLayoutManager.h in Headers */,
@@ -743,6 +761,7 @@
 				5D796D6F2051A151AFDE7455 /* HLMResources.m in Sources */,
 				F8DC7EE0DED7E303712D179C /* HLMViewInjector.m in Sources */,
 				FA5A9DE91AF971D5003BBE6E /* HLMStyles.m in Sources */,
+				FA02E2C81B00399D003D6C85 /* HLMTableViewCell.m in Sources */,
 				6E383E475F4D1367F3F2DD94 /* NSString+Convert.m in Sources */,
 				68A7A148F39CB82F2BF191B2 /* Pods-Tests-Helium-dummy.m in Sources */,
 			);
@@ -764,6 +783,7 @@
 				D0C373EA5B67C3C767C7A039 /* HLMResources.m in Sources */,
 				D61DE63B2E519D67E7CFBB77 /* HLMViewInjector.m in Sources */,
 				FA5A9DE81AF971D3003BBE6E /* HLMStyles.m in Sources */,
+				FA02E2C71B00399D003D6C85 /* HLMTableViewCell.m in Sources */,
 				0B361E1AF6D6BB98CF95BF80 /* NSString+Convert.m in Sources */,
 				20D9B6C88856F30D85B813BF /* Pods-Helium-Helium-dummy.m in Sources */,
 			);
