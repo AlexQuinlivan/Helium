@@ -37,17 +37,41 @@
      heightSpec:(HLMMeasureSpec) heightMeasureSpec {
     if (view.hlm_orientation == HLMLayoutOrientationVertical) {
         uint32_t heightSize = [HLMLayout measureSpecSize:heightMeasureSpec];
+        HLMMeasureSpecMode heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
         [super measure:view
              widthSpec:widthMeasureSpec
             heightSpec:[HLMLayout measureSpecWithSize:heightSize
                                                  mode:HLMMeasureSpecUnspecified]];
+        switch (heightMode) {
+            case HLMMeasureSpecUnspecified:
+                heightSize = view.hlm_childView.hlm_measuredHeight;
+                break;
+            case HLMMeasureSpecAtMost:
+                heightSize = MIN(heightSize, view.hlm_childView.hlm_measuredHeight);
+                break;
+            case HLMMeasureSpecExactly:
+            default:
+                break;
+        }
         view.hlm_measuredHeight = heightSize;
     } else {
         uint32_t widthSize = [HLMLayout measureSpecSize:widthMeasureSpec];
+        HLMMeasureSpecMode widthMode = [HLMLayout measureSpecMode:widthMeasureSpec];
         [super measure:view
              widthSpec:[HLMLayout measureSpecWithSize:widthSize
                                                  mode:HLMMeasureSpecUnspecified]
             heightSpec:heightMeasureSpec];
+        switch (widthMode) {
+            case HLMMeasureSpecUnspecified:
+                widthSize = view.hlm_childView.hlm_measuredWidth;
+                break;
+            case HLMMeasureSpecAtMost:
+                widthSize = MIN(widthSize, view.hlm_childView.hlm_measuredWidth);
+                break;
+            case HLMMeasureSpecExactly:
+            default:
+                break;
+        }
         view.hlm_measuredWidth = widthSize;
     }
     // @todo: implement a viewport filling scrollview
