@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
+    
+    <!-- Applies to all views -->
     <styleable name="UIView">
+        
+        <!-- HLMLayout provided properties -->
         <attr name="helium:layout_width" format="layout_param" property_alias="hlm_layoutWidth" />
         <attr name="helium:layout_height" format="layout_param" property_alias="hlm_layoutHeight" />
         <attr name="helium:layout_gravity" format="gravity" property_alias="hlm_layoutGravity" />
@@ -24,34 +28,103 @@
         <attr name="helium:weight_sum" format="cgfloat" property_alias="hlm_weightSum" />
         <attr name="helium:gravity" format="gravity" property_alias="hlm_gravity" />
         <attr name="helium:overrides_layout_guides" format="bool" property_alias="hlm_overridesLayoutGuides" />
-        <attr name="background_color" format="color" />
+        
+        
+        <!-- Default properties -->
         <attr name="tag" format="string_hash" />
-        <attr name="content_mode" format="content_mode" />
         <attr name="user_interaction_enabled" format="bool" />
-        <attr name="hidden" format="bool" />
+
+
+        <!-- UIViewGeometry -->
+        <!-- <attr name="transform" format="cgaffinetransform" />  @todo: Unsupported format: CGAffineTransform -->
+        <attr name="content_scale_factor" format="cgfloat" />
+        <attr name="multiple_touch_enabled" format="bool" />
+        <attr name="exclusive_touch" format="bool" />
+        <attr name="autoresizes_subviews" format="bool" />
+        <!-- <attr name="autoresizing_mask" format="view_autoresizing" />  @todo: Unsupported format: UIViewAutoresizing -->
+
+
+        <!-- UIViewRendering -->
         <attr name="clips_to_bounds" format="bool" />
+        <attr name="background_color" format="color" />
+        <attr name="alpha" format="cgfloat" />
+        <attr name="opaque" format="bool" />
+        <attr name="clears_context_before_drawing" format="bool" />
+        <attr name="hidden" format="bool" />
+        <attr name="content_mode" format="content_mode" />
+        <attr name="tint_color" format="color" />
+        <!-- <attr name="tint_adjustment_mode" format="tint_adjustment_mode" />  @todo: Unsupported format: UIViewTintAdjustmentMode -->
+
     </styleable>
+    
+    <!-- Applies to UILabel and all of its subclasses -->
     <styleable name="UILabel">
+        
+        <!-- HLMLayout provided properties -->
         <attr name="helium:text_size" format="cgfloat" property_alias="hlm_textSize" />
+        
+        
+        <!-- Default properties -->
         <attr name="text" format="string" />
-        <attr name="text_color" format="color" />
         <attr name="font" format="font" />
+        <attr name="text_color" format="color" />
+        <attr name="shadow_color" format="color" />
+        <!-- <attr name="shadow_offset" format="cgsize" />  @todo: Unsupported format: CGSize -->
+        <!-- <attr name="text_alignment" format="text_alignment"  @todo: Unsupported format: NSTextAlignment -->
+        <!-- <attr name="line_break_mode" format="line_break_mode" />  @todo: Unsupported format: NSLineBreakMode -->
+        <attr name="higlighted_text_color" format="color" />
+        <attr name="highlighted" format="bool" />
+        <attr name="enabled" format="bool" />
         <attr name="number_of_lines" format="integer" />
+        <attr name="adjusts_font_size_to_fit_width" format="bool" />
+        <attr name="adjusts_letter_spacing_to_fit_width" format="bool" />
+        <attr name="minimum_font_size" format="cgfloat" />
+        <!-- <attr name="baseline_adjustment" format="baseline_adjustment" />  @todo: Unsupported format: UIBaselineAdjustment -->
+        <attr name="minimum_scale_factor" format="cgfloat" />
+
     </styleable>
+    
+    <!-- Applies to UIImageView and all of its subclasses -->
     <styleable name="UIImageView">
-        <attr name="helium:image_rendering_mode" format="image_rendering_mode" property_alias="hlm_imageRenderingMode" />
+        
+        <!-- HLMLayout provided properties -->
         <attr name="helium:image" format="image" property_alias="hlm_image" />
         <attr name="helium:highlighted_image" format="image" property_alias="hlm_highlightedImage" />
-        <attr name="tint_color" format="color" />
+        <attr name="helium:image_rendering_mode" format="image_rendering_mode" property_alias="hlm_imageRenderingMode" />
+        
+        <!-- Default properties -->
+        <attr name="highlighted" format="bool" />
+        <!-- @todo: Maybe explore how useful implementing the animation properties would be -->
+
     </styleable>
+    
+    <!-- Applies to UIButton and all of its subclasses -->
     <styleable name="UIButton">
+        
+        <!-- HLMLayout provided properties -->
+        <!-- <attr name="helium:button_type" format="button_type" />  @todo: Work out a way to suppport UIButtonType -->
+        <!-- @todo: Need to revisit this and add the ability to edit title label -->
         <attr name="helium:highlighted_background_color" format="color" property_alias="hlm_highlightedBackgroundColor" />
+        
+        <!-- Default properties -->
+        <attr name="content_edge_insets" format="edge_insets" />
+        <attr name="title_edge_insets" format="edge_insets" />
+        <attr name="reverses_title_shadow_when_highlighted" format="bool" />
+        <attr name="image_edge_insets" format="edge_insets" />
+        <attr name="adjusts_image_when_highlighted" format="bool" />
+        <attr name="adjusts_image_when_disabled" format="bool" />
+        <attr name="shows_touch_when_highlighted" format="bool" />
+
     </styleable>
+    
+    
     <styleable name="UITextField">
         <attr name="placeholder" format="string" />
     </styleable>
+    
     <styleable name="UIScrollView">
         <attr name="always_bounce_vertical" format="bool" />
         <attr name="always_bounce_horizontal" format="bool" />
     </styleable>
+    
 </resources>
