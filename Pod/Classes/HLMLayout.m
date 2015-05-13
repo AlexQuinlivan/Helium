@@ -151,6 +151,30 @@ ASSOCIATED_PROPERTY(hlm_weightSum, Hlm_weightSum);
     return (hlm_weightSum)? hlm_weightSum.floatValue : -1.f;
 }
 
+ASSOCIATED_PROPERTY(hlm_layoutGravity, Hlm_layoutGravity);
+-(void) setHlm_layoutGravity:(HLMGravity) hlm_layoutGravity {
+    objc_setAssociatedObject(self, &kHlm_layoutGravityAssociationKey,
+                             @(hlm_layoutGravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
+}
+
+-(HLMGravity) hlm_layoutGravity {
+    NSNumber* hlm_layoutGravity = objc_getAssociatedObject(self, &kHlm_layoutGravityAssociationKey);
+    return (hlm_layoutGravity)? hlm_layoutGravity.intValue : -1;
+}
+
+ASSOCIATED_PROPERTY(hlm_gravity, Hlm_gravity);
+-(void) setHlm_gravity:(HLMGravity) hlm_gravity {
+    objc_setAssociatedObject(self, &kHlm_gravityAssociationKey,
+                             @(hlm_gravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
+}
+
+-(HLMGravity) hlm_gravity {
+    NSNumber* hlm_gravity = objc_getAssociatedObject(self, &kHlm_gravityAssociationKey);
+    return (hlm_gravity)? hlm_gravity.intValue : HLMGravityLeft | HLMGravityTop;
+}
+
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationX, Hlm_translationX, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationY, Hlm_translationY, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minWidth, Hlm_minWidth, floatValue);
@@ -158,8 +182,6 @@ ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minHeight, Hlm_minHeight, floatVa
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutWidth, Hlm_layoutWidth, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutHeight, Hlm_layoutHeight, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutWeight, Hlm_layoutWeight, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMGravity, hlm_layoutGravity, Hlm_layoutGravity, intValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMGravity, hlm_gravity, Hlm_gravity, intValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMLayoutOrientation, hlm_orientation, Hlm_orientation, integerValue);
 ASSOCIATE_NUMBER(CGFloat, hlm_measuredWidth, Hlm_measuredWidth, floatValue);
 ASSOCIATE_NUMBER(CGFloat, hlm_measuredHeight, Hlm_measuredHeight, floatValue);
