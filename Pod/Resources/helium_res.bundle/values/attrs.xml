@@ -92,6 +92,7 @@
         <attr name="helium:highlighted_image" format="image" property_alias="hlm_highlightedImage" />
         <attr name="helium:image_rendering_mode" format="image_rendering_mode" property_alias="hlm_imageRenderingMode" />
         
+        
         <!-- Default properties -->
         <attr name="highlighted" format="bool" />
         <!-- @todo: Maybe explore how useful implementing the animation properties would be -->
@@ -106,6 +107,7 @@
         <!-- @todo: Need to revisit this and add the ability to edit title label -->
         <attr name="helium:highlighted_background_color" format="color" property_alias="hlm_highlightedBackgroundColor" />
         
+        
         <!-- Default properties -->
         <attr name="content_edge_insets" format="edge_insets" />
         <attr name="title_edge_insets" format="edge_insets" />
@@ -117,14 +119,56 @@
 
     </styleable>
     
-    
+    <!-- Applies to UITextField and all of its subclasses -->
     <styleable name="UITextField">
+        
+        <!-- Default properties -->
+        <attr name="text" format="string" />
+        <attr name="text_color" format="color" />
+        <attr name="font" format="font" />
+        <!-- <attr name="text_alignment" format="text_alignment"  @todo: Unsupported format: NSTextAlignment -->
+        <!-- <attr name="border_style" format="border_style" />  @todo: Unsupported format: UITextBorderStyle -->
         <attr name="placeholder" format="string" />
+        <attr name="clears_on_begin_editing" format="bool" />
+        <attr name="adjusts_font_size_to_fit_width" format="bool" />
+        <attr name="minimum_font_size" format="cgfloat" />
+        <attr name="background" format="image" />
+        <attr name="disabled_background" format="image" />
+        <attr name="allows_editing_text_attributes" format="bool" />
+        <!-- <attr name="clear_button_mode" format="text_field_mode" />  @todo: Unsupported format: UITextFieldViewMode -->
+        <!-- <attr name="left_view_mode" format="text_field_mode" />  @todo: Unsupported format: UITextFieldViewMode -->
+        <!-- <attr name="right_view_mode" format="text_field_mode" />  @todo: Unsupported format: UITextFieldViewMode -->
+        <!-- @todo: Should views be allowed to be inflated to fill properties ie left_view="@view/some_left_view" ? -->
+        <attr name="clears_on_insertion" format="bool" />
+
     </styleable>
     
+    <!-- Applies to UIScrollView and all of its subclasses -->
     <styleable name="UIScrollView">
+        
+        <!-- Default properties -->
+        <!-- <attr name="content_offset" format="cgpoint" />  @todo: Unsupported format: CGPoint (Thinks it is, but it isn't) -->
+        <!-- <attr name="content_inset" format="edge_insets" />  @todo: Unsupported feature: contentInset is used in HLMScrollView -->
+        <attr name="directional_lock_enabled" format="bool" />
+        <attr name="bounces" format="bool" />
         <attr name="always_bounce_vertical" format="bool" />
         <attr name="always_bounce_horizontal" format="bool" />
+        <attr name="paging_enabled" format="bool" />
+        <attr name="scroll_enabled" format="bool" />
+        <attr name="shows_horizontal_scroll_indicator" format="bool" />
+        <attr name="shows_vertical_scroll_indicator" format="bool" />
+        <!-- <attr name="scroll_indicator_insets" format="edge_insets" />  @todo: Unsupported feature: contentInset is used in HLMScrollView -->
+        <!-- <attr name="indicator_style" format="scroll_view_indicator_style" />  @todo: Unsupported feature: UIScrollViewIndicatorStyle -->
+        <attr name="deceleration_rate" format="cgfloat" />
+        <attr name="delays_content_touches" format="bool" />
+        <attr name="can_cancel_content_touches" format="bool" />
+        <attr name="minimum_zoom_scale" format="cgfloat" />
+        <attr name="maximum_zoom_scale" format="cgfloat" />
+        <attr name="zoom_scale" format="cgfloat" />
+        <attr name="bounces_zoom" format="bool" />
+        <attr name="scrolls_to_top" format="bool" />
+        <!-- <attr name="keyboard_dismiss_mode" format="scroll_view_keyboard_dismiss_mode" />  @todo: Unsupported feature: UIScrollViewKeyboardDismissMode-->
+
     </styleable>
     
 </resources>
