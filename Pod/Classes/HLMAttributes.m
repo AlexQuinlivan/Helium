@@ -261,4 +261,8 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
     self.setter = NSSelectorFromString(setterName);
 }
 
+-(NSString *) description {
+    return [NSString stringWithFormat:@"%@ (%@)", NSStringFromClass(self.styledClass), self.resource.description];
+}
+
 @end
