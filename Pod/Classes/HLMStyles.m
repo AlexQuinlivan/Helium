@@ -9,7 +9,6 @@
 #import "HLMStyles.h"
 #import "HLMResources.h"
 #import "GDataXMLNode.h"
-#import <libxml/tree.h>
 
 @interface HLMStyle ()
 
@@ -55,7 +54,7 @@
                                                                       error:&error];
         NSArray* styles = [document.rootElement elementsForName:@"style"];
         for (GDataXMLElement* styleData in styles) {
-            if (styleData.XMLNode->type == XML_TEXT_NODE) {
+            if (styleData.kind != GDataXMLElementKind) {
                 continue;
             }
             NSString* styleName = [styleData attributeForName:@"name"].stringValue;
@@ -73,7 +72,7 @@
                                                  parentStyle:styleParentName
                                                     resource:stylePath];
             for (GDataXMLElement* item in styleData.children) {
-                if (item.XMLNode->type == XML_TEXT_NODE) {
+                if (item.kind != GDataXMLElementKind) {
                     continue;
                 }
                 NSString* name = [item attributeForName:@"name"].stringValue;

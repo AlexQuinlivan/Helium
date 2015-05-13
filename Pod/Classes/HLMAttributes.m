@@ -10,7 +10,6 @@
 #import "HLMResources.h"
 #import "NSString+Convert.h"
 #import "GDataXMLNode.h"
-#import <libxml/tree.h>
 #import <objc/runtime.h>
 
 static NSString* const HLMAttributeFormatInteger = @"integer";
@@ -78,7 +77,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                                                                       error:&error];
         NSArray* styleables = [document.rootElement elementsForName:@"styleable"];
         for (GDataXMLElement* styleable in styleables) {
-            if (styleable.XMLNode->type == XML_TEXT_NODE) {
+            if (styleable.kind != GDataXMLElementKind) {
                 continue;
             }
             NSString* styledClassString = [styleable attributeForName:@"name"].stringValue; // @todo: Unused, use this to apply attrs to classes
@@ -89,7 +88,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                                              userInfo:nil];
             }
             for (GDataXMLElement* attr in styleable.children) {
-                if (attr.XMLNode->type == XML_TEXT_NODE) {
+                if (attr.kind != GDataXMLElementKind) {
                     continue;
                 }
                 NSString* name = [attr attributeForName:@"name"].stringValue;

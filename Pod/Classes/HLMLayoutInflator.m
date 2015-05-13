@@ -15,7 +15,6 @@
 #import "HLMRelativeLayoutManager.h"
 #import "GDataXMLNode.h"
 #import "NSString+Convert.h"
-#import <libxml/tree.h>
 
 static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 
@@ -82,7 +81,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 -(void) inflateChildrenOfView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
     NSArray* children = element.children;
     for (GDataXMLElement* child in children) {
-        if (child.XMLNode->type == XML_TEXT_NODE) {
+        if (child.kind != GDataXMLElementKind) {
             continue;
         }
         UIView* childView = [self inflateViewFromXml:child namespaces:namespaces];
@@ -98,8 +97,8 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = view.hlm_layoutManager;
     NSArray* attributeElements = element.attributes;
     NSMutableArray* attributes = [[NSMutableArray alloc] initWithCapacity:attributeElements.count];
-    for (GDataXMLElement* attribute in attributeElements) {
-        if (attribute.XMLNode->type == XML_TEXT_NODE) {
+    for (GDataXMLNode* attribute in attributeElements) {
+        if (attribute.kind != GDataXMLAttributeKind) {
             continue;
         }
         NSString* name = attribute.name;
