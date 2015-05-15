@@ -10,14 +10,9 @@ Pod::Spec.new do |s|
   s.platform      = :ios, '7.0'
   s.requires_arc  = true
   s.source_files  = 'Pod/Classes/**/*'
-  s.exclude_files = 'Pod/Classes/**/GDataXMLNode.{h,m}'
   s.resource = 'Pod/Resources/helium_res.bundle'
   s.dependency 'EDSemver', '~> 0.3.0'
+  s.dependency 'GDataXML-HTML', '~> 1.2.0'
   s.library = 'xml2'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
-
-  s.subspec 'no-arc' do |sp|
-    sp.source_files = 'Pod/Classes/GDataXMLNode.{h,m}'
-    sp.requires_arc = false
-  end
 end

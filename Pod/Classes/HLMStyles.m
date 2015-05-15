@@ -50,7 +50,7 @@
         NSError* error;
         NSData* data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
         GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithData:data
-                                                                    options:0
+                                                                   encoding:NSUTF8StringEncoding
                                                                       error:&error];
         NSArray* styles = [document.rootElement elementsForName:@"style"];
         for (GDataXMLElement* styleData in styles) {

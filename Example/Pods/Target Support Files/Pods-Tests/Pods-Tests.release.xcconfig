@@ -1,6 +1,6 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/EDSemver" "${PODS_ROOT}/Headers/Public/Helium" $(SDKROOT)/usr/include/libxml2
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/EDSemver" -isystem "${PODS_ROOT}/Headers/Public/Helium"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-Tests-EDSemver" -l"Pods-Tests-Helium" -l"xml2"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/EDSemver" "${PODS_ROOT}/Headers/Public/GDataXML-HTML" "${PODS_ROOT}/Headers/Public/Helium" $(SDKROOT)/usr/include/libxml2
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/EDSemver" -isystem "${PODS_ROOT}/Headers/Public/GDataXML-HTML" -isystem "${PODS_ROOT}/Headers/Public/Helium"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-Tests-EDSemver" -l"Pods-Tests-GDataXML-HTML" -l"Pods-Tests-Helium" -l"xml2"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

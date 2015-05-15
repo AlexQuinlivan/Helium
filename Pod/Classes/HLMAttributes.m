@@ -73,7 +73,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
         NSError* error;
         NSData* data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
         GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithData:data
-                                                                    options:0
+                                                                   encoding:NSUTF8StringEncoding
                                                                       error:&error];
         NSArray* styleables = [document.rootElement elementsForName:@"styleable"];
         for (GDataXMLElement* styleable in styleables) {

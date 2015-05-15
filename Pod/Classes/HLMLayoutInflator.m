@@ -33,7 +33,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
         NSError* error;
         NSData* data = [[NSFileManager defaultManager] contentsAtPath:resourcePath];
         self->layoutXml = [[GDataXMLDocument alloc] initWithData:data
-                                                         options:0
+                                                        encoding:NSUTF8StringEncoding
                                                            error:&error];
         if (error) {
             @throw [NSException exceptionWithName:HLMInflatorExceptionName

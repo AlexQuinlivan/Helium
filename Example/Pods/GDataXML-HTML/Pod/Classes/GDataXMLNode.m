@@ -1,4 +1,7 @@
-/* Copyright (c) 2008 Google Inc.
+/* Modifications for HTML parser support:
+ * Copyright (c) 2011 Simon Grätzer simon@graetzer.org
+ *
+ * Copyright (c) 2008 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +16,6 @@
  * limitations under the License.
  */
 
-#import <libxml/tree.h>
-#import <libxml/parser.h>
-#import <libxml/xmlstring.h>
-#import <libxml/xpath.h>
-#import <libxml/xpathInternals.h>
-
 #define GDATAXMLNODE_DEFINE_GLOBALS 1
 #import "GDataXMLNode.h"
 
@@ -27,6 +24,7 @@
 
 
 static const int kGDataXMLParseOptions = (XML_PARSE_NOCDATA | XML_PARSE_NOBLANKS);
+static const int kGDataHTMLParseOptions = (HTML_PARSE_NOWARNING | HTML_PARSE_NOERROR);
 
 // dictionary key callbacks for string cache
 static const void *StringCacheKeyRetainCallBack(CFAllocatorRef allocator, const void *str);
@@ -282,7 +280,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
     } else {
         theClass = [GDataXMLNode class];
     }
-    return [[[theClass alloc] initConsumingXMLNode:theXMLNode] autorelease];
+    return [[theClass alloc] initConsumingXMLNode:theXMLNode];
 }
 
 - (id)initConsumingXMLNode:(xmlNodePtr)theXMLNode {
@@ -302,7 +300,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
         theClass = [GDataXMLNode class];
     }
     
-    return [[[theClass alloc] initBorrowingXMLNode:theXMLNode] autorelease];
+    return [[theClass alloc] initBorrowingXMLNode:theXMLNode];
 }
 
 - (id)initBorrowingXMLNode:(xmlNodePtr)theXMLNode {
@@ -316,13 +314,10 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
 
 - (void)releaseCachedValues {
     
-    [cachedName_ release];
     cachedName_ = nil;
     
-    [cachedChildren_ release];
     cachedChildren_ = nil;
     
-    [cachedAttributes_ release];
     cachedAttributes_ = nil;
 }
 
@@ -360,7 +355,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
                 if (cacheDict) {
                     
                     // this document has a strings cache
-                    result = (NSString *) CFDictionaryGetValue(cacheDict, chars);
+                    result = (__bridge NSString *) CFDictionaryGetValue(cacheDict, chars);
                     if (result) {
                         // we found the xmlChar string in the cache; return the previously
                         // allocated NSString, rather than allocate a new one
@@ -374,7 +369,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
     result = [NSString stringWithUTF8String:(const char *) chars];
     if (cacheDict) {
         // save the string in the document's string cache
-        CFDictionarySetValue(cacheDict, chars, result);
+        CFDictionarySetValue(cacheDict, chars, (__bridge const void *)(result));
     }
     
     return result;
@@ -388,7 +383,6 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
     }
     
     [self releaseCachedValues];
-    [super dealloc];
 }
 
 #pragma mark -
@@ -459,9 +453,9 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
             int result = xmlNodeDump(buff, doc, xmlNode_, level, format);
             
             if (result > -1) {
-                str = [[[NSString alloc] initWithBytes:(xmlBufferContent(buff))
-                                                length:(NSUInteger)(xmlBufferLength(buff))
-                                              encoding:NSUTF8StringEncoding] autorelease];
+                str = [[NSString alloc] initWithBytes:(xmlBufferContent(buff))
+											   length:(xmlBufferLength(buff))
+											 encoding:NSUTF8StringEncoding];
             }
             xmlBufferFree(buff);
         }
@@ -563,7 +557,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
     
     NSString *str = [self qualifiedName];
     
-    cachedName_ = [str retain];
+    cachedName_ = str;
     
     return str;
 }
@@ -642,7 +636,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
             currChild = currChild->next;
         }
         
-        cachedChildren_ = [array retain];
+        cachedChildren_ = array;
     }
     return array;
 }
@@ -688,10 +682,28 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
     return GDataXMLInvalidKind;
 }
 
+- (GDataXMLNode *)firstNodeForXPath:(NSString *)xpath error:(NSError **)error
+{
+	NSArray *nodes = [self nodesForXPath:xpath error:error];
+	if (!nodes.count) {
+		return nil;
+	}
+	return [nodes objectAtIndex:0];
+}
+
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error {
     // call through with no explicit namespace dictionary; that will register the
     // root node's namespaces
     return [self nodesForXPath:xpath namespaces:nil error:error];
+}
+
+- (GDataXMLNode *)firstNodeForXPath:(NSString *)xpath namespaces:(NSDictionary *)namespaces error:(NSError **)error
+{
+	NSArray *nodes = [self nodesForXPath:xpath namespaces:namespaces error:error];
+	if (!nodes.count) {
+		return nil;
+	}
+	return [nodes objectAtIndex:0];
 }
 
 - (NSArray *)nodesForXPath:(NSString *)xpath
@@ -867,7 +879,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
 }
 
 - (NSUInteger)hash {
-    return (NSUInteger) (void *) [GDataXMLNode class];
+    return (NSUInteger) (__bridge void *) [GDataXMLNode class];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
@@ -938,7 +950,43 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
                                              code:-1
                                          userInfo:nil];
             }
-            [self release];
+            return nil;
+        }
+    }
+    return self;
+}
+
+- (id)initWithHTMLString:(NSString *)str error:(NSError **)error {
+    self = [super init];
+    if (self) {
+        
+        const char *utf8Str = [str UTF8String];
+        // NOTE: We are assuming a string length that fits into an int
+        xmlDocPtr doc = htmlReadMemory(utf8Str, (int)strlen(utf8Str), NULL, // URL
+									   NULL, // encoding
+									   kGDataHTMLParseOptions);
+        if (doc == NULL) {
+            if (error) {
+                // TODO(grobbins) use xmlSetGenericErrorFunc to capture error
+            }
+        } else {
+            // copy the root node from the doc
+            xmlNodePtr root = xmlDocGetRootElement(doc);
+            if (root) {
+                xmlNode_ = xmlCopyNode(root, 1); // 1: recursive
+                shouldFreeXMLNode_ = YES;
+            }
+            xmlFreeDoc(doc);
+        }
+        
+        
+        if (xmlNode_ == NULL) {
+            // failure
+            if (error) {
+                *error = [NSError errorWithDomain:@"com.google.GDataXML"
+                                             code:-1
+                                         userInfo:nil];
+            }
             return nil;
         }
     }
@@ -1220,7 +1268,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
             prop = prop->next;
         }
         
-        cachedAttributes_ = [array retain];
+        cachedAttributes_ = array;
     }
     return array;
 }
@@ -1604,46 +1652,124 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
 
 @interface GDataXMLDocument (PrivateMethods)
 - (void)addStringsCacheToDoc;
+const char *IANAEncodingCStringFromNSStringEncoding(NSStringEncoding encoding);
 @end
 
 @implementation GDataXMLDocument
 
-- (id)initWithXMLString:(NSString *)str options:(unsigned int)mask error:(NSError **)error {
+const char *IANAEncodingCStringFromNSStringEncoding(NSStringEncoding encoding)
+{
+	CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding(encoding);
+	CFStringRef ianaCharacterSetName = CFStringConvertEncodingToIANACharSetName(cfEncoding);
+	// To avoid brainfuck with encoding of the encoding string, let's just use NSString convenience method
+	return [(__bridge NSString*)ianaCharacterSetName UTF8String];
+	//	const char *cIanaCharacterSetName = NULL;
+	//
+	//	cIanaCharacterSetName = CFStringGetCStringPtr(ianaCharacterSetName, kCFStringEncodingMacRoman);
+	//
+	//	if (cIanaCharacterSetName == NULL) {
+	//		CFStringGetCString(ianaCharacterSetName, cIanaCharacterSetName, CFStringGetLength(ianaCharacterSetName), kCFStringEncodingMacRoman);
+	//	}
+	//
+	//	return cIanaCharacterSetName;
+}
+
+- (id)initWithXMLString:(NSString *)str error:(NSError **)error
+{
+	return [self initWithXMLString:str encoding:NSUTF8StringEncoding error:error];
+}
+
+- (id)initWithData:(NSData *)data error:(NSError **)error
+{
+	return [self initWithData:data encoding:NSUTF8StringEncoding error:error];
+}
+
+- (id)initWithHTMLString:(NSString *)str error:(NSError **)error
+{
+	return [self initWithHTMLString:str encoding:NSUTF8StringEncoding error:error];
+}
+
+- (id)initWithHTMLData:(NSData *)data error:(NSError **)error
+{
+	return [self initWithHTMLData:data encoding:NSUTF8StringEncoding error:error];
+}
+
+- (id)initWithXMLString:(NSString *)str encoding:(NSStringEncoding)encoding error:(NSError **)error {
     
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    GDataXMLDocument *doc = [self initWithData:data options:mask error:error];
+    GDataXMLDocument *doc = [self initWithData:data encoding:encoding error:error];
     return doc;
 }
 
-- (id)initWithData:(NSData *)data options:(unsigned int)mask error:(NSError **)error {
+- (id)initWithHTMLString:(NSString *)str encoding:(NSStringEncoding)encoding error:(NSError **)error {
+    
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    GDataXMLDocument *doc = [self initWithHTMLData:data encoding:encoding error:error];
+    return doc;
+}
+
+- (id)initWithData:(NSData *)data encoding:(NSStringEncoding)encoding error:(NSError **)error {
     
     self = [super init];
-    if (self) {
-        
-        const char *baseURL = NULL;
-        const char *encoding = NULL;
-        
-        // NOTE: We are assuming [data length] fits into an int.
-        xmlDoc_ = xmlReadMemory((const char*)[data bytes], (int)[data length], baseURL, encoding,
-                                kGDataXMLParseOptions); // TODO(grobbins) map option values
-        if (xmlDoc_ == NULL) {
-            if (error) {
-                *error = [NSError errorWithDomain:@"com.google.GDataXML"
-                                             code:-1
-                                         userInfo:nil];
-                // TODO(grobbins) use xmlSetGenericErrorFunc to capture error
-            }
-            [self release];
-            return nil;
-        } else {
-            if (error) *error = NULL;
-            
-            [self addStringsCacheToDoc];
-        }
-    }
+	if (!self) {
+		return nil;
+	}
+	
+	_encoding = encoding;
+	
+	const char *baseURL = NULL;
+	
+	const char *xmlEncoding = IANAEncodingCStringFromNSStringEncoding(encoding);
+	
+	// NOTE: We are assuming [data length] fits into an int.
+	xmlDoc_ = xmlReadMemory((const char*)[data bytes], (int)[data length], baseURL, xmlEncoding,
+							kGDataXMLParseOptions); // TODO(grobbins) map option values
+	if (xmlDoc_ == NULL) {
+		if (error) {
+			*error = [NSError errorWithDomain:@"com.google.GDataXML"
+										 code:-1
+									 userInfo:nil];
+			// TODO(grobbins) use xmlSetGenericErrorFunc to capture error
+		}
+		return nil;
+	} else {
+		if (error) *error = NULL;
+		
+		[self addStringsCacheToDoc];
+	}
     
     return self;
 }
+
+- (id)initWithHTMLData:(NSData *)data encoding:(NSStringEncoding)encoding error:(NSError **)error {
+    
+    self = [super init];
+	if (!self) {
+		return nil;
+	}
+	const char *baseURL = NULL;
+	_encoding = encoding;
+	
+	
+	const char *xmlEncoding = IANAEncodingCStringFromNSStringEncoding(encoding);
+	xmlDoc_ = htmlReadMemory((const char*)[data bytes], (int)[data length], baseURL, xmlEncoding, kGDataHTMLParseOptions);
+	if (xmlDoc_ == NULL) {
+		if (error) {
+			*error = [NSError errorWithDomain:@"com.google.GDataXML"
+										 code:-1
+									 userInfo:nil];
+			// TODO(grobbins) use xmlSetGenericErrorFunc to capture error
+		}
+		return nil;
+	} else {
+		if (error) *error = NULL;
+		
+		[self addStringsCacheToDoc];
+	}
+    
+    return self;
+}
+
 
 - (id)initWithRootElement:(GDataXMLElement *)element {
     
@@ -1707,7 +1833,6 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
         
         xmlFreeDoc(xmlDoc_);
     }
-    [super dealloc];
 }
 
 #pragma mark -
@@ -1734,7 +1859,7 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
         
         if (buffer) {
             NSData *data = [NSData dataWithBytes:buffer
-                                          length:(NSUInteger)bufferSize];
+                                          length:bufferSize];
             xmlFree(buffer);
             return data;
         }
@@ -1776,18 +1901,40 @@ static xmlChar *SplitQNameReverse(const xmlChar *qname, xmlChar **prefix) {
     return [self nodesForXPath:xpath namespaces:nil error:error];
 }
 
+- (GDataXMLNode *)firstNodeForXPath:(NSString *)xpath error:(NSError **)error
+{
+	NSArray *nodes = [self nodesForXPath:xpath error:error];
+	if (!nodes.count) {
+		return nil;
+	}
+	return [nodes objectAtIndex:0];
+}
+
 - (NSArray *)nodesForXPath:(NSString *)xpath
                 namespaces:(NSDictionary *)namespaces
                      error:(NSError **)error {
     if (xmlDoc_ != NULL) {
-        GDataXMLNode *docNode = [GDataXMLElement nodeBorrowingXMLNode:(xmlNodePtr)xmlDoc_];
-        NSArray *array = [docNode nodesForXPath:xpath
-                                     namespaces:namespaces
-                                          error:error];
-        return array;
+        xmlNodePtr rootElement = xmlDocGetRootElement(xmlDoc_);
+        if (rootElement != NULL) {
+            GDataXMLNode *rootNode = [GDataXMLElement nodeBorrowingXMLNode:rootElement];
+            NSArray *array = [rootNode nodesForXPath:xpath
+                                         namespaces:namespaces
+                                              error:error];
+            return array;
+        }
     }
     return nil;
 }
+
+- (GDataXMLNode *)firstNodeForXPath:(NSString *)xpath namespaces:(NSDictionary *)namespaces error:(NSError *__autoreleasing *)error
+{
+	NSArray *nodes = [self nodesForXPath:xpath namespaces:namespaces error:error];
+	if (!nodes.count) {
+		return nil;
+	}
+	return [nodes objectAtIndex:0];
+}
+
 
 @end
 
@@ -1826,11 +1973,12 @@ static CFHashCode StringCacheKeyHashCallBack(const void *str) {
     
     // dhb hash, per http://www.cse.yorku.ca/~oz/hash.html
     CFHashCode hash = 5381;
-    unsigned int c;
-    const unsigned char *chars = (const unsigned char *)str;
+    int c;
+    const char *chars = (const char *)str;
     
     while ((c = *chars++) != 0) {
         hash = ((hash << 5) + hash) + c;
     }
     return hash;
 }
+

@@ -1,10 +1,9 @@
 PODS:
   - EDSemver (0.3.0)
+  - GDataXML-HTML (1.2.0)
   - Helium (0.0.1):
     - EDSemver (~> 0.3.0)
-    - Helium/no-arc (= 0.0.1)
-  - Helium/no-arc (0.0.1):
-    - EDSemver (~> 0.3.0)
+    - GDataXML-HTML (~> 1.2.0)
 
 DEPENDENCIES:
   - Helium (from `../`)
@@ -15,6 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   EDSemver: 124a90685873628ec30f42504b461a1a61757568
-  Helium: 815c32167362907967fbb9f965705e4fd8f2eeaf
+  GDataXML-HTML: dac3692417e9fc612f8e12d8baae3706fccedcc8
+  Helium: e926f98e874c12ca2724f62af410799ca5c54d0e
 
-COCOAPODS: 0.36.1
+COCOAPODS: 0.37.1
