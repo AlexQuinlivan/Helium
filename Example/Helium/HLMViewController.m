@@ -15,8 +15,8 @@
 @end
 
 @implementation HLMViewController
-INJECT_VIEW_OPTIONAL(blueView, blue_square)
-INJECT_VIEWS_4(squares, square_0, square_1, square_2, square_3)
+BIND_VIEW_OPTIONAL(blueView, blue_square)
+BIND_VIEWS_4(squares, square_0, square_1, square_2, square_3)
 
 -(NSString *) layoutResource {
     return @"@view/example_view";

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HLMViewInjector.h"
+#import "HLMViewBinder.h"
 
 @interface HLMInflatableViewController : UIViewController
 @property (readonly) NSString* layoutResource;

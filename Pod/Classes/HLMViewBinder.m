@@ -1,25 +1,25 @@
 //
-//  HLMViewInjector.m
+//  HLMViewBinder.m
 //  Helium
 //
 //  Created by Alex Quinlivan on 13/03/15.
 //
 //
 
-#import "HLMViewInjector.h"
+#import "HLMViewBinder.h"
 #import <objc/runtime.h>
 
-static NSString* const HLMViewInjectorPrefix = @"injectview_$$";
-static NSString* const HLMViewArrayInjectorPrefix = @"injectviews_$$";
-static NSString* const HLMControlTargetInjectorPrefix = @"viewtarget_$$";
-static NSString* const HLMInjectorSeperator = @"_$$";
-static NSString* const HLMInjectorSettingOptional = @"optional";
+static NSString* const HLMViewBinderPrefix = @"bindview_$$";
+static NSString* const HLMViewArrayBinderPrefix = @"bindviews_$$";
+static NSString* const HLMControlTargetBindPrefix = @"controltarget_$$";
+static NSString* const HLMBinderSeperator = @"_$$";
+static NSString* const HLMBinderSettingOptional = @"optional";
 
-@implementation HLMViewInjector
+@implementation HLMViewBinder
 
-+(void) injectViewsInto:(NSObject *) object withRootView:(UIView *) root {
++(void) bindViewsInto:(NSObject *) object withRootView:(UIView *) root {
     
-    // Inject views
+    // Bind views
     unsigned int count;
     Method* methods = class_copyMethodList([object class], &count);
     for (int i = 0; i < count; i++) {
@@ -30,35 +30,35 @@ static NSString* const HLMInjectorSettingOptional = @"optional";
         const char* cMethodName = sel_getName(selector);
         NSString* methodName = [NSString stringWithCString:cMethodName encoding:NSUTF8StringEncoding];
         NSString* viewName;
-        id injectable;
+        id bindable;
         
         // Check method name matches pattern
-        if ([methodName hasPrefix:HLMViewInjectorPrefix]) {
+        if ([methodName hasPrefix:HLMViewBinderPrefix]) {
             
             // Extract values from method name
-            NSString* injectorSetting;
+            NSString* binderSetting;
             NSString* tagName;
-            methodName = [methodName stringByReplacingOccurrencesOfString:HLMViewInjectorPrefix withString:@""];
+            methodName = [methodName stringByReplacingOccurrencesOfString:HLMViewBinderPrefix withString:@""];
             methodName = [methodName stringByReplacingOccurrencesOfString:@":" withString:@""];
-            NSArray* components = [methodName componentsSeparatedByString:HLMInjectorSeperator];
+            NSArray* components = [methodName componentsSeparatedByString:HLMBinderSeperator];
             viewName = components[0];
             tagName = components[1];
-            injectorSetting = (components.count > 2) ? components[2] : nil;
+            binderSetting = (components.count > 2) ? components[2] : nil;
             
-            // Find the view to inject
-            injectable = [root viewWithTag:tagName.hash];
-            if (!injectable) {
-                if ([injectorSetting isEqualToString:HLMInjectorSettingOptional]) {
+            // Find the view to bind
+            bindable = [root viewWithTag:tagName.hash];
+            if (!bindable) {
+                if ([binderSetting isEqualToString:HLMBinderSettingOptional]) {
                     // Nil setter
                     IMP setterImp = [object methodForSelector:selector];
                     void (*setter)(id, SEL, id) = (void *)setterImp;
                     setter(object, selector, nil);
                     continue;
                 } else {
-                    @throw [NSException exceptionWithName:@"HLMViewInjectionException"
+                    @throw [NSException exceptionWithName:@"HLMViewBindingException"
                                                    reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
                                                            @"Did you mean for this to be an optional view? "
-                                                           @"Try INJECT_VIEW_OPTIONAL(prop, tag)", tagName]
+                                                           @"Try BIND_VIEW_OPTIONAL(prop, tag)", tagName]
                                                  userInfo:nil];
                 }
             }
@@ -66,66 +66,66 @@ static NSString* const HLMInjectorSettingOptional = @"optional";
             // Call setter
             IMP setterImp = [object methodForSelector:selector];
             void (*setter)(id, SEL, id) = (void *)setterImp;
-            setter(object, selector, injectable);
+            setter(object, selector, bindable);
 
-        } else if ([methodName hasPrefix:HLMViewArrayInjectorPrefix]) {
+        } else if ([methodName hasPrefix:HLMViewArrayBinderPrefix]) {
             
             // Extract values from method name
-            methodName = [methodName stringByReplacingOccurrencesOfString:HLMViewArrayInjectorPrefix withString:@""];
+            methodName = [methodName stringByReplacingOccurrencesOfString:HLMViewArrayBinderPrefix withString:@""];
             methodName = [methodName stringByReplacingOccurrencesOfString:@":" withString:@""];
-            NSArray* components = [methodName componentsSeparatedByString:HLMInjectorSeperator];
+            NSArray* components = [methodName componentsSeparatedByString:HLMBinderSeperator];
             viewName = components[0];
             
-            // Find the view to inject
+            // Find the view to bind
             NSMutableArray* views = [NSMutableArray new];
             for (int i = 1; i < components.count; i++) {
                 NSString* tagName = components[i];
                 UIView* view = [root viewWithTag:tagName.hash];
                 if (!view) {
-                    @throw [NSException exceptionWithName:@"HLMViewInjectionException"
+                    @throw [NSException exceptionWithName:@"HLMViewBindingException"
                                                    reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
                                                            @"Did you mean for this to be an optional view? "
-                                                           @"Try INJECT_VIEW_OPTIONAL(prop, tag)", tagName]
+                                                           @"Try BIND_VIEW_OPTIONAL(prop, tag)", tagName]
                                                  userInfo:nil];
                 }
                 [views addObject:view];
             }
-            injectable = views;
+            bindable = views;
             
             // Call setter
             IMP setterImp = [object methodForSelector:selector];
             void (*setter)(id, SEL, id) = (void *)setterImp;
-            setter(object, selector, injectable);
+            setter(object, selector, bindable);
             
-        } else if ([methodName hasPrefix:HLMControlTargetInjectorPrefix]) {
+        } else if ([methodName hasPrefix:HLMControlTargetBindPrefix]) {
             
             // Extract values from method name
-            NSString* injectorSetting;
-            methodName = [methodName stringByReplacingOccurrencesOfString:HLMControlTargetInjectorPrefix withString:@""];
-            NSArray* components = [methodName componentsSeparatedByString:HLMInjectorSeperator];
+            NSString* binderSetting;
+            methodName = [methodName stringByReplacingOccurrencesOfString:HLMControlTargetBindPrefix withString:@""];
+            NSArray* components = [methodName componentsSeparatedByString:HLMBinderSeperator];
             NSString* tagName = components[0];
             NSString* controlEventName = components[1];
-            injectorSetting = (components.count > 2) ? components[2] : nil;
+            binderSetting = (components.count > 2) ? components[2] : nil;
             
-            // Find the view to inject
+            // Find the view to bind
             UIView* view = [root viewWithTag:tagName.hash];
             if (!view) {
-                if ([injectorSetting isEqualToString:HLMInjectorSettingOptional]) {
+                if ([binderSetting isEqualToString:HLMBinderSettingOptional]) {
                     // Nil setter
                     IMP setterImp = [object methodForSelector:selector];
                     void (*setter)(id, SEL, id) = (void *)setterImp;
                     setter(object, selector, nil);
                     continue;
                 } else {
-                    @throw [NSException exceptionWithName:@"HLMControlTargetInjectionException"
+                    @throw [NSException exceptionWithName:@"HLMControlTargetBindingException"
                                                    reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
-                                                           @"Did you mean for this to be an optional target injection? "
-                                                           @"Try TARGET_OPTIONAL(tag, controlEvent)", tagName]
+                                                           @"Did you mean for this to be an optional target binding? "
+                                                           @"Try BIND_TARGET_OPTIONAL(tag, controlEvent)", tagName]
                                                  userInfo:nil];
                 }
             }
             if (![view isKindOfClass:[UIControl class]]) {
-                @throw [NSException exceptionWithName:@"HLMControlTargetInjectionException"
+                @throw [NSException exceptionWithName:@"HLMControlTargetBindingException"
                                                reason:[NSString stringWithFormat:@"View with tag `%@` and class `%@` "
                                                        @"is not a kind of UIControl. Try making it a UIControl subclass.",
                                                        tagName, NSStringFromClass([view class])]
@@ -135,7 +135,7 @@ static NSString* const HLMInjectorSettingOptional = @"optional";
             // Get the type of control event
             NSNumber* controlEventNumber = self.controlEventMap[controlEventName];
             if (!controlEventNumber) {
-                @throw [NSException exceptionWithName:@"HLMControlTargetInjectionException"
+                @throw [NSException exceptionWithName:@"HLMControlTargetBindingException"
                                                reason:[NSString stringWithFormat:@"Unknown control event `%@`", controlEventName]
                                              userInfo:nil];
             }

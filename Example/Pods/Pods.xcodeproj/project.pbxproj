@@ -7,731 +7,661 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0103474AAA94F586D71ABC1C /* HLMAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = AA4CF736182F0A90381392CA /* HLMAssociatedObjects.h */; };
-		05ADB2D96AD53BCB224E90CB /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC73594D3571DB306D3A6160 /* HLMScrollView.m */; };
-		066CD2B126C7BC5BAC013E95 /* HLMLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBE7A19858F2D3ACD6E29C /* HLMLinearLayoutManager.m */; };
-		0A7551AFA895F473CCDE56C8 /* HLMFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A58A25DCC012D5ED471E7648 /* HLMFrameLayoutManager.h */; };
-		10349CD8C6FA7572677AA907 /* HLMAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DE05BB4C57C86ADB4485C /* HLMAttributes.m */; };
-		115D2EC9B67EFDA8A2EB7BCC /* UIColor+HLMImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FEC3ED516B0DB4BAF6A3704 /* UIColor+HLMImage.h */; };
-		17B54A83BA6F2EE167A9EBEB /* HLMFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E43166D6B0F28E24C0E2310B /* HLMFrameLayoutManager.m */; };
-		18A2299633D48984C19ED9F9 /* HLMLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B69DE6FBC5A3F5C17C284F6 /* HLMLayoutInflator.m */; };
-		1C7101C2672360BA76A1832D /* HLMRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E31E4DC58BBBD50D31263DA5 /* HLMRelativeLayoutManager.h */; };
-		1C777114A717AD694F29C331 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B211D3844F2DA87FFE89A9 /* GDataXMLNode.h */; };
-		206EDCA47D07984D4E3D61C2 /* EDSemver.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC32AD0ACB7D612CE7AD06 /* EDSemver.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		245BA7DECF09B8C7D2297867 /* HLMFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A58A25DCC012D5ED471E7648 /* HLMFrameLayoutManager.h */; };
-		253A5BE458546703C4FBA8F9 /* Pods-Tests-Helium-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6A48DAFFD463FDC60E8888 /* Pods-Tests-Helium-dummy.m */; };
-		27973C29FFABA1EFDFC58BB0 /* EDSemver.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DC32AD0ACB7D612CE7AD06 /* EDSemver.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		2966E389FE7D425192B8C43D /* HLMRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0E034775ABE788B3AF46BD /* HLMRelativeLayoutManager.m */; };
-		2966E6C67CC92B0045F8142C /* HLMLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67050E90D0BAFD622160EB6F /* HLMLayout.m */; };
-		2D247D7B725A5B06447BBBA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		2D751A16BF4275602A708BC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		34B44795AF4A859F359C2B53 /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5B579F521F926F1F5A6C4A /* UIColor+HLMImage.m */; };
-		359351416A776BF359EFFE51 /* HLMLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C490EC5ECD2CD7F26C9CBB /* HLMLayoutRootView.m */; };
-		3FDF6855167B68BF2B5DD7A4 /* HLMLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = B29F2D262FB5559C3E483CF9 /* HLMLayoutRootView.h */; };
-		411DDBDF6E2D6846F1D737C5 /* HLMFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E43166D6B0F28E24C0E2310B /* HLMFrameLayoutManager.m */; };
-		42250D0FC0AA615CBE3D8CE5 /* Pods-Tests-GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD7B2AC8527346DA501EF8E /* Pods-Tests-GDataXML-HTML-dummy.m */; };
-		45239EA47E30E456CFFB9203 /* HLMResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD439B25F0B8B1CCEEBCADB /* HLMResources.h */; };
-		4D95183D448BACB27EB860D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		4EF1B7A2D85D017DCBB2DFC1 /* HLMStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CAD624A9186A53182CDE0F /* HLMStyles.m */; };
-		568262EF720B11BF0F776F97 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E1E925BDB1CB2415820F67 /* NSString+Convert.h */; };
-		5960AFEC434773BB63CECA7F /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4249279C636ACE697A66062F /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5CEAABB17819C41589D0B1B4 /* HLMInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A09611D5740BCA1CD986449 /* HLMInflatableViewController.h */; };
-		5CEFFCC7D30FE9F53B2D25ED /* HLMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 581066B86619E27B4ECA3DF1 /* HLMTableViewCell.h */; };
-		5FE2B5B715CA313872BFAA7F /* HLMLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3828969BCAFE41821A82A56E /* HLMLinearLayoutManager.h */; };
-		5FFB3A9CF86F8BA818E81A28 /* HLMViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E9069FF23EAABF33203335 /* HLMViewInjector.h */; };
-		63C253AF03B2708011E67FB0 /* HLMLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 67050E90D0BAFD622160EB6F /* HLMLayout.m */; };
-		63D0352171A7819CB0818BCF /* EDSemver.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB35A0C50AA97A73D73FE85 /* EDSemver.h */; };
-		6ECBE4FB907968A7C1EF846F /* HLMRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0E034775ABE788B3AF46BD /* HLMRelativeLayoutManager.m */; };
-		6FEADC8766E003AA08C8730E /* HLMResources.m in Sources */ = {isa = PBXBuildFile; fileRef = B260B99E74F9C3008360612D /* HLMResources.m */; };
-		6FEFFF3BB20AC914ACCDE5A0 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B211D3844F2DA87FFE89A9 /* GDataXMLNode.h */; };
-		710F4881F939F498F565FC8A /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC73594D3571DB306D3A6160 /* HLMScrollView.m */; };
-		74E98A3E340CB89364C1851C /* Pods-Tests-EDSemver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 155DC128F61ED9FBCEDB4114 /* Pods-Tests-EDSemver-dummy.m */; };
-		77F5F64B86EB5E19E02683A9 /* HLMAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 278DE05BB4C57C86ADB4485C /* HLMAttributes.m */; };
-		7983D41057AA89830B786FBF /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D931226F39260725100C03 /* NSString+Convert.m */; };
-		7C4946C700286FBDBBEF36D4 /* HLMResources.m in Sources */ = {isa = PBXBuildFile; fileRef = B260B99E74F9C3008360612D /* HLMResources.m */; };
-		8836E0D21B2E22C283DF49AA /* EDSemver.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB35A0C50AA97A73D73FE85 /* EDSemver.h */; };
-		887981ECB8CC195D3B21D3A5 /* HLMLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = D47B2455F5F8D169EDF9D172 /* HLMLayoutInflator.h */; };
-		8949F2070629DBD1F035E2EB /* HLMAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = AA4CF736182F0A90381392CA /* HLMAssociatedObjects.h */; };
-		89A585D98F796AA81B388768 /* HLMViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 836DCCC9EEBFC1F16E621867 /* HLMViewInjector.m */; };
-		8B3C4B9CDA24F052A8A301BF /* HLMViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 836DCCC9EEBFC1F16E621867 /* HLMViewInjector.m */; };
-		8C19EA1CC9C4361D529187D9 /* HLMLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B69DE6FBC5A3F5C17C284F6 /* HLMLayoutInflator.m */; };
-		8CDB89A78FE8E4F0164D291D /* HLMLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BB5CAD1C83EC36B54B9E75 /* HLMLayout.h */; };
-		930899A7DE3DEBAD34EC6F8E /* HLMStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CAD624A9186A53182CDE0F /* HLMStyles.m */; };
-		95375FEF63E81F6998DB1F91 /* HLMLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C490EC5ECD2CD7F26C9CBB /* HLMLayoutRootView.m */; };
-		97D3CD2AFBCC97DC64935224 /* HLMInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A09611D5740BCA1CD986449 /* HLMInflatableViewController.h */; };
-		9929863EFBE4532A38342119 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D931226F39260725100C03 /* NSString+Convert.m */; };
-		9CC521585AD0D81919089247 /* HLMRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E31E4DC58BBBD50D31263DA5 /* HLMRelativeLayoutManager.h */; };
-		9F4D620280A77B24D09E15FA /* HLMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = E75041CA52C87D02D1038DC3 /* HLMScrollView.h */; };
-		A96A56DD44EFA4D3C20E77C0 /* HLMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = E75041CA52C87D02D1038DC3 /* HLMScrollView.h */; };
-		AD12034BEF23D4464BA604D8 /* Pods-Helium-EDSemver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA3B106FD32C9B16A400149 /* Pods-Helium-EDSemver-dummy.m */; };
-		AE310559E986010A31535969 /* HLMInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E099E133949EA022D5B672F /* HLMInflatableViewController.m */; };
-		B1CAEE9D853AB28E5DDB8914 /* Pods-Helium-GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E56D78779C60063206F365F3 /* Pods-Helium-GDataXML-HTML-dummy.m */; };
-		B42D3D4530A473D1B0CB1CDF /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 414933EF054C4E1C83DE490D /* HLMStyles.h */; };
-		B73F8D19ADDF7C69EB8BDE13 /* HLMLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBE7A19858F2D3ACD6E29C /* HLMLinearLayoutManager.m */; };
-		BAE6DE526D320C3BBC6D4096 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A87A97EEAD1585D3870F9BD /* Pods-Tests-dummy.m */; };
-		BC7E72D6FB3BB497F3735E1A /* HLMLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = B29F2D262FB5559C3E483CF9 /* HLMLayoutRootView.h */; };
-		BE83F286A01C240A8C44AA5A /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4249279C636ACE697A66062F /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C2D24A3A2D064BAA39F360FA /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5B579F521F926F1F5A6C4A /* UIColor+HLMImage.m */; };
-		C3453C16825A1E77C3E79ACC /* HLMResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD439B25F0B8B1CCEEBCADB /* HLMResources.h */; };
-		C3712C587C5886E319F60DF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		C86F665FF80D0A0D826CED29 /* Pods-Helium-Helium-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 865D49AF991FE520704DF00F /* Pods-Helium-Helium-dummy.m */; };
-		C8EC80269D6A73BE18F2E18A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		CA092A584FBF728E1CA6FBB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		CA1D6AFF54DED6527AEE622B /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537FFA12E09D28ABB145C8BF /* HLMTableViewCell.m */; };
-		CE0DC6BCA1EE9FAF50B8F232 /* HLMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 581066B86619E27B4ECA3DF1 /* HLMTableViewCell.h */; };
-		CEC9A91F72640513B402E5EC /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 537FFA12E09D28ABB145C8BF /* HLMTableViewCell.m */; };
-		D866809BEBA546FB6418D8C9 /* Pods-Helium-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB343E8712DB3ABF350F98 /* Pods-Helium-dummy.m */; };
-		D8A458C45B5842D1EE3C5096 /* HLMAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEB81056C711DF27DCDF7D2 /* HLMAttributes.h */; };
-		D9792B4EEE374565F26A1059 /* HLMLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BB5CAD1C83EC36B54B9E75 /* HLMLayout.h */; };
-		DA1539FCFEAFC6E994F300BA /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E1E925BDB1CB2415820F67 /* NSString+Convert.h */; };
-		DF0BF36F085FC1DEF5A61D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		E17BF80FD43278A385351212 /* HLMAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEB81056C711DF27DCDF7D2 /* HLMAttributes.h */; };
-		E3C0C8C18DA155D5DCA5EDBC /* HLMInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E099E133949EA022D5B672F /* HLMInflatableViewController.m */; };
-		E43C29A87C1D0310235A2DE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3104CE43C9BCF02F2AD26BD /* Foundation.framework */; };
-		EA8250C4643C6D767F7972A2 /* HLMLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = D47B2455F5F8D169EDF9D172 /* HLMLayoutInflator.h */; };
-		EECCF8B025008CE9E6D6AC4F /* HLMLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3828969BCAFE41821A82A56E /* HLMLinearLayoutManager.h */; };
-		F15C467946BAA1582C99C226 /* UIColor+HLMImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FEC3ED516B0DB4BAF6A3704 /* UIColor+HLMImage.h */; };
-		F58A2894283AD8AC69B3A36F /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 414933EF054C4E1C83DE490D /* HLMStyles.h */; };
-		F8E59650D5E8F4DAC372601A /* HLMViewInjector.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E9069FF23EAABF33203335 /* HLMViewInjector.h */; };
+		0128E9575B115E1A30810EA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		0387C697295153716623FCF9 /* HLMResources.h in Headers */ = {isa = PBXBuildFile; fileRef = B57CF13443370BBF4A04C5BB /* HLMResources.h */; };
+		052B638C4EA9F05EA58F09A5 /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13187295E71C8E3A3B7814D /* HLMScrollView.m */; };
+		05A9FBB9A15BCB83A3730374 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = A48747AE5F69A21E4012A6E9 /* NSString+Convert.m */; };
+		068CFFB4BCC7BF8867B429AC /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3B08BECC58D007D907E70 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0759CD9AFC247D2D1A30B9C1 /* HLMLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 986B9E81D0B261E5A490A7C6 /* HLMLayout.m */; };
+		0B2A453C263F506E83050181 /* HLMAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 160EDCA417B209D2603BE433 /* HLMAttributes.m */; };
+		10730B630FF171A9DB336DA5 /* HLMAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 7093B9A383407271BF2C1B34 /* HLMAssociatedObjects.h */; };
+		11EAAD38395DD9B3C7E6B1D6 /* HLMLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6C0C6520AB72C0B01F4418D /* HLMLinearLayoutManager.h */; };
+		132AD9F07F5D99B9CDE9F305 /* HLMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C41A37359ECBB5F1F24F647 /* HLMScrollView.h */; };
+		1480147ED6ED9BC4DDAFD314 /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 833423C91C5E4DFBDD76EEFF /* HLMStyles.h */; };
+		1763624DABB31A5F79DEF8A1 /* HLMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C41A37359ECBB5F1F24F647 /* HLMScrollView.h */; };
+		1D2B4D80EF1FD11A7C7C743E /* HLMLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F5E7B2E655C13C0691108C /* HLMLayoutInflator.m */; };
+		23B3CEEFD08923CB7C8E19C9 /* HLMLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C10DAA4F5B3C0B274CDA517 /* HLMLayoutInflator.h */; };
+		263073548037C71DC65CDF87 /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E6E5BE756353B985DD8D9 /* UIColor+HLMImage.m */; };
+		2AF2C02004B7A68BBA8DE84B /* UIColor+HLMImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 864C292E362F47CC17F33786 /* UIColor+HLMImage.h */; };
+		2F92EAE15F3E5FA031E8A2ED /* HLMFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 56769E39C61918212D8FE671 /* HLMFrameLayoutManager.h */; };
+		33ACD6EDC399110DAD1142F5 /* HLMFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 56769E39C61918212D8FE671 /* HLMFrameLayoutManager.h */; };
+		363AC242FE3EA477A36AC94F /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = F354F113395E038A92FB5329 /* NSString+Convert.h */; };
+		37995C6766A065E8DA960645 /* HLMRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F13533C902731B7583E54E1B /* HLMRelativeLayoutManager.m */; };
+		3C1EFB5915D1FDD97A03A5E5 /* HLMRelativeLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F13533C902731B7583E54E1B /* HLMRelativeLayoutManager.m */; };
+		3E6E4B040ADDF5E33729067B /* HLMAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = E9800FF13EB49FE1B046F771 /* HLMAttributes.h */; };
+		3E7C737495FF3E680B435169 /* HLMResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 575630F63343386E8324B0ED /* HLMResources.m */; };
+		3EA8DD68B6BFE55EFBE87467 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		3F9C1D8D64A57F79DD10D17A /* HLMViewBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B10926890546FE29F597BB7 /* HLMViewBinder.m */; };
+		411674F7FB5C8B19693EF105 /* HLMLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7103F1CE9EBEC3CD05AA1AE5 /* HLMLayoutRootView.m */; };
+		432448A53AFE6A4E1CDE1347 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = F354F113395E038A92FB5329 /* NSString+Convert.h */; };
+		461FF1D3B67EBEF2123CC004 /* HLMLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = B7BC08F171324B2AD9943056 /* HLMLayoutRootView.h */; };
+		4917E17BE35284CA2E8CB39F /* Pods-Helium-Helium-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 556885896BD6C6E6328134B1 /* Pods-Helium-Helium-dummy.m */; };
+		4B5A3F54CCAB53950B315765 /* HLMAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 160EDCA417B209D2603BE433 /* HLMAttributes.m */; };
+		53DC529D5B947A7FEF85F12D /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B9B4A7D2E790EA177A9E85 /* GDataXMLNode.h */; };
+		54EB7201C85977CFF6AAC8A7 /* HLMLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 986B9E81D0B261E5A490A7C6 /* HLMLayout.m */; };
+		5D8E2FE3478E4A43653A81CF /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 799F580858F4A9B0B426E646 /* Pods-Tests-dummy.m */; };
+		5FE41E71A9F4FFC33D7B0B2A /* HLMLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 098411D98BF2FF13077181FE /* HLMLinearLayoutManager.m */; };
+		6123BCF78FE586AEAB16A5AB /* HLMInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FB0E0DF45B1C36F6BAF32D /* HLMInflatableViewController.m */; };
+		62C7D6615727772E3ECFA3C3 /* Pods-Tests-EDSemver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9451EEF8D643B06332B24C7 /* Pods-Tests-EDSemver-dummy.m */; };
+		663BE97ED31C67287A0DADC2 /* HLMLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 042400FA8BE466AD4F25BBF6 /* HLMLayout.h */; };
+		67432E7BEE4C9B33C42C74CA /* HLMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E77280A4A75541DBA1893C12 /* HLMTableViewCell.h */; };
+		67951C6A4685394911CA0421 /* HLMFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8192EC9FBF9C2950711F1A /* HLMFrameLayoutManager.m */; };
+		68AFEBE77B41C1F09C3C659A /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDF6B78F6AF854CFD1DEA6 /* HLMTableViewCell.m */; };
+		6A36598CC7D0A29FCFEEC22E /* HLMInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE533B1A290CC3FFA2520471 /* HLMInflatableViewController.h */; };
+		6B5733B68F5E1594E2AAF9FD /* HLMInflatableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DE533B1A290CC3FFA2520471 /* HLMInflatableViewController.h */; };
+		6B6619E52F53F11C63BF96D6 /* Pods-Helium-EDSemver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A1F5D558C0B76A59813549 /* Pods-Helium-EDSemver-dummy.m */; };
+		6F21BB38FC8935220BBC2123 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		73605A16F57828DCA5DE25C5 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3B08BECC58D007D907E70 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		73D9E6C208D6693C59619714 /* HLMViewBinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 39E15832E39AF5B28BACDBAE /* HLMViewBinder.h */; };
+		794AD27C50C642C7EDAAD2BA /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 565E6E5BE756353B985DD8D9 /* UIColor+HLMImage.m */; };
+		79B49BDF204672086DEB5437 /* EDSemver.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F8406CEBC6738324B895B0 /* EDSemver.h */; };
+		7AB4F032DEE522911C1BD501 /* HLMAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 7093B9A383407271BF2C1B34 /* HLMAssociatedObjects.h */; };
+		7CF752E2BDEE26DC7DC22C32 /* HLMLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3F5E7B2E655C13C0691108C /* HLMLayoutInflator.m */; };
+		810D81C756245CCD02C83142 /* Pods-Tests-GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6191AEE4D92290CE1E5A /* Pods-Tests-GDataXML-HTML-dummy.m */; };
+		832D6FE5DAA41A0688E9084A /* UIColor+HLMImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 864C292E362F47CC17F33786 /* UIColor+HLMImage.h */; };
+		99CAB556454E7C91D57C82F3 /* HLMStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E85409BA3B69DA100180A5C /* HLMStyles.m */; };
+		9ABD84A11F43F0B3F762DC40 /* EDSemver.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0AE0FCA7C5E139D0E10D09 /* EDSemver.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9C17E8C2E976DD9210320279 /* HLMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E77280A4A75541DBA1893C12 /* HLMTableViewCell.h */; };
+		9E9C3E7D04AE26FE6ED948DB /* HLMAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = E9800FF13EB49FE1B046F771 /* HLMAttributes.h */; };
+		A0FCD724C4521115DB1BD129 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B9B4A7D2E790EA177A9E85 /* GDataXMLNode.h */; };
+		A518D5F020C249E5B134119F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		A5B2C8FA96310D649BB05252 /* HLMLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 098411D98BF2FF13077181FE /* HLMLinearLayoutManager.m */; };
+		A8C65CC1B2D5D024E47A1ECF /* HLMInflatableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FB0E0DF45B1C36F6BAF32D /* HLMInflatableViewController.m */; };
+		AA48B1A3D9FC2E3AD5202890 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = A48747AE5F69A21E4012A6E9 /* NSString+Convert.m */; };
+		AA72654B5B73612B92A9E772 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		AC0F4CC45757254A42153E95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		AF94A8EDD7CE90114D65BD9C /* HLMResources.h in Headers */ = {isa = PBXBuildFile; fileRef = B57CF13443370BBF4A04C5BB /* HLMResources.h */; };
+		B328944F5BBBDD1691F1BDE2 /* HLMStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E85409BA3B69DA100180A5C /* HLMStyles.m */; };
+		B4D2E35319627B3A2B9E17D3 /* HLMViewBinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 39E15832E39AF5B28BACDBAE /* HLMViewBinder.h */; };
+		BCD22AC057A2944734CD8C1C /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C13187295E71C8E3A3B7814D /* HLMScrollView.m */; };
+		BD4EBA4FDE22F29B9D4B4594 /* Pods-Helium-GDataXML-HTML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7DDD1A47EF3C31C3A83CD84 /* Pods-Helium-GDataXML-HTML-dummy.m */; };
+		C02A98F3CA46BA522B0DE30D /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DDF6B78F6AF854CFD1DEA6 /* HLMTableViewCell.m */; };
+		CBDAC592FAFBE628FB3CCAEC /* Pods-Helium-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C1664BD7A572215C857BB1 /* Pods-Helium-dummy.m */; };
+		D782E6A6B578B13C7290FE59 /* EDSemver.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F8406CEBC6738324B895B0 /* EDSemver.h */; };
+		D858760C09E49FD0FFB0FCA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		DD9DD7FA08F9D664D7911E54 /* HLMResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 575630F63343386E8324B0ED /* HLMResources.m */; };
+		DE33AB17B54C2395DFE6DBD6 /* HLMLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 042400FA8BE466AD4F25BBF6 /* HLMLayout.h */; };
+		E49D53E21E44249830A01E2F /* EDSemver.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0AE0FCA7C5E139D0E10D09 /* EDSemver.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E91607AA56B0EF38E01ABB9A /* HLMRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCFCFBA800FD2F9065094E8 /* HLMRelativeLayoutManager.h */; };
+		E9B931A85F39B929334CCB6B /* Pods-Tests-Helium-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95A24E3E41DCCB97E0420B /* Pods-Tests-Helium-dummy.m */; };
+		EAE0797168008CED1A9EFED5 /* HLMLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6C0C6520AB72C0B01F4418D /* HLMLinearLayoutManager.h */; };
+		EDB3F6E919A1C9B904EAEFAD /* HLMStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 833423C91C5E4DFBDD76EEFF /* HLMStyles.h */; };
+		EE36B8F29864A41DEA7098C3 /* HLMFrameLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8192EC9FBF9C2950711F1A /* HLMFrameLayoutManager.m */; };
+		EFF12C76B53C6E12E6B070F7 /* HLMLayoutRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7103F1CE9EBEC3CD05AA1AE5 /* HLMLayoutRootView.m */; };
+		F1567BA2F4DB9C54D8533424 /* HLMRelativeLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCFCFBA800FD2F9065094E8 /* HLMRelativeLayoutManager.h */; };
+		F2ACF9EF9266742F271F6999 /* HLMLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = B7BC08F171324B2AD9943056 /* HLMLayoutRootView.h */; };
+		F3CC5700E8FAFDFEAE35D538 /* HLMViewBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B10926890546FE29F597BB7 /* HLMViewBinder.m */; };
+		F7493CBF6579841170BE227B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		FD9EAAEEF524C94B8CDBF72E /* HLMLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C10DAA4F5B3C0B274CDA517 /* HLMLayoutInflator.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0F5B6201D4ACE84E0053DD51 /* PBXContainerItemProxy */ = {
+		087A366391F7AA15BC3AC34E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2C2E2B71BC84114D5BF36BFE;
-			remoteInfo = "Pods-Helium-EDSemver";
-		};
-		32285976C84AA343B798F582 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9E599790A05708656132A98;
+			remoteGlobalIDString = 0BBDE75CCE8664730CAFBE50;
 			remoteInfo = "Pods-Tests-GDataXML-HTML";
 		};
-		7BCD3A5664835324E9948B55 /* PBXContainerItemProxy */ = {
+		0A90866845E6F5CE3BFCAB5E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 12289888E9054AE8E82D3503;
-			remoteInfo = "Pods-Helium-GDataXML-HTML";
-		};
-		8457D11BE2C2A7D739C753A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7E4F65C3BD613FD5848D3FE0;
-			remoteInfo = "Pods-Tests-EDSemver";
-		};
-		90AF469B6EC006705EEC5B5D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9E599790A05708656132A98;
-			remoteInfo = "Pods-Tests-GDataXML-HTML";
-		};
-		CB7A827E1B0F71A8F3BB6DD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7E4F65C3BD613FD5848D3FE0;
-			remoteInfo = "Pods-Tests-EDSemver";
-		};
-		DA18D7775BE53C025A34956F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D00E00D8E183D8F63DBB384F;
+			remoteGlobalIDString = B3824AE24CC90E8D42CBDC44;
 			remoteInfo = "Pods-Tests-Helium";
 		};
-		EBDC74E7BE6DF6F380594844 /* PBXContainerItemProxy */ = {
+		177F9265E2207A856B4ED427 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2C2E2B71BC84114D5BF36BFE;
+			remoteGlobalIDString = C8245D19715250EA8129F914;
+			remoteInfo = "Pods-Tests-EDSemver";
+		};
+		2DCA21EF23FD5E862085615A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4449206C988940779F2AEC4C;
 			remoteInfo = "Pods-Helium-EDSemver";
 		};
-		F3470319F2440D4BDB185B2B /* PBXContainerItemProxy */ = {
+		396EAF80EB381EB994DE0748 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B965E5FB896899031AF83BFE;
+			remoteGlobalIDString = EACF219EF6346C1E9973A2D5;
 			remoteInfo = "Pods-Helium-Helium";
 		};
-		F964D87DE986466AF1D3B40E /* PBXContainerItemProxy */ = {
+		49776360BAC7C85B5C8DD278 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AB1E1AC08A567E2FD560E11D /* Project object */;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 12289888E9054AE8E82D3503;
+			remoteGlobalIDString = FFB0CFB5D4CCA929D3278538;
+			remoteInfo = "Pods-Helium-GDataXML-HTML";
+		};
+		57EF77536A17BE96EF49A4B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8245D19715250EA8129F914;
+			remoteInfo = "Pods-Tests-EDSemver";
+		};
+		A524E2BF2688137C7E5A2F2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4449206C988940779F2AEC4C;
+			remoteInfo = "Pods-Helium-EDSemver";
+		};
+		BD1FAAF2F54FE1C56266BEA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BBDE75CCE8664730CAFBE50;
+			remoteInfo = "Pods-Tests-GDataXML-HTML";
+		};
+		F1D889251FFFC55A48C64645 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33FE47225F548B696E9ED243 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFB0CFB5D4CCA929D3278538;
 			remoteInfo = "Pods-Helium-GDataXML-HTML";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07B211D3844F2DA87FFE89A9 /* GDataXMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Pod/Classes/GDataXMLNode.h; sourceTree = "<group>"; };
-		092C693382E889F798127EE9 /* Pods-Helium.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium.debug.xcconfig"; sourceTree = "<group>"; };
-		093ACD0859F6179FB5B56325 /* libPods-Helium-Helium.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium-Helium.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0946D09130957ED65415E0AC /* Pods-Helium-GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
-		0A09611D5740BCA1CD986449 /* HLMInflatableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMInflatableViewController.h; sourceTree = "<group>"; };
-		0C06849712E150929BC4740C /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		155DC128F61ED9FBCEDB4114 /* Pods-Tests-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-EDSemver-dummy.m"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-dummy.m"; sourceTree = "<group>"; };
-		1B69DE6FBC5A3F5C17C284F6 /* HLMLayoutInflator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLayoutInflator.m; sourceTree = "<group>"; };
-		1B79BDE54908DA367C78C159 /* Pods-Tests-EDSemver-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-EDSemver-Private.xcconfig"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-Private.xcconfig"; sourceTree = "<group>"; };
-		217A344FBC4AD2091227FF60 /* libPods-Tests-Helium.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-Helium.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		278DE05BB4C57C86ADB4485C /* HLMAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMAttributes.m; sourceTree = "<group>"; };
-		2FD27B8F7EFF3C8C582E5110 /* libPods-Helium-EDSemver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium-EDSemver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FEC3ED516B0DB4BAF6A3704 /* UIColor+HLMImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+HLMImage.h"; sourceTree = "<group>"; };
-		3828969BCAFE41821A82A56E /* HLMLinearLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLinearLayoutManager.h; sourceTree = "<group>"; };
-		3BD439B25F0B8B1CCEEBCADB /* HLMResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMResources.h; sourceTree = "<group>"; };
-		3CCCCC5D3795B62ACCD35DC7 /* Pods-Helium-EDSemver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-EDSemver.xcconfig"; sourceTree = "<group>"; };
-		3DF4836610687C27FC0F4EB0 /* Pods-Helium-GDataXML-HTML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-GDataXML-HTML-prefix.pch"; sourceTree = "<group>"; };
-		3DFBE7A19858F2D3ACD6E29C /* HLMLinearLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLinearLayoutManager.m; sourceTree = "<group>"; };
-		4059F7B03F459E63E3E6B365 /* Pods-Helium-GDataXML-HTML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-GDataXML-HTML.xcconfig"; sourceTree = "<group>"; };
-		40CAD624A9186A53182CDE0F /* HLMStyles.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMStyles.m; sourceTree = "<group>"; };
-		414933EF054C4E1C83DE490D /* HLMStyles.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMStyles.h; sourceTree = "<group>"; };
-		4249279C636ACE697A66062F /* GDataXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Pod/Classes/GDataXMLNode.m; sourceTree = "<group>"; };
-		47CFFBCE7F679A247A515E92 /* Pods-Tests-GDataXML-HTML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-GDataXML-HTML-prefix.pch"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-prefix.pch"; sourceTree = "<group>"; };
-		48E1E925BDB1CB2415820F67 /* NSString+Convert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
-		4947365F0612779125D3287C /* libPods-Helium-GDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium-GDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B6A48DAFFD463FDC60E8888 /* Pods-Tests-Helium-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-Helium-dummy.m"; path = "../Pods-Tests-Helium/Pods-Tests-Helium-dummy.m"; sourceTree = "<group>"; };
-		4CBB343E8712DB3ABF350F98 /* Pods-Helium-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-dummy.m"; sourceTree = "<group>"; };
-		4E099E133949EA022D5B672F /* HLMInflatableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMInflatableViewController.m; sourceTree = "<group>"; };
-		537FFA12E09D28ABB145C8BF /* HLMTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMTableViewCell.m; sourceTree = "<group>"; };
-		572AB89D645314C335B42F1F /* helium_res.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = helium_res.bundle; sourceTree = "<group>"; };
-		57FB0847D255282169421A2B /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		581066B86619E27B4ECA3DF1 /* HLMTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMTableViewCell.h; sourceTree = "<group>"; };
-		5A2020CCB5747B1D87882FC8 /* libPods-Tests-GDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-GDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A87A97EEAD1585D3870F9BD /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		63BB5CAD1C83EC36B54B9E75 /* HLMLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLayout.h; sourceTree = "<group>"; };
-		67050E90D0BAFD622160EB6F /* HLMLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLayout.m; sourceTree = "<group>"; };
-		67C490EC5ECD2CD7F26C9CBB /* HLMLayoutRootView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLayoutRootView.m; sourceTree = "<group>"; };
-		714C54F04BCA1721480F8474 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		836DCCC9EEBFC1F16E621867 /* HLMViewInjector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMViewInjector.m; sourceTree = "<group>"; };
-		84CA6861EDE672AC9D3BA504 /* Pods-Helium-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Helium-acknowledgements.plist"; sourceTree = "<group>"; };
-		865D49AF991FE520704DF00F /* Pods-Helium-Helium-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-Helium-dummy.m"; sourceTree = "<group>"; };
-		883FA6B3AF296E3D9515FC39 /* Pods-Helium.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium.release.xcconfig"; sourceTree = "<group>"; };
-		8A79C8F4F3670A682004B0CE /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FDBB182A8DF670C0EA29BDC /* Pods-Helium-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Helium-resources.sh"; sourceTree = "<group>"; };
-		9471DE7AAA29D338BD36ADA9 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
-		95A72DACB4E8D5F3CA7AAA88 /* Pods-Helium-EDSemver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-EDSemver-prefix.pch"; sourceTree = "<group>"; };
-		9617C62CA40511BDB1F5807A /* Pods-Helium-EDSemver-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-EDSemver-Private.xcconfig"; sourceTree = "<group>"; };
-		9C1D76CC4F3C90BBC8C3CE90 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		9D9A819D914FC89C3AC557D4 /* libPods-Helium.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9ED2569B1BB5E4843527BE0D /* Pods-Tests-Helium-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-Helium-Private.xcconfig"; path = "../Pods-Tests-Helium/Pods-Tests-Helium-Private.xcconfig"; sourceTree = "<group>"; };
-		9FE6384DA3696B5E782DBA8F /* Pods-Tests-EDSemver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-EDSemver.xcconfig"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver.xcconfig"; sourceTree = "<group>"; };
-		A3104CE43C9BCF02F2AD26BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A4D931226F39260725100C03 /* NSString+Convert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
-		A58A25DCC012D5ED471E7648 /* HLMFrameLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMFrameLayoutManager.h; sourceTree = "<group>"; };
-		A60FE111C2CE036C35B4FEAA /* Pods-Tests-GDataXML-HTML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-GDataXML-HTML.xcconfig"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML.xcconfig"; sourceTree = "<group>"; };
-		AA4CF736182F0A90381392CA /* HLMAssociatedObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMAssociatedObjects.h; sourceTree = "<group>"; };
-		ACB35A0C50AA97A73D73FE85 /* EDSemver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EDSemver.h; path = EDSemver/EDSemver.h; sourceTree = "<group>"; };
-		AD5B579F521F926F1F5A6C4A /* UIColor+HLMImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HLMImage.m"; sourceTree = "<group>"; };
-		AE41B8BB6168EE4DE69FF155 /* Pods-Helium-Helium-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-Helium-prefix.pch"; sourceTree = "<group>"; };
-		B260B99E74F9C3008360612D /* HLMResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMResources.m; sourceTree = "<group>"; };
-		B29F2D262FB5559C3E483CF9 /* HLMLayoutRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLayoutRootView.h; sourceTree = "<group>"; };
-		B417DB54AC8E48498AD0C8CA /* Pods-Helium-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-environment.h"; sourceTree = "<group>"; };
-		B54E6C143DEA5C37BB77D107 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-GDataXML-HTML-Private.xcconfig"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
-		BB69D67523E797512BFD7A4B /* Pods-Tests-Helium.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-Helium.xcconfig"; path = "../Pods-Tests-Helium/Pods-Tests-Helium.xcconfig"; sourceTree = "<group>"; };
-		BC0EA782E7624B80B5FAAD57 /* Pods-Tests-EDSemver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-EDSemver-prefix.pch"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch"; sourceTree = "<group>"; };
-		C4C1B5E6A7E0B70E6A5D3BB8 /* Pods-Helium-Helium.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-Helium.xcconfig"; sourceTree = "<group>"; };
-		C5DC32AD0ACB7D612CE7AD06 /* EDSemver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EDSemver.m; path = EDSemver/EDSemver.m; sourceTree = "<group>"; };
-		CB6A99346F9292A0F4F74307 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D005976CAD7F6EDE36075F43 /* Pods-Helium-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Helium-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D2A8B56BF2E65B00B7A475F3 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D47B2455F5F8D169EDF9D172 /* HLMLayoutInflator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLayoutInflator.h; sourceTree = "<group>"; };
-		DB0E034775ABE788B3AF46BD /* HLMRelativeLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMRelativeLayoutManager.m; sourceTree = "<group>"; };
-		E31E4DC58BBBD50D31263DA5 /* HLMRelativeLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMRelativeLayoutManager.h; sourceTree = "<group>"; };
-		E337A6F5FEB3FB34E1A7D5A9 /* libPods-Tests-EDSemver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-EDSemver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E43166D6B0F28E24C0E2310B /* HLMFrameLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMFrameLayoutManager.m; sourceTree = "<group>"; };
-		E56D78779C60063206F365F3 /* Pods-Helium-GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
-		E75041CA52C87D02D1038DC3 /* HLMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMScrollView.h; sourceTree = "<group>"; };
-		EBEB81056C711DF27DCDF7D2 /* HLMAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMAttributes.h; sourceTree = "<group>"; };
-		EC73594D3571DB306D3A6160 /* HLMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMScrollView.m; sourceTree = "<group>"; };
-		EFC35EDFFA60293587572C72 /* Pods-Helium-Helium-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-Helium-Private.xcconfig"; sourceTree = "<group>"; };
-		F2E9069FF23EAABF33203335 /* HLMViewInjector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMViewInjector.h; sourceTree = "<group>"; };
-		F6C72A010CEFCB50F48214C8 /* Pods-Tests-Helium-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-Helium-prefix.pch"; path = "../Pods-Tests-Helium/Pods-Tests-Helium-prefix.pch"; sourceTree = "<group>"; };
-		FCD7B2AC8527346DA501EF8E /* Pods-Tests-GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-GDataXML-HTML-dummy.m"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
-		FFA3B106FD32C9B16A400149 /* Pods-Helium-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-EDSemver-dummy.m"; sourceTree = "<group>"; };
+		042400FA8BE466AD4F25BBF6 /* HLMLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLayout.h; sourceTree = "<group>"; };
+		04C3B08BECC58D007D907E70 /* GDataXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Pod/Classes/GDataXMLNode.m; sourceTree = "<group>"; };
+		074071B179911EEF9D896237 /* libPods-Helium-EDSemver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium-EDSemver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		075DBCB5B801A0AE8F33639B /* Pods-Helium-GDataXML-HTML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-GDataXML-HTML-prefix.pch"; sourceTree = "<group>"; };
+		098411D98BF2FF13077181FE /* HLMLinearLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLinearLayoutManager.m; sourceTree = "<group>"; };
+		160EDCA417B209D2603BE433 /* HLMAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMAttributes.m; sourceTree = "<group>"; };
+		1B50FE0F6A307B71A88C3E51 /* Pods-Helium.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium.release.xcconfig"; sourceTree = "<group>"; };
+		1C41A37359ECBB5F1F24F647 /* HLMScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMScrollView.h; sourceTree = "<group>"; };
+		1E85409BA3B69DA100180A5C /* HLMStyles.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMStyles.m; sourceTree = "<group>"; };
+		31ECEB5712275490C09A47B5 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		35655D5829C1AA38127D1409 /* Pods-Helium-Helium-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-Helium-prefix.pch"; sourceTree = "<group>"; };
+		36D18AC8562441E8C09401D1 /* Pods-Helium-GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
+		39E15832E39AF5B28BACDBAE /* HLMViewBinder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMViewBinder.h; sourceTree = "<group>"; };
+		3A60A43E3635A035BDAAC99C /* Pods-Helium-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Helium-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3ADD395B925EED86CA7DCD47 /* Pods-Tests-EDSemver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-EDSemver-prefix.pch"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch"; sourceTree = "<group>"; };
+		3DFB6191AEE4D92290CE1E5A /* Pods-Tests-GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-GDataXML-HTML-dummy.m"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
+		3F8192EC9FBF9C2950711F1A /* HLMFrameLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMFrameLayoutManager.m; sourceTree = "<group>"; };
+		469018692107E0B80DDDB938 /* Pods-Helium-EDSemver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-EDSemver.xcconfig"; sourceTree = "<group>"; };
+		4A9010EDE9655E771473DC3D /* Pods-Helium-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Helium-resources.sh"; sourceTree = "<group>"; };
+		5508BBB092023BC9CDFE42A7 /* Pods-Tests-EDSemver-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-EDSemver-Private.xcconfig"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-Private.xcconfig"; sourceTree = "<group>"; };
+		556885896BD6C6E6328134B1 /* Pods-Helium-Helium-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-Helium-dummy.m"; sourceTree = "<group>"; };
+		561DD2E2FD0B676F64558487 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-GDataXML-HTML-Private.xcconfig"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-Private.xcconfig"; sourceTree = "<group>"; };
+		565E6E5BE756353B985DD8D9 /* UIColor+HLMImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HLMImage.m"; sourceTree = "<group>"; };
+		56769E39C61918212D8FE671 /* HLMFrameLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMFrameLayoutManager.h; sourceTree = "<group>"; };
+		575630F63343386E8324B0ED /* HLMResources.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMResources.m; sourceTree = "<group>"; };
+		59984FA38CD4377A14A9BA22 /* Pods-Helium-EDSemver-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-EDSemver-Private.xcconfig"; sourceTree = "<group>"; };
+		5AA34370535A346D35FD1489 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D78506649B3BF0B3097003A /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		669C0CCAAE0A7562448AA8D2 /* Pods-Tests-GDataXML-HTML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-GDataXML-HTML-prefix.pch"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-prefix.pch"; sourceTree = "<group>"; };
+		6B10926890546FE29F597BB7 /* HLMViewBinder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMViewBinder.m; sourceTree = "<group>"; };
+		7093B9A383407271BF2C1B34 /* HLMAssociatedObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMAssociatedObjects.h; sourceTree = "<group>"; };
+		70E7C3FEE4F6DCCD9915BE96 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7103F1CE9EBEC3CD05AA1AE5 /* HLMLayoutRootView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLayoutRootView.m; sourceTree = "<group>"; };
+		7731224604521F33C36DF5AA /* Pods-Helium.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium.debug.xcconfig"; sourceTree = "<group>"; };
+		78FB0E0DF45B1C36F6BAF32D /* HLMInflatableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMInflatableViewController.m; sourceTree = "<group>"; };
+		7902EC5B7B6318926D671570 /* libPods-Tests-Helium.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-Helium.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		799F580858F4A9B0B426E646 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		7A403178087B0744AABD7662 /* Pods-Helium-Helium-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-Helium-Private.xcconfig"; sourceTree = "<group>"; };
+		7E63FCBC79A032611E4CBA8F /* libPods-Tests-EDSemver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-EDSemver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		833423C91C5E4DFBDD76EEFF /* HLMStyles.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMStyles.h; sourceTree = "<group>"; };
+		864C292E362F47CC17F33786 /* UIColor+HLMImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+HLMImage.h"; sourceTree = "<group>"; };
+		86B9B4A7D2E790EA177A9E85 /* GDataXMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Pod/Classes/GDataXMLNode.h; sourceTree = "<group>"; };
+		896BAF528C607FEAE3BF38FD /* Pods-Helium-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-environment.h"; sourceTree = "<group>"; };
+		8C10DAA4F5B3C0B274CDA517 /* HLMLayoutInflator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLayoutInflator.h; sourceTree = "<group>"; };
+		9041E973444F855F3F1C8FA7 /* Pods-Tests-GDataXML-HTML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-GDataXML-HTML.xcconfig"; path = "../Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML.xcconfig"; sourceTree = "<group>"; };
+		919EC499BBE29430FA615435 /* Pods-Helium-GDataXML-HTML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-GDataXML-HTML.xcconfig"; sourceTree = "<group>"; };
+		91DDF6B78F6AF854CFD1DEA6 /* HLMTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMTableViewCell.m; sourceTree = "<group>"; };
+		92A1F5D558C0B76A59813549 /* Pods-Helium-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-EDSemver-dummy.m"; sourceTree = "<group>"; };
+		986B9E81D0B261E5A490A7C6 /* HLMLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLayout.m; sourceTree = "<group>"; };
+		A48747AE5F69A21E4012A6E9 /* NSString+Convert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
+		A6C1664BD7A572215C857BB1 /* Pods-Helium-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-dummy.m"; sourceTree = "<group>"; };
+		A75AFC89E5090F664F2161B6 /* libPods-Helium-Helium.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium-Helium.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7BAFEC44E1843B3DFA63663 /* helium_res.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = helium_res.bundle; sourceTree = "<group>"; };
+		A9451EEF8D643B06332B24C7 /* Pods-Tests-EDSemver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-EDSemver-dummy.m"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver-dummy.m"; sourceTree = "<group>"; };
+		ABEE978787898E44185332FC /* Pods-Tests-EDSemver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-EDSemver.xcconfig"; path = "../Pods-Tests-EDSemver/Pods-Tests-EDSemver.xcconfig"; sourceTree = "<group>"; };
+		AC9E7930328D1658FAC02D3A /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD24CB2A850504998BBFE175 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		B57CF13443370BBF4A04C5BB /* HLMResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMResources.h; sourceTree = "<group>"; };
+		B7BC08F171324B2AD9943056 /* HLMLayoutRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLayoutRootView.h; sourceTree = "<group>"; };
+		B7DDD1A47EF3C31C3A83CD84 /* Pods-Helium-GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
+		BAC69319CA81B049B9B13D74 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BF95A24E3E41DCCB97E0420B /* Pods-Tests-Helium-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-Helium-dummy.m"; path = "../Pods-Tests-Helium/Pods-Tests-Helium-dummy.m"; sourceTree = "<group>"; };
+		C13187295E71C8E3A3B7814D /* HLMScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMScrollView.m; sourceTree = "<group>"; };
+		C30B8A845195B7E9297F1BF1 /* Pods-Tests-Helium-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-Helium-Private.xcconfig"; path = "../Pods-Tests-Helium/Pods-Tests-Helium-Private.xcconfig"; sourceTree = "<group>"; };
+		CE0AE0FCA7C5E139D0E10D09 /* EDSemver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EDSemver.m; path = EDSemver/EDSemver.m; sourceTree = "<group>"; };
+		CE6600B821946DCF94D32CE1 /* Pods-Helium-EDSemver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-EDSemver-prefix.pch"; sourceTree = "<group>"; };
+		D33D8A50CE6FF1E0CC5C6BB0 /* Pods-Tests-Helium.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-Helium.xcconfig"; path = "../Pods-Tests-Helium/Pods-Tests-Helium.xcconfig"; sourceTree = "<group>"; };
+		D3886E6C0BC6D2BB1BF80D0E /* Pods-Helium-Helium.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium-Helium.xcconfig"; sourceTree = "<group>"; };
+		D8DBAEB363A1C6E7C192A37C /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DBCFCFBA800FD2F9065094E8 /* HLMRelativeLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMRelativeLayoutManager.h; sourceTree = "<group>"; };
+		DC481F39ABECB809064D6FDA /* libPods-Helium.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC4DE0D5D69601389794A2C /* Pods-Tests-Helium-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-Helium-prefix.pch"; path = "../Pods-Tests-Helium/Pods-Tests-Helium-prefix.pch"; sourceTree = "<group>"; };
+		DE533B1A290CC3FFA2520471 /* HLMInflatableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMInflatableViewController.h; sourceTree = "<group>"; };
+		E1833F581B134615FC0CC017 /* libPods-Helium-GDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Helium-GDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F8406CEBC6738324B895B0 /* EDSemver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EDSemver.h; path = EDSemver/EDSemver.h; sourceTree = "<group>"; };
+		E6ADB82631D47B822583A3AE /* Pods-Helium-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Helium-acknowledgements.plist"; sourceTree = "<group>"; };
+		E77280A4A75541DBA1893C12 /* HLMTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMTableViewCell.h; sourceTree = "<group>"; };
+		E9800FF13EB49FE1B046F771 /* HLMAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMAttributes.h; sourceTree = "<group>"; };
+		EA09E1C9218FD8FAF60B4804 /* libPods-Tests-GDataXML-HTML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests-GDataXML-HTML.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13533C902731B7583E54E1B /* HLMRelativeLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMRelativeLayoutManager.m; sourceTree = "<group>"; };
+		F354F113395E038A92FB5329 /* NSString+Convert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
+		F3F5E7B2E655C13C0691108C /* HLMLayoutInflator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLayoutInflator.m; sourceTree = "<group>"; };
+		F6C0C6520AB72C0B01F4418D /* HLMLinearLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLinearLayoutManager.h; sourceTree = "<group>"; };
+		F9353AE50A1142C0B55C624A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		31333D0E05E2DB023DFC7A0A /* Frameworks */ = {
+		2EF5A635E1D4FD34380F07E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43C29A87C1D0310235A2DE6 /* Foundation.framework in Frameworks */,
+				6F21BB38FC8935220BBC2123 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3444980BEF2D6BC04E995CC3 /* Frameworks */ = {
+		3E3438B0E2C02FCD763289CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D95183D448BACB27EB860D2 /* Foundation.framework in Frameworks */,
+				D858760C09E49FD0FFB0FCA5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B4AC4D8D7E00A5B2968898A /* Frameworks */ = {
+		78F6B1B8DEDB0B90D4A15EF1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3712C587C5886E319F60DF0 /* Foundation.framework in Frameworks */,
+				AC0F4CC45757254A42153E95 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50B21E1495DA99684A9DBC94 /* Frameworks */ = {
+		84E94986E7297405BDCF278F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA092A584FBF728E1CA6FBB0 /* Foundation.framework in Frameworks */,
+				0128E9575B115E1A30810EA9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		62F16C33D476789DC90A9254 /* Frameworks */ = {
+		904A8386D508877C49CB4AAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF0BF36F085FC1DEF5A61D36 /* Foundation.framework in Frameworks */,
+				3EA8DD68B6BFE55EFBE87467 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		980F9618DF82F8A3BAF1BFFB /* Frameworks */ = {
+		93E064C3CC3731F653D9F1D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8EC80269D6A73BE18F2E18A /* Foundation.framework in Frameworks */,
+				F7493CBF6579841170BE227B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B821C02C270F8A6B8E6037A0 /* Frameworks */ = {
+		F88B3647A9B18EC116E22074 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D751A16BF4275602A708BC5 /* Foundation.framework in Frameworks */,
+				AA72654B5B73612B92A9E772 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D79BCB244A9F76AC280A928D /* Frameworks */ = {
+		FFCFF2353871537CA35A2DB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D247D7B725A5B06447BBBA1 /* Foundation.framework in Frameworks */,
+				A518D5F020C249E5B134119F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		019E1386453B4D07025E0990 /* Pods */ = {
+		0190C317F313D9BAFF02B9B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7C71FF6C5DA8C09B6EA58066 /* EDSemver */,
-				B340D1863F31575164774C95 /* GDataXML-HTML */,
+				66DF1661D2694423E54B819C /* Pod */,
 			);
-			name = Pods;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		1CAF7358EDA9DB50D9E5653B /* Pods-Tests */ = {
+		05C1DF87F6D9664FF3307E38 /* Helium */ = {
 			isa = PBXGroup;
 			children = (
-				57FB0847D255282169421A2B /* Pods-Tests-acknowledgements.markdown */,
-				0C06849712E150929BC4740C /* Pods-Tests-acknowledgements.plist */,
-				5A87A97EEAD1585D3870F9BD /* Pods-Tests-dummy.m */,
-				9471DE7AAA29D338BD36ADA9 /* Pods-Tests-environment.h */,
-				9C1D76CC4F3C90BBC8C3CE90 /* Pods-Tests-resources.sh */,
-				D2A8B56BF2E65B00B7A475F3 /* Pods-Tests.debug.xcconfig */,
-				CB6A99346F9292A0F4F74307 /* Pods-Tests.release.xcconfig */,
-			);
-			name = "Pods-Tests";
-			path = "Target Support Files/Pods-Tests";
-			sourceTree = "<group>";
-		};
-		1FC749FFAC9FD755180A2A4E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3CCCCC5D3795B62ACCD35DC7 /* Pods-Helium-EDSemver.xcconfig */,
-				9617C62CA40511BDB1F5807A /* Pods-Helium-EDSemver-Private.xcconfig */,
-				FFA3B106FD32C9B16A400149 /* Pods-Helium-EDSemver-dummy.m */,
-				95A72DACB4E8D5F3CA7AAA88 /* Pods-Helium-EDSemver-prefix.pch */,
-				9FE6384DA3696B5E782DBA8F /* Pods-Tests-EDSemver.xcconfig */,
-				1B79BDE54908DA367C78C159 /* Pods-Tests-EDSemver-Private.xcconfig */,
-				155DC128F61ED9FBCEDB4114 /* Pods-Tests-EDSemver-dummy.m */,
-				BC0EA782E7624B80B5FAAD57 /* Pods-Tests-EDSemver-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Helium-EDSemver";
-			sourceTree = "<group>";
-		};
-		4D3B10E54547D8B8FC61FF1A /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				7D2792197101E2485DFEEC70 /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		50553272927442928D416D5A /* Pods-Helium */ = {
-			isa = PBXGroup;
-			children = (
-				D005976CAD7F6EDE36075F43 /* Pods-Helium-acknowledgements.markdown */,
-				84CA6861EDE672AC9D3BA504 /* Pods-Helium-acknowledgements.plist */,
-				4CBB343E8712DB3ABF350F98 /* Pods-Helium-dummy.m */,
-				B417DB54AC8E48498AD0C8CA /* Pods-Helium-environment.h */,
-				8FDBB182A8DF670C0EA29BDC /* Pods-Helium-resources.sh */,
-				092C693382E889F798127EE9 /* Pods-Helium.debug.xcconfig */,
-				883FA6B3AF296E3D9515FC39 /* Pods-Helium.release.xcconfig */,
-			);
-			name = "Pods-Helium";
-			path = "Target Support Files/Pods-Helium";
-			sourceTree = "<group>";
-		};
-		5774749860A064200181960A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9D9A819D914FC89C3AC557D4 /* libPods-Helium.a */,
-				2FD27B8F7EFF3C8C582E5110 /* libPods-Helium-EDSemver.a */,
-				4947365F0612779125D3287C /* libPods-Helium-GDataXML-HTML.a */,
-				093ACD0859F6179FB5B56325 /* libPods-Helium-Helium.a */,
-				8A79C8F4F3670A682004B0CE /* libPods-Tests.a */,
-				E337A6F5FEB3FB34E1A7D5A9 /* libPods-Tests-EDSemver.a */,
-				5A2020CCB5747B1D87882FC8 /* libPods-Tests-GDataXML-HTML.a */,
-				217A344FBC4AD2091227FF60 /* libPods-Tests-Helium.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		70D7B92030E68EFBB12A170B /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				50553272927442928D416D5A /* Pods-Helium */,
-				1CAF7358EDA9DB50D9E5653B /* Pods-Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		764CFA61C5ADCFC2B90FF7F4 /* Helium */ = {
-			isa = PBXGroup;
-			children = (
-				4D3B10E54547D8B8FC61FF1A /* Pod */,
-				AACAAA452A80A29A8E074FE7 /* Resources */,
-				8D01E50C0C13B204BFFDB91F /* Support Files */,
+				644D1C20EFDBB9B3333225BB /* Pod */,
+				0190C317F313D9BAFF02B9B0 /* Resources */,
+				BE5E39DC702CB9B523DADC3A /* Support Files */,
 			);
 			name = Helium;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		7BFCF872DFC1837C5E847A53 = {
+		096D1C7BC264AFA151567C61 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				714C54F04BCA1721480F8474 /* Podfile */,
-				E89DCB5E213098BCAE96209B /* Development Pods */,
-				E39A6E0E077F4AA2470F13C1 /* Frameworks */,
-				019E1386453B4D07025E0990 /* Pods */,
-				5774749860A064200181960A /* Products */,
-				70D7B92030E68EFBB12A170B /* Targets Support Files */,
+				FB2CD4978958324E2C29AB0D /* Pods-Helium */,
+				BCE1D0B3FD4C85DBCDE11118 /* Pods-Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		11A471DAC7ADD13154ACB6FF = {
+			isa = PBXGroup;
+			children = (
+				D8DBAEB363A1C6E7C192A37C /* Podfile */,
+				644E6306628735F4B6836E67 /* Development Pods */,
+				E6D75E6A42F5AD1A87E20410 /* Frameworks */,
+				70C669846200C6B907DACC7C /* Pods */,
+				456B8F1A1BB8E40A949382B1 /* Products */,
+				096D1C7BC264AFA151567C61 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		7C71FF6C5DA8C09B6EA58066 /* EDSemver */ = {
+		16B9845375DB6E7D769EE059 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				ACB35A0C50AA97A73D73FE85 /* EDSemver.h */,
-				C5DC32AD0ACB7D612CE7AD06 /* EDSemver.m */,
-				1FC749FFAC9FD755180A2A4E /* Support Files */,
+				469018692107E0B80DDDB938 /* Pods-Helium-EDSemver.xcconfig */,
+				59984FA38CD4377A14A9BA22 /* Pods-Helium-EDSemver-Private.xcconfig */,
+				92A1F5D558C0B76A59813549 /* Pods-Helium-EDSemver-dummy.m */,
+				CE6600B821946DCF94D32CE1 /* Pods-Helium-EDSemver-prefix.pch */,
+				ABEE978787898E44185332FC /* Pods-Tests-EDSemver.xcconfig */,
+				5508BBB092023BC9CDFE42A7 /* Pods-Tests-EDSemver-Private.xcconfig */,
+				A9451EEF8D643B06332B24C7 /* Pods-Tests-EDSemver-dummy.m */,
+				3ADD395B925EED86CA7DCD47 /* Pods-Tests-EDSemver-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Helium-EDSemver";
+			sourceTree = "<group>";
+		};
+		19F6617A3E99A02B5901E836 /* EDSemver */ = {
+			isa = PBXGroup;
+			children = (
+				E2F8406CEBC6738324B895B0 /* EDSemver.h */,
+				CE0AE0FCA7C5E139D0E10D09 /* EDSemver.m */,
+				16B9845375DB6E7D769EE059 /* Support Files */,
 			);
 			path = EDSemver;
 			sourceTree = "<group>";
 		};
-		7D2792197101E2485DFEEC70 /* Classes */ = {
+		1F04B9234DA506CFE8389357 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				AA4CF736182F0A90381392CA /* HLMAssociatedObjects.h */,
-				EBEB81056C711DF27DCDF7D2 /* HLMAttributes.h */,
-				278DE05BB4C57C86ADB4485C /* HLMAttributes.m */,
-				A58A25DCC012D5ED471E7648 /* HLMFrameLayoutManager.h */,
-				E43166D6B0F28E24C0E2310B /* HLMFrameLayoutManager.m */,
-				0A09611D5740BCA1CD986449 /* HLMInflatableViewController.h */,
-				4E099E133949EA022D5B672F /* HLMInflatableViewController.m */,
-				63BB5CAD1C83EC36B54B9E75 /* HLMLayout.h */,
-				67050E90D0BAFD622160EB6F /* HLMLayout.m */,
-				D47B2455F5F8D169EDF9D172 /* HLMLayoutInflator.h */,
-				1B69DE6FBC5A3F5C17C284F6 /* HLMLayoutInflator.m */,
-				B29F2D262FB5559C3E483CF9 /* HLMLayoutRootView.h */,
-				67C490EC5ECD2CD7F26C9CBB /* HLMLayoutRootView.m */,
-				3828969BCAFE41821A82A56E /* HLMLinearLayoutManager.h */,
-				3DFBE7A19858F2D3ACD6E29C /* HLMLinearLayoutManager.m */,
-				E31E4DC58BBBD50D31263DA5 /* HLMRelativeLayoutManager.h */,
-				DB0E034775ABE788B3AF46BD /* HLMRelativeLayoutManager.m */,
-				3BD439B25F0B8B1CCEEBCADB /* HLMResources.h */,
-				B260B99E74F9C3008360612D /* HLMResources.m */,
-				E75041CA52C87D02D1038DC3 /* HLMScrollView.h */,
-				EC73594D3571DB306D3A6160 /* HLMScrollView.m */,
-				414933EF054C4E1C83DE490D /* HLMStyles.h */,
-				40CAD624A9186A53182CDE0F /* HLMStyles.m */,
-				581066B86619E27B4ECA3DF1 /* HLMTableViewCell.h */,
-				537FFA12E09D28ABB145C8BF /* HLMTableViewCell.m */,
-				F2E9069FF23EAABF33203335 /* HLMViewInjector.h */,
-				836DCCC9EEBFC1F16E621867 /* HLMViewInjector.m */,
-				48E1E925BDB1CB2415820F67 /* NSString+Convert.h */,
-				A4D931226F39260725100C03 /* NSString+Convert.m */,
-				2FEC3ED516B0DB4BAF6A3704 /* UIColor+HLMImage.h */,
-				AD5B579F521F926F1F5A6C4A /* UIColor+HLMImage.m */,
+				F9353AE50A1142C0B55C624A /* Foundation.framework */,
 			);
-			path = Classes;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		8D01E50C0C13B204BFFDB91F /* Support Files */ = {
+		3526415F5C0DF92725DD468A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C4C1B5E6A7E0B70E6A5D3BB8 /* Pods-Helium-Helium.xcconfig */,
-				EFC35EDFFA60293587572C72 /* Pods-Helium-Helium-Private.xcconfig */,
-				865D49AF991FE520704DF00F /* Pods-Helium-Helium-dummy.m */,
-				AE41B8BB6168EE4DE69FF155 /* Pods-Helium-Helium-prefix.pch */,
-				BB69D67523E797512BFD7A4B /* Pods-Tests-Helium.xcconfig */,
-				9ED2569B1BB5E4843527BE0D /* Pods-Tests-Helium-Private.xcconfig */,
-				4B6A48DAFFD463FDC60E8888 /* Pods-Tests-Helium-dummy.m */,
-				F6C72A010CEFCB50F48214C8 /* Pods-Tests-Helium-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Pods-Helium-Helium";
-			sourceTree = "<group>";
-		};
-		A66A6C6FBB29CF4E47EF2990 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4059F7B03F459E63E3E6B365 /* Pods-Helium-GDataXML-HTML.xcconfig */,
-				0946D09130957ED65415E0AC /* Pods-Helium-GDataXML-HTML-Private.xcconfig */,
-				E56D78779C60063206F365F3 /* Pods-Helium-GDataXML-HTML-dummy.m */,
-				3DF4836610687C27FC0F4EB0 /* Pods-Helium-GDataXML-HTML-prefix.pch */,
-				A60FE111C2CE036C35B4FEAA /* Pods-Tests-GDataXML-HTML.xcconfig */,
-				B54E6C143DEA5C37BB77D107 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */,
-				FCD7B2AC8527346DA501EF8E /* Pods-Tests-GDataXML-HTML-dummy.m */,
-				47CFFBCE7F679A247A515E92 /* Pods-Tests-GDataXML-HTML-prefix.pch */,
+				919EC499BBE29430FA615435 /* Pods-Helium-GDataXML-HTML.xcconfig */,
+				36D18AC8562441E8C09401D1 /* Pods-Helium-GDataXML-HTML-Private.xcconfig */,
+				B7DDD1A47EF3C31C3A83CD84 /* Pods-Helium-GDataXML-HTML-dummy.m */,
+				075DBCB5B801A0AE8F33639B /* Pods-Helium-GDataXML-HTML-prefix.pch */,
+				9041E973444F855F3F1C8FA7 /* Pods-Tests-GDataXML-HTML.xcconfig */,
+				561DD2E2FD0B676F64558487 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */,
+				3DFB6191AEE4D92290CE1E5A /* Pods-Tests-GDataXML-HTML-dummy.m */,
+				669C0CCAAE0A7562448AA8D2 /* Pods-Tests-GDataXML-HTML-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Helium-GDataXML-HTML";
 			sourceTree = "<group>";
 		};
-		A9BD4C48F87775E544A964EE /* Resources */ = {
+		456B8F1A1BB8E40A949382B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				572AB89D645314C335B42F1F /* helium_res.bundle */,
+				DC481F39ABECB809064D6FDA /* libPods-Helium.a */,
+				074071B179911EEF9D896237 /* libPods-Helium-EDSemver.a */,
+				E1833F581B134615FC0CC017 /* libPods-Helium-GDataXML-HTML.a */,
+				A75AFC89E5090F664F2161B6 /* libPods-Helium-Helium.a */,
+				5AA34370535A346D35FD1489 /* libPods-Tests.a */,
+				7E63FCBC79A032611E4CBA8F /* libPods-Tests-EDSemver.a */,
+				EA09E1C9218FD8FAF60B4804 /* libPods-Tests-GDataXML-HTML.a */,
+				7902EC5B7B6318926D671570 /* libPods-Tests-Helium.a */,
 			);
-			path = Resources;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		AACAAA452A80A29A8E074FE7 /* Resources */ = {
+		556A75E3A4D0A1C4E10AA6F7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BF20CEE83A94C8A6404C8CBD /* Pod */,
+				7093B9A383407271BF2C1B34 /* HLMAssociatedObjects.h */,
+				E9800FF13EB49FE1B046F771 /* HLMAttributes.h */,
+				160EDCA417B209D2603BE433 /* HLMAttributes.m */,
+				56769E39C61918212D8FE671 /* HLMFrameLayoutManager.h */,
+				3F8192EC9FBF9C2950711F1A /* HLMFrameLayoutManager.m */,
+				DE533B1A290CC3FFA2520471 /* HLMInflatableViewController.h */,
+				78FB0E0DF45B1C36F6BAF32D /* HLMInflatableViewController.m */,
+				042400FA8BE466AD4F25BBF6 /* HLMLayout.h */,
+				986B9E81D0B261E5A490A7C6 /* HLMLayout.m */,
+				8C10DAA4F5B3C0B274CDA517 /* HLMLayoutInflator.h */,
+				F3F5E7B2E655C13C0691108C /* HLMLayoutInflator.m */,
+				B7BC08F171324B2AD9943056 /* HLMLayoutRootView.h */,
+				7103F1CE9EBEC3CD05AA1AE5 /* HLMLayoutRootView.m */,
+				F6C0C6520AB72C0B01F4418D /* HLMLinearLayoutManager.h */,
+				098411D98BF2FF13077181FE /* HLMLinearLayoutManager.m */,
+				DBCFCFBA800FD2F9065094E8 /* HLMRelativeLayoutManager.h */,
+				F13533C902731B7583E54E1B /* HLMRelativeLayoutManager.m */,
+				B57CF13443370BBF4A04C5BB /* HLMResources.h */,
+				575630F63343386E8324B0ED /* HLMResources.m */,
+				1C41A37359ECBB5F1F24F647 /* HLMScrollView.h */,
+				C13187295E71C8E3A3B7814D /* HLMScrollView.m */,
+				833423C91C5E4DFBDD76EEFF /* HLMStyles.h */,
+				1E85409BA3B69DA100180A5C /* HLMStyles.m */,
+				E77280A4A75541DBA1893C12 /* HLMTableViewCell.h */,
+				91DDF6B78F6AF854CFD1DEA6 /* HLMTableViewCell.m */,
+				39E15832E39AF5B28BACDBAE /* HLMViewBinder.h */,
+				6B10926890546FE29F597BB7 /* HLMViewBinder.m */,
+				F354F113395E038A92FB5329 /* NSString+Convert.h */,
+				A48747AE5F69A21E4012A6E9 /* NSString+Convert.m */,
+				864C292E362F47CC17F33786 /* UIColor+HLMImage.h */,
+				565E6E5BE756353B985DD8D9 /* UIColor+HLMImage.m */,
 			);
-			name = Resources;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		B340D1863F31575164774C95 /* GDataXML-HTML */ = {
+		644D1C20EFDBB9B3333225BB /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				07B211D3844F2DA87FFE89A9 /* GDataXMLNode.h */,
-				4249279C636ACE697A66062F /* GDataXMLNode.m */,
-				A66A6C6FBB29CF4E47EF2990 /* Support Files */,
-			);
-			path = "GDataXML-HTML";
-			sourceTree = "<group>";
-		};
-		BF20CEE83A94C8A6404C8CBD /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				A9BD4C48F87775E544A964EE /* Resources */,
+				556A75E3A4D0A1C4E10AA6F7 /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
 		};
-		E39A6E0E077F4AA2470F13C1 /* Frameworks */ = {
+		644E6306628735F4B6836E67 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F86B3CA0222C7455E2B75952 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E89DCB5E213098BCAE96209B /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				764CFA61C5ADCFC2B90FF7F4 /* Helium */,
+				05C1DF87F6D9664FF3307E38 /* Helium */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		F86B3CA0222C7455E2B75952 /* iOS */ = {
+		66DF1661D2694423E54B819C /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				A3104CE43C9BCF02F2AD26BD /* Foundation.framework */,
+				7093874E53737D86F8D6B4D4 /* Resources */,
 			);
-			name = iOS;
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		7093874E53737D86F8D6B4D4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A7BAFEC44E1843B3DFA63663 /* helium_res.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		70C669846200C6B907DACC7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19F6617A3E99A02B5901E836 /* EDSemver */,
+				7568B222F7CFBC9A5F4AC567 /* GDataXML-HTML */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7568B222F7CFBC9A5F4AC567 /* GDataXML-HTML */ = {
+			isa = PBXGroup;
+			children = (
+				86B9B4A7D2E790EA177A9E85 /* GDataXMLNode.h */,
+				04C3B08BECC58D007D907E70 /* GDataXMLNode.m */,
+				3526415F5C0DF92725DD468A /* Support Files */,
+			);
+			path = "GDataXML-HTML";
+			sourceTree = "<group>";
+		};
+		BCE1D0B3FD4C85DBCDE11118 /* Pods-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				70E7C3FEE4F6DCCD9915BE96 /* Pods-Tests-acknowledgements.markdown */,
+				31ECEB5712275490C09A47B5 /* Pods-Tests-acknowledgements.plist */,
+				799F580858F4A9B0B426E646 /* Pods-Tests-dummy.m */,
+				5D78506649B3BF0B3097003A /* Pods-Tests-environment.h */,
+				AD24CB2A850504998BBFE175 /* Pods-Tests-resources.sh */,
+				AC9E7930328D1658FAC02D3A /* Pods-Tests.debug.xcconfig */,
+				BAC69319CA81B049B9B13D74 /* Pods-Tests.release.xcconfig */,
+			);
+			name = "Pods-Tests";
+			path = "Target Support Files/Pods-Tests";
+			sourceTree = "<group>";
+		};
+		BE5E39DC702CB9B523DADC3A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3886E6C0BC6D2BB1BF80D0E /* Pods-Helium-Helium.xcconfig */,
+				7A403178087B0744AABD7662 /* Pods-Helium-Helium-Private.xcconfig */,
+				556885896BD6C6E6328134B1 /* Pods-Helium-Helium-dummy.m */,
+				35655D5829C1AA38127D1409 /* Pods-Helium-Helium-prefix.pch */,
+				D33D8A50CE6FF1E0CC5C6BB0 /* Pods-Tests-Helium.xcconfig */,
+				C30B8A845195B7E9297F1BF1 /* Pods-Tests-Helium-Private.xcconfig */,
+				BF95A24E3E41DCCB97E0420B /* Pods-Tests-Helium-dummy.m */,
+				DDC4DE0D5D69601389794A2C /* Pods-Tests-Helium-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Pods-Helium-Helium";
+			sourceTree = "<group>";
+		};
+		E6D75E6A42F5AD1A87E20410 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F04B9234DA506CFE8389357 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB2CD4978958324E2C29AB0D /* Pods-Helium */ = {
+			isa = PBXGroup;
+			children = (
+				3A60A43E3635A035BDAAC99C /* Pods-Helium-acknowledgements.markdown */,
+				E6ADB82631D47B822583A3AE /* Pods-Helium-acknowledgements.plist */,
+				A6C1664BD7A572215C857BB1 /* Pods-Helium-dummy.m */,
+				896BAF528C607FEAE3BF38FD /* Pods-Helium-environment.h */,
+				4A9010EDE9655E771473DC3D /* Pods-Helium-resources.sh */,
+				7731224604521F33C36DF5AA /* Pods-Helium.debug.xcconfig */,
+				1B50FE0F6A307B71A88C3E51 /* Pods-Helium.release.xcconfig */,
+			);
+			name = "Pods-Helium";
+			path = "Target Support Files/Pods-Helium";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		39CAB348B5C63AE8B504457D /* Headers */ = {
+		2613305813DA79A3080DA1D6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8836E0D21B2E22C283DF49AA /* EDSemver.h in Headers */,
+				A0FCD724C4521115DB1BD129 /* GDataXMLNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		72784413BC8CBF443CC1295F /* Headers */ = {
+		3B46AA5D2003FFBBE0E37E25 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C777114A717AD694F29C331 /* GDataXMLNode.h in Headers */,
+				79B49BDF204672086DEB5437 /* EDSemver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ED480889053AD1E0F104708 /* Headers */ = {
+		4EFD4CF6C5B46CB59433DBFE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0103474AAA94F586D71ABC1C /* HLMAssociatedObjects.h in Headers */,
-				D8A458C45B5842D1EE3C5096 /* HLMAttributes.h in Headers */,
-				245BA7DECF09B8C7D2297867 /* HLMFrameLayoutManager.h in Headers */,
-				97D3CD2AFBCC97DC64935224 /* HLMInflatableViewController.h in Headers */,
-				D9792B4EEE374565F26A1059 /* HLMLayout.h in Headers */,
-				EA8250C4643C6D767F7972A2 /* HLMLayoutInflator.h in Headers */,
-				3FDF6855167B68BF2B5DD7A4 /* HLMLayoutRootView.h in Headers */,
-				EECCF8B025008CE9E6D6AC4F /* HLMLinearLayoutManager.h in Headers */,
-				1C7101C2672360BA76A1832D /* HLMRelativeLayoutManager.h in Headers */,
-				45239EA47E30E456CFFB9203 /* HLMResources.h in Headers */,
-				A96A56DD44EFA4D3C20E77C0 /* HLMScrollView.h in Headers */,
-				F58A2894283AD8AC69B3A36F /* HLMStyles.h in Headers */,
-				CE0DC6BCA1EE9FAF50B8F232 /* HLMTableViewCell.h in Headers */,
-				5FFB3A9CF86F8BA818E81A28 /* HLMViewInjector.h in Headers */,
-				568262EF720B11BF0F776F97 /* NSString+Convert.h in Headers */,
-				F15C467946BAA1582C99C226 /* UIColor+HLMImage.h in Headers */,
+				D782E6A6B578B13C7290FE59 /* EDSemver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8FA420CCC000C9B9C527F060 /* Headers */ = {
+		6A3DAA6391B4F90078A06712 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FEFFF3BB20AC914ACCDE5A0 /* GDataXMLNode.h in Headers */,
+				53DC529D5B947A7FEF85F12D /* GDataXMLNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B4D6C6BD7A6164A8726FFF66 /* Headers */ = {
+		CC7996D9879AD199065443F5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8949F2070629DBD1F035E2EB /* HLMAssociatedObjects.h in Headers */,
-				E17BF80FD43278A385351212 /* HLMAttributes.h in Headers */,
-				0A7551AFA895F473CCDE56C8 /* HLMFrameLayoutManager.h in Headers */,
-				5CEAABB17819C41589D0B1B4 /* HLMInflatableViewController.h in Headers */,
-				8CDB89A78FE8E4F0164D291D /* HLMLayout.h in Headers */,
-				887981ECB8CC195D3B21D3A5 /* HLMLayoutInflator.h in Headers */,
-				BC7E72D6FB3BB497F3735E1A /* HLMLayoutRootView.h in Headers */,
-				5FE2B5B715CA313872BFAA7F /* HLMLinearLayoutManager.h in Headers */,
-				9CC521585AD0D81919089247 /* HLMRelativeLayoutManager.h in Headers */,
-				C3453C16825A1E77C3E79ACC /* HLMResources.h in Headers */,
-				9F4D620280A77B24D09E15FA /* HLMScrollView.h in Headers */,
-				B42D3D4530A473D1B0CB1CDF /* HLMStyles.h in Headers */,
-				5CEFFCC7D30FE9F53B2D25ED /* HLMTableViewCell.h in Headers */,
-				F8E59650D5E8F4DAC372601A /* HLMViewInjector.h in Headers */,
-				DA1539FCFEAFC6E994F300BA /* NSString+Convert.h in Headers */,
-				115D2EC9B67EFDA8A2EB7BCC /* UIColor+HLMImage.h in Headers */,
+				7AB4F032DEE522911C1BD501 /* HLMAssociatedObjects.h in Headers */,
+				3E6E4B040ADDF5E33729067B /* HLMAttributes.h in Headers */,
+				33ACD6EDC399110DAD1142F5 /* HLMFrameLayoutManager.h in Headers */,
+				6A36598CC7D0A29FCFEEC22E /* HLMInflatableViewController.h in Headers */,
+				663BE97ED31C67287A0DADC2 /* HLMLayout.h in Headers */,
+				FD9EAAEEF524C94B8CDBF72E /* HLMLayoutInflator.h in Headers */,
+				461FF1D3B67EBEF2123CC004 /* HLMLayoutRootView.h in Headers */,
+				EAE0797168008CED1A9EFED5 /* HLMLinearLayoutManager.h in Headers */,
+				F1567BA2F4DB9C54D8533424 /* HLMRelativeLayoutManager.h in Headers */,
+				AF94A8EDD7CE90114D65BD9C /* HLMResources.h in Headers */,
+				132AD9F07F5D99B9CDE9F305 /* HLMScrollView.h in Headers */,
+				1480147ED6ED9BC4DDAFD314 /* HLMStyles.h in Headers */,
+				9C17E8C2E976DD9210320279 /* HLMTableViewCell.h in Headers */,
+				73D9E6C208D6693C59619714 /* HLMViewBinder.h in Headers */,
+				432448A53AFE6A4E1CDE1347 /* NSString+Convert.h in Headers */,
+				832D6FE5DAA41A0688E9084A /* UIColor+HLMImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE9BC196A6D337558A561AFA /* Headers */ = {
+		DC78B7F78D51C02D68F3BB8A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D0352171A7819CB0818BCF /* EDSemver.h in Headers */,
+				10730B630FF171A9DB336DA5 /* HLMAssociatedObjects.h in Headers */,
+				9E9C3E7D04AE26FE6ED948DB /* HLMAttributes.h in Headers */,
+				2F92EAE15F3E5FA031E8A2ED /* HLMFrameLayoutManager.h in Headers */,
+				6B5733B68F5E1594E2AAF9FD /* HLMInflatableViewController.h in Headers */,
+				DE33AB17B54C2395DFE6DBD6 /* HLMLayout.h in Headers */,
+				23B3CEEFD08923CB7C8E19C9 /* HLMLayoutInflator.h in Headers */,
+				F2ACF9EF9266742F271F6999 /* HLMLayoutRootView.h in Headers */,
+				11EAAD38395DD9B3C7E6B1D6 /* HLMLinearLayoutManager.h in Headers */,
+				E91607AA56B0EF38E01ABB9A /* HLMRelativeLayoutManager.h in Headers */,
+				0387C697295153716623FCF9 /* HLMResources.h in Headers */,
+				1763624DABB31A5F79DEF8A1 /* HLMScrollView.h in Headers */,
+				EDB3F6E919A1C9B904EAEFAD /* HLMStyles.h in Headers */,
+				67432E7BEE4C9B33C42C74CA /* HLMTableViewCell.h in Headers */,
+				B4D2E35319627B3A2B9E17D3 /* HLMViewBinder.h in Headers */,
+				363AC242FE3EA477A36AC94F /* NSString+Convert.h in Headers */,
+				2AF2C02004B7A68BBA8DE84B /* UIColor+HLMImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		12289888E9054AE8E82D3503 /* Pods-Helium-GDataXML-HTML */ = {
+		0BBDE75CCE8664730CAFBE50 /* Pods-Tests-GDataXML-HTML */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 397E2C8C21FF630A56251EA7 /* Build configuration list for PBXNativeTarget "Pods-Helium-GDataXML-HTML" */;
+			buildConfigurationList = 6C249EE35EA68DB189B1DA97 /* Build configuration list for PBXNativeTarget "Pods-Tests-GDataXML-HTML" */;
 			buildPhases = (
-				F77A3E233C075285D043B281 /* Sources */,
-				D79BCB244A9F76AC280A928D /* Frameworks */,
-				72784413BC8CBF443CC1295F /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Helium-GDataXML-HTML";
-			productName = "Pods-Helium-GDataXML-HTML";
-			productReference = 4947365F0612779125D3287C /* libPods-Helium-GDataXML-HTML.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		2C2E2B71BC84114D5BF36BFE /* Pods-Helium-EDSemver */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E2EBB8157B3BC0DEB9EE2EAA /* Build configuration list for PBXNativeTarget "Pods-Helium-EDSemver" */;
-			buildPhases = (
-				B13F4625FBD54546E0CE0D96 /* Sources */,
-				3444980BEF2D6BC04E995CC3 /* Frameworks */,
-				39CAB348B5C63AE8B504457D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Helium-EDSemver";
-			productName = "Pods-Helium-EDSemver";
-			productReference = 2FD27B8F7EFF3C8C582E5110 /* libPods-Helium-EDSemver.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		38C47E002CE9F0764DC4E65A /* Pods-Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7D85FAE46785DA861849BA71 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
-			buildPhases = (
-				B887F5291B65A7629AF06D9E /* Sources */,
-				980F9618DF82F8A3BAF1BFFB /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				78B89C443420E42F1C0BFF9D /* PBXTargetDependency */,
-				BE5039482CF873579B50C086 /* PBXTargetDependency */,
-				6FBCB34C8EFB223F13880BB8 /* PBXTargetDependency */,
-			);
-			name = "Pods-Tests";
-			productName = "Pods-Tests";
-			productReference = 8A79C8F4F3670A682004B0CE /* libPods-Tests.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		7E4F65C3BD613FD5848D3FE0 /* Pods-Tests-EDSemver */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5DEB1900C26E0801849CA8B6 /* Build configuration list for PBXNativeTarget "Pods-Tests-EDSemver" */;
-			buildPhases = (
-				533ACF4B865230F6662AD819 /* Sources */,
-				B821C02C270F8A6B8E6037A0 /* Frameworks */,
-				EE9BC196A6D337558A561AFA /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Tests-EDSemver";
-			productName = "Pods-Tests-EDSemver";
-			productReference = E337A6F5FEB3FB34E1A7D5A9 /* libPods-Tests-EDSemver.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		A9E599790A05708656132A98 /* Pods-Tests-GDataXML-HTML */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D76F975CD00F8AF9CF842A80 /* Build configuration list for PBXNativeTarget "Pods-Tests-GDataXML-HTML" */;
-			buildPhases = (
-				8CBFB4170D855177818B5674 /* Sources */,
-				31333D0E05E2DB023DFC7A0A /* Frameworks */,
-				8FA420CCC000C9B9C527F060 /* Headers */,
+				53AB07FE36EB4694AD36EA41 /* Sources */,
+				904A8386D508877C49CB4AAB /* Frameworks */,
+				6A3DAA6391B4F90078A06712 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -739,280 +669,366 @@
 			);
 			name = "Pods-Tests-GDataXML-HTML";
 			productName = "Pods-Tests-GDataXML-HTML";
-			productReference = 5A2020CCB5747B1D87882FC8 /* libPods-Tests-GDataXML-HTML.a */;
+			productReference = EA09E1C9218FD8FAF60B4804 /* libPods-Tests-GDataXML-HTML.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		B965E5FB896899031AF83BFE /* Pods-Helium-Helium */ = {
+		4449206C988940779F2AEC4C /* Pods-Helium-EDSemver */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 936662162B2DFAC96B82C59E /* Build configuration list for PBXNativeTarget "Pods-Helium-Helium" */;
+			buildConfigurationList = 392B7CB3E4712C0EB42F908E /* Build configuration list for PBXNativeTarget "Pods-Helium-EDSemver" */;
 			buildPhases = (
-				78C97750A304F48F58A6B67B /* Sources */,
-				4B4AC4D8D7E00A5B2968898A /* Frameworks */,
-				7ED480889053AD1E0F104708 /* Headers */,
+				CE81C29F576142129BAFFDFF /* Sources */,
+				84E94986E7297405BDCF278F /* Frameworks */,
+				3B46AA5D2003FFBBE0E37E25 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A686A867295610BE740ACF43 /* PBXTargetDependency */,
-				2AE56F4D30B3B0FBC82ED12F /* PBXTargetDependency */,
 			);
-			name = "Pods-Helium-Helium";
-			productName = "Pods-Helium-Helium";
-			productReference = 093ACD0859F6179FB5B56325 /* libPods-Helium-Helium.a */;
+			name = "Pods-Helium-EDSemver";
+			productName = "Pods-Helium-EDSemver";
+			productReference = 074071B179911EEF9D896237 /* libPods-Helium-EDSemver.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CA39B43080CB327760CFA41D /* Pods-Helium */ = {
+		770B4F8B216344DB9EB14FCF /* Pods-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13EF0051DE82D6AE07793341 /* Build configuration list for PBXNativeTarget "Pods-Helium" */;
+			buildConfigurationList = 6D5F939A2C7F8C80B882F624 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
 			buildPhases = (
-				C60BD4480E4596CF13FDE94A /* Sources */,
-				62F16C33D476789DC90A9254 /* Frameworks */,
+				6D075490AC5E1C7C24C51FE2 /* Sources */,
+				FFCFF2353871537CA35A2DB3 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3232F925855F076C81767CF5 /* PBXTargetDependency */,
-				34C62231DD89DFEA8AF9B901 /* PBXTargetDependency */,
-				D429999E74A4720029FC2F05 /* PBXTargetDependency */,
+				3DC0D4ACBEAE14C9254969C6 /* PBXTargetDependency */,
+				E84847E182530E43FE90CF34 /* PBXTargetDependency */,
+				06DA2100F9B21FC8ECD038F3 /* PBXTargetDependency */,
 			);
-			name = "Pods-Helium";
-			productName = "Pods-Helium";
-			productReference = 9D9A819D914FC89C3AC557D4 /* libPods-Helium.a */;
+			name = "Pods-Tests";
+			productName = "Pods-Tests";
+			productReference = 5AA34370535A346D35FD1489 /* libPods-Tests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D00E00D8E183D8F63DBB384F /* Pods-Tests-Helium */ = {
+		B3824AE24CC90E8D42CBDC44 /* Pods-Tests-Helium */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EC1647BE3344C6F286E4929 /* Build configuration list for PBXNativeTarget "Pods-Tests-Helium" */;
+			buildConfigurationList = BBD6153A4522A89D09498C74 /* Build configuration list for PBXNativeTarget "Pods-Tests-Helium" */;
 			buildPhases = (
-				A8C9CA3E120E555F8935B645 /* Sources */,
-				50B21E1495DA99684A9DBC94 /* Frameworks */,
-				B4D6C6BD7A6164A8726FFF66 /* Headers */,
+				616C4CDA017FAF0D54A259B0 /* Sources */,
+				F88B3647A9B18EC116E22074 /* Frameworks */,
+				DC78B7F78D51C02D68F3BB8A /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AD1E49B45FE8EF0D0F922939 /* PBXTargetDependency */,
-				A31CCF3DE873F1E6E123AF9A /* PBXTargetDependency */,
+				E44F2147A5BE70C258D9FBB2 /* PBXTargetDependency */,
+				76DB76DAD270403C571F2F8D /* PBXTargetDependency */,
 			);
 			name = "Pods-Tests-Helium";
 			productName = "Pods-Tests-Helium";
-			productReference = 217A344FBC4AD2091227FF60 /* libPods-Tests-Helium.a */;
+			productReference = 7902EC5B7B6318926D671570 /* libPods-Tests-Helium.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C58CD459A1011414A7F172BF /* Pods-Helium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12B76C8894504273CB5FE242 /* Build configuration list for PBXNativeTarget "Pods-Helium" */;
+			buildPhases = (
+				EC6AC28FCA1C60AFB1C72D91 /* Sources */,
+				3E3438B0E2C02FCD763289CB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36424AF03F7E9757FB87E456 /* PBXTargetDependency */,
+				6F440CEBC7A2E2B693A56AFD /* PBXTargetDependency */,
+				CDAA2A9B5894EB428FB1527C /* PBXTargetDependency */,
+			);
+			name = "Pods-Helium";
+			productName = "Pods-Helium";
+			productReference = DC481F39ABECB809064D6FDA /* libPods-Helium.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C8245D19715250EA8129F914 /* Pods-Tests-EDSemver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BB1F8907D1E7966A66C1522 /* Build configuration list for PBXNativeTarget "Pods-Tests-EDSemver" */;
+			buildPhases = (
+				A8902327284D6AE627927EF8 /* Sources */,
+				78F6B1B8DEDB0B90D4A15EF1 /* Frameworks */,
+				4EFD4CF6C5B46CB59433DBFE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests-EDSemver";
+			productName = "Pods-Tests-EDSemver";
+			productReference = 7E63FCBC79A032611E4CBA8F /* libPods-Tests-EDSemver.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EACF219EF6346C1E9973A2D5 /* Pods-Helium-Helium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 838FD40D31AA0192A39AA8C9 /* Build configuration list for PBXNativeTarget "Pods-Helium-Helium" */;
+			buildPhases = (
+				E1D08D2B9CBD8FC4E7255F38 /* Sources */,
+				93E064C3CC3731F653D9F1D8 /* Frameworks */,
+				CC7996D9879AD199065443F5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A73A772E434B0C6095DC7EE /* PBXTargetDependency */,
+				212DE10149E8B7A1ECB26817 /* PBXTargetDependency */,
+			);
+			name = "Pods-Helium-Helium";
+			productName = "Pods-Helium-Helium";
+			productReference = A75AFC89E5090F664F2161B6 /* libPods-Helium-Helium.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FFB0CFB5D4CCA929D3278538 /* Pods-Helium-GDataXML-HTML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7517C0D5694412C99BB54B9F /* Build configuration list for PBXNativeTarget "Pods-Helium-GDataXML-HTML" */;
+			buildPhases = (
+				37C71D13C4D4342D0F2E1C2B /* Sources */,
+				2EF5A635E1D4FD34380F07E4 /* Frameworks */,
+				2613305813DA79A3080DA1D6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Helium-GDataXML-HTML";
+			productName = "Pods-Helium-GDataXML-HTML";
+			productReference = E1833F581B134615FC0CC017 /* libPods-Helium-GDataXML-HTML.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AB1E1AC08A567E2FD560E11D /* Project object */ = {
+		33FE47225F548B696E9ED243 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = B6917861861D45E576D50D5C /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 32FD6FD488C6FA4089B2F25C /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7BFCF872DFC1837C5E847A53;
-			productRefGroup = 5774749860A064200181960A /* Products */;
+			mainGroup = 11A471DAC7ADD13154ACB6FF;
+			productRefGroup = 456B8F1A1BB8E40A949382B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA39B43080CB327760CFA41D /* Pods-Helium */,
-				2C2E2B71BC84114D5BF36BFE /* Pods-Helium-EDSemver */,
-				12289888E9054AE8E82D3503 /* Pods-Helium-GDataXML-HTML */,
-				B965E5FB896899031AF83BFE /* Pods-Helium-Helium */,
-				38C47E002CE9F0764DC4E65A /* Pods-Tests */,
-				7E4F65C3BD613FD5848D3FE0 /* Pods-Tests-EDSemver */,
-				A9E599790A05708656132A98 /* Pods-Tests-GDataXML-HTML */,
-				D00E00D8E183D8F63DBB384F /* Pods-Tests-Helium */,
+				C58CD459A1011414A7F172BF /* Pods-Helium */,
+				4449206C988940779F2AEC4C /* Pods-Helium-EDSemver */,
+				FFB0CFB5D4CCA929D3278538 /* Pods-Helium-GDataXML-HTML */,
+				EACF219EF6346C1E9973A2D5 /* Pods-Helium-Helium */,
+				770B4F8B216344DB9EB14FCF /* Pods-Tests */,
+				C8245D19715250EA8129F914 /* Pods-Tests-EDSemver */,
+				0BBDE75CCE8664730CAFBE50 /* Pods-Tests-GDataXML-HTML */,
+				B3824AE24CC90E8D42CBDC44 /* Pods-Tests-Helium */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		533ACF4B865230F6662AD819 /* Sources */ = {
+		37C71D13C4D4342D0F2E1C2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				206EDCA47D07984D4E3D61C2 /* EDSemver.m in Sources */,
-				74E98A3E340CB89364C1851C /* Pods-Tests-EDSemver-dummy.m in Sources */,
+				73605A16F57828DCA5DE25C5 /* GDataXMLNode.m in Sources */,
+				BD4EBA4FDE22F29B9D4B4594 /* Pods-Helium-GDataXML-HTML-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78C97750A304F48F58A6B67B /* Sources */ = {
+		53AB07FE36EB4694AD36EA41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77F5F64B86EB5E19E02683A9 /* HLMAttributes.m in Sources */,
-				17B54A83BA6F2EE167A9EBEB /* HLMFrameLayoutManager.m in Sources */,
-				AE310559E986010A31535969 /* HLMInflatableViewController.m in Sources */,
-				63C253AF03B2708011E67FB0 /* HLMLayout.m in Sources */,
-				18A2299633D48984C19ED9F9 /* HLMLayoutInflator.m in Sources */,
-				359351416A776BF359EFFE51 /* HLMLayoutRootView.m in Sources */,
-				B73F8D19ADDF7C69EB8BDE13 /* HLMLinearLayoutManager.m in Sources */,
-				6ECBE4FB907968A7C1EF846F /* HLMRelativeLayoutManager.m in Sources */,
-				6FEADC8766E003AA08C8730E /* HLMResources.m in Sources */,
-				710F4881F939F498F565FC8A /* HLMScrollView.m in Sources */,
-				4EF1B7A2D85D017DCBB2DFC1 /* HLMStyles.m in Sources */,
-				CEC9A91F72640513B402E5EC /* HLMTableViewCell.m in Sources */,
-				89A585D98F796AA81B388768 /* HLMViewInjector.m in Sources */,
-				9929863EFBE4532A38342119 /* NSString+Convert.m in Sources */,
-				C86F665FF80D0A0D826CED29 /* Pods-Helium-Helium-dummy.m in Sources */,
-				34B44795AF4A859F359C2B53 /* UIColor+HLMImage.m in Sources */,
+				068CFFB4BCC7BF8867B429AC /* GDataXMLNode.m in Sources */,
+				810D81C756245CCD02C83142 /* Pods-Tests-GDataXML-HTML-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CBFB4170D855177818B5674 /* Sources */ = {
+		616C4CDA017FAF0D54A259B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5960AFEC434773BB63CECA7F /* GDataXMLNode.m in Sources */,
-				42250D0FC0AA615CBE3D8CE5 /* Pods-Tests-GDataXML-HTML-dummy.m in Sources */,
+				4B5A3F54CCAB53950B315765 /* HLMAttributes.m in Sources */,
+				67951C6A4685394911CA0421 /* HLMFrameLayoutManager.m in Sources */,
+				A8C65CC1B2D5D024E47A1ECF /* HLMInflatableViewController.m in Sources */,
+				54EB7201C85977CFF6AAC8A7 /* HLMLayout.m in Sources */,
+				7CF752E2BDEE26DC7DC22C32 /* HLMLayoutInflator.m in Sources */,
+				411674F7FB5C8B19693EF105 /* HLMLayoutRootView.m in Sources */,
+				5FE41E71A9F4FFC33D7B0B2A /* HLMLinearLayoutManager.m in Sources */,
+				3C1EFB5915D1FDD97A03A5E5 /* HLMRelativeLayoutManager.m in Sources */,
+				DD9DD7FA08F9D664D7911E54 /* HLMResources.m in Sources */,
+				052B638C4EA9F05EA58F09A5 /* HLMScrollView.m in Sources */,
+				99CAB556454E7C91D57C82F3 /* HLMStyles.m in Sources */,
+				C02A98F3CA46BA522B0DE30D /* HLMTableViewCell.m in Sources */,
+				F3CC5700E8FAFDFEAE35D538 /* HLMViewBinder.m in Sources */,
+				AA48B1A3D9FC2E3AD5202890 /* NSString+Convert.m in Sources */,
+				E9B931A85F39B929334CCB6B /* Pods-Tests-Helium-dummy.m in Sources */,
+				794AD27C50C642C7EDAAD2BA /* UIColor+HLMImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A8C9CA3E120E555F8935B645 /* Sources */ = {
+		6D075490AC5E1C7C24C51FE2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10349CD8C6FA7572677AA907 /* HLMAttributes.m in Sources */,
-				411DDBDF6E2D6846F1D737C5 /* HLMFrameLayoutManager.m in Sources */,
-				E3C0C8C18DA155D5DCA5EDBC /* HLMInflatableViewController.m in Sources */,
-				2966E6C67CC92B0045F8142C /* HLMLayout.m in Sources */,
-				8C19EA1CC9C4361D529187D9 /* HLMLayoutInflator.m in Sources */,
-				95375FEF63E81F6998DB1F91 /* HLMLayoutRootView.m in Sources */,
-				066CD2B126C7BC5BAC013E95 /* HLMLinearLayoutManager.m in Sources */,
-				2966E389FE7D425192B8C43D /* HLMRelativeLayoutManager.m in Sources */,
-				7C4946C700286FBDBBEF36D4 /* HLMResources.m in Sources */,
-				05ADB2D96AD53BCB224E90CB /* HLMScrollView.m in Sources */,
-				930899A7DE3DEBAD34EC6F8E /* HLMStyles.m in Sources */,
-				CA1D6AFF54DED6527AEE622B /* HLMTableViewCell.m in Sources */,
-				8B3C4B9CDA24F052A8A301BF /* HLMViewInjector.m in Sources */,
-				7983D41057AA89830B786FBF /* NSString+Convert.m in Sources */,
-				253A5BE458546703C4FBA8F9 /* Pods-Tests-Helium-dummy.m in Sources */,
-				C2D24A3A2D064BAA39F360FA /* UIColor+HLMImage.m in Sources */,
+				5D8E2FE3478E4A43653A81CF /* Pods-Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B13F4625FBD54546E0CE0D96 /* Sources */ = {
+		A8902327284D6AE627927EF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27973C29FFABA1EFDFC58BB0 /* EDSemver.m in Sources */,
-				AD12034BEF23D4464BA604D8 /* Pods-Helium-EDSemver-dummy.m in Sources */,
+				E49D53E21E44249830A01E2F /* EDSemver.m in Sources */,
+				62C7D6615727772E3ECFA3C3 /* Pods-Tests-EDSemver-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B887F5291B65A7629AF06D9E /* Sources */ = {
+		CE81C29F576142129BAFFDFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE6DE526D320C3BBC6D4096 /* Pods-Tests-dummy.m in Sources */,
+				9ABD84A11F43F0B3F762DC40 /* EDSemver.m in Sources */,
+				6B6619E52F53F11C63BF96D6 /* Pods-Helium-EDSemver-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C60BD4480E4596CF13FDE94A /* Sources */ = {
+		E1D08D2B9CBD8FC4E7255F38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D866809BEBA546FB6418D8C9 /* Pods-Helium-dummy.m in Sources */,
+				0B2A453C263F506E83050181 /* HLMAttributes.m in Sources */,
+				EE36B8F29864A41DEA7098C3 /* HLMFrameLayoutManager.m in Sources */,
+				6123BCF78FE586AEAB16A5AB /* HLMInflatableViewController.m in Sources */,
+				0759CD9AFC247D2D1A30B9C1 /* HLMLayout.m in Sources */,
+				1D2B4D80EF1FD11A7C7C743E /* HLMLayoutInflator.m in Sources */,
+				EFF12C76B53C6E12E6B070F7 /* HLMLayoutRootView.m in Sources */,
+				A5B2C8FA96310D649BB05252 /* HLMLinearLayoutManager.m in Sources */,
+				37995C6766A065E8DA960645 /* HLMRelativeLayoutManager.m in Sources */,
+				3E7C737495FF3E680B435169 /* HLMResources.m in Sources */,
+				BCD22AC057A2944734CD8C1C /* HLMScrollView.m in Sources */,
+				B328944F5BBBDD1691F1BDE2 /* HLMStyles.m in Sources */,
+				68AFEBE77B41C1F09C3C659A /* HLMTableViewCell.m in Sources */,
+				3F9C1D8D64A57F79DD10D17A /* HLMViewBinder.m in Sources */,
+				05A9FBB9A15BCB83A3730374 /* NSString+Convert.m in Sources */,
+				4917E17BE35284CA2E8CB39F /* Pods-Helium-Helium-dummy.m in Sources */,
+				263073548037C71DC65CDF87 /* UIColor+HLMImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F77A3E233C075285D043B281 /* Sources */ = {
+		EC6AC28FCA1C60AFB1C72D91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE83F286A01C240A8C44AA5A /* GDataXMLNode.m in Sources */,
-				B1CAEE9D853AB28E5DDB8914 /* Pods-Helium-GDataXML-HTML-dummy.m in Sources */,
+				CBDAC592FAFBE628FB3CCAEC /* Pods-Helium-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2AE56F4D30B3B0FBC82ED12F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Helium-GDataXML-HTML";
-			target = 12289888E9054AE8E82D3503 /* Pods-Helium-GDataXML-HTML */;
-			targetProxy = F964D87DE986466AF1D3B40E /* PBXContainerItemProxy */;
-		};
-		3232F925855F076C81767CF5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Helium-EDSemver";
-			target = 2C2E2B71BC84114D5BF36BFE /* Pods-Helium-EDSemver */;
-			targetProxy = EBDC74E7BE6DF6F380594844 /* PBXContainerItemProxy */;
-		};
-		34C62231DD89DFEA8AF9B901 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Helium-GDataXML-HTML";
-			target = 12289888E9054AE8E82D3503 /* Pods-Helium-GDataXML-HTML */;
-			targetProxy = 7BCD3A5664835324E9948B55 /* PBXContainerItemProxy */;
-		};
-		6FBCB34C8EFB223F13880BB8 /* PBXTargetDependency */ = {
+		06DA2100F9B21FC8ECD038F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Tests-Helium";
-			target = D00E00D8E183D8F63DBB384F /* Pods-Tests-Helium */;
-			targetProxy = DA18D7775BE53C025A34956F /* PBXContainerItemProxy */;
+			target = B3824AE24CC90E8D42CBDC44 /* Pods-Tests-Helium */;
+			targetProxy = 0A90866845E6F5CE3BFCAB5E /* PBXContainerItemProxy */;
 		};
-		78B89C443420E42F1C0BFF9D /* PBXTargetDependency */ = {
+		212DE10149E8B7A1ECB26817 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Tests-EDSemver";
-			target = 7E4F65C3BD613FD5848D3FE0 /* Pods-Tests-EDSemver */;
-			targetProxy = CB7A827E1B0F71A8F3BB6DD5 /* PBXContainerItemProxy */;
+			name = "Pods-Helium-GDataXML-HTML";
+			target = FFB0CFB5D4CCA929D3278538 /* Pods-Helium-GDataXML-HTML */;
+			targetProxy = 49776360BAC7C85B5C8DD278 /* PBXContainerItemProxy */;
 		};
-		A31CCF3DE873F1E6E123AF9A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Tests-GDataXML-HTML";
-			target = A9E599790A05708656132A98 /* Pods-Tests-GDataXML-HTML */;
-			targetProxy = 90AF469B6EC006705EEC5B5D /* PBXContainerItemProxy */;
-		};
-		A686A867295610BE740ACF43 /* PBXTargetDependency */ = {
+		2A73A772E434B0C6095DC7EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Helium-EDSemver";
-			target = 2C2E2B71BC84114D5BF36BFE /* Pods-Helium-EDSemver */;
-			targetProxy = 0F5B6201D4ACE84E0053DD51 /* PBXContainerItemProxy */;
+			target = 4449206C988940779F2AEC4C /* Pods-Helium-EDSemver */;
+			targetProxy = A524E2BF2688137C7E5A2F2B /* PBXContainerItemProxy */;
 		};
-		AD1E49B45FE8EF0D0F922939 /* PBXTargetDependency */ = {
+		36424AF03F7E9757FB87E456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Helium-EDSemver";
+			target = 4449206C988940779F2AEC4C /* Pods-Helium-EDSemver */;
+			targetProxy = 2DCA21EF23FD5E862085615A /* PBXContainerItemProxy */;
+		};
+		3DC0D4ACBEAE14C9254969C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Tests-EDSemver";
-			target = 7E4F65C3BD613FD5848D3FE0 /* Pods-Tests-EDSemver */;
-			targetProxy = 8457D11BE2C2A7D739C753A9 /* PBXContainerItemProxy */;
+			target = C8245D19715250EA8129F914 /* Pods-Tests-EDSemver */;
+			targetProxy = 57EF77536A17BE96EF49A4B6 /* PBXContainerItemProxy */;
 		};
-		BE5039482CF873579B50C086 /* PBXTargetDependency */ = {
+		6F440CEBC7A2E2B693A56AFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Helium-GDataXML-HTML";
+			target = FFB0CFB5D4CCA929D3278538 /* Pods-Helium-GDataXML-HTML */;
+			targetProxy = F1D889251FFFC55A48C64645 /* PBXContainerItemProxy */;
+		};
+		76DB76DAD270403C571F2F8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Tests-GDataXML-HTML";
-			target = A9E599790A05708656132A98 /* Pods-Tests-GDataXML-HTML */;
-			targetProxy = 32285976C84AA343B798F582 /* PBXContainerItemProxy */;
+			target = 0BBDE75CCE8664730CAFBE50 /* Pods-Tests-GDataXML-HTML */;
+			targetProxy = 087A366391F7AA15BC3AC34E /* PBXContainerItemProxy */;
 		};
-		D429999E74A4720029FC2F05 /* PBXTargetDependency */ = {
+		CDAA2A9B5894EB428FB1527C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Helium-Helium";
-			target = B965E5FB896899031AF83BFE /* Pods-Helium-Helium */;
-			targetProxy = F3470319F2440D4BDB185B2B /* PBXContainerItemProxy */;
+			target = EACF219EF6346C1E9973A2D5 /* Pods-Helium-Helium */;
+			targetProxy = 396EAF80EB381EB994DE0748 /* PBXContainerItemProxy */;
+		};
+		E44F2147A5BE70C258D9FBB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-EDSemver";
+			target = C8245D19715250EA8129F914 /* Pods-Tests-EDSemver */;
+			targetProxy = 177F9265E2207A856B4ED427 /* PBXContainerItemProxy */;
+		};
+		E84847E182530E43FE90CF34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Tests-GDataXML-HTML";
+			target = 0BBDE75CCE8664730CAFBE50 /* Pods-Tests-GDataXML-HTML */;
+			targetProxy = BD1FAAF2F54FE1C56266BEA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		006F3A2854BF595B4B7BDE8A /* Debug */ = {
+		0EBD4A451F5B7F9EAA2CB221 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9617C62CA40511BDB1F5807A /* Pods-Helium-EDSemver-Private.xcconfig */;
+			baseConfigurationReference = BAC69319CA81B049B9B13D74 /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-EDSemver/Pods-Helium-EDSemver-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		13681207AFBD7235FED797E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C30B8A845195B7E9297F1BF1 /* Pods-Tests-Helium-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-Helium/Pods-Tests-Helium-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		2138498CF829F3212E42FF0A /* Release */ = {
+		291AA86C498EE3C931808475 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1046,76 +1062,60 @@
 			};
 			name = Release;
 		};
-		26C09E2E1B6F9AE4A3D91E12 /* Debug */ = {
+		2F2A30FCCC17A3BDA8CA70CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B54E6C143DEA5C37BB77D107 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */;
+			baseConfigurationReference = 561DD2E2FD0B676F64558487 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
+			name = Release;
+		};
+		4D305C745EF8D45E863DF3E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC9E7930328D1658FAC02D3A /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
 			name = Debug;
 		};
-		2CDBBCD1C40EFF4FA3BC723E /* Debug */ = {
+		4F14AFFDA24EC4DEB63926FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFC35EDFFA60293587572C72 /* Pods-Helium-Helium-Private.xcconfig */;
+			baseConfigurationReference = 7A403178087B0744AABD7662 /* Pods-Helium-Helium-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-Helium/Pods-Helium-Helium-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		3909CDB8461504D653D26D96 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B79BDE54908DA367C78C159 /* Pods-Tests-EDSemver-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		492B9C705D15251E0B1EDB71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 883FA6B3AF296E3D9515FC39 /* Pods-Helium.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		5395242B8A46335F39067976 /* Release */ = {
+		6312097047BE35443AA8B16D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B54E6C143DEA5C37BB77D107 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */;
+			baseConfigurationReference = 36D18AC8562441E8C09401D1 /* Pods-Helium-GDataXML-HTML-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-GDataXML-HTML/Pods-Helium-GDataXML-HTML-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1126,41 +1126,9 @@
 			};
 			name = Release;
 		};
-		64B0A709974901BED238368F /* Release */ = {
+		763E346370F3B65A6D39FC98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B79BDE54908DA367C78C159 /* Pods-Tests-EDSemver-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		6D34E733F3B0A07814E16689 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB6A99346F9292A0F4F74307 /* Pods-Tests.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		B9022713AFEC4EA57532F601 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9ED2569B1BB5E4843527BE0D /* Pods-Tests-Helium-Private.xcconfig */;
+			baseConfigurationReference = C30B8A845195B7E9297F1BF1 /* Pods-Tests-Helium-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-Helium/Pods-Tests-Helium-prefix.pch";
@@ -1174,7 +1142,23 @@
 			};
 			name = Debug;
 		};
-		BC30E4BA46DE142095B13386 /* Debug */ = {
+		93DB249212E78488C435D06D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59984FA38CD4377A14A9BA22 /* Pods-Helium-EDSemver-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-EDSemver/Pods-Helium-EDSemver-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9DB70E213008CF811736383A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1213,28 +1197,12 @@
 			};
 			name = Debug;
 		};
-		C286611891520D227843E914 /* Release */ = {
+		9FC38F5489BF9657B7219560 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9ED2569B1BB5E4843527BE0D /* Pods-Tests-Helium-Private.xcconfig */;
+			baseConfigurationReference = 5508BBB092023BC9CDFE42A7 /* Pods-Tests-EDSemver-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-Helium/Pods-Tests-Helium-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		C785D30A71D4BF7705E4D232 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0946D09130957ED65415E0AC /* Pods-Helium-GDataXML-HTML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-GDataXML-HTML/Pods-Helium-GDataXML-HTML-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1245,57 +1213,41 @@
 			};
 			name = Debug;
 		};
-		C979A50135DC573AA6437422 /* Release */ = {
+		B24C3757F78C53F2E47759DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0946D09130957ED65415E0AC /* Pods-Helium-GDataXML-HTML-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-GDataXML-HTML/Pods-Helium-GDataXML-HTML-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		F1300B38475C1B0040256202 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 092C693382E889F798127EE9 /* Pods-Helium.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		FBA3DDBB5E09F10A6053C995 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFC35EDFFA60293587572C72 /* Pods-Helium-Helium-Private.xcconfig */;
+			baseConfigurationReference = 7A403178087B0744AABD7662 /* Pods-Helium-Helium-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-Helium/Pods-Helium-Helium-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		FE3EC068CB6EC1A9B3D4B8C5 /* Debug */ = {
+		CB58FDE3252EFD88EA971A02 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2A8B56BF2E65B00B7A475F3 /* Pods-Tests.debug.xcconfig */;
+			baseConfigurationReference = 36D18AC8562441E8C09401D1 /* Pods-Helium-GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-GDataXML-HTML/Pods-Helium-GDataXML-HTML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CE9BA073428946AD36D34503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7731224604521F33C36DF5AA /* Pods-Helium.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1309,16 +1261,64 @@
 			};
 			name = Debug;
 		};
-		FF0B0C135CD96C3778F8D619 /* Release */ = {
+		E1CD92DF394E8CF74FAA8B04 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9617C62CA40511BDB1F5807A /* Pods-Helium-EDSemver-Private.xcconfig */;
+			baseConfigurationReference = 561DD2E2FD0B676F64558487 /* Pods-Tests-GDataXML-HTML-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-GDataXML-HTML/Pods-Tests-GDataXML-HTML-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E6698409B1C5D8878F8ADD08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59984FA38CD4377A14A9BA22 /* Pods-Helium-EDSemver-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Helium-EDSemver/Pods-Helium-EDSemver-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F0C36916C8E48A2FFA5D9B3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5508BBB092023BC9CDFE42A7 /* Pods-Tests-EDSemver-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Tests-EDSemver/Pods-Tests-EDSemver-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FEE0532909BEFB568A45DE38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B50FE0F6A307B71A88C3E51 /* Pods-Helium.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1328,88 +1328,88 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13EF0051DE82D6AE07793341 /* Build configuration list for PBXNativeTarget "Pods-Helium" */ = {
+		12B76C8894504273CB5FE242 /* Build configuration list for PBXNativeTarget "Pods-Helium" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1300B38475C1B0040256202 /* Debug */,
-				492B9C705D15251E0B1EDB71 /* Release */,
+				CE9BA073428946AD36D34503 /* Debug */,
+				FEE0532909BEFB568A45DE38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		397E2C8C21FF630A56251EA7 /* Build configuration list for PBXNativeTarget "Pods-Helium-GDataXML-HTML" */ = {
+		1BB1F8907D1E7966A66C1522 /* Build configuration list for PBXNativeTarget "Pods-Tests-EDSemver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C785D30A71D4BF7705E4D232 /* Debug */,
-				C979A50135DC573AA6437422 /* Release */,
+				9FC38F5489BF9657B7219560 /* Debug */,
+				F0C36916C8E48A2FFA5D9B3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DEB1900C26E0801849CA8B6 /* Build configuration list for PBXNativeTarget "Pods-Tests-EDSemver" */ = {
+		32FD6FD488C6FA4089B2F25C /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3909CDB8461504D653D26D96 /* Debug */,
-				64B0A709974901BED238368F /* Release */,
+				9DB70E213008CF811736383A /* Debug */,
+				291AA86C498EE3C931808475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7D85FAE46785DA861849BA71 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+		392B7CB3E4712C0EB42F908E /* Build configuration list for PBXNativeTarget "Pods-Helium-EDSemver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE3EC068CB6EC1A9B3D4B8C5 /* Debug */,
-				6D34E733F3B0A07814E16689 /* Release */,
+				E6698409B1C5D8878F8ADD08 /* Debug */,
+				93DB249212E78488C435D06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		936662162B2DFAC96B82C59E /* Build configuration list for PBXNativeTarget "Pods-Helium-Helium" */ = {
+		6C249EE35EA68DB189B1DA97 /* Build configuration list for PBXNativeTarget "Pods-Tests-GDataXML-HTML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2CDBBCD1C40EFF4FA3BC723E /* Debug */,
-				FBA3DDBB5E09F10A6053C995 /* Release */,
+				E1CD92DF394E8CF74FAA8B04 /* Debug */,
+				2F2A30FCCC17A3BDA8CA70CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EC1647BE3344C6F286E4929 /* Build configuration list for PBXNativeTarget "Pods-Tests-Helium" */ = {
+		6D5F939A2C7F8C80B882F624 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B9022713AFEC4EA57532F601 /* Debug */,
-				C286611891520D227843E914 /* Release */,
+				4D305C745EF8D45E863DF3E3 /* Debug */,
+				0EBD4A451F5B7F9EAA2CB221 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6917861861D45E576D50D5C /* Build configuration list for PBXProject "Pods" */ = {
+		7517C0D5694412C99BB54B9F /* Build configuration list for PBXNativeTarget "Pods-Helium-GDataXML-HTML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BC30E4BA46DE142095B13386 /* Debug */,
-				2138498CF829F3212E42FF0A /* Release */,
+				CB58FDE3252EFD88EA971A02 /* Debug */,
+				6312097047BE35443AA8B16D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D76F975CD00F8AF9CF842A80 /* Build configuration list for PBXNativeTarget "Pods-Tests-GDataXML-HTML" */ = {
+		838FD40D31AA0192A39AA8C9 /* Build configuration list for PBXNativeTarget "Pods-Helium-Helium" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				26C09E2E1B6F9AE4A3D91E12 /* Debug */,
-				5395242B8A46335F39067976 /* Release */,
+				B24C3757F78C53F2E47759DB /* Debug */,
+				4F14AFFDA24EC4DEB63926FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2EBB8157B3BC0DEB9EE2EAA /* Build configuration list for PBXNativeTarget "Pods-Helium-EDSemver" */ = {
+		BBD6153A4522A89D09498C74 /* Build configuration list for PBXNativeTarget "Pods-Tests-Helium" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				006F3A2854BF595B4B7BDE8A /* Debug */,
-				FF0B0C135CD96C3778F8D619 /* Release */,
+				763E346370F3B65A6D39FC98 /* Debug */,
+				13681207AFBD7235FED797E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AB1E1AC08A567E2FD560E11D /* Project object */;
+	rootObject = 33FE47225F548B696E9ED243 /* Project object */;
 }

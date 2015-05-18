@@ -13,7 +13,7 @@ Goals
 -----
 - A drop in view language that mimics similar attributes from android layouts, but, allows use without the need for subclassing library views or having the libraries views clutter up the view hierarchy
 - Custom view attributes
-- A view locator like [ButterKnife](https://github.com/JakeWharton/butterknife) so arbitrary objects can have views "injected" into them from a root view. (Similar to an IBOutlet)
+- A view binder like [ButterKnife](https://github.com/JakeWharton/butterknife) so arbitrary objects can have views bound into them from a root view. (Similar to an IBOutlet)
 - A collection of predefined layouts (linear/frame/relative/etc...) that can be assigned to any view
 - Custom layouts
 - A resources pattern that loads the correct view/string/dimension for the current device config
@@ -49,7 +49,7 @@ todo: Actually make this relevant and up to date, using the best practices as we
 @end
 
 @implementation HLMViewController
-INJECT_VIEW_OPTIONAL(example, example_tag)
+BIND_VIEW_OPTIONAL(example, example_tag)
 
 -(NSString *) layoutResource {
     return @"@view/example_view";
