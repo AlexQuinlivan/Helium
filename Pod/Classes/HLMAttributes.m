@@ -57,62 +57,42 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
 
 @implementation HLMAttributes
 
-+(void) initialize {
-    [super initialize];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self loadAttributesFromResources];
-    });
-}
-
-+(void) loadAttributesFromResources {
++(void) insertStyleable:(GDataXMLElement *) styleable fromResource:(HLMBucketResource *) resource {
     NSDictionary* attributeMap = self.attributeMap;
-    NSArray* paths = [HLMResources pathsForResource:@"@values/attrs"];
-    for (HLMBucketResource* attrPath in paths) {
-        NSString* fullPath = [NSString stringWithFormat:@"%@/%@", NSBundle.mainBundle.bundlePath, attrPath.path];
-        NSError* error;
-        NSData* data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
-        GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithData:data
-                                                                   encoding:NSUTF8StringEncoding
-                                                                      error:&error];
-        NSArray* styleables = [document.rootElement elementsForName:@"styleable"];
-        for (GDataXMLElement* styleable in styleables) {
-            if (styleable.kind != GDataXMLElementKind) {
-                continue;
-            }
-            NSString* styledClassString = [styleable attributeForName:@"name"].stringValue; // @todo: Unused, use this to apply attrs to classes
-            Class styledClass = NSClassFromString(styledClassString);
-            if (!styledClass) {
-                @throw [NSException exceptionWithName:@"HLMAttributesLoadException"
-                                               reason:[NSString stringWithFormat:@"Failed to find class for styleable (%@)", styledClassString]
-                                             userInfo:nil];
-            }
-            for (GDataXMLElement* attr in styleable.children) {
-                if (attr.kind != GDataXMLElementKind) {
-                    continue;
-                }
-                NSString* name = [attr attributeForName:@"name"].stringValue;
-                NSString* format = [attr attributeForName:@"format"].stringValue;
-                NSString* propertyAlias = [attr attributeForName:@"property_alias"].stringValue;
-                HLMAttribute* attribute = [[HLMAttribute alloc] initWithName:name
-                                                                      format:format
-                                                               propertyAlias:propertyAlias
-                                                                    resource:attrPath
-                                                                 styledClass:styledClass];
-                NSMutableArray* attributesWithNameAndNamespace = attributeMap[attribute.nmspace][attribute.name];
-                if (!attributesWithNameAndNamespace) {
-                    attributesWithNameAndNamespace = [NSMutableArray new];
-                    attributeMap[attribute.nmspace][attribute.name] = attributesWithNameAndNamespace;
-                }
-                NSUInteger newIndex = [attributesWithNameAndNamespace indexOfObject:attribute
-                                                                      inSortedRange:NSMakeRange(0, attributesWithNameAndNamespace.count)
-                                                                            options:NSBinarySearchingInsertionIndex
-                                                                    usingComparator:^NSComparisonResult(HLMAttribute* obj1, HLMAttribute* obj2) {
-                                                                        return HLMResources.bucketComparator(obj1.resource, obj2.resource);
-                                                                    }];
-                [attributesWithNameAndNamespace insertObject:attribute atIndex:newIndex];
-            }
+    if (styleable.kind != GDataXMLElementKind) {
+        return;
+    }
+    NSString* styledClassString = [styleable attributeForName:@"name"].stringValue; // @todo: Unused, use this to apply attrs to classes
+    Class styledClass = NSClassFromString(styledClassString);
+    if (!styledClass) {
+        @throw [NSException exceptionWithName:@"HLMAttributesLoadException"
+                                       reason:[NSString stringWithFormat:@"Failed to find class for styleable (%@)", styledClassString]
+                                     userInfo:nil];
+    }
+    for (GDataXMLElement* attr in styleable.children) {
+        if (attr.kind != GDataXMLElementKind) {
+            continue;
         }
+        NSString* name = [attr attributeForName:@"name"].stringValue;
+        NSString* format = [attr attributeForName:@"format"].stringValue;
+        NSString* propertyAlias = [attr attributeForName:@"property_alias"].stringValue;
+        HLMAttribute* attribute = [[HLMAttribute alloc] initWithName:name
+                                                              format:format
+                                                       propertyAlias:propertyAlias
+                                                            resource:resource
+                                                         styledClass:styledClass];
+        NSMutableArray* attributesWithNameAndNamespace = attributeMap[attribute.nmspace][attribute.name];
+        if (!attributesWithNameAndNamespace) {
+            attributesWithNameAndNamespace = [NSMutableArray new];
+            attributeMap[attribute.nmspace][attribute.name] = attributesWithNameAndNamespace;
+        }
+        NSUInteger newIndex = [attributesWithNameAndNamespace indexOfObject:attribute
+                                                              inSortedRange:NSMakeRange(0, attributesWithNameAndNamespace.count)
+                                                                    options:NSBinarySearchingInsertionIndex
+                                                            usingComparator:^NSComparisonResult(HLMAttribute* obj1, HLMAttribute* obj2) {
+                                                                return HLMResources.bucketComparator(obj1.resource, obj2.resource);
+                                                            }];
+        [attributesWithNameAndNamespace insertObject:attribute atIndex:newIndex];
     }
 }
 
@@ -135,7 +115,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
     return attributesMap;
 }
 
-+(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace forView:(UIView *) view {
++(HLMAttribute *) attributeWithName:(NSString *) name inNamespace:(NSString *) nmspace forView:(UIView *) view {
     NSParameterAssert(name);
     HLMDeviceConfig* currentDevice = HLMDeviceConfig.currentDevice;
     if (!nmspace || [@"" isEqualToString:nmspace]

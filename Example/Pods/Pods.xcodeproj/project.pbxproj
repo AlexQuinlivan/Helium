@@ -92,6 +92,17 @@
 		F2ACF9EF9266742F271F6999 /* HLMLayoutRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = B7BC08F171324B2AD9943056 /* HLMLayoutRootView.h */; };
 		F3CC5700E8FAFDFEAE35D538 /* HLMViewBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B10926890546FE29F597BB7 /* HLMViewBinder.m */; };
 		F7493CBF6579841170BE227B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
+		FA74FC351B09E203003CAC74 /* HLMStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74FC331B09E203003CAC74 /* HLMStrings.h */; };
+		FA74FC361B09E203003CAC74 /* HLMStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74FC341B09E203003CAC74 /* HLMStrings.m */; };
+		FA74FC391B09E219003CAC74 /* HLMStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74FC331B09E203003CAC74 /* HLMStrings.h */; };
+		FA74FC3A1B09E219003CAC74 /* HLMStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74FC341B09E203003CAC74 /* HLMStrings.m */; };
+		FA74FC3D1B09EDAC003CAC74 /* HLMColors.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74FC3B1B09EDAC003CAC74 /* HLMColors.h */; };
+		FA74FC3E1B09EDAC003CAC74 /* HLMColors.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74FC3C1B09EDAC003CAC74 /* HLMColors.m */; };
+		FA74FC3F1B09EDB2003CAC74 /* HLMColors.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74FC3C1B09EDAC003CAC74 /* HLMColors.m */; };
+		FA74FC421B09F29E003CAC74 /* HLMNumbers.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74FC401B09F29E003CAC74 /* HLMNumbers.h */; };
+		FA74FC431B09F29E003CAC74 /* HLMNumbers.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74FC401B09F29E003CAC74 /* HLMNumbers.h */; };
+		FA74FC441B09F29E003CAC74 /* HLMNumbers.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74FC411B09F29E003CAC74 /* HLMNumbers.m */; };
+		FA74FC451B09F29E003CAC74 /* HLMNumbers.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74FC411B09F29E003CAC74 /* HLMNumbers.m */; };
 		FD9EAAEEF524C94B8CDBF72E /* HLMLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C10DAA4F5B3C0B274CDA517 /* HLMLayoutInflator.h */; };
 /* End PBXBuildFile section */
 
@@ -253,6 +264,12 @@
 		F3F5E7B2E655C13C0691108C /* HLMLayoutInflator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMLayoutInflator.m; sourceTree = "<group>"; };
 		F6C0C6520AB72C0B01F4418D /* HLMLinearLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HLMLinearLayoutManager.h; sourceTree = "<group>"; };
 		F9353AE50A1142C0B55C624A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FA74FC331B09E203003CAC74 /* HLMStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMStrings.h; sourceTree = "<group>"; };
+		FA74FC341B09E203003CAC74 /* HLMStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMStrings.m; sourceTree = "<group>"; };
+		FA74FC3B1B09EDAC003CAC74 /* HLMColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMColors.h; sourceTree = "<group>"; };
+		FA74FC3C1B09EDAC003CAC74 /* HLMColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMColors.m; sourceTree = "<group>"; };
+		FA74FC401B09F29E003CAC74 /* HLMNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMNumbers.h; sourceTree = "<group>"; };
+		FA74FC411B09F29E003CAC74 /* HLMNumbers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMNumbers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +479,12 @@
 				A48747AE5F69A21E4012A6E9 /* NSString+Convert.m */,
 				864C292E362F47CC17F33786 /* UIColor+HLMImage.h */,
 				565E6E5BE756353B985DD8D9 /* UIColor+HLMImage.m */,
+				FA74FC331B09E203003CAC74 /* HLMStrings.h */,
+				FA74FC341B09E203003CAC74 /* HLMStrings.m */,
+				FA74FC3B1B09EDAC003CAC74 /* HLMColors.h */,
+				FA74FC3C1B09EDAC003CAC74 /* HLMColors.m */,
+				FA74FC401B09F29E003CAC74 /* HLMNumbers.h */,
+				FA74FC411B09F29E003CAC74 /* HLMNumbers.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -618,10 +641,13 @@
 				FD9EAAEEF524C94B8CDBF72E /* HLMLayoutInflator.h in Headers */,
 				461FF1D3B67EBEF2123CC004 /* HLMLayoutRootView.h in Headers */,
 				EAE0797168008CED1A9EFED5 /* HLMLinearLayoutManager.h in Headers */,
+				FA74FC3D1B09EDAC003CAC74 /* HLMColors.h in Headers */,
 				F1567BA2F4DB9C54D8533424 /* HLMRelativeLayoutManager.h in Headers */,
 				AF94A8EDD7CE90114D65BD9C /* HLMResources.h in Headers */,
 				132AD9F07F5D99B9CDE9F305 /* HLMScrollView.h in Headers */,
+				FA74FC421B09F29E003CAC74 /* HLMNumbers.h in Headers */,
 				1480147ED6ED9BC4DDAFD314 /* HLMStyles.h in Headers */,
+				FA74FC351B09E203003CAC74 /* HLMStrings.h in Headers */,
 				9C17E8C2E976DD9210320279 /* HLMTableViewCell.h in Headers */,
 				73D9E6C208D6693C59619714 /* HLMViewBinder.h in Headers */,
 				432448A53AFE6A4E1CDE1347 /* NSString+Convert.h in Headers */,
@@ -636,6 +662,7 @@
 				10730B630FF171A9DB336DA5 /* HLMAssociatedObjects.h in Headers */,
 				9E9C3E7D04AE26FE6ED948DB /* HLMAttributes.h in Headers */,
 				2F92EAE15F3E5FA031E8A2ED /* HLMFrameLayoutManager.h in Headers */,
+				FA74FC431B09F29E003CAC74 /* HLMNumbers.h in Headers */,
 				6B5733B68F5E1594E2AAF9FD /* HLMInflatableViewController.h in Headers */,
 				DE33AB17B54C2395DFE6DBD6 /* HLMLayout.h in Headers */,
 				23B3CEEFD08923CB7C8E19C9 /* HLMLayoutInflator.h in Headers */,
@@ -645,6 +672,7 @@
 				0387C697295153716623FCF9 /* HLMResources.h in Headers */,
 				1763624DABB31A5F79DEF8A1 /* HLMScrollView.h in Headers */,
 				EDB3F6E919A1C9B904EAEFAD /* HLMStyles.h in Headers */,
+				FA74FC391B09E219003CAC74 /* HLMStrings.h in Headers */,
 				67432E7BEE4C9B33C42C74CA /* HLMTableViewCell.h in Headers */,
 				B4D2E35319627B3A2B9E17D3 /* HLMViewBinder.h in Headers */,
 				363AC242FE3EA477A36AC94F /* NSString+Convert.h in Headers */,
@@ -865,8 +893,11 @@
 				DD9DD7FA08F9D664D7911E54 /* HLMResources.m in Sources */,
 				052B638C4EA9F05EA58F09A5 /* HLMScrollView.m in Sources */,
 				99CAB556454E7C91D57C82F3 /* HLMStyles.m in Sources */,
+				FA74FC3F1B09EDB2003CAC74 /* HLMColors.m in Sources */,
 				C02A98F3CA46BA522B0DE30D /* HLMTableViewCell.m in Sources */,
+				FA74FC3A1B09E219003CAC74 /* HLMStrings.m in Sources */,
 				F3CC5700E8FAFDFEAE35D538 /* HLMViewBinder.m in Sources */,
+				FA74FC451B09F29E003CAC74 /* HLMNumbers.m in Sources */,
 				AA48B1A3D9FC2E3AD5202890 /* NSString+Convert.m in Sources */,
 				E9B931A85F39B929334CCB6B /* Pods-Tests-Helium-dummy.m in Sources */,
 				794AD27C50C642C7EDAAD2BA /* UIColor+HLMImage.m in Sources */,
@@ -914,8 +945,11 @@
 				3E7C737495FF3E680B435169 /* HLMResources.m in Sources */,
 				BCD22AC057A2944734CD8C1C /* HLMScrollView.m in Sources */,
 				B328944F5BBBDD1691F1BDE2 /* HLMStyles.m in Sources */,
+				FA74FC3E1B09EDAC003CAC74 /* HLMColors.m in Sources */,
 				68AFEBE77B41C1F09C3C659A /* HLMTableViewCell.m in Sources */,
+				FA74FC361B09E203003CAC74 /* HLMStrings.m in Sources */,
 				3F9C1D8D64A57F79DD10D17A /* HLMViewBinder.m in Sources */,
+				FA74FC441B09F29E003CAC74 /* HLMNumbers.m in Sources */,
 				05A9FBB9A15BCB83A3730374 /* NSString+Convert.m in Sources */,
 				4917E17BE35284CA2E8CB39F /* Pods-Helium-Helium-dummy.m in Sources */,
 				263073548037C71DC65CDF87 /* UIColor+HLMImage.m in Sources */,

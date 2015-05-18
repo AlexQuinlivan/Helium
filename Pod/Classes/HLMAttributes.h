@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 @class HLMAttribute;
+@class HLMBucketResource;
+@class GDataXMLElement;
 
 typedef NS_ENUM(NSInteger, HLMAttributeType) {
     ATTRIBUTE_TYPE_STRING,
@@ -39,7 +41,9 @@ typedef NS_ENUM(NSInteger, HLMAttributeType) {
 
 @interface HLMAttributes : NSObject
 
-+(HLMAttribute *) attributeForName:(NSString *) name inNamespace:(NSString *) nmspace forView:(UIView *) view;
++(void) insertStyleable:(GDataXMLElement *) element fromResource:(HLMBucketResource *) resource;
+
++(HLMAttribute *) attributeWithName:(NSString *) name inNamespace:(NSString *) nmspace forView:(UIView *) view;
 
 @end
 

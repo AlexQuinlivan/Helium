@@ -22,7 +22,7 @@
             <UIView
                 helium:layout_width="match_parent"
                 helium:layout_height="100"
-                background_color="#F8D57A" />
+                background_color="@color/red" />
             <HLMScrollView
                 helium:layout_width="match_parent"
                 helium:layout_height="0"

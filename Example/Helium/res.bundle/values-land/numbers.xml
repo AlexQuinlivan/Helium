@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    
+    <number name="natural_number">@bool/a_bool</number>
+    <number name="real_number">@bool/a_bool</number>
+    <bool name="a_bool">NO</bool>
+    
+</resources>

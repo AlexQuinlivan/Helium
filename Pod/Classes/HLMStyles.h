@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @class HLMStyle;
 @class HLMBucketResource;
+@class GDataXMLElement;
 
 @interface HLMStyles : NSObject
+
++(void) insertStyle:(GDataXMLElement *) element fromResource:(HLMBucketResource *) resource;
 
 +(HLMStyle *) styleWithName:(NSString *) name;
 

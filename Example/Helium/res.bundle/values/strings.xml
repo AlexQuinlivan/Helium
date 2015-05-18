@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="hello_world">Hello, world!</string>
+    
+    <string name="hello_world">@string/hello_world_two</string>
+    <string name="hello_world_two">Hello, world!</string>
+    <string-array name="progress">
+        <item>Processing</item>
+        <item>Processing.</item>
+        <item>Processing..</item>
+        <item>Processing...</item>
+    </string-array>
+
+
 </resources>

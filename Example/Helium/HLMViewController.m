@@ -7,6 +7,7 @@
 //
 
 #import "HLMViewController.h"
+#import "HLMResources.h"
 #import "HLMLayout.h"
 
 @interface HLMViewController ()

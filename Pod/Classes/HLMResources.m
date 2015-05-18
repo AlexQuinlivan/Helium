@@ -7,6 +7,12 @@
 //
 
 #import "HLMResources.h"
+#import "HLMAttributes.h"
+#import "HLMStrings.h"
+#import "HLMStyles.h"
+#import "HLMColors.h"
+#import "HLMNumbers.h"
+#import "GDataXMLNode.h"
 #import "EDSemver.h"
 
 static NSString* const HLMResourcesExceptionName = @"HLMResourcesException";
@@ -62,7 +68,6 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
     if (!resourceId) {
         return nil;
     }
-    // TODO: Load resource with bucket qualifiers (disussion)
     HLMResourceTuple* tuple = [[HLMResourceTuple alloc] initWithResourceId:resourceId];
     if (!tuple) {
         @throw [NSException exceptionWithName:HLMResourcesExceptionName
@@ -101,40 +106,34 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
     return self.buckets[resource];
 }
 
-+(NSString *) resolveResourceValue:(NSString *) resourceId {
-    return resourceId; // todo:
-}
-
 +(NSString *) stringValue:(NSString *) stringResource {
     HLMResourceTuple* tuple = [[HLMResourceTuple alloc] initWithResourceId:stringResource];
-    NSString* value = nil;
     if (tuple) {
         if ([HLMResourceStringPrefix isEqualToString:tuple.resourceType]) {
-            value = NSLocalizedString(tuple.resourceName, nil);
+            return [self stringValue:[HLMStrings stringWithName:tuple.resourceName]];
         } else {
             @throw [self unexpectedResourceExceptionParsing:@"NSString*" withResourceId:stringResource];
         }
-    } else {
-        value = stringResource;
     }
-    return value;
+    return stringResource;
 }
 
 +(NSNumber *) numberValue:(NSString *) numberResource {
     HLMResourceTuple* tuple = [[HLMResourceTuple alloc] initWithResourceId:numberResource];
     NSNumber* value = nil;
     if (tuple) {
-        // todo
-        if ([HLMResourceIntegerPrefix isEqualToString:tuple.resourceType]) {
-        } else if ([HLMResourceFloatPrefix isEqualToString:tuple.resourceType]) {
-        } else if ([HLMResourceDoublePrefix isEqualToString:tuple.resourceType]) {
-        } else if ([HLMResourceBoolPrefix isEqualToString:tuple.resourceType]) {
+        NSString* resourceType = tuple.resourceType;
+        if ([HLMResourceIntegerPrefix isEqualToString:resourceType]
+            || [HLMResourceFloatPrefix isEqualToString:resourceType]
+            || [HLMResourceDoublePrefix isEqualToString:resourceType]
+            || [HLMResourceBoolPrefix isEqualToString:resourceType]) {
+            return [self numberValue:[HLMNumbers numberStringWithName:tuple.resourceName]];
         } else {
             @throw [self unexpectedResourceExceptionParsing:@"NSNumber*" withResourceId:numberResource];
         }
     } else {
         if ([numberResource rangeOfString:@"."].location != NSNotFound) {
-            value = @([numberResource floatValue]);
+            value = @([numberResource doubleValue]);
         } else if ([self.boolAliases containsObject:numberResource]) {
             value = @([numberResource boolValue]);
         } else {
@@ -149,7 +148,7 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
 }
 
 +(NSUInteger) unsignedIntegerValue:(NSString *) unsignedIntegerResource {
-    return (NSUInteger) [[self numberValue:unsignedIntegerResource] longLongValue];
+    return [[self numberValue:unsignedIntegerResource] unsignedIntegerValue];
 }
 
 +(BOOL) boolValue:(NSString *) boolResource {
@@ -172,7 +171,7 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
 }
 
 +(long) longValue:(NSString *) longResource {
-    return (long) [self integerValue:longResource];
+    return [[self numberValue:longResource] longValue];
 }
 
 +(float) floatValue:(NSString *) floatResource {
@@ -184,7 +183,11 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
 }
 
 +(CGFloat) cgFloatValue:(NSString *) cgFloatResource {
-    return (CGFloat) [self floatValue:cgFloatResource];
+#if CGFLOAT_IS_DOUBLE
+    return [self doubleValue:cgFloatResource];
+#else
+    return [self floatValue:cgFloatResource];
+#endif
 }
 
 +(CGRect) cgRectValue:(NSString *) cgRectResource {
@@ -208,12 +211,20 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
 }
 
 +(UIColor *) uiColorValue:(NSString *) uiColorResource {
-    NSString* colorString = [self resolveResourceValue:uiColorResource];
+    HLMResourceTuple* tuple = [[HLMResourceTuple alloc] initWithResourceId:uiColorResource];
+    if (tuple) {
+        if ([HLMResourceColorPrefix isEqualToString:tuple.resourceType]) {
+            return [self uiColorValue:[HLMColors colorStringWithName:tuple.resourceName]];
+        } else {
+            @throw [self unexpectedResourceExceptionParsing:@"UIColor*" withResourceId:uiColorResource];
+        }
+    }
+    NSString* colorString = uiColorResource;
     NSUInteger length = colorString.length;
     if (!(length == 4 || length == 5 || length == 7 || length == 9)
         || [colorString characterAtIndex:0] != '#') {
         @throw [NSException exceptionWithName:HLMResourcesExceptionName
-                                       reason:@"Unexpected color format `%@`. Colors should be in the form #rgb, #argb, #rrggbb or #aarrggbb"
+                                       reason:[NSString stringWithFormat:@"Unexpected color format `%@`. Colors should be in the form #rgb, #argb, #rrggbb or #aarrggbb", uiColorResource]
                                      userInfo:nil];
     }
     unsigned short a = 255, r, g, b;
@@ -304,6 +315,56 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
                                                   options:NSBinarySearchingInsertionIndex
                                           usingComparator:self.bucketComparator];
             [resource insertObject:bucketResource atIndex:newIndex];
+            if ([@"values" isEqualToString:bucketString]) {
+                [self loadResources:bucketResource];
+            }
+        }
+    }
+}
+
++(void) loadResources:(HLMBucketResource *) resource {
+    NSString* fullPath = [NSString stringWithFormat:@"%@/%@", NSBundle.mainBundle.bundlePath, resource.path];
+    NSError* error;
+    NSData* data = [[NSFileManager defaultManager] contentsAtPath:fullPath];
+    GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithData:data
+                                                               encoding:NSUTF8StringEncoding
+                                                                  error:&error];
+#if DEBUG
+    if (![document.rootElement.name isEqualToString:@"resources"]) {
+        @throw [NSException exceptionWithName:HLMResourcesExceptionName
+                                       reason:[NSString stringWithFormat:@"Unexpected root element of a resource file `%@`", document.rootElement.name]
+                                     userInfo:nil];
+    }
+#else
+    return;
+#endif
+    NSArray* resources = document.rootElement.children;
+    for (GDataXMLElement* element in resources) {
+        if (element.kind != GDataXMLElementKind) {
+            continue;
+        }
+        if ([element.name isEqualToString:@"styleable"]) {
+            [HLMAttributes insertStyleable:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"string"]) {
+            [HLMStrings insertString:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"string-array"]) {
+            [HLMStrings insertStringArray:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"style"]) {
+            [HLMStyles insertStyle:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"color"]) {
+            [HLMColors insertColor:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"number"]) {
+            [HLMNumbers insertDouble:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"integer"]) {
+            [HLMNumbers insertInteger:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"bool"]) {
+            [HLMNumbers insertBool:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"float"]) {
+            [HLMNumbers insertFloat:element fromResource:resource];
+        } else if ([element.name isEqualToString:@"double"]) {
+            [HLMNumbers insertDouble:element fromResource:resource];
+        } else {
+            NSLog(@"Unsupported: %@", element.name);
         }
     }
 }

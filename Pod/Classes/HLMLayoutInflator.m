@@ -143,7 +143,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
                 break;
             }
         }
-        HLMAttribute* hlmAttribute = [HLMAttributes attributeForName:name inNamespace:nmspace forView:view];
+        HLMAttribute* hlmAttribute = [HLMAttributes attributeWithName:name inNamespace:nmspace forView:view];
         if (!hlmAttribute) {
             NSLog(@"[ERROR]: Undeclared attribute `%@` skipped", name);
         } else {
