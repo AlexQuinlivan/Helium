@@ -24,6 +24,7 @@ static NSString* const HLMResourceFloatPrefix = @"@float";
 static NSString* const HLMResourceDoublePrefix = @"@double";
 static NSString* const HLMResourceIntegerPrefix = @"@integer";
 static NSString* const HLMResourceBoolPrefix = @"@bool";
+static NSString* const HLMResourceNumberPrefix = @"@number";
 static NSString* const HLMResourceColorPrefix = @"@color";
 
 NSString* const HLMDeviceConfigDidChangeNotification = @"HLMDeviceConfigDidChangeNotification";
@@ -123,7 +124,8 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
     NSNumber* value = nil;
     if (tuple) {
         NSString* resourceType = tuple.resourceType;
-        if ([HLMResourceIntegerPrefix isEqualToString:resourceType]
+        if ([HLMResourceNumberPrefix isEqualToString:resourceType]
+            || [HLMResourceIntegerPrefix isEqualToString:resourceType]
             || [HLMResourceFloatPrefix isEqualToString:resourceType]
             || [HLMResourceDoublePrefix isEqualToString:resourceType]
             || [HLMResourceBoolPrefix isEqualToString:resourceType]) {
