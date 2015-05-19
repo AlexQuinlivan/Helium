@@ -55,27 +55,46 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
                                        reason:@"Found element with no name"
                                      userInfo:nil];
     }
-    Class clazz = NSClassFromString(className);
-    if (!clazz) {
-        @throw [NSException exceptionWithName:HLMInflatorExceptionName
-                                       reason:[NSString stringWithFormat:@"Failed to find view with class name \"%@\"", className]
-                                     userInfo:nil];
+    if ([@"include" isEqualToString:className]) {
+        GDataXMLNode* includeAttr = [element attributeForName:@"view"];
+        NSString* includeLayout = includeAttr.stringValue;
+        if (!includeLayout) {
+            @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                           reason:@"<include /> without view attribute"
+                                         userInfo:nil];
+        }
+        if (element.childCount) {
+            @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                           reason:[NSString stringWithFormat:@"<include /> found with children. (View: %@)", includeLayout]
+                                         userInfo:nil];
+        }
+        UIView* includeView = [[HLMLayoutInflator alloc] initWithLayout:includeLayout].inflate;
+        [element removeChild:includeAttr];
+        [self applyAttributesToView:includeView fromElement:element namespaces:namespaces ignoreRequisites:YES];
+        return includeView;
+    } else {
+        Class clazz = NSClassFromString(className);
+        if (!clazz) {
+            @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                           reason:[NSString stringWithFormat:@"Failed to find view with class name \"%@\"", className]
+                                         userInfo:nil];
+        }
+        NSArray* elementNamespaces = element.namespaces;
+        if (elementNamespaces.count) {
+            NSMutableArray* newNamespaces = [NSMutableArray arrayWithArray:namespaces];
+            [newNamespaces addObjectsFromArray:elementNamespaces];
+            namespaces = newNamespaces;
+        }
+        UIView* view = [(UIView *)[clazz alloc] initWithFrame:HLMLayoutInflator.minFrame];
+        view.clipsToBounds = YES;
+        [self applyAttributesToView:view fromElement:element namespaces:namespaces ignoreRequisites:NO];
+        [self inflateChildrenOfView:view fromElement:element namespaces:namespaces];
+        if ([view conformsToProtocol:@protocol(HLMLayoutInflationListener)]
+            && [view respondsToSelector:@selector(didInflateChildren)]) {
+            [view performSelector:@selector(didInflateChildren)];
+        }
+        return view;
     }
-    NSArray* elementNamespaces = element.namespaces;
-    if (elementNamespaces.count) {
-        NSMutableArray* newNamespaces = [NSMutableArray arrayWithArray:namespaces];
-        [newNamespaces addObjectsFromArray:elementNamespaces];
-        namespaces = newNamespaces;
-    }
-    UIView* view = [(UIView *)[clazz alloc] initWithFrame:HLMLayoutInflator.minFrame];
-    view.clipsToBounds = YES;
-    [self applyAttributesToView:view fromElement:element namespaces:namespaces];
-    [self inflateChildrenOfView:view fromElement:element namespaces:namespaces];
-    if ([view conformsToProtocol:@protocol(HLMLayoutInflationListener)]
-        && [view respondsToSelector:@selector(didInflateChildren)]) {
-        [view performSelector:@selector(didInflateChildren)];
-    }
-    return view;
 }
 
 -(void) inflateChildrenOfView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
@@ -93,7 +112,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
     }
 }
 
--(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
+-(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces ignoreRequisites:(BOOL) ignoreRequisites {
     BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = view.hlm_layoutManager != nil;
     NSArray* attributeElements = element.attributes;
     NSMutableArray* attributes = [[NSMutableArray alloc] initWithCapacity:attributeElements.count];
@@ -160,12 +179,12 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
         }
 
     }
-    if (!layoutManagerSet && element.children.count) {
+    if (!ignoreRequisites && !layoutManagerSet && element.children.count) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
                                        reason:[NSString stringWithFormat:@"View (`%@`) inflated with no layout and has children", element.name]
                                      userInfo:nil];
     }
-    if (!layoutWidthSet || !layoutHeightSet) {
+    if (!ignoreRequisites && (!layoutWidthSet || !layoutHeightSet)) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
                                        reason:[NSString stringWithFormat:@"View (`%@`) inflated without both layout_width and layout_height", element.name]
                                      userInfo:nil];

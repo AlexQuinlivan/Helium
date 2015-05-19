@@ -124,13 +124,7 @@
                     helium:layout_width="50"
                     helium:layout_height="match_parent"
                     background_color="#000" />
-                <UIView
-                    tag="blue_square"
-                    helium:layout_width="0"
-                    helium:layout_height="match_parent"
-                    helium:layout_weight="1"
-                    helium:margin_left="10"
-                    background_color="#152FA8" />
+                <include view="@view/include_view" />
             </UIView>
         </UIView>
     </UIView>

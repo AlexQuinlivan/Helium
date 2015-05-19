@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<UIView xmlns:helium="http://quinlivan.co.nz/helium"
+    tag="blue_square"
+    helium:layout_width="0"
+    helium:layout_height="match_parent"
+    helium:layout_weight="1"
+    helium:margin_left="10"
+    background_color="#152FA8" />
