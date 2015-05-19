@@ -94,7 +94,7 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 }
 
 -(void) applyAttributesToView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
-    BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = view.hlm_layoutManager;
+    BOOL layoutWidthSet = NO, layoutHeightSet = NO, layoutManagerSet = view.hlm_layoutManager != nil;
     NSArray* attributeElements = element.attributes;
     NSMutableArray* attributes = [[NSMutableArray alloc] initWithCapacity:attributeElements.count];
     for (GDataXMLNode* attribute in attributeElements) {
