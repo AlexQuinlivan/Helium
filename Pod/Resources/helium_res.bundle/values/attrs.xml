@@ -70,7 +70,7 @@
         <attr name="text_color" format="color" />
         <attr name="shadow_color" format="color" />
         <!-- <attr name="shadow_offset" format="cgsize" />  @todo: Unsupported format: CGSize -->
-        <!-- <attr name="text_alignment" format="text_alignment"  @todo: Unsupported format: NSTextAlignment -->
+        <attr name="text_alignment" format="text_alignment" />
         <!-- <attr name="line_break_mode" format="line_break_mode" />  @todo: Unsupported format: NSLineBreakMode -->
         <attr name="higlighted_text_color" format="color" />
         <attr name="highlighted" format="bool" />
@@ -126,7 +126,7 @@
         <attr name="text" format="string" />
         <attr name="text_color" format="color" />
         <attr name="font" format="font" />
-        <!-- <attr name="text_alignment" format="text_alignment"  @todo: Unsupported format: NSTextAlignment -->
+        <attr name="text_alignment" format="text_alignment" />
         <!-- <attr name="border_style" format="border_style" />  @todo: Unsupported format: UITextBorderStyle -->
         <attr name="placeholder" format="string" />
         <attr name="clears_on_begin_editing" format="bool" />

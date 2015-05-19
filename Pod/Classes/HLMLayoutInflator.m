@@ -361,6 +361,27 @@ case _attr: {\
             method(view, setterSelector, contentMode);
             break;
         }
+        case ATTRIBUTE_TYPE_TEXT_ALIGNMENT: {
+            void (*method)(id, SEL, NSTextAlignment) = (void *)setterImp;
+            NSTextAlignment alignment;
+            if ([@"left" isEqualToString:value]) {
+                alignment = NSTextAlignmentLeft;
+            } else if ([@"right" isEqualToString:value]) {
+                alignment = NSTextAlignmentRight;
+            } else if ([@"center" isEqualToString:value]) {
+                alignment = NSTextAlignmentCenter;
+            } else if ([@"justified" isEqualToString:value]) {
+                alignment = NSTextAlignmentJustified;
+            } else if ([@"natural" isEqualToString:value]) {
+                alignment = NSTextAlignmentNatural;
+            } else {
+                @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                               reason:[NSString stringWithFormat:@"Unexpected text alignment found `%@`", value]
+                                             userInfo:nil];
+            }
+            method(view, setterSelector, alignment);
+            break;
+        }
         default: {
             NSLog(@"[ERROR]: Unable to set `%@` on view of type `%@`", attribute.name, NSStringFromClass(view.class));
             break;

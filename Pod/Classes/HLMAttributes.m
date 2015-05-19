@@ -37,6 +37,7 @@ static NSString* const HLMAttributeFormatFont = @"font";
 static NSString* const HLMAttributeFormatImage = @"image";
 static NSString* const HLMAttributeFormatImageRenderingMode = @"image_rendering_mode";
 static NSString* const HLMAttributeFormatContentMode = @"content_mode";
+static NSString* const HLMAttributeFormatTextAlignment = @"text_alignment";
 
 static NSString* const HLMAttributesNamespaceDefault = @"default";
 static NSString* const HLMAttributesNamespaceHelium = @"helium";
@@ -205,6 +206,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
                     HLMAttributeFormatImage : @(ATTRIBUTE_TYPE_UI_IMAGE),
                     HLMAttributeFormatImageRenderingMode : @(ATTRIBUTE_TYPE_UI_IMAGE_RENDERING_MODE),
                     HLMAttributeFormatContentMode : @(ATTRIBUTE_TYPE_UI_VIEW_CONTENT_MODE),
+                    HLMAttributeFormatTextAlignment : @(ATTRIBUTE_TYPE_TEXT_ALIGNMENT),
                     };
     });
     NSNumber* type = typeMap[format];
