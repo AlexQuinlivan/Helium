@@ -45,10 +45,41 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 }
 
 -(UIView *) inflate {
-    return [self inflateViewFromXml:self->layoutXml.rootElement namespaces:@[]];
+    id inflated = [self inflateViewFromXml:self->layoutXml.rootElement namespaces:@[]];
+    if ([inflated isKindOfClass:NSArray.class]) {
+        @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                       reason:@"<merge /> used as root element to be inflated"
+                                     userInfo:nil];
+    }
+    return inflated;
 }
 
--(UIView *) inflateViewFromXml:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
+-(NSArray *) inflateAsInclude {
+    if ([self->layoutXml.rootElement.name isEqualToString:@"merge"]) {
+        NSArray* namespaces = self->layoutXml.rootElement.namespaces ?: @[];
+        NSMutableArray* inflatedViews = [NSMutableArray new];
+        for (GDataXMLElement* element in self->layoutXml.rootElement.children) {
+            if (element.kind != GDataXMLElementKind) {
+                continue;
+            }
+            id inflated = [self inflateViewFromXml:element namespaces:namespaces];
+            if ([inflated isKindOfClass:NSArray.class]) {
+                [inflatedViews addObjectsFromArray:inflated];
+            } else {
+                [inflatedViews addObject:inflated];
+            }
+        }
+        return inflatedViews;
+    } else {
+        id inflated = [self inflateViewFromXml:self->layoutXml.rootElement namespaces:@[]];
+        if ([inflated isKindOfClass:NSArray.class]) {
+            return inflated;
+        }
+        return @[inflated];
+    }
+}
+
+-(id) inflateViewFromXml:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
     NSString* className = element.name;
     if (!className) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
@@ -68,10 +99,15 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
                                            reason:[NSString stringWithFormat:@"<include /> found with children. (View: %@)", includeLayout]
                                          userInfo:nil];
         }
-        UIView* includeView = [[HLMLayoutInflator alloc] initWithLayout:includeLayout].inflate;
-        [element removeChild:includeAttr];
-        [self applyAttributesToView:includeView fromElement:element namespaces:namespaces ignoreRequisites:YES];
-        return includeView;
+        NSArray* includeViews = [[HLMLayoutInflator alloc] initWithLayout:includeLayout].inflateAsInclude;
+        if (includeViews.count == 1) {
+            UIView* includeView = includeViews[0];
+            [element removeChild:includeAttr];
+            [self applyAttributesToView:includeView fromElement:element namespaces:namespaces ignoreRequisites:YES];
+            return includeView;
+        } else {
+            return includeViews;
+        }
     } else {
         Class clazz = NSClassFromString(className);
         if (!clazz) {
@@ -103,12 +139,22 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
         if (child.kind != GDataXMLElementKind) {
             continue;
         }
-        UIView* childView = [self inflateViewFromXml:child namespaces:namespaces];
-        [view addSubview:childView];
-        if ([view conformsToProtocol:@protocol(HLMLayoutInflationListener)]
-            && [view respondsToSelector:@selector(didInflateChild:)]) {
-            [view performSelector:@selector(didInflateChild:) withObject:childView];
+        id inflated = [self inflateViewFromXml:child namespaces:namespaces];
+        if ([inflated isKindOfClass:NSArray.class]) {
+            for (UIView* child in inflated) {
+                [self didInflateView:child asChildOfView:view];
+            }
+        } else {
+            [self didInflateView:inflated asChildOfView:view];
         }
+    }
+}
+
+-(void) didInflateView:(UIView *) view asChildOfView:(UIView *) superview {
+    [superview addSubview:view];
+    if ([superview conformsToProtocol:@protocol(HLMLayoutInflationListener)]
+        && [superview respondsToSelector:@selector(didInflateChild:)]) {
+        [superview performSelector:@selector(didInflateChild:) withObject:view];
     }
 }
 

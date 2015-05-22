@@ -128,28 +128,5 @@
             </UIView>
         </UIView>
     </UIView>
-    <UIView
-        tag="square_0"
-        helium:layout_width="80"
-        helium:layout_height="80"
-        helium:layout_gravity="left|top"
-        background_color="#AAF44336" />
-    <UIView
-        tag="square_1"
-        helium:layout_width="80"
-        helium:layout_height="80"
-        helium:layout_gravity="left|bottom"
-        background_color="#AA4CAF50" />
-    <UIView
-        tag="square_2"
-        helium:layout_width="80"
-        helium:layout_height="80"
-        helium:layout_gravity="right|bottom"
-        background_color="#AA2196F3" />
-    <UIView
-        tag="square_3"
-        helium:layout_width="80"
-        helium:layout_height="80"
-        helium:layout_gravity="right|top"
-        background_color="#AAFFEB3B" />
+    <include view="@view/merge_view" />
 </UIView>
