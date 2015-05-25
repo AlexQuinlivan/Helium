@@ -81,19 +81,53 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 @property (nonatomic) CGFloat hlm_translationY;
 @property (nonatomic) CGFloat hlm_layoutWidth;
 @property (nonatomic) CGFloat hlm_layoutHeight;
-@property (nonatomic) CGFloat hlm_layoutWeight;
 @property (nonatomic) HLMGravity hlm_layoutGravity;
 @property (nonatomic) CGFloat hlm_measuredWidth;
 @property (nonatomic) CGFloat hlm_measuredHeight;
 @property (nonatomic) CGFloat hlm_minWidth;
 @property (nonatomic) CGFloat hlm_minHeight;
+@property (nonatomic) HLMGravity hlm_gravity;
+@property (nonatomic, strong) id<HLMLayoutManager> hlm_layoutManager;
+@property (nonatomic) BOOL hlm_overridesLayoutGuides;
+
+@end
+
+@interface UIView (HLMLinearLayoutProperties)
+
+@property (nonatomic) CGFloat hlm_layoutWeight;
 @property (nonatomic) HLMLayoutOrientation hlm_orientation;
 @property (nonatomic) BOOL hlm_baselineAligned;
 @property (nonatomic) NSInteger hlm_baselineAlignedChildIndex;
 @property (nonatomic) CGFloat hlm_weightSum;
-@property (nonatomic) HLMGravity hlm_gravity;
-@property (nonatomic, strong) id<HLMLayoutManager> hlm_layoutManager;
-@property (nonatomic) BOOL hlm_overridesLayoutGuides;
+
+@end
+
+@interface UIView (HLMRelativeLayoutProperties)
+
+@property (nonatomic) NSInteger hlm_layoutAbove;
+@property (nonatomic) NSInteger hlm_layoutAlignBaseline;
+@property (nonatomic) NSInteger hlm_layoutAlignBottom;
+@property (nonatomic) NSInteger hlm_layoutAlignEnd;
+@property (nonatomic) NSInteger hlm_layoutAlignLeft;
+@property (nonatomic) BOOL hlm_layoutAlignParentBottom;
+@property (nonatomic) BOOL hlm_layoutAlignParentEnd;
+@property (nonatomic) BOOL hlm_layoutAlignParentLeft;
+@property (nonatomic) BOOL hlm_layoutAlignParentRight;
+@property (nonatomic) BOOL hlm_layoutAlignParentStart;
+@property (nonatomic) BOOL hlm_layoutAlignParentTop;
+@property (nonatomic) NSInteger hlm_layoutAlignRight;
+@property (nonatomic) NSInteger hlm_layoutAlignStart;
+@property (nonatomic) NSInteger hlm_layoutAlignTop;
+@property (nonatomic) BOOL hlm_layoutAlignWithParentIfMissing;
+@property (nonatomic) NSInteger hlm_layoutBelow;
+@property (nonatomic) BOOL hlm_layoutCenterHorizontal;
+@property (nonatomic) BOOL hlm_layoutCenterInParent;
+@property (nonatomic) BOOL hlm_layoutCenterVertical;
+@property (nonatomic) NSInteger hlm_layoutToEndOf;
+@property (nonatomic) NSInteger hlm_layoutToLeftOf;
+@property (nonatomic) NSInteger hlm_layoutToRightOf;
+@property (nonatomic) NSInteger hlm_layoutToStartOf;
+@property (nonatomic, strong) NSNumber* hlm_ignoreGravity;
 
 @end
 

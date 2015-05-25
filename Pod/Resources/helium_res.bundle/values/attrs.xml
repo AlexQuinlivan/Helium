@@ -30,11 +30,38 @@
         <attr name="helium:overrides_layout_guides" format="bool" property_alias="hlm_overridesLayoutGuides" />
         
         
+        <!-- Relative layout properties -->
+        <attr name="helium:layout_above" format="string_hash" property_alias="hlm_layoutAbove" />
+        <attr name="helium:layout_align_baseline" format="string_hash" property_alias="hlm_layoutAlignBaseline" />
+        <attr name="helium:layout_align_bottom" format="string_hash" property_alias="hlm_layoutAlignBottom" />
+        <attr name="helium:layout_align_end" format="string_hash" property_alias="hlm_layoutAlignEnd" />
+        <attr name="helium:layout_align_left" format="string_hash" property_alias="hlm_layoutAlignLeft" />
+        <attr name="helium:layout_align_parent_bottom" format="bool" property_alias="hlm_layoutAlignParentBottom" />
+        <attr name="helium:layout_align_parent_end" format="bool" property_alias="hlm_layoutAlignParentEnd" />
+        <attr name="helium:layout_align_parent_left" format="bool" property_alias="hlm_layoutAlignParentLeft" />
+        <attr name="helium:layout_align_parent_right" format="bool" property_alias="hlm_layoutAlignParentRight" />
+        <attr name="helium:layout_align_parent_start" format="bool" property_alias="hlm_layoutAlignParentStart" />
+        <attr name="helium:layout_align_parent_top" format="bool" property_alias="hlm_layoutAlignParentTop" />
+        <attr name="helium:layout_align_right" format="string_hash" property_alias="hlm_layoutAlignRight" />
+        <attr name="helium:layout_align_start" format="string_hash" property_alias="hlm_layoutAlignStart" />
+        <attr name="helium:layout_align_top" format="string_hash" property_alias="hlm_layoutAlignTop" />
+        <attr name="helium:layout_align_with_parent_if_missing" format="bool" property_alias="hlm_layoutAlignWithParentIfMissing" />
+        <attr name="helium:layout_below" format="string_hash" property_alias="hlm_layoutBelow" />
+        <attr name="helium:layout_center_horizontal" format="bool" property_alias="hlm_layoutCenterHorizontal" />
+        <attr name="helium:layout_center_in_parent" format="bool" property_alias="hlm_layoutCenterInParent" />
+        <attr name="helium:layout_center_vertical" format="bool" property_alias="hlm_layoutCenterVertical" />
+        <attr name="helium:layout_to_end_of" format="string_hash" property_alias="hlm_layoutToEndOf" />
+        <attr name="helium:layout_to_left_of" format="string_hash" property_alias="hlm_layoutToLeftOf" />
+        <attr name="helium:layout_to_right_of" format="string_hash" property_alias="hlm_layoutToRightOf" />
+        <attr name="helium:layout_to_start_of" format="string_hash" property_alias="hlm_layoutToStartOf" />
+        <attr name="helium:ignore_gravity" format="string_hash" property_alias="hlm_ignoreGravity" />
+        
+        
         <!-- Default properties -->
         <attr name="tag" format="string_hash" />
         <attr name="user_interaction_enabled" format="bool" />
-
-
+        
+        
         <!-- UIViewGeometry -->
         <!-- <attr name="transform" format="cgaffinetransform" />  @todo: Unsupported format: CGAffineTransform -->
         <attr name="content_scale_factor" format="cgfloat" />

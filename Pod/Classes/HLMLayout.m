@@ -115,6 +115,46 @@ ASSOCIATE_VALUE_NO_SETTER(UIEdgeInsets, hlm_padding, Hlm_padding, UIEdgeInsetsVa
     return self.hlm_padding.bottom;
 }
 
+ASSOCIATED_PROPERTY(hlm_layoutGravity, Hlm_layoutGravity);
+-(void) setHlm_layoutGravity:(HLMGravity) hlm_layoutGravity {
+    objc_setAssociatedObject(self, &kHlm_layoutGravityAssociationKey,
+                             @(hlm_layoutGravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
+}
+
+-(HLMGravity) hlm_layoutGravity {
+    NSNumber* hlm_layoutGravity = objc_getAssociatedObject(self, &kHlm_layoutGravityAssociationKey);
+    return (hlm_layoutGravity)? hlm_layoutGravity.intValue : -1;
+}
+
+ASSOCIATED_PROPERTY(hlm_gravity, Hlm_gravity);
+-(void) setHlm_gravity:(HLMGravity) hlm_gravity {
+    objc_setAssociatedObject(self, &kHlm_gravityAssociationKey,
+                             @(hlm_gravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setNeedsLayout];
+}
+
+-(HLMGravity) hlm_gravity {
+    NSNumber* hlm_gravity = objc_getAssociatedObject(self, &kHlm_gravityAssociationKey);
+    return (hlm_gravity)? hlm_gravity.intValue : HLMGravityLeft | HLMGravityTop;
+}
+
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationX, Hlm_translationX, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationY, Hlm_translationY, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minWidth, Hlm_minWidth, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minHeight, Hlm_minHeight, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutWidth, Hlm_layoutWidth, floatValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutHeight, Hlm_layoutHeight, floatValue);
+ASSOCIATE_NUMBER(CGFloat, hlm_measuredWidth, Hlm_measuredWidth, floatValue);
+ASSOCIATE_NUMBER(CGFloat, hlm_measuredHeight, Hlm_measuredHeight, floatValue);
+ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
+ASSOCIATE_NUMBER(BOOL, hlm_overridesLayoutGuides, Hlm_overridesLayoutGuides, boolValue);
+
+@end
+
+
+@implementation UIView (HLMLinearLayoutProperties)
+
 ASSOCIATED_PROPERTY(hlm_baselineAligned, Hlm_baselineAligned);
 -(void) setHlm_baselineAligned:(BOOL) hlm_baselineAligned {
     objc_setAssociatedObject(self, &kHlm_baselineAlignedAssociationKey,
@@ -151,42 +191,38 @@ ASSOCIATED_PROPERTY(hlm_weightSum, Hlm_weightSum);
     return (hlm_weightSum)? hlm_weightSum.floatValue : -1.f;
 }
 
-ASSOCIATED_PROPERTY(hlm_layoutGravity, Hlm_layoutGravity);
--(void) setHlm_layoutGravity:(HLMGravity) hlm_layoutGravity {
-    objc_setAssociatedObject(self, &kHlm_layoutGravityAssociationKey,
-                             @(hlm_layoutGravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
-}
-
--(HLMGravity) hlm_layoutGravity {
-    NSNumber* hlm_layoutGravity = objc_getAssociatedObject(self, &kHlm_layoutGravityAssociationKey);
-    return (hlm_layoutGravity)? hlm_layoutGravity.intValue : -1;
-}
-
-ASSOCIATED_PROPERTY(hlm_gravity, Hlm_gravity);
--(void) setHlm_gravity:(HLMGravity) hlm_gravity {
-    objc_setAssociatedObject(self, &kHlm_gravityAssociationKey,
-                             @(hlm_gravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
-}
-
--(HLMGravity) hlm_gravity {
-    NSNumber* hlm_gravity = objc_getAssociatedObject(self, &kHlm_gravityAssociationKey);
-    return (hlm_gravity)? hlm_gravity.intValue : HLMGravityLeft | HLMGravityTop;
-}
-
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationX, Hlm_translationX, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_translationY, Hlm_translationY, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minWidth, Hlm_minWidth, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_minHeight, Hlm_minHeight, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutWidth, Hlm_layoutWidth, floatValue);
-ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutHeight, Hlm_layoutHeight, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(CGFloat, hlm_layoutWeight, Hlm_layoutWeight, floatValue);
 ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(HLMLayoutOrientation, hlm_orientation, Hlm_orientation, integerValue);
-ASSOCIATE_NUMBER(CGFloat, hlm_measuredWidth, Hlm_measuredWidth, floatValue);
-ASSOCIATE_NUMBER(CGFloat, hlm_measuredHeight, Hlm_measuredHeight, floatValue);
-ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
-ASSOCIATE_NUMBER(BOOL, hlm_overridesLayoutGuides, Hlm_overridesLayoutGuides, boolValue);
+
+@end
+
+
+@implementation UIView (HLMRelativeLayoutProperties)
+
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAbove, Hlm_layoutAbove, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAlignBaseline, Hlm_layoutAlignBaseline, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAlignBottom, Hlm_layoutAlignBottom, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAlignEnd, Hlm_layoutAlignEnd, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAlignLeft, Hlm_layoutAlignLeft, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutAlignParentBottom, Hlm_layoutAlignParentBottom, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutAlignParentEnd, Hlm_layoutAlignParentEnd, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutAlignParentLeft, Hlm_layoutAlignParentLeft, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutAlignParentRight, Hlm_layoutAlignParentRight, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutAlignParentStart, Hlm_layoutAlignParentStart, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutAlignParentTop, Hlm_layoutAlignParentTop, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAlignRight, Hlm_layoutAlignRight, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAlignStart, Hlm_layoutAlignStart, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutAlignTop, Hlm_layoutAlignTop, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutAlignWithParentIfMissing, Hlm_layoutAlignWithParentIfMissing, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutBelow, Hlm_layoutBelow, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutCenterHorizontal, Hlm_layoutCenterHorizontal, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutCenterInParent, Hlm_layoutCenterInParent, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(BOOL, hlm_layoutCenterVertical, Hlm_layoutCenterVertical, boolValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutToEndOf, Hlm_layoutToEndOf, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutToLeftOf, Hlm_layoutToLeftOf, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutToRightOf, Hlm_layoutToRightOf, integerValue);
+ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(NSInteger, hlm_layoutToStartOf, Hlm_layoutToStartOf, integerValue);
+ASSOCIATE_OBJECT(NSNumber, hlm_ignoreGravity, Hlm_ignoreGravity);
 
 @end
 
