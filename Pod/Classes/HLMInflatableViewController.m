@@ -29,12 +29,13 @@
     view.clipsToBounds = !view.hlm_overridesLayoutGuides;
     HLMLayoutRootView* root = [[HLMLayoutRootView alloc] initWithFrame:CGRectZero];
     root.resource = newResource;
-    [root addSubview:view];
+    root.rootView = view;
     if (self.isViewLoaded && self.view) {
         // @todo: Replace with some transition api
         root.frame = self.view.frame;
         root.topLayoutGuide = self.topLayoutGuide;
         root.bottomLayoutGuide = self.bottomLayoutGuide;
+        [root layoutSubviews];
         [root layoutSubviews];
     }
     self.view = root;

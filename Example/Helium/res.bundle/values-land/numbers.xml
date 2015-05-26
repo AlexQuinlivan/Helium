@@ -5,4 +5,6 @@
     <number name="real_number">@bool/a_bool</number>
     <bool name="a_bool">NO</bool>
     
+    <integer name="red_square_height">100</integer>
+    
 </resources>

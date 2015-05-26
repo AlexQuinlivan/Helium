@@ -50,7 +50,7 @@
     <UIView
         helium:id="red_square"
         helium:layout_width="wrap_content"
-        helium:layout_height="200"
+        helium:layout_height="@integer/red_square_height"
         helium:layout_to_right_of="top_square"
         helium:layout_align_parent_top="YES"
         helium:layout_align_parent_right="YES"

@@ -29,7 +29,6 @@ BIND_VIEWS_4(squares, square_0, square_1, square_2, square_3)
 
 -(void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear:animated];
-    [self.view layoutSubviews];
     NSLog(@"%lu", self.topSquare.hlm_id);
     NSLog(@"%lu", self.hello.hlm_layoutToRightOf);
     NSLog(@"%@", self.squares);
