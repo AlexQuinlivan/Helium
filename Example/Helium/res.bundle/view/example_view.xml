@@ -4,6 +4,7 @@
     helium:layout_width="match_parent"
     helium:layout_height="match_parent"
     helium:layout="relative"
+    helium:padding="20"
     helium:style="example_view_style empty_concatenated_style">
     
     <UIView
@@ -13,7 +14,7 @@
         helium:orientation="horizontal"
         helium:min_height="200"
         helium:layout="linear"
-        helium:padding="10"
+        helium:margins="-10"
         background_color="#000" />
         
     <UIView
