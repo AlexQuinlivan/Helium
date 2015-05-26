@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#define BIND_VIEW(_view, _tag) \
--(void) bindview_$$ ## _view ## _$$ ## _tag:(id) view {\
+#define BIND_VIEW(_view, _hlmid) \
+-(void) bindview_$$ ## _view ## _$$ ## _hlmid:(id) view {\
     self._view = view;\
 }
 
-#define BIND_VIEW_OPTIONAL(_view, _tag) \
--(void) bindview_$$ ## _view ## _$$ ## _tag ## _$$optional:(id) view {\
+#define BIND_VIEW_OPTIONAL(_view, _hlmid) \
+-(void) bindview_$$ ## _view ## _$$ ## _hlmid ## _$$optional:(id) view {\
     self._view = view;\
 }
 
-#define BIND_VIEWS_1(_viewarray, _tag) \
--(void) bindviews_$$ ## _viewarray ## _$$ ## _tag:(id) views {\
+#define BIND_VIEWS_1(_viewarray, _hlmid) \
+-(void) bindviews_$$ ## _viewarray ## _$$ ## _hlmid:(id) views {\
     self._viewarray = views;\
 }
 
@@ -33,11 +33,11 @@
 #define BIND_VIEWS_9(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8, T9) BIND_VIEWS_8(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8 ## _$$ ## T9)
 #define BIND_VIEWS_10(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10) BIND_VIEWS_9(_viewarray, T1, T2, T3, T4, T5, T6, T7, T8, T9 ## _$$ ## T10)
 
-#define BIND_TARGET(_tag, _ui_control_event) \
--(void) controltarget_$$ ## _tag ## _$$ ## _ui_control_event
+#define BIND_TARGET(_hlmid, _ui_control_event) \
+-(void) controltarget_$$ ## _hlmid ## _$$ ## _ui_control_event
 
-#define BIND_TARGET_OPTIONAL(_tag, _ui_control_event) \
--(void) controltarget_$$ ## _tag ## _$$ ## _ui_control_event ## _$$optional
+#define BIND_TARGET_OPTIONAL(_hlmid, _ui_control_event) \
+-(void) controltarget_$$ ## _hlmid ## _$$ ## _ui_control_event ## _$$optional
 
 @interface HLMViewBinder : NSObject
 

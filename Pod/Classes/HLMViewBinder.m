@@ -7,6 +7,7 @@
 //
 
 #import "HLMViewBinder.h"
+#import "HLMLayout.h"
 #import <objc/runtime.h>
 
 static NSString* const HLMViewBinderPrefix = @"bindview_$$";
@@ -37,16 +38,16 @@ static NSString* const HLMBinderSettingOptional = @"optional";
             
             // Extract values from method name
             NSString* binderSetting;
-            NSString* tagName;
+            NSString* hlmidName;
             methodName = [methodName stringByReplacingOccurrencesOfString:HLMViewBinderPrefix withString:@""];
             methodName = [methodName stringByReplacingOccurrencesOfString:@":" withString:@""];
             NSArray* components = [methodName componentsSeparatedByString:HLMBinderSeperator];
             viewName = components[0];
-            tagName = components[1];
+            hlmidName = components[1];
             binderSetting = (components.count > 2) ? components[2] : nil;
             
             // Find the view to bind
-            bindable = [root viewWithTag:tagName.hash];
+            bindable = [root viewWithId:hlmidName.hash];
             if (!bindable) {
                 if ([binderSetting isEqualToString:HLMBinderSettingOptional]) {
                     // Nil setter
@@ -56,9 +57,9 @@ static NSString* const HLMBinderSettingOptional = @"optional";
                     continue;
                 } else {
                     @throw [NSException exceptionWithName:@"HLMViewBindingException"
-                                                   reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
+                                                   reason:[NSString stringWithFormat:@"Unable to find view with id `%@`. "
                                                            @"Did you mean for this to be an optional view? "
-                                                           @"Try BIND_VIEW_OPTIONAL(prop, tag)", tagName]
+                                                           @"Try BIND_VIEW_OPTIONAL(prop, id)", hlmidName]
                                                  userInfo:nil];
                 }
             }
@@ -79,13 +80,13 @@ static NSString* const HLMBinderSettingOptional = @"optional";
             // Find the view to bind
             NSMutableArray* views = [NSMutableArray new];
             for (int i = 1; i < components.count; i++) {
-                NSString* tagName = components[i];
-                UIView* view = [root viewWithTag:tagName.hash];
+                NSString* hlmidName = components[i];
+                UIView* view = [root viewWithId:hlmidName.hash];
                 if (!view) {
                     @throw [NSException exceptionWithName:@"HLMViewBindingException"
-                                                   reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
+                                                   reason:[NSString stringWithFormat:@"Unable to find view with id `%@`. "
                                                            @"Did you mean for this to be an optional view? "
-                                                           @"Try BIND_VIEW_OPTIONAL(prop, tag)", tagName]
+                                                           @"Try BIND_VIEW_OPTIONAL(prop, id)", hlmidName]
                                                  userInfo:nil];
                 }
                 [views addObject:view];
@@ -103,12 +104,12 @@ static NSString* const HLMBinderSettingOptional = @"optional";
             NSString* binderSetting;
             methodName = [methodName stringByReplacingOccurrencesOfString:HLMControlTargetBindPrefix withString:@""];
             NSArray* components = [methodName componentsSeparatedByString:HLMBinderSeperator];
-            NSString* tagName = components[0];
+            NSString* hlmidName = components[0];
             NSString* controlEventName = components[1];
             binderSetting = (components.count > 2) ? components[2] : nil;
             
             // Find the view to bind
-            UIView* view = [root viewWithTag:tagName.hash];
+            UIView* view = [root viewWithId:hlmidName.hash];
             if (!view) {
                 if ([binderSetting isEqualToString:HLMBinderSettingOptional]) {
                     // Nil setter
@@ -118,17 +119,17 @@ static NSString* const HLMBinderSettingOptional = @"optional";
                     continue;
                 } else {
                     @throw [NSException exceptionWithName:@"HLMControlTargetBindingException"
-                                                   reason:[NSString stringWithFormat:@"Unable to find view with tag `%@`. "
+                                                   reason:[NSString stringWithFormat:@"Unable to find view with id `%@`. "
                                                            @"Did you mean for this to be an optional target binding? "
-                                                           @"Try BIND_TARGET_OPTIONAL(tag, controlEvent)", tagName]
+                                                           @"Try BIND_TARGET_OPTIONAL(id, controlEvent)", hlmidName]
                                                  userInfo:nil];
                 }
             }
             if (![view isKindOfClass:[UIControl class]]) {
                 @throw [NSException exceptionWithName:@"HLMControlTargetBindingException"
-                                               reason:[NSString stringWithFormat:@"View with tag `%@` and class `%@` "
+                                               reason:[NSString stringWithFormat:@"View with id `%@` and class `%@` "
                                                        @"is not a kind of UIControl. Try making it a UIControl subclass.",
-                                                       tagName, NSStringFromClass([view class])]
+                                                       hlmidName, NSStringFromClass([view class])]
                                              userInfo:nil];
             }
             

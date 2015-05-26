@@ -266,8 +266,9 @@ case _attr: {\
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_CG_POINT, CGPoint, cgPointValue);
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_UI_EDGE_INSETS, UIEdgeInsets, uiEdgeInsetsValue);
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_UI_COLOR, UIColor*, uiColorValue);
+        case ATTRIBUTE_TYPE_IDENTIFIER:
         case ATTRIBUTE_TYPE_STRING_HASH: {
-            void (*method)(id, SEL, NSInteger) = (void *)setterImp;
+            void (*method)(id, SEL, NSUInteger) = (void *)setterImp;
             NSString* resolvedValue = [HLMResources stringValue:value];
             method(view, setterSelector, resolvedValue.hash);
             break;
@@ -359,10 +360,11 @@ case _attr: {\
             void (*method)(id, SEL, UIFont*) = (void *)setterImp;
             UIFont* font;
             UIFont* currentFont;
-            if ([view isKindOfClass:[UILabel class]]) {
-                currentFont = ((UILabel *) view).font;
+            NSString* fontName = [HLMResources stringValue:value];
+            if ([view respondsToSelector:@selector(font)]) {
+                currentFont = [(id)view font];
             }
-            font = [UIFont fontWithName:value size:(currentFont.pointSize) ?: 15];
+            font = [UIFont fontWithName:fontName size:(currentFont.pointSize) ?: 15];
             method(view, setterSelector, font);
             break;
         }

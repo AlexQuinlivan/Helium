@@ -29,7 +29,7 @@ todo: Actually make this relevant and up to date, using the best practices as we
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <UIView xmlns:helium="http://quinlivan.co.nz/helium"
-    tag="example_tag"
+    helium:id="example_id"
     helium:layout_width="match_parent"
     helium:layout_height="match_parent"
     helium:layout="frame"
@@ -49,7 +49,7 @@ todo: Actually make this relevant and up to date, using the best practices as we
 @end
 
 @implementation HLMViewController
-BIND_VIEW_OPTIONAL(example, example_tag)
+BIND_VIEW_OPTIONAL(example, example_id)
 
 -(NSString *) layoutResource {
     return @"@view/example_view";

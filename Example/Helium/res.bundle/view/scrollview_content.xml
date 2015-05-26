@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<merge xmlns:helium="http://quinlivan.co.nz/helium">
+    
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        background_color="#F8D57A" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#FFF" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#F8D57A" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#FFF" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#F8D57A" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#FFF" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#F8D57A" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#FFF" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#F8D57A" />
+        
+    <UIView
+        helium:layout_width="match_parent"
+        helium:layout_height="100"
+        helium:margin_top="10"
+        background_color="#FFF" />
+        
+</merge>

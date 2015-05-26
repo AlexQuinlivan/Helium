@@ -12,11 +12,15 @@
 
 @interface HLMViewController ()
 @property (nonatomic, weak) UIView* blueView;
+@property (nonatomic, weak) UIView* topSquare;
+@property (nonatomic, weak) UIView* hello;
 @property (nonatomic, strong) NSArray* squares;
 @end
 
 @implementation HLMViewController
 BIND_VIEW_OPTIONAL(blueView, blue_square)
+BIND_VIEW(topSquare, top_square)
+BIND_VIEW(hello, red_square)
 BIND_VIEWS_4(squares, square_0, square_1, square_2, square_3)
 
 -(NSString *) layoutResource {
@@ -25,62 +29,10 @@ BIND_VIEWS_4(squares, square_0, square_1, square_2, square_3)
 
 -(void) viewDidAppear:(BOOL) animated {
     [super viewDidAppear:animated];
-    [self animate];
-}
-
--(void) animate {
-    __weak typeof(self) weakSelf = self;
-    [UIView animateWithDuration:1
-                          delay:1
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         weakSelf.blueView.hlm_layoutHeight = 0;
-                         weakSelf.blueView.hlm_layoutWeight = 0;
-                         [self changeGravity];
-                         for (UIView* square in self.squares) {
-                             square.transform = CGAffineTransformRotate(square.transform, M_PI_2);
-                         }
-                         [weakSelf.view layoutSubviews];
-                     }
-                     completion:^(BOOL finished) {
-                         [UIView animateWithDuration:1
-                                               delay:1
-                                             options:UIViewAnimationOptionCurveEaseInOut
-                                          animations:^{
-                                              weakSelf.blueView.hlm_layoutHeight = HLMLayoutParamMatch;
-                                              weakSelf.blueView.hlm_layoutWeight = 1;
-                                              [self changeGravity];
-                                              for (UIView* square in self.squares) {
-                                                  square.transform = CGAffineTransformRotate(square.transform, M_PI_2);
-                                              }
-                                              [weakSelf.view layoutSubviews];
-                                          }
-                                          completion:^(BOOL finished) {
-                                              [weakSelf animate];
-                                          }];
-                     }];
-}
-
--(void) changeGravity {
-    for (UIView* square in self.squares) {
-        HLMGravity horizontalGravity = square.hlm_layoutGravity & HLMGravityHorizontalMask;
-        HLMGravity verticalGravity = square.hlm_layoutGravity & HLMGravityVerticalMask;
-        HLMGravity newGravity = 0;
-        if (horizontalGravity == HLMGravityLeft) {
-            if (verticalGravity == HLMGravityBottom) {
-                newGravity = HLMGravityRight | verticalGravity;
-            } else {
-                newGravity = horizontalGravity | HLMGravityBottom;
-            }
-        } else {
-            if (verticalGravity == HLMGravityBottom) {
-                newGravity = horizontalGravity | HLMGravityTop;
-            } else {
-                newGravity = HLMGravityLeft | verticalGravity;
-            }
-        }
-        square.hlm_layoutGravity = newGravity;
-    }
+    [self.view layoutSubviews];
+    NSLog(@"%lu", self.topSquare.hlm_id);
+    NSLog(@"%lu", self.hello.hlm_layoutToRightOf);
+    NSLog(@"%@", self.squares);
 }
 
 @end

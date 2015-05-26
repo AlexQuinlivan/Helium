@@ -12,6 +12,7 @@
 #import "GDataXMLNode.h"
 #import <objc/runtime.h>
 
+static NSString* const HLMAttributeFormatIdentifier = @"identifier";
 static NSString* const HLMAttributeFormatInteger = @"integer";
 static NSString* const HLMAttributeFormatInt = @"int";
 static NSString* const HLMAttributeFormatFloat = @"float";
@@ -181,6 +182,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         typeMap = @{
+                    HLMAttributeFormatIdentifier : @(ATTRIBUTE_TYPE_IDENTIFIER),
                     HLMAttributeFormatInteger : @(ATTRIBUTE_TYPE_NS_INTEGER),
                     HLMAttributeFormatInt : @(ATTRIBUTE_TYPE_INT),
                     HLMAttributeFormatFloat : @(ATTRIBUTE_TYPE_FLOAT),

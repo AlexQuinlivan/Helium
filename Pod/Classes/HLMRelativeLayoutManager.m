@@ -36,7 +36,6 @@ typedef NS_ENUM(NSInteger, HLMRelativeLayoutVerb) {
     HLMRelativeLayoutVerbAlignParentEnd,
     HLMRelativeLayoutVerbCount
 };
-static NSInteger const HLMRelativeLayoutVerbTrue = -1;
 static NSArray* HLMRelativeLayoutRulesVertical;
 static NSArray* HLMRelativeLayoutRulesHorizontal;
 
@@ -171,7 +170,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
     BOOL offsetVerticalAxis = NO;
     
     if ((horizontalGravity || verticalGravity) && view.hlm_ignoreGravity) {
-        ignore = [view viewWithTag:view.hlm_ignoreGravity.integerValue];
+        ignore = [view viewWithId:view.hlm_ignoreGravity];
     }
     
     BOOL const isWrapContentWidth = widthMode != HLMMeasureSpecExactly;
@@ -274,12 +273,12 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
             for (UIView* child in view.subviews) {
                 if (!child.isHidden) {
                     NSMutableArray* const rules = child.hlm_relativeLayoutRules;
-                    if ([rules[HLMRelativeLayoutVerbCenterInParent] integerValue] != 0
-                        || [rules[HLMRelativeLayoutVerbCenterHorizontal] integerValue] != 0) {
+                    if ([rules[HLMRelativeLayoutVerbCenterInParent] boolValue]
+                        || [rules[HLMRelativeLayoutVerbCenterHorizontal] boolValue]) {
                         [self centerHorizontal:child
                                           view:view
                                          width:width];
-                    } else if ([rules[HLMRelativeLayoutVerbAlignParentRight] integerValue] != 0) {
+                    } else if ([rules[HLMRelativeLayoutVerbAlignParentRight] boolValue]) {
                         CGFloat const childWidth = child.hlm_measuredWidth;
                         HLMRelativeLayoutFrame frame = child.hlm_relativeLayoutManagerFrame;
                         frame.left = width - view.hlm_paddingRight - childWidth;
@@ -307,12 +306,12 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
             for (UIView* child in view.subviews) {
                 if (!child.isHidden) {
                     NSMutableArray* const rules = child.hlm_relativeLayoutRules;
-                    if ([rules[HLMRelativeLayoutVerbCenterInParent] integerValue] != 0
-                        || [rules[HLMRelativeLayoutVerbCenterVertical] integerValue] != 0) {
+                    if ([rules[HLMRelativeLayoutVerbCenterInParent] boolValue]
+                        || [rules[HLMRelativeLayoutVerbCenterVertical] boolValue]) {
                         [self centerVertical:child
                                         view:view
                                       height:height];
-                    } else if ([rules[HLMRelativeLayoutVerbAlignParentBottom] integerValue] != 0) {
+                    } else if ([rules[HLMRelativeLayoutVerbAlignParentBottom] boolValue]) {
                         CGFloat const childHeight = child.hlm_measuredHeight;
                         HLMRelativeLayoutFrame frame = child.hlm_relativeLayoutManagerFrame;
                         frame.top = height - view.hlm_paddingBottom - childHeight;
@@ -397,7 +396,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.right = anchorFrame.left - (anchorView.hlm_marginLeft + child.hlm_marginRight);
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbLeftOf] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbLeftOf] unsignedIntegerValue]) {
         if (myWidth >= 0) {
             childFrame.right = myWidth - view.hlm_paddingRight - child.hlm_marginRight;
         }
@@ -410,7 +409,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.left = anchorFrame.right + (anchorView.hlm_marginRight + child.hlm_marginLeft);
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbRightOf] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbRightOf] unsignedIntegerValue]) {
         childFrame.left = view.hlm_paddingLeft + child.hlm_marginLeft;
     }
     
@@ -421,7 +420,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.left = anchorFrame.left + child.hlm_marginLeft;
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbAlignLeft] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbAlignLeft] unsignedIntegerValue]) {
         childFrame.left = view.hlm_paddingLeft + child.hlm_marginLeft;
     }
     
@@ -432,17 +431,17 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.right = anchorFrame.right - child.hlm_marginRight;
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbAlignRight] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbAlignRight] unsignedIntegerValue]) {
         if (myWidth >= 0) {
             childFrame.right = myWidth - view.hlm_paddingRight - child.hlm_marginRight;
         }
     }
     
-    if (0 != [rules[HLMRelativeLayoutVerbAlignParentLeft] integerValue]) {
+    if ([rules[HLMRelativeLayoutVerbAlignParentLeft] boolValue]) {
         childFrame.left = view.hlm_paddingLeft + child.hlm_marginLeft;
     }
     
-    if (0 != [rules[HLMRelativeLayoutVerbAlignParentRight] integerValue]) {
+    if ([rules[HLMRelativeLayoutVerbAlignParentRight] boolValue]) {
         if (myWidth >= 0) {
             childFrame.right = myWidth - view.hlm_paddingRight - child.hlm_marginRight;
         }
@@ -467,7 +466,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.bottom = anchorFrame.top - (anchorView.hlm_marginTop + child.hlm_marginBottom);
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbAbove] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbAbove] unsignedIntegerValue]) {
         if (myHeight >= 0) {
             childFrame.bottom = myHeight - view.hlm_paddingBottom - child.hlm_marginBottom;
         }
@@ -480,7 +479,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.top = anchorFrame.bottom + (anchorView.hlm_marginBottom + child.hlm_marginTop);
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbBelow] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbBelow] unsignedIntegerValue]) {
         childFrame.top = view.hlm_paddingTop + child.hlm_marginTop;
     }
     
@@ -491,7 +490,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.top = anchorFrame.top + child.hlm_marginTop;
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbAlignTop] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbAlignTop] unsignedIntegerValue]) {
         childFrame.top = view.hlm_paddingTop + child.hlm_marginTop;
     }
     
@@ -502,23 +501,23 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         HLMRelativeLayoutFrame const anchorFrame = anchorView.hlm_relativeLayoutManagerFrame;
         childFrame.bottom = anchorFrame.bottom - child.hlm_marginBottom;
     } else if (child.hlm_layoutAlignWithParentIfMissing
-               && [rules[HLMRelativeLayoutVerbAlignBottom] integerValue] != 0) {
+               && [rules[HLMRelativeLayoutVerbAlignBottom] unsignedIntegerValue]) {
         if (myHeight >= 0) {
             childFrame.bottom = myHeight - view.hlm_paddingBottom - child.hlm_marginBottom;
         }
     }
     
-    if (0 != [rules[HLMRelativeLayoutVerbAlignParentTop] integerValue]) {
+    if ([rules[HLMRelativeLayoutVerbAlignParentTop] boolValue]) {
         childFrame.top = view.hlm_paddingTop + child.hlm_marginTop;
     }
     
-    if (0 != [rules[HLMRelativeLayoutVerbAlignParentBottom] integerValue]) {
+    if ([rules[HLMRelativeLayoutVerbAlignParentBottom] boolValue]) {
         if (myHeight >= 0) {
             childFrame.bottom = myHeight - view.hlm_paddingBottom - child.hlm_marginBottom;
         }
     }
     
-    if (0 != [rules[HLMRelativeLayoutVerbAlignBaseline] integerValue]) {
+    if ([rules[HLMRelativeLayoutVerbAlignBaseline] boolValue]) {
         view.hlm_relativeLayoutHasBaselineAlignedChild = YES;
     }
     
@@ -680,8 +679,8 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         childFrame.right = childFrame.left + child.hlm_measuredWidth;
     } else if (childFrame.left < 0 && childFrame.right < 0) {
         // Both left and right vary
-        if ([rules[HLMRelativeLayoutVerbCenterInParent] integerValue] != 0
-            || [rules[HLMGravityCenterHorizontal] integerValue] != 0) {
+        if ([rules[HLMRelativeLayoutVerbCenterInParent] boolValue]
+            || [rules[HLMRelativeLayoutVerbCenterHorizontal] boolValue]) {
             if (!wrapContent) {
                 [self centerHorizontal:child
                                   view:view
@@ -699,7 +698,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         }
     }
     child.hlm_relativeLayoutManagerFrame = childFrame;
-    return [rules[HLMRelativeLayoutVerbAlignParentEnd] integerValue] != 0;
+    return [rules[HLMRelativeLayoutVerbAlignParentEnd] boolValue];
 }
 
 -(BOOL) positionChildVertical:(UIView *) child
@@ -717,12 +716,12 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         childFrame.bottom = childFrame.top + child.hlm_measuredHeight;
     } else if (childFrame.top < 0 && childFrame.bottom < 0) {
         // Both top and bottom vary
-        if ([rules[HLMRelativeLayoutVerbCenterInParent] integerValue] != 0
-            || [rules[HLMGravityCenterVertical] integerValue] != 0) {
+        if ([rules[HLMRelativeLayoutVerbCenterInParent] boolValue]
+            || [rules[HLMRelativeLayoutVerbCenterVertical] boolValue]) {
             if (!wrapContent) {
-                [self centerHorizontal:child
-                                  view:view
-                                 width:myHeight];
+                [self centerVertical:child
+                                view:view
+                              height:myHeight];
             } else {
                 childFrame.top = view.hlm_paddingTop + child.hlm_marginTop;
                 childFrame.bottom = childFrame.top + child.hlm_measuredHeight;
@@ -734,7 +733,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
         }
     }
     child.hlm_relativeLayoutManagerFrame = childFrame;
-    return [rules[HLMRelativeLayoutVerbAlignParentBottom] integerValue] != 0;
+    return [rules[HLMRelativeLayoutVerbAlignParentBottom] boolValue];
 }
 
 -(void) alignBaseline:(UIView *) child inView:(UIView *) view {
@@ -775,9 +774,9 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
 
 -(UIView *) relatedViewInView:(UIView *) view rules:(NSArray *) rules relation:(HLMRelativeLayoutVerb) relation {
     HLMRelativeLayoutDependancyGraph* const graph = view.hlm_relativeLayoutDependancyGraph;
-    NSNumber* const tag = rules[relation];
-    if (tag.integerValue != 0) {
-        HLMRelativeLayoutDependancyGraphNode* node = graph.keyNodes[tag];
+    NSNumber* const identifier = rules[relation];
+    if (identifier.unsignedIntegerValue) {
+        HLMRelativeLayoutDependancyGraphNode* node = graph.keyNodes[identifier];
         if (!node) {
             return nil;
         }
@@ -927,19 +926,19 @@ ASSOCIATED_PROPERTY(hlm_relativeLayoutRules, Hlm_relativeLayoutRules);
         rules[HLMRelativeLayoutVerbAlignTop] = @(self.hlm_layoutAlignTop);
         rules[HLMRelativeLayoutVerbAlignRight] = @(self.hlm_layoutAlignRight);
         rules[HLMRelativeLayoutVerbAlignBottom] = @(self.hlm_layoutAlignBottom);
-        rules[HLMRelativeLayoutVerbAlignParentLeft] = @(self.hlm_layoutAlignParentLeft ? HLMRelativeLayoutVerbTrue : 0);
-        rules[HLMRelativeLayoutVerbAlignParentTop] = @(self.hlm_layoutAlignParentTop ? HLMRelativeLayoutVerbTrue : 0);
-        rules[HLMRelativeLayoutVerbAlignParentRight] = @(self.hlm_layoutAlignParentRight ? HLMRelativeLayoutVerbTrue : 0);
-        rules[HLMRelativeLayoutVerbAlignParentBottom] = @(self.hlm_layoutAlignParentBottom ? HLMRelativeLayoutVerbTrue : 0);
-        rules[HLMRelativeLayoutVerbCenterInParent] = @(self.hlm_layoutCenterInParent ? HLMRelativeLayoutVerbTrue : 0);
-        rules[HLMRelativeLayoutVerbCenterHorizontal] = @(self.hlm_layoutCenterHorizontal ? HLMRelativeLayoutVerbTrue : 0);
-        rules[HLMRelativeLayoutVerbCenterVertical] = @(self.hlm_layoutCenterVertical ? HLMRelativeLayoutVerbTrue : 0);
+        rules[HLMRelativeLayoutVerbAlignParentLeft] = @(self.hlm_layoutAlignParentLeft);
+        rules[HLMRelativeLayoutVerbAlignParentTop] = @(self.hlm_layoutAlignParentTop);
+        rules[HLMRelativeLayoutVerbAlignParentRight] = @(self.hlm_layoutAlignParentRight);
+        rules[HLMRelativeLayoutVerbAlignParentBottom] = @(self.hlm_layoutAlignParentBottom);
+        rules[HLMRelativeLayoutVerbCenterInParent] = @(self.hlm_layoutCenterInParent);
+        rules[HLMRelativeLayoutVerbCenterHorizontal] = @(self.hlm_layoutCenterHorizontal);
+        rules[HLMRelativeLayoutVerbCenterVertical] = @(self.hlm_layoutCenterVertical);
         rules[HLMRelativeLayoutVerbStartOf] = @(self.hlm_layoutToStartOf);
         rules[HLMRelativeLayoutVerbEndOf] = @(self.hlm_layoutToEndOf);
         rules[HLMRelativeLayoutVerbAlignStart] = @(self.hlm_layoutAlignStart);
         rules[HLMRelativeLayoutVerbAlignEnd] = @(self.hlm_layoutAlignEnd);
-        rules[HLMRelativeLayoutVerbAlignParentStart] = @(self.hlm_layoutAlignParentStart ? HLMRelativeLayoutVerbTrue : 0);
-        rules[HLMRelativeLayoutVerbAlignParentEnd] = @(self.hlm_layoutAlignParentEnd ? HLMRelativeLayoutVerbTrue : 0);
+        rules[HLMRelativeLayoutVerbAlignParentStart] = @(self.hlm_layoutAlignParentStart);
+        rules[HLMRelativeLayoutVerbAlignParentEnd] = @(self.hlm_layoutAlignParentEnd);
         self.hlm_relativeLayoutRules = rules;
     }
     return rules;
@@ -977,11 +976,11 @@ ASSOCIATE_NUMBER(BOOL, hlm_relativeLayoutHasBaselineAlignedChild, Hlm_relativeLa
 }
 
 -(void) addView:(UIView *) view {
-    NSUInteger const tag = view.tag;
+    NSUInteger const identifier = view.hlm_id;
     HLMRelativeLayoutDependancyGraphNode* node = [[HLMRelativeLayoutDependancyGraphNode alloc] initWithView:view];
     
-    if (tag != 0) {
-        self.keyNodes[@(tag)] = node;
+    if (identifier) {
+        self.keyNodes[@(identifier)] = node;
     }
     
     [self.nodes addObject:node];
@@ -995,7 +994,7 @@ ASSOCIATE_NUMBER(BOOL, hlm_relativeLayoutHasBaselineAlignedChild, Hlm_relativeLa
     HLMRelativeLayoutDependancyGraphNode* node;
     while ((node = roots.pollLast)) {
         UIView* const view = node.view;
-        NSUInteger key = view.tag;
+        NSUInteger key = view.hlm_id;
         
         [sorted addObject:view];
         index++;
@@ -1015,7 +1014,7 @@ ASSOCIATE_NUMBER(BOOL, hlm_relativeLayoutHasBaselineAlignedChild, Hlm_relativeLa
     
     if (index < size) {
         @throw [NSException exceptionWithName:@"HLMRelativeLayoutIllegalStateException"
-                                       reason:@"Circular dependencies cannot exist in RelativeLayout"
+                                       reason:@"Circular dependencies cannot exist in HLMRelativeLayoutManager"
                                      userInfo:nil];
     }
     
@@ -1046,7 +1045,7 @@ ASSOCIATE_NUMBER(BOOL, hlm_relativeLayoutHasBaselineAlignedChild, Hlm_relativeLa
         for (NSUInteger j = 0; j < rulesCount; j++) {
             NSNumber* const filterRule = rulesFilter[j];
             NSNumber* const rule = rules[filterRule.integerValue];
-            if (rule.integerValue > 0) {
+            if (rule.unsignedIntegerValue) {
                 // The node this node depends on
                 HLMRelativeLayoutDependancyGraphNode* const dependency = self.keyNodes[rule];
                 // Skip unknowns and self dependencies
