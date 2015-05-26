@@ -33,6 +33,8 @@
     if (self.isViewLoaded && self.view) {
         // @todo: Replace with some transition api
         root.frame = self.view.frame;
+        root.topLayoutGuide = self.topLayoutGuide;
+        root.bottomLayoutGuide = self.bottomLayoutGuide;
         [root layoutSubviews];
     }
     self.view = root;
