@@ -135,10 +135,12 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 
 -(void) inflateChildrenOfView:(UIView *) view fromElement:(GDataXMLElement *) element namespaces:(NSArray *) namespaces {
     NSArray* children = element.children;
+    NSUInteger inflatedCount = 0;
     for (GDataXMLElement* child in children) {
         if (child.kind != GDataXMLElementKind) {
             continue;
         }
+        inflatedCount++;
         id inflated = [self inflateViewFromXml:child namespaces:namespaces];
         if ([inflated isKindOfClass:NSArray.class]) {
             for (UIView* child in inflated) {
@@ -147,6 +149,11 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
         } else {
             [self didInflateView:inflated asChildOfView:view];
         }
+    }
+    if (!view.hlm_layoutManager && inflatedCount) {
+        @throw [NSException exceptionWithName:HLMInflatorExceptionName
+                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated with no layout and has children", element.name]
+                                     userInfo:nil];
     }
 }
 
@@ -224,11 +231,6 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
             }
         }
 
-    }
-    if (!ignoreRequisites && !layoutManagerSet && element.children.count) {
-        @throw [NSException exceptionWithName:HLMInflatorExceptionName
-                                       reason:[NSString stringWithFormat:@"View (`%@`) inflated with no layout and has children", element.name]
-                                     userInfo:nil];
     }
     if (!ignoreRequisites && (!layoutWidthSet || !layoutHeightSet)) {
         @throw [NSException exceptionWithName:HLMInflatorExceptionName
