@@ -28,6 +28,8 @@ static NSString* const HLMResourceColorPrefix = @"@color";
 
 NSString* const HLMDeviceConfigDidChangeNotification = @"HLMDeviceConfigDidChangeNotification";
 
+CFStringRef const HLMStringResourceTransformation = CFSTR("Any-Hex/Java");
+
 // language > uiidiom > sw > w > h > orientation > density > version
 static uint8_t const HLMDeviceLanguagePriority = 0x80;
 static uint8_t const HLMDeviceUIIdiomPriority = 0x40;
@@ -115,7 +117,10 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
             @throw [self unexpectedResourceExceptionParsing:@"NSString*" withResourceId:stringResource];
         }
     }
-    return stringResource;
+    NSMutableString* mutableStringResource = stringResource.mutableCopy;
+    CFStringTransform((__bridge CFMutableStringRef) mutableStringResource,
+                      NULL, HLMStringResourceTransformation, YES);
+    return mutableStringResource;
 }
 
 +(NSNumber *) numberValue:(NSString *) numberResource {
