@@ -17,7 +17,6 @@
 
 static NSString* const HLMResourcesExceptionName = @"HLMResourcesException";
 
-static NSString* const HLMResourceSeperator = @"/";
 static NSString* const HLMResourceViewPrefix = @"@view";
 static NSString* const HLMResourceStringPrefix = @"@string";
 static NSString* const HLMResourceFloatPrefix = @"@float";
@@ -404,7 +403,10 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
 
 -(instancetype) initWithResourceId:(NSString *) resourceId {
     if (self = [super init]) {
-        NSRange range = [resourceId rangeOfString:HLMResourceSeperator];
+        if (![resourceId hasPrefix:@"@"]) {
+            return nil;
+        }
+        NSRange range = [resourceId rangeOfString:@"/"];
         if (range.location == NSNotFound) {
             return nil;
         }
