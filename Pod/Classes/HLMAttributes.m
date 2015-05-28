@@ -164,7 +164,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
     if (self = [super init]) {
         self.type = [HLMAttribute typeForFormat:format];
         [self extractNameAndNamespaceFromName:name];
-        [self extractSelectorsWithName:name propertyAlias:propertyAlias];
+        [self extractSelectorsWithName:self.name propertyAlias:propertyAlias];
         self.resource = resource;
         self.styledClass = clazz;
     }
