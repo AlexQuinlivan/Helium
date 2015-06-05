@@ -118,10 +118,24 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
         }
     }
     NSMutableString* mutableStringResource = stringResource.mutableCopy;
+    [mutableStringResource replaceOccurrencesOfString:@"\\n"
+                                           withString:@"\n"
+                                              options:0
+                                                range:NSMakeRange(0, mutableStringResource.length)];
+    [mutableStringResource replaceOccurrencesOfString:@"\\@"
+                                           withString:@"@"
+                                              options:0
+                                                range:NSMakeRange(0, mutableStringResource.length)];
     CFStringTransform((__bridge CFMutableStringRef) mutableStringResource,
                       NULL, HLMStringResourceTransformation, YES);
     return mutableStringResource;
 }
+
+//+(NSString *) mutate:(NSString *) string {
+//    NSMutableString* mutString = string.mutableCopy;
+//    [someString UTF8String];
+//    mutString.
+//}
 
 +(NSNumber *) numberValue:(NSString *) numberResource {
     HLMResourceTuple* tuple = [[HLMResourceTuple alloc] initWithResourceId:numberResource];

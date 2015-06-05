@@ -2,7 +2,7 @@
 <resources>
     
     <string name="hello_world">@string/hello_world_two</string>
-    <string name="hello_world_two">Hello, world!</string>
+    <string name="hello_world_two">\@Hello,\n world!\uF00d'"</string>
     <string-array name="progress">
         <item>Processing</item>
         <item>Processing.</item>
