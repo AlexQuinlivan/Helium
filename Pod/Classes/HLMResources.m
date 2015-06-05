@@ -131,12 +131,6 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
     return mutableStringResource;
 }
 
-//+(NSString *) mutate:(NSString *) string {
-//    NSMutableString* mutString = string.mutableCopy;
-//    [someString UTF8String];
-//    mutString.
-//}
-
 +(NSNumber *) numberValue:(NSString *) numberResource {
     HLMResourceTuple* tuple = [[HLMResourceTuple alloc] initWithResourceId:numberResource];
     NSNumber* value = nil;
