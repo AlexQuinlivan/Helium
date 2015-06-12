@@ -54,6 +54,7 @@
         helium:layout_to_right_of="top_square"
         helium:layout_align_parent_top="YES"
         helium:layout_align_parent_right="YES"
+        helium:layer_z_position="1"
         helium:layer_shadow_opacity="1"
         helium:layer_shadow_color="#101"
         helium:layer_shadow_radius="20"

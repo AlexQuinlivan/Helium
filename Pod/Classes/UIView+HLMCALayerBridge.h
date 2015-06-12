@@ -10,6 +10,7 @@
 
 @interface UIView (HLMCALayerBridge)
 
+@property (nonatomic) CGFloat hlm_layerZPosition;
 @property (nonatomic) BOOL hlm_layerDoubleSided;
 @property (nonatomic) BOOL hlm_layerGeometryFlipped;
 @property (nonatomic) BOOL hlm_layerMasksToBounds;

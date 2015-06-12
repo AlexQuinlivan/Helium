@@ -10,6 +10,14 @@
 
 @implementation UIView (HLMCALayerBridge)
 
+-(CGFloat) hlm_layerZPosition {
+    return self.layer.zPosition;
+}
+
+-(void) setHlm_layerZPosition:(CGFloat) hlm_layerZPosition {
+    self.layer.zPosition = hlm_layerZPosition;
+}
+
 -(BOOL) hlm_layerDoubleSided {
     return self.layer.isDoubleSided;
 }

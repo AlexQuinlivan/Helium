@@ -59,6 +59,7 @@
         
         
         <!-- HLMCALayerBridge properties -->
+        <attr name="helium:layer_z_position" format="cgfloat" property_alias="hlm_layerZPosition" />
         <attr name="helium:layer_double_sided" format="bool" property_alias="hlm_layerDoubleSided" />
         <attr name="helium:layer_geometry_flipped" format="bool" property_alias="hlm_layerGeometryFlipped" />
         <attr name="helium:layer_masks_to_bounds" format="bool" property_alias="hlm_layerMasksToBounds" />
