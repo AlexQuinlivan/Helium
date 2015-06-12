@@ -59,9 +59,27 @@
         
         
         <!-- HLMCALayerBridge properties -->
+        <attr name="helium:layer_double_sided" format="bool" property_alias="hlm_layerDoubleSided" />
+        <attr name="helium:layer_geometry_flipped" format="bool" property_alias="hlm_layerGeometryFlipped" />
+        <attr name="helium:layer_masks_to_bounds" format="bool" property_alias="hlm_layerMasksToBounds" />
+        <attr name="helium:layer_contents_scale" format="cgfloat" property_alias="hlm_layerContentsScale" />
+        <attr name="helium:layer_minification_filter_bias" format="float" property_alias="hlm_layerMinificationFilterBias" />
+        <attr name="helium:layer_needs_display_on_bounds_change" format="bool" property_alias="hlm_layerNeedsDisplayOnBoundsChange" />
+        <attr name="helium:layer_draws_asynchronously" format="bool" property_alias="hlm_layerDrawsAsynchronously" />
+        <attr name="helium:layer_allows_edge_antialiasing" format="bool" property_alias="hlm_layerAllowsEdgeAntialiasing" />
         <attr name="helium:layer_corner_radius" format="cgfloat" property_alias="hlm_layerCornerRadius" />
         <attr name="helium:layer_border_width" format="cgfloat" property_alias="hlm_layerBorderWidth" />
         <attr name="helium:layer_border_color" format="color" property_alias="hlm_layerBorderColor" />
+        <attr name="helium:layer_opacity" format="float" property_alias="hlm_layerOpacity" />
+        <attr name="helium:layer_allows_group_opacity" format="bool" property_alias="hlm_layerAllowsGroupOpacity" />
+        <attr name="helium:layer_should_rasterize" format="bool" property_alias="hlm_layerShouldRasterize" />
+        <attr name="helium:layer_rasterization_scale" format="cgfloat" property_alias="hlm_layerRasterizationScale" />
+        <attr name="helium:layer_shadow_color" format="color" property_alias="hlm_layerShadowColor" />
+        <attr name="helium:layer_shadow_opacity" format="float" property_alias="hlm_layerShadowOpacity" />
+        <attr name="helium:layer_shadow_offset" format="cgsize" property_alias="hlm_layerShadowOffset" />
+        <attr name="helium:layer_shadow_radius" format="cgfloat" property_alias="hlm_layerShadowRadius" />
+        <attr name="helium:layer_name" format="string" property_alias="hlm_layerName" />
+
 
         <!-- Default properties -->
         <attr name="tag" format="integer" />
