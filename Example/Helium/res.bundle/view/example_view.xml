@@ -95,6 +95,9 @@
         helium:layout_align_bottom="big_black"
         helium:layout_align_parent_right="YES"
         helium:margin_left="10"
+        helium:layer_corner_radius="10"
+        helium:layer_border_width="10"
+        helium:layer_border_color="#f0f"
         background_color="#152FA8" />
 
     <UIView

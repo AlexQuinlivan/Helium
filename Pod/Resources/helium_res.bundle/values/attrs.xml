@@ -58,6 +58,11 @@
         <attr name="helium:ignore_gravity" format="identifier" property_alias="hlm_ignoreGravity" />
         
         
+        <!-- HLMCALayerBridge properties -->
+        <attr name="helium:layer_corner_radius" format="cgfloat" property_alias="hlm_layerCornerRadius" />
+        <attr name="helium:layer_border_width" format="cgfloat" property_alias="hlm_layerBorderWidth" />
+        <attr name="helium:layer_border_color" format="color" property_alias="hlm_layerBorderColor" />
+
         <!-- Default properties -->
         <attr name="tag" format="integer" />
         <attr name="user_interaction_enabled" format="bool" />
