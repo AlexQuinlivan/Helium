@@ -93,6 +93,7 @@
 		F3CC5700E8FAFDFEAE35D538 /* HLMViewBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B10926890546FE29F597BB7 /* HLMViewBinder.m */; };
 		F7493CBF6579841170BE227B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9353AE50A1142C0B55C624A /* Foundation.framework */; };
 		FA5ED3231B2A7EC200D17352 /* UIView+HLMCALayerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5ED3221B2A7EC200D17352 /* UIView+HLMCALayerBridge.m */; };
+		FA5ED3261B2FEBE400D17352 /* HLMLayoutManagers.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5ED3251B2FEBE400D17352 /* HLMLayoutManagers.m */; };
 		FA74FC351B09E203003CAC74 /* HLMStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74FC331B09E203003CAC74 /* HLMStrings.h */; };
 		FA74FC361B09E203003CAC74 /* HLMStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74FC341B09E203003CAC74 /* HLMStrings.m */; };
 		FA74FC391B09E219003CAC74 /* HLMStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = FA74FC331B09E203003CAC74 /* HLMStrings.h */; };
@@ -267,6 +268,8 @@
 		F9353AE50A1142C0B55C624A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FA5ED3211B2A7EC200D17352 /* UIView+HLMCALayerBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HLMCALayerBridge.h"; sourceTree = "<group>"; };
 		FA5ED3221B2A7EC200D17352 /* UIView+HLMCALayerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLMCALayerBridge.m"; sourceTree = "<group>"; };
+		FA5ED3241B2FEBE400D17352 /* HLMLayoutManagers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMLayoutManagers.h; sourceTree = "<group>"; };
+		FA5ED3251B2FEBE400D17352 /* HLMLayoutManagers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMLayoutManagers.m; sourceTree = "<group>"; };
 		FA74FC331B09E203003CAC74 /* HLMStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMStrings.h; sourceTree = "<group>"; };
 		FA74FC341B09E203003CAC74 /* HLMStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLMStrings.m; sourceTree = "<group>"; };
 		FA74FC3B1B09EDAC003CAC74 /* HLMColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLMColors.h; sourceTree = "<group>"; };
@@ -490,6 +493,8 @@
 				FA74FC411B09F29E003CAC74 /* HLMNumbers.m */,
 				FA5ED3211B2A7EC200D17352 /* UIView+HLMCALayerBridge.h */,
 				FA5ED3221B2A7EC200D17352 /* UIView+HLMCALayerBridge.m */,
+				FA5ED3241B2FEBE400D17352 /* HLMLayoutManagers.h */,
+				FA5ED3251B2FEBE400D17352 /* HLMLayoutManagers.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -967,6 +972,7 @@
 			files = (
 				CBDAC592FAFBE628FB3CCAEC /* Pods-Helium-dummy.m in Sources */,
 				FA5ED3231B2A7EC200D17352 /* UIView+HLMCALayerBridge.m in Sources */,
+				FA5ED3261B2FEBE400D17352 /* HLMLayoutManagers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,8 +6,9 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 @class EDSemver;
+@protocol HLMLayoutManager;
 
 @interface HLMResources : NSObject
 
@@ -33,6 +34,7 @@
 +(CGPoint) cgPointValue:(NSString *) cgPointResource;
 +(UIEdgeInsets) uiEdgeInsetsValue:(NSString *) uiEdgeInsetsResource;
 +(UIColor *) uiColorValue:(NSString *) uiColorResource;
++(id <HLMLayoutManager>) layoutManagerValue:(NSString *) layoutManagerResource;
 
 @end
 

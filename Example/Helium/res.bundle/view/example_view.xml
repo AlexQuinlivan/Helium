@@ -3,7 +3,7 @@
     helium:id="example"
     helium:layout_width="match_parent"
     helium:layout_height="match_parent"
-    helium:layout="relative"
+    helium:layout="@layout/relative"
     helium:padding="20"
     helium:style="example_view_style empty_concatenated_style">
     
@@ -13,7 +13,7 @@
         helium:layout_gravity="center"
         helium:orientation="horizontal"
         helium:min_height="200"
-        helium:layout="linear"
+        helium:layout="@layout/linear"
         helium:margins="-10"
         background_color="#000" />
         
@@ -38,7 +38,7 @@
         <UIView
             helium:layout_width="match_parent"
             helium:layout_height="wrap_content"
-            helium:layout="linear"
+            helium:layout="@layout/linear"
             helium:orientation="vertical">
             
             <include view="@view/scrollview_content" />

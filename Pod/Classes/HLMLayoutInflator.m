@@ -268,6 +268,7 @@ case _attr: {\
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_CG_POINT, CGPoint, cgPointValue);
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_UI_EDGE_INSETS, UIEdgeInsets, uiEdgeInsetsValue);
         MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_UI_COLOR, UIColor*, uiColorValue);
+        MATCH_ATTRIBUTE(ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER, id <HLMLayoutManager>, layoutManagerValue);
         case ATTRIBUTE_TYPE_IDENTIFIER:
         case ATTRIBUTE_TYPE_STRING_HASH: {
             void (*method)(id, SEL, NSUInteger) = (void *)setterImp;
@@ -302,25 +303,6 @@ case _attr: {\
                 layoutRuled = [HLMResources cgFloatValue:value];
             }
             method(view, setterSelector, layoutRuled);
-            break;
-        }
-        case ATTRIBUTE_TYPE_VIEW_LAYOUT_MANAGER: {
-            void (*method)(id, SEL, id<HLMLayoutManager>) = (void *)setterImp;
-            id<HLMLayoutManager> manager = nil;
-            if ([@"linear" isEqualToString:value]) {
-                manager = [HLMLinearLayoutManager new];
-            } else if ([@"frame" isEqualToString:value]) {
-                manager = [HLMFrameLayoutManager new];
-            } else if ([@"relative" isEqualToString:value]) {
-                manager = [HLMRelativeLayoutManager new];
-//            } else if (self.someMapOfUserDefinedLayouts[value]) {
-//            todo: Make extensible
-            } else {
-                @throw [NSException exceptionWithName:HLMInflatorExceptionName
-                                               reason:[NSString stringWithFormat:@"Unexpected layout `%@`", value]
-                                             userInfo:nil];
-            }
-            method(view, setterSelector, manager);
             break;
         }
         case ATTRIBUTE_TYPE_VIEW_GRAVITY: {

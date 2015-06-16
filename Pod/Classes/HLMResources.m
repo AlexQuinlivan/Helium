@@ -12,6 +12,7 @@
 #import "HLMStyles.h"
 #import "HLMColors.h"
 #import "HLMNumbers.h"
+#import "HLMLayoutManagers.h"
 #import "GDataXMLNode.h"
 #import "EDSemver.h"
 
@@ -25,6 +26,7 @@ static NSString* const HLMResourceIntegerPrefix = @"@integer";
 static NSString* const HLMResourceBoolPrefix = @"@bool";
 static NSString* const HLMResourceNumberPrefix = @"@number";
 static NSString* const HLMResourceColorPrefix = @"@color";
+static NSString* const HLMResourceLayoutManagerPrefix = @"@layout";
 
 NSString* const HLMDeviceConfigDidChangeNotification = @"HLMDeviceConfigDidChangeNotification";
 
@@ -266,6 +268,18 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
     return colorValue;
 }
 
++(id <HLMLayoutManager>) layoutManagerValue:(NSString *) layoutManagerResource {
+    HLMResourceTuple* tuple = [[HLMResourceTuple alloc] initWithResourceId:layoutManagerResource];
+    if (tuple) {
+        if ([HLMResourceLayoutManagerPrefix isEqualToString:tuple.resourceType]) {
+            return [self layoutManagerValue:[HLMLayoutManagers layoutManagerClassStringWithName:tuple.resourceName]];
+        } else {
+            @throw [self unexpectedResourceExceptionParsing:@"id <HLMLayoutManager>" withResourceId:layoutManagerResource];
+        }
+    }
+    return [NSClassFromString(layoutManagerResource) new];
+}
+
 +(NSException *) unexpectedResourceExceptionParsing:(NSString *) parsing
                                      withResourceId:(NSString *) resourceId {
     return [NSException exceptionWithName:HLMResourcesExceptionName
@@ -357,25 +371,28 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
         if (element.kind != GDataXMLElementKind) {
             continue;
         }
-        if ([element.name isEqualToString:@"styleable"]) {
+        NSString* elementName = element.name;
+        if ([elementName isEqualToString:@"styleable"]) {
             [HLMAttributes insertStyleable:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"string"]) {
+        } else if ([elementName isEqualToString:@"layout"]) {
+            [HLMLayoutManagers insertLayoutManager:element fromResource:resource];
+        } else if ([elementName isEqualToString:@"string"]) {
             [HLMStrings insertString:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"string-array"]) {
+        } else if ([elementName isEqualToString:@"string-array"]) {
             [HLMStrings insertStringArray:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"style"]) {
+        } else if ([elementName isEqualToString:@"style"]) {
             [HLMStyles insertStyle:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"color"]) {
+        } else if ([elementName isEqualToString:@"color"]) {
             [HLMColors insertColor:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"number"]) {
+        } else if ([elementName isEqualToString:@"number"]) {
             [HLMNumbers insertDouble:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"integer"]) {
+        } else if ([elementName isEqualToString:@"integer"]) {
             [HLMNumbers insertInteger:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"bool"]) {
+        } else if ([elementName isEqualToString:@"bool"]) {
             [HLMNumbers insertBool:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"float"]) {
+        } else if ([elementName isEqualToString:@"float"]) {
             [HLMNumbers insertFloat:element fromResource:resource];
-        } else if ([element.name isEqualToString:@"double"]) {
+        } else if ([elementName isEqualToString:@"double"]) {
             [HLMNumbers insertDouble:element fromResource:resource];
         } else {
             NSLog(@"Unsupported: %@", element.name);

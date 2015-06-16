@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    
+    <!-- Helium provided layout managers -->
+    <layout name="linear" class="HLMLinearLayoutManager" />
+    <layout name="frame" class="HLMFrameLayoutManager" />
+    <layout name="relative" class="HLMRelativeLayoutManager" />
+    
+</resources>

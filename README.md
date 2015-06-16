@@ -32,7 +32,7 @@ todo: Actually make this relevant and up to date, using the best practices as we
     helium:id="example_id"
     helium:layout_width="match_parent"
     helium:layout_height="match_parent"
-    helium:layout="frame"
+    helium:layout="@layout/frame"
     background_color="#F00">
     <UIView
         helium:layout_width="200"
