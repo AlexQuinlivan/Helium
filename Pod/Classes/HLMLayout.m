@@ -9,6 +9,7 @@
 #import "HLMLayout.h"
 #import "HLMAssociatedObjects.h"
 #import "UIColor+HLMImage.h"
+#import "HLMLayoutRootView.h"
 
 #define ASSOCIATE_NUMBER_SET_NEEDS_LAYOUT(_type, _name, _camel, _nsvalueaccessor) \
 ASSOCIATE_VALUE_NO_SETTER(_type, _name, _camel, _nsvalueaccessor)\
@@ -162,6 +163,15 @@ ASSOCIATE_NUMBER(BOOL, hlm_overridesLayoutGuides, Hlm_overridesLayoutGuides, boo
         }
     }
     return nil;
+}
+
+-(void) hlm_requestLayout {
+    // This method is just a band-aid for now, until a better alternative is found
+    if ([self isKindOfClass:HLMLayoutRootView.class]) {
+        [self layoutSubviews];
+        return;
+    }
+    [self.superview hlm_requestLayout];
 }
 
 @end
