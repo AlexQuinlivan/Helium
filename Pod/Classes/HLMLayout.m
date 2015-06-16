@@ -152,12 +152,12 @@ ASSOCIATE_NUMBER(CGFloat, hlm_measuredHeight, Hlm_measuredHeight, floatValue);
 ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
 ASSOCIATE_NUMBER(BOOL, hlm_overridesLayoutGuides, Hlm_overridesLayoutGuides, boolValue);
 
--(UIView *) viewWithId:(NSUInteger) hlm_id {
+-(UIView *) hlm_viewWithId:(NSUInteger) hlm_id {
     if (self.hlm_id == hlm_id) {
         return self;
     }
     for (UIView* view in self.subviews) {
-        UIView* waldo = [view viewWithId:hlm_id];
+        UIView* waldo = [view hlm_viewWithId:hlm_id];
         if (waldo) {
             return waldo;
         }

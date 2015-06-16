@@ -170,7 +170,7 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
     BOOL offsetVerticalAxis = NO;
     
     if ((horizontalGravity || verticalGravity) && view.hlm_ignoreGravity) {
-        ignore = [view viewWithId:view.hlm_ignoreGravity];
+        ignore = [view hlm_viewWithId:view.hlm_ignoreGravity];
     }
     
     BOOL const isWrapContentWidth = widthMode != HLMMeasureSpecExactly;

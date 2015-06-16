@@ -47,7 +47,7 @@ static NSString* const HLMBinderSettingOptional = @"optional";
             binderSetting = (components.count > 2) ? components[2] : nil;
             
             // Find the view to bind
-            bindable = [root viewWithId:hlmidName.hash];
+            bindable = [root hlm_viewWithId:hlmidName.hash];
             if (!bindable) {
                 if ([binderSetting isEqualToString:HLMBinderSettingOptional]) {
                     // Nil setter
@@ -81,7 +81,7 @@ static NSString* const HLMBinderSettingOptional = @"optional";
             NSMutableArray* views = [NSMutableArray new];
             for (int i = 1; i < components.count; i++) {
                 NSString* hlmidName = components[i];
-                UIView* view = [root viewWithId:hlmidName.hash];
+                UIView* view = [root hlm_viewWithId:hlmidName.hash];
                 if (!view) {
                     @throw [NSException exceptionWithName:@"HLMViewBindingException"
                                                    reason:[NSString stringWithFormat:@"Unable to find view with id `%@`. "
@@ -109,7 +109,7 @@ static NSString* const HLMBinderSettingOptional = @"optional";
             binderSetting = (components.count > 2) ? components[2] : nil;
             
             // Find the view to bind
-            UIView* view = [root viewWithId:hlmidName.hash];
+            UIView* view = [root hlm_viewWithId:hlmidName.hash];
             if (!view) {
                 if ([binderSetting isEqualToString:HLMBinderSettingOptional]) {
                     // Nil setter
