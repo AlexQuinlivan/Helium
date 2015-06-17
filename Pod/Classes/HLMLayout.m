@@ -15,7 +15,7 @@
 ASSOCIATE_VALUE_NO_SETTER(_type, _name, _camel, _nsvalueaccessor)\
 -(void) set##_camel:(_type) val {\
     objc_setAssociatedObject(self, &k##_camel##AssociationKey, @(val), OBJC_ASSOCIATION_RETAIN_NONATOMIC);\
-    [self setNeedsLayout];\
+    [self hlm_setNeedsLayout:NO];\
 }\
 
 static uint32_t const HLMMeasureSpecModeMask = 0x3 << HLMMeasureSpecModeShift;
@@ -26,7 +26,7 @@ ASSOCIATE_VALUE_NO_SETTER(UIEdgeInsets, hlm_margins, Hlm_margins, UIEdgeInsetsVa
 -(void) setHlm_margins:(UIEdgeInsets) margins {
     objc_setAssociatedObject(self, &kHlm_marginsAssociationKey,
                              [NSValue valueWithUIEdgeInsets:margins], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(void) setHlm_marginLeft:(CGFloat) marginLeft {
@@ -73,7 +73,7 @@ ASSOCIATE_VALUE_NO_SETTER(UIEdgeInsets, hlm_padding, Hlm_padding, UIEdgeInsetsVa
 -(void) setHlm_padding:(UIEdgeInsets) hlm_padding {
     objc_setAssociatedObject(self, &kHlm_paddingAssociationKey,
                              [NSValue valueWithUIEdgeInsets:hlm_padding], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(void) setHlm_paddingLeft:(CGFloat) paddingLeft {
@@ -120,7 +120,7 @@ ASSOCIATED_PROPERTY(hlm_layoutGravity, Hlm_layoutGravity);
 -(void) setHlm_layoutGravity:(HLMGravity) hlm_layoutGravity {
     objc_setAssociatedObject(self, &kHlm_layoutGravityAssociationKey,
                              @(hlm_layoutGravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(HLMGravity) hlm_layoutGravity {
@@ -132,7 +132,7 @@ ASSOCIATED_PROPERTY(hlm_gravity, Hlm_gravity);
 -(void) setHlm_gravity:(HLMGravity) hlm_gravity {
     objc_setAssociatedObject(self, &kHlm_gravityAssociationKey,
                              @(hlm_gravity), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(HLMGravity) hlm_gravity {
@@ -184,7 +184,7 @@ ASSOCIATED_PROPERTY(hlm_baselineAligned, Hlm_baselineAligned);
 -(void) setHlm_baselineAligned:(BOOL) hlm_baselineAligned {
     objc_setAssociatedObject(self, &kHlm_baselineAlignedAssociationKey,
                              @(hlm_baselineAligned), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(BOOL) hlm_baselineAligned {
@@ -196,7 +196,7 @@ ASSOCIATED_PROPERTY(hlm_baselineAlignedChildIndex, Hlm_baselineAlignedChildIndex
 -(void) setHlm_baselineAlignedChildIndex:(NSInteger) hlm_baselineAlignedChildIndex {
     objc_setAssociatedObject(self, &kHlm_baselineAlignedChildIndexAssociationKey,
                              @(hlm_baselineAlignedChildIndex), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(NSInteger) hlm_baselineAlignedChildIndex {
@@ -208,7 +208,7 @@ ASSOCIATED_PROPERTY(hlm_weightSum, Hlm_weightSum);
 -(void) setHlm_weightSum:(CGFloat) hlm_weightSum {
     objc_setAssociatedObject(self, &kHlm_weightSumAssociationKey,
                              @(hlm_weightSum), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(CGFloat) hlm_weightSum {
@@ -256,7 +256,7 @@ ASSOCIATE_NUMBER(NSUInteger, hlm_ignoreGravity, Hlm_ignoreGravity, unsignedInteg
 
 -(void) setHlm_textSize:(CGFloat) hlm_textSize {
     self.font = [self.font fontWithSize:hlm_textSize];
-    [self setNeedsLayout];
+    [self hlm_setNeedsLayout:NO];
 }
 
 -(CGFloat) hlm_textSize {
