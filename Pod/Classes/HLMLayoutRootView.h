@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HLMLayoutRootView : UIView
+@protocol HLMLayoutRootView <NSObject>
+
+@end
+
+@interface HLMLayoutRootView : UIView <HLMLayoutRootView>
 
 @property (nonatomic, weak) id<UILayoutSupport> topLayoutGuide;
 @property (nonatomic, weak) id<UILayoutSupport> bottomLayoutGuide;

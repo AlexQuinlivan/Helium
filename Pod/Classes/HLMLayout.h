@@ -92,7 +92,7 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 @property (nonatomic) BOOL hlm_overridesLayoutGuides;
 
 -(UIView *) hlm_viewWithId:(NSUInteger) hlm_id;
--(void) hlm_requestLayout;
+-(void) hlm_setNeedsLayout:(BOOL) now;
 
 @end
 
