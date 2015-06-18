@@ -172,6 +172,7 @@ ASSOCIATE_NUMBER(BOOL, hlm_overridesLayoutGuides, Hlm_overridesLayoutGuides, boo
         if (now) {
             [self layoutIfNeeded];
         }
+        return;
     }
     [self.superview hlm_setNeedsLayout:now];
 }
