@@ -165,8 +165,9 @@ ASSOCIATE_NUMBER(BOOL, hlm_overridesLayoutGuides, Hlm_overridesLayoutGuides, boo
     return nil;
 }
 
--(void) hlm_setNeedsLayout:(BOOL) now; {
-    if ([self conformsToProtocol:@protocol(HLMLayoutRootView)]) {
+-(void) hlm_setNeedsLayout:(BOOL) now {
+    if ([self conformsToProtocol:@protocol(HLMLayoutRootView)]
+        && !((id <HLMLayoutRootView>) self).isInLayout) {
         [self setNeedsLayout];
         if (now) {
             [self layoutIfNeeded];

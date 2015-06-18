@@ -9,6 +9,10 @@
 #import "HLMLayoutRootView.h"
 #import "HLMLayout.h"
 
+@interface HLMLayoutRootView ()
+@property (nonatomic, getter=isInLayout) BOOL inLayout;
+@end
+
 @implementation HLMLayoutRootView
 
 -(void) setRootView:(UIView *) rootView {
@@ -27,6 +31,7 @@
                                            reason:[NSString stringWithFormat:@"View `(%@)` found in layout pass without layout manager", NSStringFromClass(rootView.class)]
                                          userInfo:nil];
         }
+        self.inLayout = YES;
         CGRect frame = self.frame;
         CGFloat width = frame.size.width;
         CGFloat height = frame.size.height;
@@ -54,6 +59,7 @@
                                     bottom:rootView.hlm_measuredHeight];
         rootView.hlm_paddingTop = previousPaddingTop;
         rootView.hlm_paddingBottom = previousPaddingBottom;
+        self.inLayout = NO;
     }
 #ifdef LAYOUT_PERF
     NSLog(@"[VERBOSE]: Layout took %.1fms", [NSDate.date timeIntervalSinceDate:layoutStarted] * 1000.f);

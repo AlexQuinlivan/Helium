@@ -10,6 +10,8 @@
 
 @protocol HLMLayoutRootView <NSObject>
 
+-(BOOL) isInLayout;
+
 @end
 
 @interface HLMLayoutRootView : UIView <HLMLayoutRootView>
