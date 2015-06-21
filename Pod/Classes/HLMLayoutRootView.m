@@ -49,9 +49,6 @@
         [rootView.hlm_layoutManager measure:rootView
                                   widthSpec:rootWidthMeasureSpec
                                  heightSpec:rootHeightMeasureSpec];
-        [rootView.hlm_layoutManager measure:rootView
-                                  widthSpec:rootWidthMeasureSpec
-                                 heightSpec:rootHeightMeasureSpec];
         [rootView.hlm_layoutManager layout:rootView
                                       left:0
                                        top:0

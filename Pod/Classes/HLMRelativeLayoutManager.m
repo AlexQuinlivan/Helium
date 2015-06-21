@@ -95,6 +95,10 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
 @property (nonatomic, strong) NSMutableDictionary* dependants;
 @end
 
+@interface HLMRelativeLayoutManager ()
+@property (nonatomic) BOOL dirtyHierarchy;
+@end
+
 @implementation HLMRelativeLayoutManager
 
 +(void) initialize {
@@ -123,7 +127,18 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
 -(void) measure:(UIView *) view
       widthSpec:(HLMMeasureSpec) widthMeasureSpec
      heightSpec:(HLMMeasureSpec) heightMeasureSpec {
-    [self sortChildren:view];
+    self.dirtyHierarchy = YES; // @todo:
+    [self measureImpl:view widthSpec:widthMeasureSpec heightSpec:heightMeasureSpec];
+    [self measureImpl:view widthSpec:widthMeasureSpec heightSpec:heightMeasureSpec];
+}
+
+-(void) measureImpl:(UIView *) view
+          widthSpec:(HLMMeasureSpec) widthMeasureSpec
+         heightSpec:(HLMMeasureSpec) heightMeasureSpec {
+    if (self.dirtyHierarchy) {
+        self.dirtyHierarchy = NO;
+        [self sortChildren:view];
+    }
     
     int32_t myWidth = -1;
     int32_t myHeight = -1;
