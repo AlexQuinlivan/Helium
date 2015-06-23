@@ -29,6 +29,7 @@
         <attr name="helium:weight_sum" format="cgfloat" property_alias="hlm_weightSum" />
         <attr name="helium:gravity" format="gravity" property_alias="hlm_gravity" />
         <attr name="helium:overrides_layout_guides" format="bool" property_alias="hlm_overridesLayoutGuides" />
+        <attr name="helium:overrides_keyboard_resizing" format="bool" property_alias="hlm_overridesKeyboardResizing" />
         
         
         <!-- Relative layout properties -->

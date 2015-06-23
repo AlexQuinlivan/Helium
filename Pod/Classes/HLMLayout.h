@@ -90,6 +90,7 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 @property (nonatomic) HLMGravity hlm_gravity;
 @property (nonatomic, strong) id<HLMLayoutManager> hlm_layoutManager;
 @property (nonatomic) BOOL hlm_overridesLayoutGuides;
+@property (nonatomic) BOOL hlm_overridesKeyboardResizing;
 
 -(UIView *) hlm_viewWithId:(NSUInteger) hlm_id;
 -(void) hlm_setNeedsLayout:(BOOL) now;

@@ -91,7 +91,7 @@
         helium:margin_top="10"
         background_color="#000" />
     
-    <UIView
+    <UITextField
         helium:id="blue_square"
         helium:layout_width="wrap_content"
         helium:layout_height="match_parent"

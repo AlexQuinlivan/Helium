@@ -33,17 +33,22 @@
         }
         self.inLayout = YES;
         CGRect frame = self.frame;
-        CGFloat width = frame.size.width;
-        CGFloat height = frame.size.height;
-        BOOL overridesLayoutGuides = rootView.hlm_overridesLayoutGuides;
-        CGFloat topGuideLength = self.topLayoutGuide.length;
-        CGFloat bottomGuideLength = self.bottomLayoutGuide.length;
+        BOOL const overridesLayoutGuides = rootView.hlm_overridesLayoutGuides;
+        BOOL const overridesKeyboardResizing = rootView.hlm_overridesKeyboardResizing;
+        CGFloat const topGuideLength = self.topLayoutGuide.length;
+        CGFloat const bottomGuideLength = self.bottomLayoutGuide.length;
+        CGFloat const keyboardFrameHeight = self.keyboardFrame.size.height;
         CGFloat const previousPaddingTop = rootView.hlm_paddingTop;
         CGFloat const previousPaddingBottom = rootView.hlm_paddingBottom;
         if (!overridesLayoutGuides) {
             rootView.hlm_paddingTop += topGuideLength;
             rootView.hlm_paddingBottom += bottomGuideLength;
         }
+        if (!overridesKeyboardResizing) {
+            frame.size.height = MAX(frame.size.height - keyboardFrameHeight, 0);
+        }
+        CGFloat const width = frame.size.width;
+        CGFloat const height = frame.size.height;
         HLMMeasureSpec rootWidthMeasureSpec = [HLMLayout measureSpecWithSize:width mode:HLMMeasureSpecExactly];
         HLMMeasureSpec rootHeightMeasureSpec = [HLMLayout measureSpecWithSize:height mode:HLMMeasureSpecExactly];
         [rootView.hlm_layoutManager measure:rootView
@@ -61,6 +66,14 @@
 #ifdef LAYOUT_PERF
     NSLog(@"[VERBOSE]: Layout took %.1fms", [NSDate.date timeIntervalSinceDate:layoutStarted] * 1000.f);
 #endif
+}
+
+-(void) setKeyboardFrame:(CGRect) keyboardFrame {
+    if (CGRectEqualToRect(keyboardFrame, _keyboardFrame)) {
+        return;
+    }
+    _keyboardFrame = keyboardFrame;
+    [self hlm_setNeedsLayout:NO];
 }
 
 @end

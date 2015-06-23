@@ -16,8 +16,13 @@
 -(instancetype) initWithNibName:(NSString *) nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
+        [self registerNotifications];
     }
     return self;
+}
+
+-(void) dealloc {
+    [self unregisterNotifications];
 }
 
 -(void) loadView {
@@ -68,6 +73,47 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:HLMDeviceConfigDidChangeNotification object:@(toInterfaceOrientation)];
     [self loadView];
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+
+-(void) registerNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hlm_keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hlm_keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(void) unregisterNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+-(void) hlm_keyboardWillShow:(NSNotification *) notification {
+    if (!self.isViewLoaded) {
+        return;
+    }
+    CGRect const frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    ((HLMLayoutRootView *) self.view).keyboardFrame = frame;
+    [UIView animateWithDuration:0.3f animations:^{
+        [self.view hlm_setNeedsLayout:YES];
+    }];
+}
+
+-(void) hlm_keyboardWillHide:(NSNotification *) notification {
+    if (!self.isViewLoaded) {
+        return;
+    }
+    ((HLMLayoutRootView *) self.view).keyboardFrame = CGRectZero;
+    [UIView animateWithDuration:0.3f animations:^{
+        [self.view hlm_setNeedsLayout:YES];
+    }];
 }
 
 @end

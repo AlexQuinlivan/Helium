@@ -20,5 +20,6 @@
 @property (nonatomic, weak) id<UILayoutSupport> bottomLayoutGuide;
 @property (nonatomic, strong) NSString* resource;
 @property (nonatomic, weak) UIView* rootView;
+@property (nonatomic) CGRect keyboardFrame;
 
 @end

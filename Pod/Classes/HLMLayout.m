@@ -151,6 +151,7 @@ ASSOCIATE_NUMBER(CGFloat, hlm_measuredWidth, Hlm_measuredWidth, floatValue);
 ASSOCIATE_NUMBER(CGFloat, hlm_measuredHeight, Hlm_measuredHeight, floatValue);
 ASSOCIATE_OBJECT(NSObject, hlm_layoutManager, Hlm_layoutManager);
 ASSOCIATE_NUMBER(BOOL, hlm_overridesLayoutGuides, Hlm_overridesLayoutGuides, boolValue);
+ASSOCIATE_NUMBER(BOOL, hlm_overridesKeyboardResizing, Hlm_overridesKeyboardResizing, boolValue);
 
 -(UIView *) hlm_viewWithId:(NSUInteger) hlm_id {
     if (self.hlm_id == hlm_id) {
