@@ -73,7 +73,9 @@
         return;
     }
     _keyboardFrame = keyboardFrame;
-    [self hlm_setNeedsLayout:NO];
+    if (!self.rootView.hlm_overridesKeyboardResizing) {
+        [self hlm_setNeedsLayout:NO];
+    }
 }
 
 @end

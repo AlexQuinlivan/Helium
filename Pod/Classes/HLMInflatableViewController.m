@@ -101,9 +101,11 @@
     }
     CGRect const frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     ((HLMLayoutRootView *) self.view).keyboardFrame = frame;
-    [UIView animateWithDuration:0.3f animations:^{
-        [self.view hlm_setNeedsLayout:YES];
-    }];
+    if (!((HLMLayoutRootView *) self.view).rootView.hlm_overridesKeyboardResizing) {
+        [UIView animateWithDuration:0.3f animations:^{
+            [self.view hlm_setNeedsLayout:YES];
+        }];
+    }
 }
 
 -(void) hlm_keyboardWillHide:(NSNotification *) notification {
@@ -111,9 +113,11 @@
         return;
     }
     ((HLMLayoutRootView *) self.view).keyboardFrame = CGRectZero;
-    [UIView animateWithDuration:0.3f animations:^{
-        [self.view hlm_setNeedsLayout:YES];
-    }];
+    if (!((HLMLayoutRootView *) self.view).rootView.hlm_overridesKeyboardResizing) {
+        [UIView animateWithDuration:0.3f animations:^{
+            [self.view hlm_setNeedsLayout:YES];
+        }];
+    }
 }
 
 @end
