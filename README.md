@@ -1,7 +1,6 @@
 AlexQuinlivan/Helium
 =========================
 An Android-like view inflation and bucketed resource library for iOS. 
-If you would like to use a library that is similar to this and actually works, check out [iDroidLayout](https://github.com/tomquist/iDroidLayout)
 
 
 Note
@@ -17,6 +16,15 @@ Goals
 - A collection of predefined layouts (linear/frame/relative/etc...) that can be assigned to any view
 - Custom layouts
 - A resources pattern that loads the correct view/string/dimension for the current device config
+
+
+Installation
+------------
+Helium is (not yet) available through the [CocoaPods](http://cocoapods.org) repo. However, to install
+it directly from this repo, simply add the following line to your Podfile:
+```ruby
+pod 'Helium', :git => 'https://github.com/AlexQuinlivan/Helium.git'
+```
 
 
 Usage
@@ -59,13 +67,9 @@ BIND_VIEW_OPTIONAL(example, example_id)
 ```
 
 
-Installation
-------------
-Helium is (not yet) available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-```ruby
-pod 'Helium', :git => 'https://github.com/AlexQuinlivan/Helium.git'
-```
+Similar projects
+----------------
+[iDroidLayout](https://github.com/tomquist/iDroidLayout) - https://github.com/tomquist/iDroidLayout
 
 
 License
