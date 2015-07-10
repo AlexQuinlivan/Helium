@@ -357,15 +357,15 @@ static uint8_t const HLMDeviceVersionPriority = 0x01;
     GDataXMLDocument* document = [[GDataXMLDocument alloc] initWithData:data
                                                                encoding:NSUTF8StringEncoding
                                                                   error:&error];
-#if DEBUG
     if (![document.rootElement.name isEqualToString:@"resources"]) {
+#if DEBUG
         @throw [NSException exceptionWithName:HLMResourcesExceptionName
                                        reason:[NSString stringWithFormat:@"Unexpected root element of a resource file `%@`", document.rootElement.name]
                                      userInfo:nil];
-    }
 #else
-    return;
+        return;
 #endif
+    }
     NSArray* resources = document.rootElement.children;
     for (GDataXMLElement* element in resources) {
         if (element.kind != GDataXMLElementKind) {
