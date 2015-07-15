@@ -122,7 +122,6 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
             namespaces = newNamespaces;
         }
         UIView* view = [(UIView *)[clazz alloc] initWithFrame:HLMLayoutInflator.minFrame];
-        view.clipsToBounds = YES;
         [self applyAttributesToView:view fromElement:element namespaces:namespaces ignoreRequisites:NO];
         [self inflateChildrenOfView:view fromElement:element namespaces:namespaces];
         if ([view conformsToProtocol:@protocol(HLMLayoutInflationListener)]
