@@ -11,4 +11,5 @@
 
 @interface HLMViewController : UIViewController
 @property (readonly) NSString* layoutResource;
+@property (readonly) BOOL shouldAnimateKeyboardHeight;
 @end

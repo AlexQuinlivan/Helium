@@ -34,4 +34,8 @@ BIND_VIEWS_4(squares, square_0, square_1, square_2, square_3)
     NSLog(@"%@", self.squares);
 }
 
+-(BOOL) shouldAnimateKeyboardHeight {
+    return YES;
+}
+
 @end

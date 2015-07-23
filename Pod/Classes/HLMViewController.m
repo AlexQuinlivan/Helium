@@ -100,7 +100,7 @@
     }
     CGRect const frame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     ((HLMLayoutRootView *) self.view).keyboardFrame = frame;
-    if (!((HLMLayoutRootView *) self.view).rootView.hlm_overridesKeyboardResizing) {
+    if (self.shouldAnimateKeyboardHeight && !((HLMLayoutRootView *) self.view).rootView.hlm_overridesKeyboardResizing) {
         [UIView animateWithDuration:0.3f animations:^{
             [self.view hlm_setNeedsLayout:YES];
         }];
@@ -112,7 +112,7 @@
         return;
     }
     ((HLMLayoutRootView *) self.view).keyboardFrame = CGRectZero;
-    if (!((HLMLayoutRootView *) self.view).rootView.hlm_overridesKeyboardResizing) {
+    if (self.shouldAnimateKeyboardHeight && !((HLMLayoutRootView *) self.view).rootView.hlm_overridesKeyboardResizing) {
         [UIView animateWithDuration:0.3f animations:^{
             [self.view hlm_setNeedsLayout:YES];
         }];
