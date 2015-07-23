@@ -851,7 +851,6 @@ HLMRelativeLayoutFrameFromCGRect(CGRect frame) {
          right:(NSInteger) right
         bottom:(NSInteger) bottom {
     view.frame = CGRectMake(left, top, right - left, bottom - top);
-    self.hasLaidOut = YES;
     //  The layout has actually already been performed and the positions
     //  cached.  Apply the cached values to the children.
     for (UIView* child in view.subviews) {
