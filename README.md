@@ -52,11 +52,11 @@ todo: Actually make this relevant and up to date, using the best practices as we
 
 #### An example view controller implementation
 ```objc
-@interface HLMViewController ()
-@property (nonatomic, weak) UIView* example;
+@interface ABCViewController : HLMViewController
+@property (nonatomic, weak) UIView *example;
 @end
 
-@implementation HLMViewController
+@implementation ABCViewController
 BIND_VIEW_OPTIONAL(example, example_id)
 
 -(NSString *) layoutResource {
