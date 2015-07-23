@@ -169,6 +169,7 @@ ASSOCIATE_NUMBER(BOOL, hlm_overridesKeyboardResizing, Hlm_overridesKeyboardResiz
 -(void) hlm_setNeedsLayout:(BOOL) now {
     if ([self conformsToProtocol:@protocol(HLMLayoutRootView)]
         && !((id <HLMLayoutRootView>) self).isInLayout) {
+        ((id <HLMLayoutRootView>) self).dirty = YES;
         [self setNeedsLayout];
         if (now) {
             [self layoutIfNeeded];

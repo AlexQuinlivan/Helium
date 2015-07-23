@@ -1,17 +1,17 @@
 //
-//  HLMInflatableViewController.m
+//  HLMViewController.m
 //  Helium
 //
 //  Created by Alex Quinlivan on 13/03/15.
 //
 //
 
-#import "HLMInflatableViewController.h"
+#import "HLMViewController.h"
 #import "HLMLayoutInflator.h"
 #import "HLMLayoutRootView.h"
 #import "HLMResources.h"
 
-@implementation HLMInflatableViewController
+@implementation HLMViewController
 
 -(instancetype) initWithNibName:(NSString *) nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -31,7 +31,6 @@
 #endif
     NSString* newResource = [HLMResources resolveResourcePath:self.layoutResource];
     UIView* view = self.inflateView;
-    view.clipsToBounds = !view.hlm_overridesLayoutGuides;
     HLMLayoutRootView* root = [[HLMLayoutRootView alloc] initWithFrame:CGRectZero];
     root.resource = newResource;
     root.rootView = view;
@@ -40,11 +39,11 @@
         root.frame = self.view.frame;
         root.topLayoutGuide = self.topLayoutGuide;
         root.bottomLayoutGuide = self.bottomLayoutGuide;
-        [root layoutSubviews];
-        [root layoutSubviews];
+        [root hlm_setNeedsLayout:YES];
     }
-    self.view = root;
+    [root hlm_setNeedsLayout:NO];
     root.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.view = root;
     [HLMViewBinder bindViewsInto:self withRootView:self.view];
 #ifdef VC_INFLATION_PERF
     NSLog(@"[VERBOSE]: Inflation took %.1fms", [NSDate.date timeIntervalSinceDate:inflationStarted] * 1000.f);

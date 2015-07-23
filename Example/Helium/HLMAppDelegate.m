@@ -7,13 +7,13 @@
 //
 
 #import "HLMAppDelegate.h"
-#import "HLMViewController.h"
+#import "HLMInflatedViewController.h"
 
 @implementation HLMAppDelegate
 
 -(BOOL)application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.window.rootViewController = [HLMViewController new];
+    self.window.rootViewController = [HLMInflatedViewController new];
     [self.window makeKeyAndVisible];
     return YES;
 }

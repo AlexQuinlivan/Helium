@@ -14,13 +14,18 @@
 @end
 
 @implementation HLMLayoutRootView
+@synthesize dirty = _dirty;
 
 -(void) setRootView:(UIView *) rootView {
     [self addSubview:rootView];
     _rootView = rootView;
+    self.dirty = YES;
 }
 
 -(void) layoutSubviews {
+    if (!self.isDirty) {
+        return;
+    }
 #ifdef LAYOUT_PERF
     NSDate* layoutStarted = NSDate.date;
 #endif
@@ -62,10 +67,18 @@
         rootView.hlm_paddingTop = previousPaddingTop;
         rootView.hlm_paddingBottom = previousPaddingBottom;
         self.inLayout = NO;
+        self.dirty = NO;
     }
 #ifdef LAYOUT_PERF
     NSLog(@"[VERBOSE]: Layout took %.1fms", [NSDate.date timeIntervalSinceDate:layoutStarted] * 1000.f);
 #endif
+}
+
+-(void) setFrame:(CGRect) frame {
+    if (!CGRectEqualToRect(self.frame, frame)) {
+        self.dirty = YES;
+    }
+    [super setFrame:frame];
 }
 
 -(void) setKeyboardFrame:(CGRect) keyboardFrame {

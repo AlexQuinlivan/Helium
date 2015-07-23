@@ -1,23 +1,23 @@
 //
-//  HLMViewController.m
+//  HLMInflatedViewController.m
 //  Helium
 //
 //  Created by Alex Quinlivan on 03/13/2015.
 //  Copyright (c) 2014 Alex Quinlivan. All rights reserved.
 //
 
-#import "HLMViewController.h"
+#import "HLMInflatedViewController.h"
 #import "HLMResources.h"
 #import "HLMLayout.h"
 
-@interface HLMViewController ()
+@interface HLMInflatedViewController ()
 @property (nonatomic, weak) UIView* blueView;
 @property (nonatomic, weak) UIView* topSquare;
 @property (nonatomic, weak) UIView* hello;
 @property (nonatomic, strong) NSArray* squares;
 @end
 
-@implementation HLMViewController
+@implementation HLMInflatedViewController
 BIND_VIEW_OPTIONAL(blueView, blue_square)
 BIND_VIEW(topSquare, top_square)
 BIND_VIEW(hello, red_square)

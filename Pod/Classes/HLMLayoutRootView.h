@@ -10,6 +10,8 @@
 
 @protocol HLMLayoutRootView <NSObject>
 
+@property (nonatomic, getter=isDirty) BOOL dirty;
+
 -(BOOL) isInLayout;
 
 @end

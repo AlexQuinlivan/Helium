@@ -52,14 +52,14 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
     float totalWeight = 0;
     
     NSArray* const subviews = view.subviews;
-    int32_t const count = subviews.count;
+    int32_t const count = (int32_t) subviews.count;
     
     HLMMeasureSpecMode const widthMode = [HLMLayout measureSpecMode:widthMeasureSpec];
     HLMMeasureSpecMode const heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
     
     BOOL matchWidth = NO;
     
-    int32_t const baselineChildIndex = view.hlm_baselineAlignedChildIndex; // todo: baseline align child
+    int32_t const baselineChildIndex = (int32_t) view.hlm_baselineAlignedChildIndex; // todo: baseline align child
     BOOL const useLargestChild = NO;// mUseLargestChild; // todo: measure with largest
     
     int32_t largestChildHeight = INT32_MIN;
@@ -311,14 +311,13 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
                heightSpec:(HLMMeasureSpec) heightMeasureSpec {
     self.totalLength = 0;
     int32_t maxHeight = 0;
-    int32_t childState = 0;
     int32_t alternativeMaxHeight = 0;
     int32_t weightedMaxHeight = 0;
     BOOL allFillParent = YES;
     float totalWeight = 0;
     
     NSArray* const subviews = view.subviews;
-    int32_t const count = subviews.count;
+    int32_t const count = (int32_t) subviews.count;
     
     HLMMeasureSpecMode const widthMode = [HLMLayout measureSpecMode:widthMeasureSpec];
     HLMMeasureSpecMode const heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
@@ -663,14 +662,14 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
     int32_t childLeft;
     
     // Where right end of child should go
-    int32_t const width = right - left;
+    int32_t const width = (int32_t) (right - left);
     int32_t childRight = width - view.hlm_paddingRight;
     
     // Space available for child
     int32_t childSpace = width - paddingLeft - view.hlm_paddingRight;
     
     NSArray* const subviews = view.subviews;
-    int32_t const count = subviews.count;
+    int32_t const count = (int32_t) subviews.count;
     
     HLMGravity const majorGravity = view.hlm_gravity & HLMGravityVerticalMask;
     HLMGravity const minorGravity = view.hlm_gravity & HLMGravityHorizontalMask;
@@ -735,14 +734,14 @@ typedef NS_ENUM(int32_t, HLMLinearLayoutIndex) {
     int32_t childLeft;
     
     // Where bottom of child should go
-    int32_t const height = bottom - top;
+    int32_t const height = (int32_t) (bottom - top);
     int32_t childBottom = height - view.hlm_paddingBottom;
     
     // Space available for child
     int32_t childSpace = height - paddingTop - view.hlm_paddingBottom;
     
     NSArray* const subviews = view.subviews;
-    int32_t const count = subviews.count;
+    int32_t const count = (int32_t) subviews.count;
     
     HLMGravity const majorGravity = view.hlm_gravity & HLMGravityHorizontalMask;
     HLMGravity const minorGravity = view.hlm_gravity & HLMGravityVerticalMask;
