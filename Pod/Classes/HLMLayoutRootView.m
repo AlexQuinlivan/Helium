@@ -7,7 +7,6 @@
 //
 
 #import "HLMLayoutRootView.h"
-#import "HLMLayout.h"
 
 @interface HLMLayoutRootView ()
 @property (nonatomic, getter=isInLayout) BOOL inLayout;
@@ -15,6 +14,7 @@
 
 @implementation HLMLayoutRootView
 @synthesize dirty = _dirty;
+@synthesize keyboardFrame = _keyboardFrame;
 
 -(void) setRootView:(UIView *) rootView {
     [self addSubview:rootView];
@@ -51,6 +51,14 @@
         }
         if (!overridesKeyboardResizing) {
             frame.size.height = MAX(frame.size.height - keyboardFrameHeight, 0);
+        }
+        if ([rootView conformsToProtocol:@protocol(HLMKeyboardAware)]) {
+            ((UIView<HLMKeyboardAware> *) rootView).keyboardFrame = self.keyboardFrame;
+        }
+        for (UIView* subview in rootView.subviews) {
+            if ([subview conformsToProtocol:@protocol(HLMKeyboardAware)]) {
+                ((UIView<HLMKeyboardAware> *) subview).keyboardFrame = self.keyboardFrame;
+            }
         }
         CGFloat const width = frame.size.width;
         CGFloat const height = frame.size.height;

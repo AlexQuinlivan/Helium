@@ -9,13 +9,16 @@
 #import "HLMScrollView.h"
 #import "HLMFrameLayoutManager.h"
 
-@interface HLMScrollViewLayoutManager : HLMFrameLayoutManager @end
+@interface HLMScrollViewLayoutManager : HLMFrameLayoutManager
+@property (nonatomic) CGRect keyboardFrame;
+@end
 
 @interface HLMScrollView ()
 @property (nonatomic, weak) UIView* hlm_childView;
 @end
 
 @implementation HLMScrollView
+@synthesize keyboardFrame = _keyboardFrame;
 
 -(instancetype) initWithFrame:(CGRect) frame {
     if (self = [super initWithFrame:frame]) {
@@ -36,6 +39,11 @@
     self.hlm_childView = childView;
 }
 
+-(void) setKeyboardFrame:(CGRect) keyboardFrame {
+    _keyboardFrame = keyboardFrame;
+    ((HLMScrollViewLayoutManager *) self.hlm_layoutManager).keyboardFrame = keyboardFrame;
+}
+
 @end
 
 @implementation HLMScrollViewLayoutManager
@@ -45,6 +53,7 @@
      heightSpec:(HLMMeasureSpec) heightMeasureSpec {
     if (view.hlm_orientation == HLMLayoutOrientationVertical) {
         uint32_t heightSize = [HLMLayout measureSpecSize:heightMeasureSpec];
+        heightSize += self.keyboardFrame.size.height;
         HLMMeasureSpecMode heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
         [super measure:view
              widthSpec:widthMeasureSpec
@@ -95,7 +104,9 @@
               top:top
             right:right
            bottom:bottom];
-    view.contentSize = view.hlm_childView.bounds.size;
+    CGSize contentSize = view.hlm_childView.bounds.size;
+    contentSize.height += self.keyboardFrame.size.height;
+    view.contentSize = contentSize;
 }
 
 @end

@@ -9,6 +9,6 @@
 #import "HLMLayout.h"
 #import "HLMLayoutInflator.h"
 
-@interface HLMScrollView : UIScrollView <HLMLayoutInflationListener>
+@interface HLMScrollView : UIScrollView <HLMLayoutInflationListener, HLMKeyboardAware>
 
 @end

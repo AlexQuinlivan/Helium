@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HLMLayout.h"
 
 @protocol HLMLayoutRootView <NSObject>
 
@@ -16,12 +17,11 @@
 
 @end
 
-@interface HLMLayoutRootView : UIView <HLMLayoutRootView>
+@interface HLMLayoutRootView : UIView <HLMLayoutRootView, HLMKeyboardAware>
 
 @property (nonatomic, weak) id<UILayoutSupport> topLayoutGuide;
 @property (nonatomic, weak) id<UILayoutSupport> bottomLayoutGuide;
 @property (nonatomic, strong) NSString* resource;
 @property (nonatomic, weak) UIView* rootView;
-@property (nonatomic) CGRect keyboardFrame;
 
 @end

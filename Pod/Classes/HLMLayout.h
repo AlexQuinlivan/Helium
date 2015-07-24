@@ -176,6 +176,15 @@ typedef NS_ENUM(int32_t, HLMGravity) {
 @end
 
 
+#pragma mark - Keyboard aware
+
+@protocol HLMKeyboardAware
+
+@property (nonatomic) CGRect keyboardFrame;
+
+@end
+
+
 #pragma mark - Layout related implementations
 
 @interface HLMLayout : NSObject
