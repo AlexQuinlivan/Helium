@@ -481,47 +481,10 @@
 		5D48BDDC3CD074EFC62AEA4A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				52200A5CADF97A997DB0FF67 /* HLMAssociatedObjects.h */,
-				A451906656EA28EBB7F39E04 /* HLMAttributes.h */,
-				55A7598EC3B254179D6BC513 /* HLMAttributes.m */,
-				3EA6E5D1C8B3B4978834CE1F /* HLMColors.h */,
-				6D824F101F1A9ED7104C007F /* HLMColors.m */,
-				E86467210EFCA305CEEBAAA8 /* HLMFrameLayoutManager.h */,
-				92B7C6616F026A50E9999140 /* HLMFrameLayoutManager.m */,
-				8D914C5EBB374D2B6F5062A9 /* HLMLayout.h */,
-				3DE8189EF33947137087A5F7 /* HLMLayout.m */,
-				9557890E96303B5895F8A818 /* HLMLayoutInflator.h */,
-				0EC1527CA2746D229B0D1AD7 /* HLMLayoutInflator.m */,
-				D5649FA932B4D9891CC61243 /* HLMLayoutManagers.h */,
-				956070F230F400FC4F24DAC6 /* HLMLayoutManagers.m */,
-				A89AECB4C28E009307075836 /* HLMLayoutRootView.h */,
-				D6861AFB7F05A413C0ECB77D /* HLMLayoutRootView.m */,
-				47D7B429D245151E34166196 /* HLMLinearLayoutManager.h */,
-				62833BD7DE13069A368A8F22 /* HLMLinearLayoutManager.m */,
-				75E535F1871CDD48EBAB02DD /* HLMNumbers.h */,
-				19943C89747404C36D81EC87 /* HLMNumbers.m */,
-				8A572D9C146CB5DD77B2062F /* HLMRelativeLayoutManager.h */,
-				A4B84E78D268824BDC6ED24A /* HLMRelativeLayoutManager.m */,
-				3360674554E0BCD4FA08942F /* HLMResources.h */,
-				9813EA55FBBEF44C2DB9A151 /* HLMResources.m */,
-				767A80ABC710C93C267A535D /* HLMScrollView.h */,
-				1C01D0CA66D984CE8A697FCC /* HLMScrollView.m */,
-				A170584895B6A262502D7202 /* HLMStrings.h */,
-				E68996AC02BAAD43E89E1105 /* HLMStrings.m */,
-				9D2FA8B6C49C0B991B84C08E /* HLMStyles.h */,
-				626016B41C5D3F4D32762490 /* HLMStyles.m */,
-				F14DB89039663DB091D79093 /* HLMTableViewCell.h */,
-				C43FE471E6D8A466318093E6 /* HLMTableViewCell.m */,
-				B9E4E2B833CF95C4DD1C0041 /* HLMViewBinder.h */,
-				720215F545397187115706FE /* HLMViewBinder.m */,
-				A3DD8B08458897BC3D0A621D /* HLMViewController.h */,
-				AFF0F3373CE34D3682BD19E2 /* HLMViewController.m */,
-				DAB114B2862641E2A92BC009 /* NSString+Convert.h */,
-				C79662AA679E7ACB7D67BD8E /* NSString+Convert.m */,
-				32015AA102243B480058F733 /* UIColor+HLMImage.h */,
-				5755D045A99E5E45D5B57F45 /* UIColor+HLMImage.m */,
-				7A0FC27CE4B330E0D349490C /* UIView+HLMCALayerBridge.h */,
-				2130EAA43647CAD506B57BD3 /* UIView+HLMCALayerBridge.m */,
+				FA9EA9911B705C85005631BE /* Resource */,
+				FA9EA9901B705C7E005631BE /* Layout */,
+				FA9EA98F1B705C78005631BE /* Utility */,
+				FA9EA98E1B705C74005631BE /* View */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -609,6 +572,75 @@
 			);
 			name = "Pods-Helium";
 			path = "Target Support Files/Pods-Helium";
+			sourceTree = "<group>";
+		};
+		FA9EA98E1B705C74005631BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A0FC27CE4B330E0D349490C /* UIView+HLMCALayerBridge.h */,
+				2130EAA43647CAD506B57BD3 /* UIView+HLMCALayerBridge.m */,
+				A89AECB4C28E009307075836 /* HLMLayoutRootView.h */,
+				D6861AFB7F05A413C0ECB77D /* HLMLayoutRootView.m */,
+				767A80ABC710C93C267A535D /* HLMScrollView.h */,
+				1C01D0CA66D984CE8A697FCC /* HLMScrollView.m */,
+				F14DB89039663DB091D79093 /* HLMTableViewCell.h */,
+				C43FE471E6D8A466318093E6 /* HLMTableViewCell.m */,
+				A3DD8B08458897BC3D0A621D /* HLMViewController.h */,
+				AFF0F3373CE34D3682BD19E2 /* HLMViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FA9EA98F1B705C78005631BE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				52200A5CADF97A997DB0FF67 /* HLMAssociatedObjects.h */,
+				B9E4E2B833CF95C4DD1C0041 /* HLMViewBinder.h */,
+				720215F545397187115706FE /* HLMViewBinder.m */,
+				DAB114B2862641E2A92BC009 /* NSString+Convert.h */,
+				C79662AA679E7ACB7D67BD8E /* NSString+Convert.m */,
+				32015AA102243B480058F733 /* UIColor+HLMImage.h */,
+				5755D045A99E5E45D5B57F45 /* UIColor+HLMImage.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		FA9EA9901B705C7E005631BE /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				E86467210EFCA305CEEBAAA8 /* HLMFrameLayoutManager.h */,
+				92B7C6616F026A50E9999140 /* HLMFrameLayoutManager.m */,
+				8D914C5EBB374D2B6F5062A9 /* HLMLayout.h */,
+				3DE8189EF33947137087A5F7 /* HLMLayout.m */,
+				9557890E96303B5895F8A818 /* HLMLayoutInflator.h */,
+				0EC1527CA2746D229B0D1AD7 /* HLMLayoutInflator.m */,
+				D5649FA932B4D9891CC61243 /* HLMLayoutManagers.h */,
+				956070F230F400FC4F24DAC6 /* HLMLayoutManagers.m */,
+				47D7B429D245151E34166196 /* HLMLinearLayoutManager.h */,
+				62833BD7DE13069A368A8F22 /* HLMLinearLayoutManager.m */,
+				8A572D9C146CB5DD77B2062F /* HLMRelativeLayoutManager.h */,
+				A4B84E78D268824BDC6ED24A /* HLMRelativeLayoutManager.m */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		FA9EA9911B705C85005631BE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A451906656EA28EBB7F39E04 /* HLMAttributes.h */,
+				55A7598EC3B254179D6BC513 /* HLMAttributes.m */,
+				3EA6E5D1C8B3B4978834CE1F /* HLMColors.h */,
+				6D824F101F1A9ED7104C007F /* HLMColors.m */,
+				75E535F1871CDD48EBAB02DD /* HLMNumbers.h */,
+				19943C89747404C36D81EC87 /* HLMNumbers.m */,
+				A170584895B6A262502D7202 /* HLMStrings.h */,
+				E68996AC02BAAD43E89E1105 /* HLMStrings.m */,
+				9D2FA8B6C49C0B991B84C08E /* HLMStyles.h */,
+				626016B41C5D3F4D32762490 /* HLMStyles.m */,
+				3360674554E0BCD4FA08942F /* HLMResources.h */,
+				9813EA55FBBEF44C2DB9A151 /* HLMResources.m */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
