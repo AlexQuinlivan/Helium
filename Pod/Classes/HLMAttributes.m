@@ -8,7 +8,7 @@
 
 #import "HLMAttributes.h"
 #import "HLMResources.h"
-#import "NSString+Convert.h"
+#import "NSString+HLMConvert.h"
 #import "GDataXMLNode.h"
 #import <objc/runtime.h>
 
@@ -236,7 +236,7 @@ static NSString* const HLMAttributesNamespaceUser = @"user";
 }
 
 -(void) extractSelectorsWithName:(NSString *) name propertyAlias:(NSString *) propertyAlias {
-    NSString* propertyName = (propertyAlias) ?: name.toCamelCase;
+    NSString* propertyName = (propertyAlias) ?: name.hlm_toCamelCase;
     NSRange firstChar = NSMakeRange(0, 1);
     NSString* capitalizedName = [propertyName stringByReplacingCharactersInRange:firstChar
                                                                       withString:[propertyName substringWithRange:firstChar].capitalizedString];

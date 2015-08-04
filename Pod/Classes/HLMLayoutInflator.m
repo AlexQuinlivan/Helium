@@ -14,7 +14,7 @@
 #import "HLMFrameLayoutManager.h"
 #import "HLMRelativeLayoutManager.h"
 #import "GDataXMLNode.h"
-#import "NSString+Convert.h"
+#import "NSString+HLMConvert.h"
 
 static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
 

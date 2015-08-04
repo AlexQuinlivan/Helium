@@ -1,16 +1,16 @@
 //
-//  NSString+Convert.m
+//  NSString+HLMConvert.m
 //  Helium
 //
 //  Created by Alex Quinlivan on 13/03/15.
 //
 //
 
-#import "NSString+Convert.h"
+#import "NSString+HLMConvert.h"
 
-@implementation NSString (Convert)
+@implementation NSString (HLMConvert)
 
--(NSString *) toCamelCase {
+-(NSString *) hlm_toCamelCase {
     NSMutableString* output = [NSMutableString string];
     BOOL makeNextCharacterUpperCase = NO;
     for (NSInteger idx = 0; idx < [self length]; idx += 1) {
@@ -27,7 +27,7 @@
     return output;
 }
 
--(NSString *) toCamelCaps {
+-(NSString *) hlm_toCamelCaps {
     NSMutableString* output = [NSMutableString string];
     BOOL makeNextCharacterUpperCase = YES;
     for (NSInteger idx = 0; idx < [self length]; idx += 1) {
@@ -44,7 +44,7 @@
     return output;
 }
 
--(NSString *) toUnderscore {
+-(NSString *) hlm_toUnderscore {
     NSMutableString* output = [NSMutableString string];
     NSCharacterSet* uppercase = [NSCharacterSet uppercaseLetterCharacterSet];
     for (NSInteger idx = 0; idx < [self length]; idx += 1) {

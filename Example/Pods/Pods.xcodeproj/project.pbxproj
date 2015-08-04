@@ -17,7 +17,7 @@
 		1550A214859736E5AC2D825B /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C01D0CA66D984CE8A697FCC /* HLMScrollView.m */; };
 		17417F900B6080C4423F080D /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC72C2523E7A2E6CEA335BD /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1B33A47A9602BE8B49A24245 /* HLMLayoutInflator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC1527CA2746D229B0D1AD7 /* HLMLayoutInflator.m */; };
-		2005221EED9B8C5B14435777 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB114B2862641E2A92BC009 /* NSString+Convert.h */; };
+		2005221EED9B8C5B14435777 /* NSString+HLMConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB114B2862641E2A92BC009 /* NSString+HLMConvert.h */; };
 		2378BD226514C4A163539DF7 /* HLMNumbers.h in Headers */ = {isa = PBXBuildFile; fileRef = 75E535F1871CDD48EBAB02DD /* HLMNumbers.h */; };
 		27B9505FAC42EFE61AA6CE3E /* HLMColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EA6E5D1C8B3B4978834CE1F /* HLMColors.h */; };
 		28B1E042003363D4F505CB2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85B540CACA50C20E5682143 /* Foundation.framework */; };
@@ -27,7 +27,7 @@
 		3AB1248B062DA4F7BD6E0426 /* HLMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C43FE471E6D8A466318093E6 /* HLMTableViewCell.m */; };
 		3C4FA6E5949493720AE6316C /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADC13EAA39603C25D6917BE /* GDataXMLNode.h */; };
 		3D9D44DCADC3CC7F4C8A44D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85B540CACA50C20E5682143 /* Foundation.framework */; };
-		3EF2A74379D430CE588226D1 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = C79662AA679E7ACB7D67BD8E /* NSString+Convert.m */; };
+		3EF2A74379D430CE588226D1 /* NSString+HLMConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = C79662AA679E7ACB7D67BD8E /* NSString+HLMConvert.m */; };
 		402AB50EDB166817ABF484A5 /* Pods-Helium-Helium-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBB494E7C07E1887BB9852B /* Pods-Helium-Helium-dummy.m */; };
 		407E818B8AFD8D4476F115D5 /* UIColor+HLMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5755D045A99E5E45D5B57F45 /* UIColor+HLMImage.m */; };
 		4121D2E0A698D0ED989EDDD9 /* HLMFrameLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E86467210EFCA305CEEBAAA8 /* HLMFrameLayoutManager.h */; };
@@ -46,7 +46,7 @@
 		5A7CF28160D73672E5B4146F /* HLMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C01D0CA66D984CE8A697FCC /* HLMScrollView.m */; };
 		5AD84552C4DE9EB068CC5A3A /* EDSemver.h in Headers */ = {isa = PBXBuildFile; fileRef = 15325FD013825B5897C60B14 /* EDSemver.h */; };
 		5C4788C46A3872DB2D81C38C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85B540CACA50C20E5682143 /* Foundation.framework */; };
-		5CCCE9F38768156952B96565 /* NSString+Convert.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB114B2862641E2A92BC009 /* NSString+Convert.h */; };
+		5CCCE9F38768156952B96565 /* NSString+HLMConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB114B2862641E2A92BC009 /* NSString+HLMConvert.h */; };
 		5E911C5ACBD1FDC1F2CFCCF9 /* HLMLayoutManagers.m in Sources */ = {isa = PBXBuildFile; fileRef = 956070F230F400FC4F24DAC6 /* HLMLayoutManagers.m */; };
 		61D1E26D71E0BF8B0F947056 /* HLMViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A3DD8B08458897BC3D0A621D /* HLMViewController.h */; };
 		6317002A81982A17BECA379F /* HLMAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = A451906656EA28EBB7F39E04 /* HLMAttributes.h */; };
@@ -106,7 +106,7 @@
 		ED22A1774284A8C4ED9A8D89 /* HLMLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE8189EF33947137087A5F7 /* HLMLayout.m */; };
 		F088595A66259C12ABB6B5DC /* HLMStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = E68996AC02BAAD43E89E1105 /* HLMStrings.m */; };
 		F25E4ED544B718852CCAC398 /* HLMResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3360674554E0BCD4FA08942F /* HLMResources.h */; };
-		F317BF832B7427406E8630B8 /* NSString+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = C79662AA679E7ACB7D67BD8E /* NSString+Convert.m */; };
+		F317BF832B7427406E8630B8 /* NSString+HLMConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = C79662AA679E7ACB7D67BD8E /* NSString+HLMConvert.m */; };
 		F436F5AAA9E04CF5F81C74C6 /* HLMLayoutInflator.h in Headers */ = {isa = PBXBuildFile; fileRef = 9557890E96303B5895F8A818 /* HLMLayoutInflator.h */; };
 		F4F99CF223EB6C1E628B9BB8 /* HLMLinearLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62833BD7DE13069A368A8F22 /* HLMLinearLayoutManager.m */; };
 		F7458838B1EFC09C6ED2FB34 /* HLMLinearLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 47D7B429D245151E34166196 /* HLMLinearLayoutManager.h */; };
@@ -259,7 +259,7 @@
 		BDEC58BFC33F5948664ECA56 /* Pods-Helium-EDSemver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-EDSemver-prefix.pch"; sourceTree = "<group>"; };
 		C089AF17F0430C9AB89C189E /* Pods-Helium.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Helium.debug.xcconfig"; sourceTree = "<group>"; };
 		C43FE471E6D8A466318093E6 /* HLMTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HLMTableViewCell.m; sourceTree = "<group>"; };
-		C79662AA679E7ACB7D67BD8E /* NSString+Convert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+Convert.m"; sourceTree = "<group>"; };
+		C79662AA679E7ACB7D67BD8E /* NSString+HLMConvert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+HLMConvert.m"; sourceTree = "<group>"; };
 		CCBB494E7C07E1887BB9852B /* Pods-Helium-Helium-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-Helium-dummy.m"; sourceTree = "<group>"; };
 		CDD995D2F898DD150BACC3D2 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
 		CF2D417FBDDA971E05D5EEE6 /* Pods-Helium-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Helium-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 		D85B540CACA50C20E5682143 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D9499BDF1213D6C3BBBF73E3 /* Pods-Helium-GDataXML-HTML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Helium-GDataXML-HTML-dummy.m"; sourceTree = "<group>"; };
 		DA7704A9CDC67299DA663412 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		DAB114B2862641E2A92BC009 /* NSString+Convert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+Convert.h"; sourceTree = "<group>"; };
+		DAB114B2862641E2A92BC009 /* NSString+HLMConvert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+HLMConvert.h"; sourceTree = "<group>"; };
 		DB25F09C22C3EAFF86AD62D6 /* EDSemver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EDSemver.m; path = EDSemver/EDSemver.m; sourceTree = "<group>"; };
 		DF2685F7462E712559D9A5F1 /* Pods-Helium-Helium-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Helium-Helium-prefix.pch"; sourceTree = "<group>"; };
 		E246B9BF9870EEEB20B60B70 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -597,8 +597,8 @@
 				52200A5CADF97A997DB0FF67 /* HLMAssociatedObjects.h */,
 				B9E4E2B833CF95C4DD1C0041 /* HLMViewBinder.h */,
 				720215F545397187115706FE /* HLMViewBinder.m */,
-				DAB114B2862641E2A92BC009 /* NSString+Convert.h */,
-				C79662AA679E7ACB7D67BD8E /* NSString+Convert.m */,
+				DAB114B2862641E2A92BC009 /* NSString+HLMConvert.h */,
+				C79662AA679E7ACB7D67BD8E /* NSString+HLMConvert.m */,
 				32015AA102243B480058F733 /* UIColor+HLMImage.h */,
 				5755D045A99E5E45D5B57F45 /* UIColor+HLMImage.m */,
 			);
@@ -676,7 +676,7 @@
 				A84A5E7505A2511969B44952 /* HLMTableViewCell.h in Headers */,
 				84E95B824B528CBE1FC28141 /* HLMViewBinder.h in Headers */,
 				7BA9FB19DB86E14A475689C7 /* HLMViewController.h in Headers */,
-				5CCCE9F38768156952B96565 /* NSString+Convert.h in Headers */,
+				5CCCE9F38768156952B96565 /* NSString+HLMConvert.h in Headers */,
 				A6B59790BF9B23C093622D6A /* UIColor+HLMImage.h in Headers */,
 				2A79ED1F38753E96BAB72E68 /* UIView+HLMCALayerBridge.h in Headers */,
 			);
@@ -720,7 +720,7 @@
 				DBCF7AC075AF8C3859F8485A /* HLMTableViewCell.h in Headers */,
 				95D09C46B7B9058CE78E0B77 /* HLMViewBinder.h in Headers */,
 				61D1E26D71E0BF8B0F947056 /* HLMViewController.h in Headers */,
-				2005221EED9B8C5B14435777 /* NSString+Convert.h in Headers */,
+				2005221EED9B8C5B14435777 /* NSString+HLMConvert.h in Headers */,
 				44359EA13FAC7FA45041E2D6 /* UIColor+HLMImage.h in Headers */,
 				03A5944C7D7C89F6EC0EA516 /* UIView+HLMCALayerBridge.h in Headers */,
 			);
@@ -943,7 +943,7 @@
 				9259E2B3509819F522FDE5A1 /* HLMTableViewCell.m in Sources */,
 				592FECB45FB5A3A8E91398B0 /* HLMViewBinder.m in Sources */,
 				8488E0E4E73BC5F6C0D645EE /* HLMViewController.m in Sources */,
-				F317BF832B7427406E8630B8 /* NSString+Convert.m in Sources */,
+				F317BF832B7427406E8630B8 /* NSString+HLMConvert.m in Sources */,
 				6C8BA10D69CDCB12D91A5214 /* Pods-Tests-Helium-dummy.m in Sources */,
 				407E818B8AFD8D4476F115D5 /* UIColor+HLMImage.m in Sources */,
 				7CE199324F395CCD4E83A126 /* UIView+HLMCALayerBridge.m in Sources */,
@@ -989,7 +989,7 @@
 				3AB1248B062DA4F7BD6E0426 /* HLMTableViewCell.m in Sources */,
 				64ACEDE02B8C0419FA82FE40 /* HLMViewBinder.m in Sources */,
 				7669404871B22043202109B9 /* HLMViewController.m in Sources */,
-				3EF2A74379D430CE588226D1 /* NSString+Convert.m in Sources */,
+				3EF2A74379D430CE588226D1 /* NSString+HLMConvert.m in Sources */,
 				402AB50EDB166817ABF484A5 /* Pods-Helium-Helium-dummy.m in Sources */,
 				84D00EB2119D8AE33B7DB29E /* UIColor+HLMImage.m in Sources */,
 				58FCAEDE0E5D5E84F13FB31F /* UIView+HLMCALayerBridge.m in Sources */,

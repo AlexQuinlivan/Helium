@@ -1,5 +1,5 @@
 //
-//  NSString+Convert.h
+//  NSString+HLMConvert.h
 //  Helium
 //
 //  Created by Alex Quinlivan on 13/03/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Convert)
+@interface NSString (HLMConvert)
 
 /**
  *  Convert self from an underscore seperated string to
@@ -16,7 +16,7 @@
  *
  *  @return self in camel case
  */
--(NSString*) toCamelCase;
+-(NSString*) hlm_toCamelCase;
 
 /**
  *  Convert self from an underscore seperated string to
@@ -24,7 +24,7 @@
  *
  *  @return self in camel caps
  */
--(NSString*) toCamelCaps;
+-(NSString*) hlm_toCamelCaps;
 
 /**
  *  Convert self from a camel case string to an underscore
@@ -32,6 +32,6 @@
  *
  *  @return self in underscore seperation
  */
--(NSString*) toUnderscore;
+-(NSString*) hlm_toUnderscore;
 
 @end
