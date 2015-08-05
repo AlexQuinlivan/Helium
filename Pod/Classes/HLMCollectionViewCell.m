@@ -38,14 +38,12 @@
         }
         CGRect frame = self.frame;
         CGFloat width = frame.size.width;
-        CGFloat height = frame.size.height;
         uint32_t childLayoutHeight = subview.hlm_layoutHeight;
         HLMMeasureSpec rootWidthMeasureSpec = [HLMLayout measureSpecWithSize:width mode:HLMMeasureSpecExactly];
         HLMMeasureSpec rootHeightMeasureSpec;
-        if (height > 0) {
+        if (childLayoutHeight > 0) {
             rootHeightMeasureSpec = [HLMLayout measureSpecWithSize:childLayoutHeight mode:HLMMeasureSpecExactly];
         } else {
-            // is layout_height=match_parent dangerous?
             rootHeightMeasureSpec = [HLMLayout measureSpecWithSize:0 mode:HLMMeasureSpecUnspecified];
         }
         [subview.hlm_layoutManager measure:subview
