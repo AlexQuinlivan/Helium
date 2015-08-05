@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HLMResources.h"
 
 #define BIND_VIEW(_view, _hlmid) \
 -(void) bindview_$$ ## _view ## _$$ ## _hlmid:(id) view {\
@@ -41,6 +42,7 @@
 
 @interface HLMViewBinder : NSObject
 
-+(void) bindViewsInto:(NSObject *) object withRootView:(UIView *) root;
++(void) bindInto:(NSObject *) receiver view:(UIView *) view;
++(void) bindInto:(UIView *) view;
 
 @end

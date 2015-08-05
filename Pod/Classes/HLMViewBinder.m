@@ -18,7 +18,15 @@ static NSString* const HLMBinderSettingOptional = @"optional";
 
 @implementation HLMViewBinder
 
-+(void) bindViewsInto:(NSObject *) object withRootView:(UIView *) root {
++(void) bindInto:(UIView *) view {
+    [self bindInto:view view:view];
+}
+
++(void) bindInto:(NSObject *) receiver view:(UIView *) view {
+    [self bindWithReceiver:receiver view:view];
+}
+
++(void) bindWithReceiver:(NSObject *) object view:(UIView *) root {
     
     // Bind views
     unsigned int count;
@@ -160,26 +168,26 @@ static NSString* const HLMBinderSettingOptional = @"optional";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         controlEventMap = @{
-                            @"UIControlEventTouchDown" : @(UIControlEventTouchDown),
-                            @"UIControlEventTouchDownRepeat" : @(UIControlEventTouchDownRepeat),
-                            @"UIControlEventTouchDragInside" : @(UIControlEventTouchDragInside),
-                            @"UIControlEventTouchDragOutside" : @(UIControlEventTouchDragOutside),
-                            @"UIControlEventTouchDragEnter" : @(UIControlEventTouchDragEnter),
-                            @"UIControlEventTouchDragExit" : @(UIControlEventTouchDragExit),
-                            @"UIControlEventTouchUpInside" : @(UIControlEventTouchUpInside),
-                            @"UIControlEventTouchUpOutside" : @(UIControlEventTouchUpOutside),
-                            @"UIControlEventTouchCancel" : @(UIControlEventTouchCancel),
-                            @"UIControlEventValueChanged" : @(UIControlEventValueChanged),
-                            @"UIControlEventEditingDidBegin" : @(UIControlEventEditingDidBegin),
-                            @"UIControlEventEditingChanged" : @(UIControlEventEditingChanged),
-                            @"UIControlEventEditingDidEnd" : @(UIControlEventEditingDidEnd),
-                            @"UIControlEventEditingDidEndOnExit" : @(UIControlEventEditingDidEndOnExit),
-                            @"UIControlEventAllTouchEvents" : @(UIControlEventAllTouchEvents),
-                            @"UIControlEventAllEditingEvents" : @(UIControlEventAllEditingEvents),
-                            @"UIControlEventApplicationReserved" : @(UIControlEventApplicationReserved),
-                            @"UIControlEventSystemReserved" : @(UIControlEventSystemReserved),
-                            @"UIControlEventAllEvents" : @(UIControlEventAllEvents),
-                            };
+            @"UIControlEventTouchDown" : @(UIControlEventTouchDown),
+            @"UIControlEventTouchDownRepeat" : @(UIControlEventTouchDownRepeat),
+            @"UIControlEventTouchDragInside" : @(UIControlEventTouchDragInside),
+            @"UIControlEventTouchDragOutside" : @(UIControlEventTouchDragOutside),
+            @"UIControlEventTouchDragEnter" : @(UIControlEventTouchDragEnter),
+            @"UIControlEventTouchDragExit" : @(UIControlEventTouchDragExit),
+            @"UIControlEventTouchUpInside" : @(UIControlEventTouchUpInside),
+            @"UIControlEventTouchUpOutside" : @(UIControlEventTouchUpOutside),
+            @"UIControlEventTouchCancel" : @(UIControlEventTouchCancel),
+            @"UIControlEventValueChanged" : @(UIControlEventValueChanged),
+            @"UIControlEventEditingDidBegin" : @(UIControlEventEditingDidBegin),
+            @"UIControlEventEditingChanged" : @(UIControlEventEditingChanged),
+            @"UIControlEventEditingDidEnd" : @(UIControlEventEditingDidEnd),
+            @"UIControlEventEditingDidEndOnExit" : @(UIControlEventEditingDidEndOnExit),
+            @"UIControlEventAllTouchEvents" : @(UIControlEventAllTouchEvents),
+            @"UIControlEventAllEditingEvents" : @(UIControlEventAllEditingEvents),
+            @"UIControlEventApplicationReserved" : @(UIControlEventApplicationReserved),
+            @"UIControlEventSystemReserved" : @(UIControlEventSystemReserved),
+            @"UIControlEventAllEvents" : @(UIControlEventAllEvents),
+        };
     });
     return controlEventMap;
     

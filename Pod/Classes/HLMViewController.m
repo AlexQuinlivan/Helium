@@ -44,7 +44,7 @@
     [root hlm_setNeedsLayout:NO];
     root.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.view = root;
-    [HLMViewBinder bindViewsInto:self withRootView:self.view];
+    [HLMViewBinder bindInto:self view:self.view];
 #ifdef VC_INFLATION_PERF
     NSLog(@"[VERBOSE]: Inflation took %.1fms", [NSDate.date timeIntervalSinceDate:inflationStarted] * 1000.f);
 #endif

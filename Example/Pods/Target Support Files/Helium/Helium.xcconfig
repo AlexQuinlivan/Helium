@@ -1,0 +1,2 @@
+HELIUM_HEADER_SEARCH_PATHS = $(SDKROOT)/usr/include/libxml2
+HELIUM_OTHER_LDFLAGS = -l"xml2"
