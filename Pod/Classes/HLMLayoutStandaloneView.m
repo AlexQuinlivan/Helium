@@ -30,18 +30,24 @@
                                          userInfo:nil];
         }
         self.inLayout = YES;
-        CGRect  const frame = self.frame;
-        CGFloat const width = frame.size.width;
-        CGFloat const height = frame.size.height;
+        CGRect const frame = self.frame;
+        CGFloat const childLayoutWidth = contentView.hlm_layoutWidth;
         CGFloat const childLayoutHeight = contentView.hlm_layoutHeight;
-        HLMMeasureSpec contentWidthMeasureSpec = [HLMLayout measureSpecWithSize:width mode:HLMMeasureSpecExactly];
+        HLMMeasureSpec contentWidthMeasureSpec;
         HLMMeasureSpec contentHeightMeasureSpec;
+        if (childLayoutWidth > 0) {
+            contentWidthMeasureSpec = [HLMLayout measureSpecWithSize:childLayoutWidth mode:HLMMeasureSpecExactly];
+        } else if (childLayoutWidth == HLMLayoutParamWrap) {
+            contentWidthMeasureSpec = [HLMLayout measureSpecWithSize:0 mode:HLMMeasureSpecUnspecified];
+        } else {
+            contentWidthMeasureSpec = [HLMLayout measureSpecWithSize:frame.size.width mode:HLMMeasureSpecExactly];
+        }
         if (childLayoutHeight > 0) {
             contentHeightMeasureSpec = [HLMLayout measureSpecWithSize:childLayoutHeight mode:HLMMeasureSpecExactly];
         } else if (childLayoutHeight == HLMLayoutParamWrap) {
             contentHeightMeasureSpec = [HLMLayout measureSpecWithSize:0 mode:HLMMeasureSpecUnspecified];
         } else {
-            contentHeightMeasureSpec = [HLMLayout measureSpecWithSize:height mode:HLMMeasureSpecExactly];
+            contentHeightMeasureSpec = [HLMLayout measureSpecWithSize:frame.size.height mode:HLMMeasureSpecExactly];
         }
         [contentView.hlm_layoutManager measure:contentView
                                      widthSpec:contentWidthMeasureSpec
