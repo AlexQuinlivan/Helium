@@ -51,6 +51,7 @@
                                           top:0
                                         right:contentView.hlm_measuredWidth
                                        bottom:contentView.hlm_measuredHeight];
+        self.bounds = contentView.bounds;
         self.inLayout = NO;
         self.dirty = NO;
     }
