@@ -10,6 +10,7 @@
 #import "HLMResources.h"
 #import "HLMAttributes.h"
 #import "HLMStyles.h"
+#import "HLMLayoutStandaloneView.h"
 #import "HLMLinearLayoutManager.h"
 #import "HLMFrameLayoutManager.h"
 #import "HLMRelativeLayoutManager.h"
@@ -52,6 +53,12 @@ static NSString* const HLMInflatorExceptionName = @"HLMLayoutInflatorException";
                                      userInfo:nil];
     }
     return inflated;
+}
+
+-(UIView *) inflateStandalone {
+    HLMLayoutStandaloneView* standaloneContainer = [[HLMLayoutStandaloneView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];;
+    standaloneContainer.contentView = self.inflate;
+    return standaloneContainer;
 }
 
 -(NSArray *) inflateAsInclude {

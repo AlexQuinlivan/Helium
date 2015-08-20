@@ -15,6 +15,9 @@
 
 -(UIView *) inflate;
 
+// @todo: Describe this
+-(UIView *) inflateStandalone;
+
 @end
 
 @protocol HLMLayoutInflationListener <NSObject>
