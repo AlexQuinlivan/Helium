@@ -11,6 +11,7 @@
 
 @interface HLMScrollViewLayoutManager : HLMFrameLayoutManager
 @property (nonatomic) CGRect keyboardFrame;
+@property (nonatomic) BOOL resizesForKeyboard;
 @end
 
 @interface HLMScrollView ()
@@ -23,6 +24,7 @@
 -(instancetype) initWithFrame:(CGRect) frame {
     if (self = [super initWithFrame:frame]) {
         self.hlm_layoutManager = [HLMScrollViewLayoutManager new];
+        self.hlm_resizesForKeyboard = YES;
     }
     return self;
 }
@@ -44,6 +46,11 @@
     ((HLMScrollViewLayoutManager *) self.hlm_layoutManager).keyboardFrame = keyboardFrame;
 }
 
+-(void) setHlm_resizesForKeyboard:(BOOL) hlm_resizesForKeyboard {
+    _hlm_resizesForKeyboard = hlm_resizesForKeyboard;
+    ((HLMScrollViewLayoutManager *) self.hlm_layoutManager).resizesForKeyboard = hlm_resizesForKeyboard;
+}
+
 @end
 
 @implementation HLMScrollViewLayoutManager
@@ -53,7 +60,9 @@
      heightSpec:(HLMMeasureSpec) heightMeasureSpec {
     if (view.hlm_orientation == HLMLayoutOrientationVertical) {
         uint32_t heightSize = [HLMLayout measureSpecSize:heightMeasureSpec];
-        heightSize += self.keyboardFrame.size.height;
+        if (self.resizesForKeyboard) {
+            heightSize += self.keyboardFrame.size.height;
+        }
         HLMMeasureSpecMode heightMode = [HLMLayout measureSpecMode:heightMeasureSpec];
         [super measure:view
              widthSpec:widthMeasureSpec
@@ -104,9 +113,11 @@
               top:top
             right:right
            bottom:bottom];
-    CGSize contentSize = view.hlm_childView.bounds.size;
-    contentSize.height += self.keyboardFrame.size.height;
-    view.contentSize = contentSize;
+    if (self.resizesForKeyboard) {
+        CGSize contentSize = view.hlm_childView.bounds.size;
+        contentSize.height += self.keyboardFrame.size.height;
+        view.contentSize = contentSize;
+    }
 }
 
 @end

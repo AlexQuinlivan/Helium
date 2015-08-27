@@ -11,4 +11,6 @@
 
 @interface HLMScrollView : UIScrollView <HLMLayoutInflationListener, HLMKeyboardAware>
 
+@property (nonatomic) BOOL hlm_resizesForKeyboard;
+
 @end

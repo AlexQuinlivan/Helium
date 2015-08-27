@@ -224,4 +224,8 @@
 
     </styleable>
     
+    <styleable name="HLMScrollView">
+        <attr name="helium:resizes_for_keyboard" format="bool" property_alias="hlm_resizesForKeyboard" />
+    </styleable>
+    
 </resources>
