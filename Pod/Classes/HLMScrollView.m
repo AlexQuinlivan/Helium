@@ -113,11 +113,11 @@
               top:top
             right:right
            bottom:bottom];
+    CGSize contentSize = view.hlm_childView.bounds.size;
     if (self.resizesForKeyboard) {
-        CGSize contentSize = view.hlm_childView.bounds.size;
         contentSize.height += self.keyboardFrame.size.height;
-        view.contentSize = contentSize;
     }
+    view.contentSize = contentSize;
 }
 
 @end
