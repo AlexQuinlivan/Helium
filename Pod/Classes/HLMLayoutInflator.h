@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HLMLayout.h"
+#import "HLMLayoutStandaloneView.h"
 
 @interface HLMLayoutInflator : NSObject
 
@@ -16,7 +17,7 @@
 -(UIView *) inflate;
 
 // @todo: Describe this
--(UIView *) inflateStandalone;
+-(HLMLayoutStandaloneView *) inflateStandalone;
 
 @end
 
