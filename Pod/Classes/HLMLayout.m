@@ -463,8 +463,8 @@ ASSOCIATED_ACCESSOR(UIColor*, hlm_highlightedBackgroundColor, self, &kHlm_highli
             view.frame = frame;
             [view sizeToFit];
             frame = view.frame;
-            frame.size.width = round(MAX(frame.size.width, view.hlm_minWidth));
-            frame.size.height = round(MAX(frame.size.height, view.hlm_minHeight));
+            frame.size.width = ceil(MAX(frame.size.width, view.hlm_minWidth));
+            frame.size.height = ceil(MAX(frame.size.height, view.hlm_minHeight));
         }
         if (widthMode == HLMMeasureSpecAtMost) {
             frame.size.width = MIN(frame.size.width, widthSize);
